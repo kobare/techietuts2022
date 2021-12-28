@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!-- Techie Tuts website copyright 2020-->
+<html lang="en">
+                <!-- Head module inserted below -->
+        {% include head.html %}
+<style>
+.reduce-size{
+  padding: 30px;
+ /* background-color: #efefef; */
+  width: 1080px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+</style>
+    
+  <body>
+	  
+		<!-- Header module inserted below -->
+        {% include header.html %}
+	  
+		<!-- Content -->
+	<!-- Content -->
+<div class="home-content">
+
+  <div class="content">
+    <div class="blog-post blog">
+      <!-- Page heading -->
+      <h2 style="padding-left: 15px; padding-top: 60px;">
+       {% if page.category.size < 4 %}
+         {{page.category | upcase}}
+       {% else %}      
+         {{page.category | capitalize}}
+       {% endif %}
+      </h2>                
+      <div class="grid-container">
+      						
+        {{ content }}
+        
+      </div>
+    </div>  
+  </div>
+</div>
+
+<br>
+<section>
+        {% include newsletter.html %}
+</section>
+
+
+<section class="reduce-size bg-light">
+        {% include disqus.html %}
+</section>
+                                                            
+
+
+                <!-- footer module inserted below -->
+        {% include footer.html %}            
+
+
+                <!-- Scripts module inserted below -->
+        {% include javascripts.html %}            
+      
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!-- Sidebar -->
+<div id="sidebar">
+ <div class="inner">
+
+		<!-- Search -->
+  <section id="search" class="alt">
+   <form method="post" action="#">
+    <input type="text" name="query" id="query" placeholder="Search by title or page name" />
+   </form>
+  </section>
+
+                <!-- Menu -->
+  <nav id="menu">
+   <header class="major">
+    <h2>Menu</h2>
+   </header>
+   <ul>
+    <li id="results-container" class="results-search"></li></br>
+    <li><a href="/index">Main Page</a></li>
+    <li>
+     <span class="opener">Programming</span>
+      <ul>
+       <li><a href="#">Linux</a></li>
+       <li><a href="#">Ruby</a></li>
+       <li><a href="#">Angular</a></li>
+       <li><a href="#">Ruby On Rails</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Jekyll</a></li>
+    <li><a href="#">Ionic Apps</a></li>
+    <li>
+     <span class="opener">Systems Administration</span>
+      <ul>
+       <li><a href="#">Linux</a></li>
+       <li><a href="#">Ruby</a></li>
+       <li><a href="#">Angular</a></li>
+       <li><a href="#">Ruby On Rails</a></li>
+      </ul>
+    </li>
+   </ul>
+  </nav>
+
+                <!-- Section -->
+  <section>
+   <header class="major">
+    <h2>The Blog</h2>
+   </header>
+   <div class="mini-posts">
+    <article>
+      {% for post in site.posts offset:0 limit:3 %} 
+       {% if post.categories contains "blogs" %}
+        {% if post.title %}
+        <a href="{{ root_url }}{{ post.url | prepend: site.baseurl }}" class="image"><img src="{{post.img}}" alt="" /></a>
+      <p>{{ post.title }}</p>
+        {% endif %}
+        {% endif %}
+    {% endfor %}
+    </article>
+   </div>
+   <ul class="actions">
+    <li><a href="#" class="button">More</a></li>
+   </ul>
+  </section>
+		<!-- News Letter Subscription -->
+  <section>
+        {% include newsletter.html %}
+  </section>
+
+                <!-- Section -->
+  <section>
+   <header class="major">
+    <h2>Get in touch</h2>
+   </header>
+   <p>Forward your inquiries or suggestions to:</p>
+   <ul class="contact">
+    <li class="icon solid fa-envelope"><a href="#">dkobare@techietuts.com</a></li>
+   </ul>
+   <ul class="icons">
+     <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+     <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+     <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+     <li><a href="#" class="icon brands fa-github"><span class="label">Medium</span></a></li>
+   </ul>
+  </section>
+
+                <!-- Footer module inserted below -->
+        {% include footer.html %}    
+
+  </div> <!-- End of class="inner" -->
+</div> <!-- End of id="sidebar" -->

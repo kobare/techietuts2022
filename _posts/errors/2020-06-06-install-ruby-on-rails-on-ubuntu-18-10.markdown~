@@ -1,0 +1,222 @@
+---
+layout: post
+title:  "Install Ruby On Rails on Ubuntu 18.10 Cosmic Canimal"
+date:   2020-06-06 14:17:06 +0300
+img: ionic_side_menu.png
+categories: ionic_apps
+technology: Ruby/Rails/Github/MySql
+tutorial_type: How To
+---
+<style>
+.window {
+  border-radius: 3px;
+  background: #222;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  width: auto;
+
+}
+.window:before {
+  content: " ";
+  display: block;
+  height: 48px;
+  background: #c6c6c6;
+}
+.window:after {
+  content: ". . .";
+  position: absolute;
+  left: 12px;
+  right: 0;
+  top: -3px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 96px;
+  color: #fff;
+  line-height: 0;
+  letter-spacing: -12px;
+}
+
+.terminal {
+  margin: 20px;
+  font-family: monospace;
+  font-size: 16px;
+  color: #22da26;
+}
+.terminal .command {
+  width: 0%;
+  white-space: wrap;
+  overflow: hidden;
+  animation: write-command 5s both;
+}
+.terminal .command:before {
+  content: "$ ";
+  color: #22da26;
+}
+.terminal .log {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: write-log 5s both;
+}
+.terminal p:nth-child(2) {
+  animation-delay: 2s;
+}
+.terminal p:nth-child(3) {
+  animation-delay: 8s;
+}
+
+@keyframes write-command {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes write-log {
+  0% {
+    height: 0;
+  }
+  16% {
+    height: 0;
+  }
+  17% {
+    height: 18px;
+  }
+  33% {
+    height: 18px;
+  }
+  34% {
+    height: 37px;
+  }
+  51% {
+    height: 37px;
+  }
+  52% {
+    height: 55px;
+  }
+  69% {
+    height: 55px;
+  }
+  70% {
+    height: 74px;
+  }
+  87% {
+    height: 74px;
+  }
+  88% {
+    height: 92px;
+  }
+  88% {
+    height: 92px;
+  }
+  99% {
+    height: 92px;
+  }
+  100% {
+    height: 110px;
+  }
+}
+
+
+</style>
+
+<div align="center" style="background-color:#B22222"> 
+<img srcset="
+  https://drive.google.com/uc?id=1BSD09VUFcwg9TCVsF846b8UnJtcJHfWa 3x,
+  https://drive.google.com/uc?id=1BSD09VUFcwg9TCVsF846b8UnJtcJHfWa 6x
+" alt="missing image">
+</div>
+<br>
+
+In this tutorial we are going to set up Ruby and Ruby on Rails development environment on Ubuntu 18.10 Cosmic Canimal.
+
+`Ruby version: 2.7.1`
+`Rails version: 6.0.2.2`
+
+
+
+<h4 align="center" >STEP 1: <h5 align="center" >Install dependencies for Ruby and Rails</h5></h4>
+
+<div class="window">
+  <div class="terminal">
+    <h4># Add the Node.js and Yarn repositories to our system before installing them to make sure we have everything necessary for Webpacker support in Rails.</h4>
+    <p class="command">sudo apt install curl</p>
+ 
+    <p class="command">curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -</p>
+
+    <p class="command">curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -</p>
+
+    <p class="command">echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list</p>
+
+    <p class="command">sudo apt-get update</p>
+
+    <p class="command">sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn</p>
+  </div>
+</div>
+<br>
+
+<h4 align="center" >STEP 2: <h5 align="center" >Install Ruby: Using rbenv</h5></h4>
+
+<div class="window">
+  <div class="terminal">
+    <h4>#1. install rbenv.</h4>
+    <p class="command">cd</p>
+ 
+    <p class="command">git clone https://github.com/rbenv/rbenv.git ~/.rbenv</p>
+
+    <p class="command">echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc</p>
+
+    <p class="command">echo 'eval "$(rbenv init -)"' >> ~/.bashrc</p>
+
+    <p class="command">exec $SHELL</p>
+
+    <h4>#2. Install ruby-build.</h4>
+    <p class="command">git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</p>
+
+    <p class="command">echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc</p>
+
+    <p class="command">exec $SHELL</p>
+
+    <p class="command">rbenv install 2.7.1</p>
+
+    <p class="command">rbenv global 2.7.1</p>
+
+    <h4># Verify Ruby version</h4>
+    <p class="command">ruby -v</p>
+  </div>
+</div>
+<br>
+
+<h4 align="center" >STEP 3: <h5 align="center" >Install bundler</h5></h4>
+
+<div class="window">
+  <div class="terminal">
+    <p class="command">gem install bundler</p>
+ 
+    <p class="command">rbenv rehash</p>
+  </div>
+</div>
+<br>
+
+<h4 align="center" >STEP 4: <h5 align="center" >Install Ruby on Rails.</h5></h4>
+
+<div class="window">
+  <div class="terminal">
+    <p class="command">gem install rails -v 6.0.2.2</p>
+ 
+    <p class="command">rbenv rehash</p>
+
+    <h4># Verify Rails version</h4>
+    <p class="command">rails -v</p>
+  </div>
+</div>
+<br>
+
+
+
+That it's!
+
+*See you on the next tuts*
+
+

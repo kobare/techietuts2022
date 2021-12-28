@@ -1,0 +1,20 @@
+<!-- Scripts -->
+  <script src="{{site.baseurl}}/assets/js/jquery.min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/browser.min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/breakpoints.min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/util.js"></script>
+
+  <script>
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('query'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '{{site.baseurl}}/search.json',
+      searchResultTemplate: '<li><a href="{url}" title="{desc}">{title}</a></li>',
+      noResultsText: 'No results found',
+      fuzzy: false,
+      exclude: ['Welcome']
+    });
+  </script>
+  <script src="{{site.baseurl}}/assets/js/main.js"></script>
+
+<!-- End of Scripts -->

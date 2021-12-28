@@ -1,0 +1,46 @@
+<head>
+ <meta charset="utf-8">
+ <title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
+ <meta name="description" content="{{ page.description }}">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Styles -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Quicksand&display=swap" rel="stylesheet"> 
+
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/firacode/5.2.0/fira_code.css">
+<link rel="stylesheet" href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+-->
+
+<link rel="stylesheet" href="{{ '/assets/css/fira_code.css' | prepend: site.baseurl }}">
+<link rel="stylesheet" href="{{ '/assets/css/dracula_prism.min.css' | prepend: site.baseurl }}">
+<script src="prism.min.js"></script>
+
+
+<link rel="stylesheet" href="{{ '/assets/css/xxxprism.css' | prepend: site.baseurl }}">
+<script src="/assets/css/xxxprism.js"></script>
+
+ 
+<link rel="stylesheet" href="{{ '/assets/css/code_syntax_highlighter.css' | prepend: site.baseurl }}">
+<link rel="stylesheet" href="{{ "/assets/css/style.css" | prepend: site.baseurl }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+<link rel="manifest" href="{{ "/assets/img/favicon/site.webmanifest" }}">
+ 
+ <!--  favicon  -->
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/img/favicon/favicon_techietuts.png" }}"> 
+ 
+
+{% seo title=false %}
+
+<!--   Google AdSense   -->
+<script data-ad-client="ca-pub-6160810274402662" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+</head>

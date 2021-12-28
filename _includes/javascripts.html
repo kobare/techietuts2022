@@ -1,0 +1,25 @@
+<!-- Scripts -->
+  <script src="{{site.baseurl}}/assets/js/jekyll-search.js"></script>
+     
+
+  <script src="{{site.baseurl}}/assets/js/package.js"></script>
+  <script src="{{site.baseurl}}/assets/js/gulpfile.js"></script>      
+  <script src="{{site.baseurl}}/assets/js/prism.js"></script>
+  <script src="{{site.baseurl}}/assets/js/prism.min.js"></script>  
+  <script src="{{site.baseurl}}/assets/js/search.js"></script>      
+
+
+  <script>
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('query'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '{{site.baseurl}}/search.json',
+      searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>',
+      noResultsText: 'No results found',
+      fuzzy: false,
+      exclude: ['Welcome']
+    });
+  </script>
+
+<!-- End of Scripts -->
+

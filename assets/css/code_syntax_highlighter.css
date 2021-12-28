@@ -1,0 +1,73 @@
+pre, code, samp, var {
+  border-radius: 6px !important;
+}
+
+pre, code {
+  border-radius: 8px !important;
+  font-size: small !important;
+  line-height: 1 !important;
+  margin: 0;
+  display: block;
+}
+
+pre[class*=language] {
+  padding: 1.5em !important;
+  line-height: 1.5 !important;
+  vertical-align: middle;
+  margin-bottom: 2rem;
+  margin-top: 0 !important;
+  box-shadow: 0 4px 10px rgba(51, 51, 51, 0.4) !important;
+  overflow: visible !important;
+  display: block !important;
+  margin: auto;
+}
+pre[class*=language] code {
+  padding: 0 !important;
+  line-height: 1.75 !important;
+  vertical-align: baseline;
+  margin: 0 !important;
+  white-space: pre-wrap;
+}
+
+.language-markup {
+  font-size: 1rem !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  vertical-align: middle !important;
+}
+.language-markup code {
+  line-height: 1 !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+pre, code, samp, var, kbd, output {
+  font-family: "Fira Code", "Fira Code", Fira Code, menlo, Menlo, "menlo", "Menlo", monospace !important;
+}
+
+pre ~ p {
+  margin-bottom: 1rem !important;
+}
+
+p ~ pre[class*=language] {
+  margin-bottom: 2rem !important;
+  display: block !important;
+}
+
+@media(min-width: 81em){
+  pre {
+    width: 80%;
+  }
+}
+
+
+span.unselectable {
+  user-select: none;
+  color: #fff;
+}
+
+span.unselectable:after { 
+   content: "\00a0";
+   padding-right: 5px; /* If you need more space b/w contents */
+}
+

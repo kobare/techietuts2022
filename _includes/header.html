@@ -1,0 +1,96 @@
+<!-- Mobile Phone Navigation Menu -->
+<div class="mobile-nav">
+ <a href="#home" class="top-bar"><img src="/assets/img/logo_02.png" class="logo" style="padding-left: 0;"></a>
+ <div id="myLinks">
+  {% for category in site.data.content_categories %} 
+   {% for title in category[0] %}
+    {% assign category_name = title[0] %}    
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>{{ category_name }}</button> -->
+    {% if title[0] == "programming" %}
+       <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>Programming Languages</button>
+     {% elsif title[0] == "frameworks"%}
+       <button class="mob-dropbtn"><i class="fa fa-crop">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>
+     {% elsif title[0] == "databases"%}
+       <button class="mob-dropbtn"><i class="fa fa-database">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>
+     {% elsif title[0] == "vcs"%}
+       <button class="mob-dropbtn"><i class="fa fa-github">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>
+     {% elsif title[0] == "more-topics"%}
+       <button class="mob-dropbtn"><i class="fa fa-connectdevelop">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>
+     {% elsif title[0] == "blog"%}
+       <button class="mob-dropbtn"><i class="fa fa-th">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>              
+     {% else %}
+     <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>
+    {% endif %}
+     <div class="mob-dropdown-content">
+      {% for frameworks in category[1] %}
+       {% for framework in frameworks[1] %}      
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>{{ framework.name }}</button>
+         <div class="mob-sub-dropdown-content">
+          {% for list in framework.list %}
+           <a href="{{ list.url }}"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>{{ list.name }}</a>
+          {% endfor %}
+         </div>
+        </div>
+       {% endfor %}
+      {% endfor %}
+     </div>
+    </div>
+   {% endfor %}
+  {% endfor %}
+ </div>
+ <a href="javascript:void(0);" class="icon" onclick="showMobileNav()"><i class="fa fa-bars"></i></a>
+</div>
+
+
+<!-- Desktop Navigation Menu -->
+<div id="toggle-hide" class="navbar">
+  <div class="logo-section">
+    <a href="#"><img src="/assets/img/logo_02.png" class="logo"></img></a>
+  </div>
+  <div class="links">
+
+{% for category in site.data.content_categories %}     
+    <div class="dropdown">
+     {% assign category_name = "" %}
+     {% for title in category[0] %}
+      {% assign category_name = title[0] %}
+      {% if title[0] == "programming" %}
+        <button class="dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>Programming Languages</button>
+      {% elsif title[0] == "frameworks"%}
+        <button class="dropbtn"><i class="fa fa-crop">&nbsp; &nbsp;</i>{{ title[0] }}</button>
+      {% elsif title[0] == "databases"%}
+        <button class="dropbtn"><i class="fa fa-database">&nbsp; &nbsp;</i>{{ title[0] }}</button>
+      {% elsif title[0] == "vcs"%}
+        <button class="dropbtn"><i class="fa fa-github">&nbsp; &nbsp;</i>Version Control Sytems</button>
+      {% elsif title[0] == "more-topics"%}
+        <button class="dropbtn"><i class="fa fa-connectdevelop">&nbsp; &nbsp;</i>More Topics</button>
+      {% elsif title[0] == "vcs"%}
+        <button class="dropbtn"><i class="fa fa-github">&nbsp; &nbsp;</i>{{ title[0] }}</button>      
+      {% endif %}
+     {% endfor %}
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>{{ category_name }}</h2>
+        </div>   
+        <div class="row">
+        {% for frameworks in category[1] %}
+         {% for framework in frameworks[1] %}
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>{{ framework.name }}</h3>
+            {% for list in framework.list %}
+             <a class="level-three-title" href="{{ list.url }}"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>{{ list.name }}</a>
+            {% endfor %}
+            <br>
+          </div>
+         {% endfor %}
+        {% endfor %}
+        </div>
+      </div>
+    </div> 
+{% endfor %}    
+  </div> <!-- end links-->
+</div> <!-- end navbar-->
+
+

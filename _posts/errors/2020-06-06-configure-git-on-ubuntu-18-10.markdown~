@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "Bundler Errors"
+date:   2020-06-06 14:17:06 +0300
+img: ionic_side_menu.png
+categories: errors
+technology: Bundler
+tutorial_type: How To
+---
+
+<div align="center" style="background-color:#fff"> 
+<img srcset="
+  https://drive.google.com/uc?id=1oFSYHqhPRaK1E4NhgzDG42PtFeXP3-Sl 3x,
+  https://drive.google.com/uc?id=1oFSYHqhPRaK1E4NhgzDG42PtFeXP3-Sl 6x
+" alt="missing image">
+</div>
+<br>
+
+
+<h4 align="center" >ERROR TYPE: <h5 align="center" >Dependency Error</h5></h4>
+
+<div class="window">
+  <div class="terminal">
+
+    <p class="command">Dependency Error: Yikes! It looks like you don't have jekyll-commonmark-ghpages or one of its dependencies installed. In order to use Jekyll as currently configured, you'll need to install this gem. The full error message from Ruby is: 'incompatible library version - /home/koby/gems/gems/commonmarker-0.17.13/lib/commonmarker/commonmarker.so' If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</p>
+
+    <h4># Solution: Warning! This will uninstall bundler and other host gems</h4>
+    <p class="command">gem uninstall -aIx</p>
+
+    <h4># Now install the version of bundler required by your project</h4>
+
+    <p class="command">gem install bundler:2.1.4</p>
+
+    <h4># Everthing is ok! Bundle install</h4>
+    <p class="command">bundle install</p>
+  </div>
+</div>
+<br>
+
+
+
+That's it!
+
+*See you in the next tuts*
+
+

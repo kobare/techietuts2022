@@ -1,0 +1,98 @@
+<div class="footer">
+<div onclick="topFunction()" id="scroll-up" title="Go to top" class="fa fa-angle-up"></div>
+
+  <!-- <svg width: 100%; height:auto viewbox="0 0 2444 132">
+    <path fill="#f1f1f1" fill-rule="evenodd" d="M1222 0h1222c-444.13 88-852.127 132-1223.993 132C849.253 132 442.585 88.263 0 .789V0h1222z"></path>
+  </svg> -->
+  <div class="top-footer-container">
+  
+  <div class="white-text" style="padding-left: 200px; font-weight: 900; text-decoration: underline 1px #999;"><span>Recent Posts</span> <span style="padding-left: 400px">Contact Info</span></div>
+  <div class="top-footer grid-container">
+  {% for post in site.posts limit: 3 %}
+   <div class="grid-item" style="height: auto; background-color: inherit; xborder-bottom: 1px solid #777;">
+    <div class="center-icon"><img src="{{ post.img }}"></div>
+    <div class="white-text" style="text-align: left;">
+     <p class="footer-post-title"><a href="{{ site_url }}{{ post.url | append: site.baseurl }}">{{ post.title }}</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i> {{ post.author }} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ post.date | date: "%B %Y" }}</p>
+    </div>          
+   </div>
+   {% endfor %}
+   <div class="grid-item contact-column" style="height: auto; background-color: inherit; border-left: 1px solid #777; padding-left: 60px;">
+    <div class="white-text fa-icon"><i class="fa fa-envelope"></i></div>
+    <div class="white-text contact-details">
+     <p class="footer-post-title"><a href="mailto:support@s-entialtechnologies.com">support@s-entialtechnologies.com</a></p>
+    </div> 
+    <div class="white-text fa-icon"><i class="fa fa-linkedin"></i></div>
+    <div class="white-text contact-details">
+     <p class="footer-post-title"><a href="https://www.linkedin.com/in/kobare/" target="_blank">@kobare</a></p>
+    </div>          
+    <div class="white-text fa-icon"><i class="fa fa-instagram"></i></div>
+    <div class="white-text contact-details">
+     <p class="footer-post-title"><a href="https://www.instagram.com/s_entialtechnologies/" target="_blank">@s_entialtechnologies</a></p>
+    </div>                       
+   </div>
+   
+  </div>
+ </div> 
+  
+  <div class="bottom-footer txt-center">
+    <div>
+    <a class="white-text" href="{{ site_url }}{{ '/category/blog' | append: site.baseurl }}">Blog</a> | About 
+    </div>
+    <div>
+      Data Protection and Privacy Statement | Disclaimer Statement | Copyright Statement 
+    </div>
+    <div>
+        Copyright &copy; 2020 - {{ site.time | date: '%Y' }} <a href="https://www.techietuts.com" style="color: #fff; text-decoration: none;">Techietuts</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("toggle-hide").style.top = "0";
+  } else {
+    document.getElementById("toggle-hide").style.top = "-90px";
+  }
+  prevScrollpos = currentScrollPos;
+  
+  scrollFunction();
+}
+
+
+var scrollUp = document.getElementById("scroll-up");
+
+// When the user scrolls down 20px from the top of the document, show the button
+
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollUp.style.display = "block";
+  } else {
+    scrollUp.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
+
+
+<script>
+function showMobileNav() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+

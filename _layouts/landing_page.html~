@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<section>
+                <!-- Page content object inserted below -->
+        {{page.content | markdownify}}
+</section>
+<hr><br>
+
+<section>
+        {% include newsletter.html %}
+</section>
+<hr><br>
+
+<section>
+        {% include disqus.html %}
+</section>

@@ -1,0 +1,298 @@
+---
+layout: post
+title:  "How to Add Custom Styled Navigation Menu to Ionic Apps"
+date:   2020-05-16 19:22:06 +0300
+img: ionic_side_menu.png
+categories: ionic_apps
+technology: Ionic/Angular Apps
+tutorial_type: How To
+---
+
+<div align="justify" style="background-color:#fff"> 
+<img srcset="
+  https://drive.google.com/uc?id=1F9NWzVPs-qypOVgC3YHsXYWoH1PBduTY 1x,
+  https://drive.google.com/uc?id=1F9NWzVPs-qypOVgC3YHsXYWoH1PBduTY 4x,
+" alt="missing image">
+</div>
+<br>
+
+
+The Menu component is a navigation drawer that slides in from the side of the current view. By default, it slides in from the left, but the side can be overridden. <br><br>The menu will be displayed differently based on the mode, however the display type can be changed to any of the available menu types. <br><br>The menu element should be a sibling to the root content element. <br><br>There can be any number of menus attached to the content. These can be controlled from the templates, or programmatically using the MenuController. [Read more from ionic framework docs](https://ionicframework.com/docs/api/menu){:target="_blank"}
+
+In a [previous tutorial]({{site.baseurl}}/add-nav-menu-to-ionic-apps){:target="_blank"}, we created a side menu using the ionic-menu component. In this tutorial, we'll create a custom side-menu which we can easily style according to our preferences.
+
+
+Lets begin:
+
+
+Step 1: Create a sidemenu component
+
+{% highlight typescript linenos %}
+
+	ionic g c sidemenu
+
+{% endhighlight %} 
+
+<br>
+Step 2: In the sidemenu component we've just created, open `sidemenu.component.ts` and replace the code with the one below:
+
+{% highlight typescript linenos %}
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-sidemenu',
+  templateUrl: './sidemenu.component.html',
+  styleUrls: ['./sidemenu.component.scss']
+})
+export class SidemenuComponent implements OnInit {
+
+    version: string = "1.0.0";
+
+    appPages = [
+        {
+            title: 'Home',
+            url: '/home',
+            icon: '🕌️'
+        },
+
+	{
+            title: "Let's Learn",
+            url: '/learning-chapter',
+            icon: '📖️'
+		},
+	{
+            title: 'Test Youself',
+            url: '/testing-chapter',
+            icon: '✍️'
+		},
+
+	{
+            title: 'Mastered Words',
+            url: '/mastered-section',
+            icon: '💯️'
+		},
+
+        {
+            title: 'My Profile',
+            url: '/profile',
+            icon: '👤'
+		},
+		{
+			title: 'Settings',
+			url: '/settings',
+			icon: '⚙️'
+		}
+    ];
+
+  constructor() { }
+
+  ngOnInit() { }
+
+    async leaveAReview() { }
+
+
+    openFacebookProfile() { }
+
+
+    openInstagramProfile() { }
+
+
+    openTwitterProfile() { }
+
+
+    openWebsite() { }
+
+}
+
+{% endhighlight %}
+
+
+<br>
+Step 3: Just like in Step 2 above, open `sidemenu.component.html` and replace the code with the one below:
+
+{% highlight typescript linenos %}
+
+<div class="header">
+	<div class="logo">
+	 📕️ QurLearn
+	</div>
+</div>
+
+<div class="nav">
+
+	<ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+		<div class="nav-item" [routerLink]="[p.url]">
+			<span class="icon">{{p.icon}}</span>
+			{{p.title}}
+			<span class="divider"></span>
+		</div>
+	</ion-menu-toggle>
+</div>
+
+<div class="footer">
+	<div class="footer-nav">
+		<ul>
+			<li (click)="leaveAReview()">Like this app? Leave a review!</li>
+		</ul>
+	</div>
+
+	<div class="footer-social">
+		<ion-icon (click)="openInstagramProfile()" name="logo-instagram"></ion-icon>
+		<ion-icon (click)="openFacebookProfile()" name="logo-facebook"></ion-icon>
+		<ion-icon (click)="openTwitterProfile()" name="logo-twitter"></ion-icon>
+		<ion-icon (click)="openWebsite()" name="globe"></ion-icon>
+	</div>
+
+	<div class="footer-app-version">
+		Version v{{version}}
+	</div>
+</div>
+
+{% endhighlight %} 
+
+<br>
+Step 4: Like in Step 2 and 3, open `sidemenu.component.scss` and replace the code with the one below:
+
+{% highlight scss linenos %}
+
+:host {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: #2b79af;
+        background-image: linear-gradient(to  left, #C2B091, #B19A7A, #987A5C, #7E5C3A, #6C4623) !important;
+	color: #ffffff;
+	font-family: 'Varela Round', sans-serif;
+	padding-bottom: var(--ion-safe-area-bottom);
+}
+
+.header {
+    padding: 1rem;
+    padding-top: calc(var(--ion-safe-area-top) + 1.5rem);
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	width: 100%;
+	padding-left: 0.5rem;
+}
+
+.logo img {
+	width: 80%;
+}
+
+.nav {
+    display: flex;
+    flex-grow: 5;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.nav-item {
+    padding: 0.75rem 0.5rem 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.nav-item span.divider {
+    padding-top: 0.75rem;
+    width: 100%;
+    display: block;
+    border-bottom: solid 1px rgba(34, 34, 34, 0.18);
+}
+
+.icon {
+    margin-right: 0.5rem;
+}
+
+.nav-item:hover, .nav-item:active {
+    background: rgba(var(34, 34, 34), 0.1);
+}
+
+.footer {
+  	display: flex;
+  	flex-direction: column;
+  	justify-content: flex-end;
+}
+
+.footer-nav {
+    padding: 0.5rem;
+}
+
+.footer-nav ul {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+
+    li {
+        padding: 0;
+        list-style: none;
+    }
+}
+
+.footer-social {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.footer-app-version {
+    padding: 0.3rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+{% endhighlight %}  
+
+<br>
+Step 5. Navigate to the root component of your project and open src/app. Add the code below to `app.module.ts`
+
+{% highlight typescript linenos %}
+
+  import { SidemenuComponent } from './sidemenu/sidemenu.component';
+
+{% endhighlight %}
+
+
+<br>
+Step 6: Add the code below to declarations in `app.module.ts`
+
+{% highlight typescript linenos %}
+
+	SidemenuComponent
+
+{% endhighlight %}
+
+<br>
+Step 7: Replace the code in `app.component.html` with the code below
+
+{% highlight typescript linenos %}
+
+	<ion-app>
+	  <ion-split-pane>
+		<ion-menu>
+			<app-sidemenu></app-sidemenu>
+		</ion-menu>
+		<ion-router-outlet main></ion-router-outlet>
+	  </ion-split-pane>
+	</ion-app>
+
+{% endhighlight %}
+
+
+
+After adding the above code, you should get a menu similar to the one below:
+
+<img srcset="
+  https://drive.google.com/uc?id=1LQHT-maujccbkcgdt3J5XZSmH6b_JyIe 1x,
+  https://drive.google.com/uc?id=1LQHT-maujccbkcgdt3J5XZSmH6b_JyIe 2x
+" alt="missing image">
+
+That's it!
+
+*See you in the next tuts*
+
+

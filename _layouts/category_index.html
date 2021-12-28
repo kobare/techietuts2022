@@ -1,0 +1,69 @@
+---
+layout: category
+---
+
+
+<!-- ########################## Categories Page ########################## -->      
+{% for category in site.data.content_categories %}
+  {% for title in category[0] %}
+    {% if title[0] ==  page.category %}  
+      {% for sub_categories in category[1] %}
+        {% for sub_category in sub_categories[1] %}          
+
+        <div class="grid-item" style="height: auto;">
+          <div><img src="{{ sub_category.img }}"></div>
+          <div style="text-align: left;">
+            <p style="font-size: 18px; font-weight: 600; text-align: left;"><a href="{{ site_url }}{{ sub_category.url | append: site.baseurl }}" style="color: inherit; text-decoration: none;">{{ sub_category.name }}</a></p>
+          </div>
+        </div>
+            {% endfor %}
+          {% endfor %}          
+        {% endif %}
+      {% endfor %}  
+  {% endfor %}
+
+
+<!-- ########################## Sub Categories Page ########################## -->
+{% for category in site.data.content_categories %}
+  {% for title in category[0] %}
+
+      {% for sub_categories in category[1] %}
+        {% for sub_category in sub_categories[1] %}
+          {% assign subcat =  sub_category.name | downcase %}
+          {% if subcat ==  page.category %}          
+          {% for list in sub_category.list %}                  
+
+        <div class="grid-item" style="height: auto;">
+          <div><img src="{{ list.img }}"></div>
+          <div style="text-align: left;">
+            <p style="font-size: 18px; font-weight: 600; text-align: left;"><a href="{{ site_url }}{{ list.url | append: site.baseurl }}" style="color: inherit; text-decoration: none;">{{ list.name }}</a></p>
+          </div>
+        </div>
+            {% endfor %}
+          {% endif %}          
+        {% endfor %}
+      {% endfor %}  
+
+  {% endfor %}
+{% endfor %}
+
+
+<!-- ########################## Post Type Page ########################## -->
+        {% for post in site.posts %}
+        {% assign type_link = '/' | append: 'category' | append: '/' | append: post.categories[0] | append: '/' | append: post.sub_category | append: '/' | append: post.type | append: '/' %}
+        {% if type_link == page.url %}
+
+        <div class="grid-item" style="height: auto;">
+          <div><img src="{{ post.img }}"></div>
+          <div style="text-align: left;">
+            <p style="font-size: 18px; font-weight: 600; text-align: left;"><a href="{{ site_url }}{{ post.url | append: site.baseurl }}" style="color: inherit; text-decoration: none;">{{ post.title }}</a></p>
+          <span style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i> {{ post.author }} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ post.date | date: "%B %Y" }}</span>              
+          </div>
+        </div>
+          {% endif %}
+        {% endfor %}  
+
+                      
+
+
+

@@ -1,0 +1,177 @@
+---
+layout: post
+title:  "rbenv Cheat Sheet"
+date:   2020-06-06 14:17:06 +0300
+img: ionic_side_menu.png
+categories: ionic_apps
+technology: Ruby/rbenv
+tutorial_type: Cheat
+---
+<style>
+.window {
+  border-radius: 3px;
+  background: #222;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  width: 70%;
+}
+.window:before {
+  content: " ";
+  display: block;
+  height: 48px;
+  background: #c6c6c6;
+}
+.window:after {
+  content: ". . ";
+  position: absolute;
+  left: 12px;
+  right: 0;
+  top: -3px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 96px;
+  color: #fff;
+  line-height: 0;
+  letter-spacing: -12px;
+}
+
+.terminal {
+  margin: 20px;
+  font-family: monospace;
+  font-size: 16px;
+  color: #22da26;
+}
+.terminal .command {
+  width: 0%;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: write-command 5s both;
+}
+.terminal .command:before {
+  content: "$ ";
+  color: #22da26;
+}
+.terminal .log {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: write-log 5s both;
+}
+.terminal p:nth-child(2) {
+  animation-delay: 2s;
+}
+.terminal p:nth-child(3) {
+  animation-delay: 8s;
+}
+
+@keyframes write-command {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes write-log {
+  0% {
+    height: 0;
+  }
+  16% {
+    height: 0;
+  }
+  17% {
+    height: 18px;
+  }
+  33% {
+    height: 18px;
+  }
+  34% {
+    height: 37px;
+  }
+  51% {
+    height: 37px;
+  }
+  52% {
+    height: 55px;
+  }
+  69% {
+    height: 55px;
+  }
+  70% {
+    height: 74px;
+  }
+  87% {
+    height: 74px;
+  }
+  88% {
+    height: 92px;
+  }
+  88% {
+    height: 92px;
+  }
+  99% {
+    height: 92px;
+  }
+  100% {
+    height: 110px;
+  }
+}
+
+</style>
+
+<div align="center" style="background-color:#fff"> 
+<img srcset="
+  https://drive.google.com/uc?id=1iW42TfZZQnPVwxPhMBnoH_IgiPCnodFv 1x,
+  https://drive.google.com/uc?id=1iW42TfZZQnPVwxPhMBnoH_IgiPCnodFv 3.5x
+" alt="missing image">
+</div>
+
+
+<div class="window">
+  <div class="terminal">
+    <h4># list all available versions</h4>
+    <p class="command">rbenv install -l</p>
+  
+    <h4># install a specific Ruby version</h4>
+    <p class="command">rbenv install 2.7.1</p>
+
+    <h4># Install rbenv</h4>
+    <p class="command">brew install rbenv</p>
+
+    <h4># Set a local application-specific Ruby version</h4>
+    <p class="command">rbenv local 2.0.0</p>
+
+    <h4># Set a global Ruby version (default version)</h4>
+    <p class="command">rbenv global 2.7.1</p>
+
+    <h4># Completely uninstall rbenv</h4>
+    <p class="command">brew uninstall rbenv</p>
+
+    <h4># Completely uninstall rbenv</h4>
+    <p class="command">brew uninstall rbenv</p>
+
+    <h4># Set a shell-specific Ruby version by setting the RBENV_VERSION environment variable in your shell.</h4>
+    <p class="command">rbenv shell 2.2.1</p>
+
+    <h4># List all Ruby versions known to rbenv</h4>
+    <p class="command">rbenv versions</p>
+
+    <h4># Display the current active Ruby version (current project opened)</h4>
+    <p class="command">rbenv version</p>
+
+    <h4># Run this command after you install a new version of Ruby or install a gem that provides commands if you're using rbenv</h4>
+    <p class="command">rbenv rehash</p>
+
+    <h4># Display the full path to the executable that rbenv will invoke</h4>
+    <p class="command">rbenv which irb</p>
+
+  </div>
+</div>
+
+
+
+That it's!
+
+*See you on the next tuts*
+
+
