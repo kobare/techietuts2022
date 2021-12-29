@@ -5,11 +5,11 @@ author: Denis Kobare
 date:   2020-05-16 19:22:06 +0300
 img: /assets/img/svg/ionic.svg
 categories: more-topics
-sub_category: ionic
-type: tutorials
+sub_category: mobile-development
+type: ionic
 technology: Ionic/Angular Apps
 tutorial_type: How To
-permalink: "category/:categories/mobile-development/ionic/tutorials/:year:month/:title"
+permalink: "category/:categories/mobile-development/ionic/:year:month/:title"
 ---
 
 

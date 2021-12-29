@@ -31,7 +31,7 @@ layout: home
     <div class="blog-post blog">
       <h2 class="recent-header">Recent posts</h2>                
       <div class="grid-container">
-        {% for post in site.posts limit: 20 %}
+        {% for post in site.posts limit: 6 %}
         <div class="grid-item">
           <div class="grid-image"><img src="{{ post.img }}"></div>
           <div class="grid-title">

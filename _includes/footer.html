@@ -6,33 +6,44 @@
   </svg> -->
   <div class="top-footer-container">
   
-  <div class="white-text" style="padding-left: 200px; font-weight: 900; text-decoration: underline 1px #999;"><span>Recent Posts</span> <span style="padding-left: 400px">Contact Info</span></div>
-  <div class="top-footer grid-container">
-  {% for post in site.posts limit: 3 %}
-   <div class="grid-item" style="height: auto; background-color: inherit; xborder-bottom: 1px solid #777;">
-    <div class="center-icon"><img src="{{ post.img }}"></div>
-    <div class="white-text" style="text-align: left;">
+  <!-- <div class="white-text" style="padding-left: 200px; font-weight: 900; text-decoration: underline 1px #999;"><span>Recent Posts</span> <span style="padding-left: 400px">Contact Info</span></div> -->
+  
+
+  <div class="grid-item">
+   <div><!-- empty column --></div> 
+   <div class="white-text xcontact-details" style="text-align: justify; text-decoration: underline #999"><span>Other Posts</span></a></p></div>
+  {% for post in site.posts | limit: 3 | offset: 6 %}  
+   
+    <div class="center-icon grid-image"><img src="{{ post.img }}"></div>
+    <div class="white-text grid-title" style="text-align: left;">
      <p class="footer-post-title"><a href="{{ site_url }}{{ post.url | append: site.baseurl }}">{{ post.title }}</a></p>
      <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i> {{ post.author }} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ post.date | date: "%B %Y" }}</p>
     </div>          
-   </div>
+    
    {% endfor %}
-   <div class="grid-item contact-column" style="height: auto; background-color: inherit; border-left: 1px solid #777; padding-left: 60px;">
-    <div class="white-text fa-icon"><i class="fa fa-envelope"></i></div>
-    <div class="white-text contact-details">
+   </div> 
+
+  
+   <div class="grid-item xcontact-column divide-line">
+    
+    <div><!-- empty column --></div> 
+    <div class="white-text xcontact-details" style="text-align: justify; text-decoration: underline #999"><span>Contact Info</span></a></p></div>
+    
+    <div class="white-text fa-icon grid-image"><i class="fa fa-envelope"></i></div>
+    <div class="white-text xcontact-details grid-title">
      <p class="footer-post-title"><a href="mailto:support@s-entialtechnologies.com">support@s-entialtechnologies.com</a></p>
     </div> 
-    <div class="white-text fa-icon"><i class="fa fa-linkedin"></i></div>
-    <div class="white-text contact-details">
+    <div class="white-text fa-icon grid-image"><i class="fa fa-linkedin"></i></div>
+    <div class="white-text xcontact-details grid-title">
      <p class="footer-post-title"><a href="https://www.linkedin.com/in/kobare/" target="_blank">@kobare</a></p>
     </div>          
-    <div class="white-text fa-icon"><i class="fa fa-instagram"></i></div>
-    <div class="white-text contact-details">
+    <div class="white-text fa-icon grid-image"><i class="fa fa-instagram"></i></div>
+    <div class="white-text xcontact-details grid-title">
      <p class="footer-post-title"><a href="https://www.instagram.com/s_entialtechnologies/" target="_blank">@s_entialtechnologies</a></p>
     </div>                       
    </div>
    
-  </div>
+
  </div> 
   
   <div class="bottom-footer txt-center">
@@ -40,7 +51,7 @@
     <a class="white-text" href="{{ site_url }}{{ '/category/blog' | append: site.baseurl }}">Blog</a> | About 
     </div>
     <div>
-      Data Protection and Privacy Statement | Disclaimer Statement | Copyright Statement 
+      Privacy Statement | Disclaimer Statement
     </div>
     <div>
         Copyright &copy; 2020 - {{ site.time | date: '%Y' }} <a href="https://www.techietuts.com" style="color: #fff; text-decoration: none;">Techietuts</a>

@@ -4,12 +4,12 @@ title:  "How to Add Navigation Menu to Ionic Apps"
 author: Denis Kobare
 date:   2020-05-16 19:22:06 +0300
 img: /assets/img/svg/ionic.svg
-categories: mobile
-sub_category: ionic
-type: tutorials
+categories: more-topics
+sub_category: mobile-development
+type: ionic
 technology: Ionic/Angular Apps
 tutorial_type: How To
-permalink: "category/:categories/ionic/tutorials/:year:month/:title"
+permalink: "category/:categories/mobile-development/ionic/:year:month/:title"
 tags:
 - ionic
 - mobile development
