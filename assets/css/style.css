@@ -240,6 +240,10 @@ h2.recent-header{
   margin-bottom: auto;
 }
 
+.grid-item .grid-title p {
+ xfont-size: clamp(12px, 10px + 5vw, 12px);
+}
+
 .top-footer-container {
   padding: 30px;
   font-size:25px;
@@ -270,6 +274,10 @@ h2.recent-header{
   padding: 20px 0;
   font-size: 30px;
   height: 132px;
+}
+
+.footer .grid-item {
+ border: 1px solid #777;
 }
 
 
@@ -444,7 +452,7 @@ h2.recent-header{
 
 .mobile-nav {
   overflow: hidden;
-  background-color: #1f618d;
+  background-color: #202658; /* #1f618d; */
   position: fixed;
   top: 0;
   width: 100%;
@@ -464,7 +472,7 @@ h2.recent-header{
 }
 
 .mobile-nav a.icon {
-  background: #1f618d;
+  background: #202658; /* #1f618d; */
   display: block;
   position: absolute;
   right: 0;
@@ -644,14 +652,10 @@ html {
 
 
 .fa-icon {
-  font-size: 90px;
+  font-size: 80px;
   margin-top: -30px;
 }
 
- 
-.contact-details {
-  padding: 30px 10px;
-}
 
 .footer-post-title {
   font-size: 18px; 
