@@ -403,6 +403,26 @@ h2.recent-header{
  text-transform: uppercase;
 }
 
+.search a {
+ text-decoration: none;
+ color: #fff;
+}
+
+.search li {
+ padding-bottom: 10px;
+ padding-top: 10px;
+}
+
+.search-row {
+ height: auto;
+ column-count: 2;
+ column-gap: 40px;
+ column-rule-style: solid;
+ column-rule-color: #fff;
+ padding-bottom: 40px;
+ color: #fff;"
+}
+
 /* Create four(25%) equal columns that floats next to each other */
 .column {
   float: left;
@@ -451,9 +471,9 @@ h2.recent-header{
 /* ############################################################ */
 
 .mobile-nav {
-  overflow: hidden;
+  overflow: scroll;
   background-color: #202658; /* #1f618d; */
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1;

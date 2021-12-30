@@ -50,7 +50,19 @@
     <a href="/"><img src="/assets/img/logo_02.png" class="logo"></img></a>
   </div>
   <div class="links">
-
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-search">&nbsp; &nbsp;</i>
+        <input type="text" name="query" id="query" placeholder="Search content">
+      </button>
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>Search Results:</h2>
+        </div>   
+        <div class="row search-row">
+        <ul  class="search" id="results-container"><!-- inserts li from search results --></ul>
+        </div>
+      </div>
+    </div> 
 {% for category in site.data.content_categories %}     
     <div class="dropdown">
      {% assign category_name = "" %}
