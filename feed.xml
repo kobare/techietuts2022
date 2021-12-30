@@ -1,0 +1,1308 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2021-12-30T19:11:54+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">TechieTuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Build a Simple Django Blog App</title><link href="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app" rel="alternate" type="text/html" title="Build a Simple Django Blog App" /><published>2021-01-24T16:15:00+03:00</published><updated>2021-01-24T16:15:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app">&lt;p&gt;This tutorial will focus on how to create a standard Django CRUD project.&lt;/p&gt;
+
+&lt;table class=&quot;table table-bordered&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th colspan=&quot;5&quot; style=&quot;text-align: center;&quot;&gt;This tutrial will cover the following:&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+       &lt;td&gt;1. URLs&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+       &lt;td&gt;2. Templates&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+       &lt;td&gt;3. Views&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+       &lt;td&gt;4. Models&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+       &lt;td&gt;5. Django Admin&lt;/td&gt;
+      &lt;/tr&gt;
+      
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you haven’t installed and configured virtual environment and the virtualenvwrapper on your machine, I have a tutorial that will show you how to. Click &lt;a href=&quot;/category/programming/python/setup-and-configurations/202101/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-20.04&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; to read it.&lt;/p&gt;
+
+&lt;h3 id=&quot;1-create-a-virtual-environment&quot;&gt;1. Create a Virtual Environment&lt;/h3&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+cd into your projects directory and pass the following command to create and activate a new virtual environment named my_website
+&lt;br /&gt;&lt;br /&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;p class=&quot;console&quot;&gt;mkvirtualenv my_website&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-install-the-latest-version-of-django&quot;&gt;2. Install the latest version of Django&lt;/h3&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;p class=&quot;console&quot;&gt;pip install django&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;Verify and check the version installed&lt;/h6&gt;
+&lt;p class=&quot;console&quot;&gt;django-admin --version &lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-create-the-django-project&quot;&gt;3. Create the Django Project&lt;/h3&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+ &lt;p class=&quot;console&quot;&gt;django-admin startproject my_website&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;# cd into the project: &lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;cd my_website&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;Run the development server to make sure everything is ok so far&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;python manage.py runserver&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now if you navigate to &lt;a href=&quot;http://localhost:8000/&quot; target=&quot;_blank&quot;&gt;http://localhost:8000/&lt;/a&gt; on your browser and you should see something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img srcset=&quot;   /assets/img/django_project_page.png 1.5x,   /assets/img/django_project_page.png 3.5x &quot; alt=&quot;missing image&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Now close the development server with Ctrl + C 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;4-create-a-django-app&quot;&gt;4. Create a Django App&lt;/h3&gt;
+&lt;p&gt;A django project can have multiple apps in it. For example, you can have an ecommerce app and a blog app within one project. With this approach, Django allows you to manage the apps independently and you can easily move your apps into other projects if need be.&lt;/p&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+ &lt;p class=&quot;console&quot;&gt;python manage.py startapp blog&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Open the settings.py file and specify the allowed hosts as well as add the blog app to installed apps. You should have something similar to this:
+&lt;img srcset=&quot;   /assets/img/blog_app_settings.png 1x,   /assets/img/blog_app_settings.png 2x &quot; alt=&quot;missing image&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;At this point, the project tree should resemble this:
+&lt;img srcset=&quot;   /assets/img/blog_app_tree.png 1x,   /assets/img/blog_app_tree.png 2x &quot; alt=&quot;missing image&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-create-a-templates-directory&quot;&gt;6. Create a Templates Directory&lt;/h3&gt;
+&lt;p&gt;If you are familiar with Ruby on Rails, Templates in Django are the equivalent of Views in Rails. Basically, this is where the HTML files go. Open the blog directory and create a directory called templates.&lt;/p&gt;
+
+&lt;h3 id=&quot;7-create-a-blog-sub-directory&quot;&gt;7. Create a Blog Sub-Directory&lt;/h3&gt;
+&lt;p&gt;Within the templates directory, create a sub-directory called blog. For every app in your project, you must create a sub-directory within the templates directory with the same name as your app. For instance, if we created another app in our project called ecommerce, we would then create a sub-directory inside templates directory called ecommerce.&lt;/p&gt;
+
+&lt;p&gt;That’s it! You have successfully set up, configured and tested python.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><category term="python" /><category term="django" /><category term="tutorial" /><category term="crud" /><summary type="html">This tutorial will focus on how to create a standard Django CRUD project.</summary></entry><entry><title type="html">How To Install Python 3 and Set Up a Local Programming Environment on Ubuntu 20.04</title><link href="http://0.0.0.0:4000/category/programming/python/setup-and-configurations/202101/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-20.04" rel="alternate" type="text/html" title="How To Install Python 3 and Set Up a Local Programming Environment on Ubuntu 20.04" /><published>2021-01-18T09:45:15+03:00</published><updated>2021-01-18T09:45:15+03:00</updated><id>http://0.0.0.0:4000/category/programming/python/setup-and-configurations/202101/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-20.04</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/python/setup-and-configurations/202101/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-20.04">&lt;p&gt;Ubuntu 20.04 ships with Python 3 pre-installed. This guide explains how to configure and set up environments for python projects.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NB: To use Python 3 on the terminal, you have to explicitly use the command &quot;python3&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;1-update-your-system&quot;&gt;1. Update Your System&lt;/h3&gt;
+&lt;pre class=&quot;language-html&quot;&gt;
+ &lt;code&gt;
+  &lt;span class=&quot;unselectable&quot;&gt;$&lt;/span&gt;sudo apt update &amp;amp;&amp;amp; sudo apt -y upgrade
+  &lt;h6 class=&quot;hashed&quot;&gt;
+   &lt;br /&gt;› Hit:1 http://ke.archive.ubuntu.com/ubuntu focal InRelease
+   &lt;br /&gt;› Get:2 http://ke.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]     
+   &lt;br /&gt;› Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [109 kB]      
+   &lt;br /&gt;› Hit:4 http://repo.mysql.com/apt/ubuntu bionic InRelease                        
+   &lt;br /&gt;› Hit:5 http://dl.winehq.org/wine-builds/ubuntu artful InRelease                 
+   &lt;br /&gt;› Hit:6 https://dl.yarnpkg.com/debian stable InRelease ...
+  &lt;/h6&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-confirm-python-is-installed&quot;&gt;2. Confirm Python is Installed&lt;/h3&gt;
+&lt;pre class=&quot;language-html&quot;&gt;
+&lt;code&gt;
+&lt;span class=&quot;unselectable&quot;&gt;$&lt;/span&gt;python3 -V
+&lt;span class=&quot;unselectable&quot;&gt;$&lt;/span&gt;Python 3.8.5
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-install-pip&quot;&gt;3. Install PIP&lt;/h3&gt;
+&lt;p&gt;PIP is a package manager for Python packages, or modules.&lt;/p&gt;
+&lt;pre class=&quot;language-html&quot;&gt;
+&lt;code&gt;
+&lt;span class=&quot;unselectable&quot;&gt;$&lt;/span&gt;sudo apt install -y python3-pip
+ &lt;h3 class=&quot;hashed&quot;&gt;# With PIP installed, Python packages can be installed with: &lt;/h3&gt;
+&lt;span class=&quot;unselectable&quot;&gt;$&lt;/span&gt;pip3 install package_name
+ &lt;h6 class=&quot;hashed&quot;&gt;&lt;/h6&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4-install-dependencies&quot;&gt;4. Install Dependencies&lt;/h3&gt;
+&lt;pre class=&quot;language-html&quot;&gt;
+&lt;code&gt;
+&lt;span class=&quot;unselectable&quot;&gt;$&lt;/span&gt;sudo apt install build-essential libssl-dev libffi-dev python-dev
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;5-set-up-a-virtual-environment&quot;&gt;5. Set Up a Virtual Environment&lt;/h3&gt;
+&lt;p&gt;A virtual environment allows you to manage separate package installations for different projects. Basically, it isolates your project dependencies from the broader context of your local machine, to avoid conflicts.
+To achieve that, we’ll use a tool called venv.&lt;/p&gt;
+&lt;pre class=&quot;language-html&quot;&gt;
+&lt;code&gt;
+ &lt;h4 class=&quot;hashed&quot;&gt;#Install venv&lt;/h4&gt;
+ &lt;span class=&quot;unselectable&quot;&gt;$&lt;/span&gt;sudo apt install -y python3-venv
+ &lt;h4 class=&quot;hashed&quot;&gt;#Create a directory called python_projects or any other name. This is where you&apos;ll keep your python projects&lt;/h4&gt;
+ &lt;span class=&quot;unselectable&quot;&gt;$&lt;/span&gt;mkdir python_projects 
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;6-install-virtualenvwrapper&quot;&gt;6. Install virtualenvwrapper&lt;/h3&gt;
+&lt;p&gt;Virtualenvwrapper is a wrapper script around the main virtualenv tool. It helps to organize all of your virtual environments in one location, provides methods to help you easily create, delete, and copy environments and also provides a single command to switch between environments.&lt;/p&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Install virtualenvwrapper&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;pip3 install virtualenvwrapper&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Get the exact location of virtualenvwrapper.sh. You will replace the path on line 4 in step 7 below with this path.&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;which virtualenvwrapper.sh&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;/usr/local/bin/virtualenvwrapper.sh&lt;/h6&gt;&lt;br /&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Alternatively you can do&lt;/h6&gt;   
+ &lt;p class=&quot;console&quot;&gt;find / -name virtualenvwrapper.sh&lt;/p&gt; 
+ &lt;h6 class=&quot;hashed&quot;&gt;/usr/local/bin/virtualenvwrapper.sh&lt;/h6&gt;  
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;7-edit--the-bashrc-file-or-the-profile-file&quot;&gt;7. Edit  the ~/.bashrc file or the ~/.profile file&lt;/h3&gt;
+&lt;p&gt;Using that path, add the following four lines to your shell’s startup file. If you’re using the Bash shell, you would place these lines in either the ~/.bashrc file or the ~/.profile file.&lt;/p&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Open the ~/.bashrc file with gedit&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;gedit ~/.bashrc&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Copy the code below and add it in the bash file.
+&lt;button onclick=&quot;copyCodeToClipboard()&quot; class=&quot;btn btn-warning btn-sm float-right&quot;&gt;Copy&lt;/button&gt;&lt;/p&gt;
+&lt;div id=&quot;output&quot;&gt;&lt;/div&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;VIRTUALENVWRAPPER_PYTHON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/python3
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;WORKON_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.virtualenvs   &lt;span class=&quot;c&quot;&gt;# &quot;.virtualenvs&quot; can be whatever name you like&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PROJECT_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/python_projects      &lt;span class=&quot;c&quot;&gt;# &quot;python_projects&quot; can be whatever name you like&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /usr/local/bin/virtualenvwrapper.sh
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+Reload the startup file&lt;br /&gt;&lt;br /&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+ &lt;p class=&quot;console&quot;&gt;source ~/.bashrc&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Confirm there is a directory located at $WORKON_HOME that contains all of the virtualenvwrapper data/files&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;echo $WORKON_HOME&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;/home/sys-admin/.virtualenvs&lt;/h6&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+Now, anytime you want to start a new project, you just have to do this:&lt;br /&gt;&lt;br /&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+ &lt;p class=&quot;console&quot;&gt;mkvirtualenv my-new-project&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;(my-new-project) $&lt;/h6&gt;
+&lt;/div&gt;&lt;br /&gt;
+This will create and activate a new environment in the directory located at $WORKON_HOME, where all virtualenvwrapper environments are stored.
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+You’ll also now have the shell commands available to you to help you manage the environments:
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Create a new environment, in the WORKON_HOME.&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;mkvirtualenv ENVNAME&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Remove an environment, in the WORKON_HOME.&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;rmvirtualenv ENVNAME &lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#To stop using an environment, you just need to deactivate it like this&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;deactivate&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#List environments&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;workon&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Activate an environment from the list&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;workon environment_name&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;8-create-a-simple-text-game-and-play&quot;&gt;8. Create a Simple Text Game and Play&lt;/h3&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#cd into the python_projects directory we created earlier&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;cd python_projects&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Create a virtual environment for our new project&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;mkvirtualenv text_game&lt;/p&gt;
+ &lt;h6 class=&quot;hashed&quot;&gt;#Create a file&lt;/h6&gt;
+ &lt;p class=&quot;console&quot;&gt;gedit text_game.py&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;language-javascript&quot;&gt;
+&lt;code&gt;
+
+import time #Imports a module to add a pause
+
+#Figuring out how users might respond
+answer_A = [&quot;A&quot;, &quot;a&quot;]
+answer_B = [&quot;B&quot;, &quot;b&quot;]
+answer_C = [&quot;C&quot;, &quot;c&quot;]
+yes = [&quot;Y&quot;, &quot;y&quot;, &quot;yes&quot;]
+no = [&quot;N&quot;, &quot;n&quot;, &quot;no&quot;]
+
+#Grabbing objects
+sword = 0
+flower = 0
+
+required = (&quot;\nUse only A, B, or C\n&quot;) #Cutting down on duplication
+
+#The story is broken into sections, starting with &quot;intro&quot;
+def intro():
+  print (&quot;After a drunken night out with friends, you awaken the &quot;
+  &quot;next morning in a thick, dank forest. Head spinning and &quot; 
+  &quot;fighting the urge to vomit, you stand and marvel at your new, &quot;
+  &quot;unfamiliar setting. The peace quickly fades when you hear a &quot;
+  &quot;grotesque sound emitting behind you. A slobbering orc is &quot;
+  &quot;running towards you. You will:&quot;)
+  time.sleep(1)
+  print (&quot;&quot;&quot;  A. Grab a nearby rock and throw it at the orc
+  B. Lie down and wait to be mauled
+  C. Run&quot;&quot;&quot;)
+  choice = input(&quot;&amp;gt;&amp;gt;&amp;gt; &quot;) #Here is your first choice.
+  if choice in answer_A:
+    option_rock()
+  elif choice in answer_B:
+    print (&quot;\nWelp, that was quick. &quot;
+    &quot;\n\nYou died!&quot;)
+  elif choice in answer_C:
+    option_run()
+  else:
+    print (required)
+    intro()
+
+def option_rock(): 
+  print (&quot;\nThe orc is stunned, but regains control. He begins &quot;
+  &quot;running towards you again. Will you:&quot;)
+  time.sleep(1)
+  print (&quot;&quot;&quot;  A. Run
+  B. Throw another rock
+  C. Run towards a nearby cave&quot;&quot;&quot;)
+  choice = input(&quot;&amp;gt;&amp;gt;&amp;gt; &quot;)
+  if choice in answer_A:
+    option_run()
+  elif choice in answer_B:
+    print (&quot;\nYou decided to throw another rock, as if the first &quot; 
+    &quot;rock thrown did much damage. The rock flew well over the &quot;
+    &quot;orcs head. You missed. \n\nYou died!&quot;)
+  elif choice in answer_C:
+    option_cave()
+  else:
+    print (required)
+    option_rock()
+
+def option_cave():
+  print (&quot;\nYou were hesitant, since the cave was dark and &quot;
+  &quot;ominous. Before you fully enter, you notice a shiny sword on &quot;
+  &quot;the ground. Do you pick up a sword. Y/N?&quot;)
+  choice = input(&quot;&amp;gt;&amp;gt;&amp;gt; &quot;)
+  if choice in yes:
+    sword = 1 #adds a sword
+  else:
+    sword = 0
+  print (&quot;\nWhat do you do next?&quot;)
+  time.sleep(1)
+  print (&quot;&quot;&quot;  A. Hide in silence
+  B. Fight
+  C. Run&quot;&quot;&quot;)
+  choice = input(&quot;&amp;gt;&amp;gt;&amp;gt; &quot;)
+  if choice in answer_A:
+    print (&quot;\nReally? You&apos;re going to hide in the dark? I think &quot;
+    &quot;orcs can see very well in the dark, right? Not sure, but &quot;
+    &quot;I&apos;m going with YES, so...\n\nYou died!&quot;)
+  elif choice in answer_B:
+   if sword &amp;gt; 0:
+    print (&quot;\nYou laid in wait. The shimmering sword attracted &quot;
+    &quot;the orc, which thought you were no match. As he walked &quot;
+    &quot;closer and closer, your heart beat rapidly. As the orc &quot;
+    &quot;reached out to grab the sword, you pierced the blade into &quot;
+    &quot;its chest. \n\nYou survived!&quot;)
+   else: #If the user didn&apos;t grab the sword
+     print (&quot;\nYou should have picked up that sword. You&apos;re &quot;
+     &quot;defenseless. \n\nYou died!&quot;)
+  elif choice in answer_C:
+    print (&quot;As the orc enters the dark cave, you sliently &quot;
+    &quot;sneak out. You&apos;re several feet away, but the orc turns &quot;
+    &quot;around and sees you running.&quot;)
+    option_run()
+  else:
+    print (required)
+    option_cave()
+
+def option_run():
+  print (&quot;\nYou run as quickly as possible, but the orc&apos;s &quot;
+  &quot;speed is too great. You will:&quot;)
+  time.sleep(1)
+  print (&quot;&quot;&quot;  A. Hide behind boulder
+  B. Trapped, so you fight
+  C. Run towards an abandoned town&quot;&quot;&quot;)
+  choice = input(&quot;&amp;gt;&amp;gt;&amp;gt; &quot;)
+  if choice in answer_A:
+    print (&quot;You&apos;re easily spotted. &quot;
+    &quot;\n\nYou died!&quot;)
+  elif choice in answer_B:
+    print (&quot;\nYou&apos;re no match for an orc. &quot;
+    &quot;\n\nYou died!&quot;)
+  elif choice in answer_C:
+    option_town()
+  else:
+    print (required)
+    option_run()
+    
+def option_town():
+  print (&quot;\nWhile frantically running, you notice a rusted &quot;
+  &quot;sword lying in the mud. You quickly reach down and grab it, &quot;
+  &quot;but miss. You try to calm your heavy breathing as you hide &quot;
+  &quot;behind a delapitated building, waiting for the orc to come &quot;
+  &quot;charging around the corner. You notice a purple flower &quot;
+  &quot;near your foot. Do you pick it up? Y/N&quot;)
+  choice = input(&quot;&amp;gt;&amp;gt;&amp;gt; &quot;)
+  if choice in yes:
+    flower = 1 #adds a flower
+  else:
+    flower = 0
+  print (&quot;You hear its heavy footsteps and ready yourself for &quot;
+  &quot;the impending orc.&quot;)
+  time.sleep(1)
+  if flower &amp;gt; 0:
+    print (&quot;\nYou quickly hold out the purple flower, somehow &quot;
+    &quot;hoping it will stop the orc. It does! The orc was looking &quot;
+    &quot;for love. &quot;
+    &quot;\n\nThis got weird, but you survived!&quot;)
+  else: #If the user didn&apos;t grab the sword
+     print (&quot;\nMaybe you should have picked up the flower. &quot;
+     &quot;\n\nYou died!&quot;)
+
+intro()
+
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;9-run-the-game-and-enjoy&quot;&gt;9. Run the Game and Enjoy&lt;/h3&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;p class=&quot;console&quot;&gt;python text_game.py&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it! You have successfully set up, configured and tested python.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><category term="python" /><category term="setup" /><category term="configuration" /><category term="ubuntu 20.04" /><summary type="html">Ubuntu 20.04 ships with Python 3 pre-installed. This guide explains how to configure and set up environments for python projects.</summary></entry><entry><title type="html">How to Deploy A Rails 6 App to Heroku: Using Heroku Git</title><link href="http://0.0.0.0:4000/category/cloud/heroku/tutorials/202012/deploy-rails-6-app-to-heroku-using-heroku-git" rel="alternate" type="text/html" title="How to Deploy A Rails 6 App to Heroku: Using Heroku Git" /><published>2020-12-14T10:45:06+03:00</published><updated>2020-12-14T10:45:06+03:00</updated><id>http://0.0.0.0:4000/category/cloud/heroku/tutorials/202012/deploy-rails-6-app-to-heroku-using-heroku-git</id><content type="html" xml:base="http://0.0.0.0:4000/category/cloud/heroku/tutorials/202012/deploy-rails-6-app-to-heroku-using-heroku-git">&lt;p&gt;Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps. The platform is elegant, flexible, and easy to use, offering developers the simplest path to getting their apps to market.&lt;/p&gt;
+
+&lt;p&gt;This tutorial will teach you how to deploy your rails 6 app to heroku.&lt;/p&gt;
+
+&lt;table class=&quot;table table-bordered&quot;&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th colspan=&quot;5&quot; style=&quot;text-align: center;&quot;&gt;The guide assumes that you:&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+       &lt;td&gt;1. are using linux ubuntu as your OS&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+       &lt;td&gt;2. have installed git on your machine&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+       &lt;td&gt;3. have a Rails 6 project ready to be deployed&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+       &lt;td&gt;4. are using postgres as your app’s database&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+       &lt;td&gt;5. have opened an account with heroku &lt;/td&gt;
+      &lt;/tr&gt;
+      
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you don’t have a Heroku account, &lt;a href=&quot;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwiAttb4ic3tAhWUsnEKHX63D6IQFjAAegQIARAD&amp;amp;url=https%3A%2F%2Fsignup.heroku.com%2F&amp;amp;usg=AOvVaw2kG63H0ONIjUijpD8T5fVY&quot; target=&quot;_blank&quot;&gt;open an account&lt;/a&gt; with heroku&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lets begin:&lt;/p&gt;
+
+&lt;h3 id=&quot;1-install-heroku-cli&quot;&gt;1. Install Heroku CLI&lt;/h3&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;p class=&quot;console&quot;&gt;sudo snap install --classic heroku&lt;/p&gt;
+
+&lt;h5 class=&quot;hashed&quot;&gt;# Verify your installation&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;heroku --version&lt;/p&gt;
+  &lt;h5 class=&quot;hashed&quot;&gt;heroku/7.47.4 linux-x64 node-v12.16.2&lt;/h5&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;2-login-to-heroku&quot;&gt;2. Login to Heroku&lt;/h3&gt;
+&lt;p&gt;After you install the CLI, run the heroku login command. You’ll be prompted to enter any key to go to your web browser to complete the login process. The CLI will then log you in automatically.&lt;/p&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;p class=&quot;console&quot;&gt;heroku login&lt;/p&gt;
+  &lt;h5 class=&quot;hashed&quot;&gt;
+   heroku: Press any key to open up the browser to login or q to exit
+   &lt;br /&gt; ›   Warning: If browser does not open, visit
+   &lt;br /&gt; ›   https://cli-auth.heroku.com/auth/browser/***
+   &lt;br /&gt;heroku: Waiting for login...
+   &lt;br /&gt;Logging in... done
+   &lt;br /&gt;Logged in as me@example.com
+  &lt;/h5&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+If you’d prefer to stay in the CLI to enter your credentials, you may run heroku login -i&lt;/p&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;p class=&quot;console&quot;&gt;heroku login -i&lt;/p&gt;
+  &lt;h5 class=&quot;hashed&quot;&gt;
+   heroku: Enter your login credentials
+   &lt;br /&gt; Email: me@example.com
+   &lt;br /&gt; Password: ***************
+   &lt;br /&gt; Two-factor code: ********
+   &lt;br /&gt; Logged in as me@heroku.com
+  &lt;/h5&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-create-your-app-in-heroku&quot;&gt;3. Create Your App in Heroku&lt;/h3&gt;
+&lt;p&gt;Open Heroku site, go to dashboard and &lt;a href=&quot;https://dashboard.heroku.com/new-app&quot; target=&quot;_blank&quot;&gt;create&lt;/a&gt; a new app.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;4-update-git-remotes&quot;&gt;4. Update Git Remotes&lt;/h3&gt;
+&lt;p&gt;Open your rails 6 app on terminal in your local machine and follow the commands below:&lt;/p&gt;
+
+&lt;p&gt;Update your git remotes to match the name of the app you created previously on Heroku site. Replace app-name with that name.&lt;/p&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;# go to the root of your project&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;cd ~/myapp&lt;/p&gt;
+&lt;br /&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;# initialize git for your project&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;git init&lt;/p&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;Initialized empty Git repository in .git/&lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;# set up git remotes&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;heroku git:remote -a  app-name&lt;/p&gt;
+  &lt;h5 class=&quot;hashed&quot;&gt;
+   module: @oclif/config@1.17.0
+   &lt;br /&gt;task: runHook prerun
+   &lt;br /&gt;plugin: heroku
+   &lt;br /&gt;root: /snap/heroku/4010
+   &lt;br /&gt;See more details with DEBUG=*
+   &lt;br /&gt;set git remote heroku to https://git.heroku.com/app-name.git
+  &lt;/h5&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;5-deploy-your-rails-6-app&quot;&gt;5. Deploy Your Rails 6 App&lt;/h3&gt;
+&lt;p&gt;Stage, commit and push your rails 6 project to Heroku.&lt;/p&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;p class=&quot;console&quot;&gt;cd ~/myapp&lt;/p&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;# verify git remote&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;git remote -v&lt;/p&gt;
+ &lt;h5 class=&quot;hashed&quot;&gt;
+      heroku	https://git.heroku.com/app-name.git (fetch)
+  &lt;br /&gt;heroku	https://git.heroku.com/app-name.git (push)
+ &lt;/h5&gt;
+&lt;br /&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;# stage your project&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;git add .&lt;/p&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;# commit&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;git commit -m &apos;Initial commit&apos;&lt;/p&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;# push&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;git push heroku master&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;6-setup-your-database&quot;&gt;6. Setup your database&lt;/h3&gt;
+&lt;p&gt;Set up database&lt;/p&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;# migrate database&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;heroku run rake db:migrate&lt;/p&gt;
+&lt;h5 class=&quot;hashed&quot;&gt;# open your deployed site&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;heroku open&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; In case of webpack error after deploying:&lt;/p&gt;
+
+&lt;p&gt;Create app/javascript/stylesheets folder and add in that folder, create an empty application.scss file&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;Then open app/javascript/packs/application.js file and import added file to your pack js file with;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;import ‘../stylesheets/application’;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;Let webpacker compile again all files with css/scss file. Then stage, commit and push again.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it! You have successfully deployed a Rails 6 app to Heroku.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="cloud" /><category term="heroku" /><category term="deploy" /><category term="rails" /><category term="heroku-git" /><summary type="html">Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps. The platform is elegant, flexible, and easy to use, offering developers the simplest path to getting their apps to market.</summary></entry><entry><title type="html">Upgrade Ubuntu</title><link href="http://0.0.0.0:4000/category/os/ubuntu/installations/202006/upgrade-ubuntu" rel="alternate" type="text/html" title="Upgrade Ubuntu" /><published>2020-06-13T14:22:00+03:00</published><updated>2020-06-13T14:22:00+03:00</updated><id>http://0.0.0.0:4000/category/os/ubuntu/installations/202006/upgrade-ubuntu</id><content type="html" xml:base="http://0.0.0.0:4000/category/os/ubuntu/installations/202006/upgrade-ubuntu">&lt;p&gt;In this tutorial we are going to upgrade ubuntu from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ubuntu 18.10&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ubuntu 20.04 LTS&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;NB: If the version of ubuntu we are upgrading from is past it’s end of life support, we follow Method 2 otherwise we follow Method 1.&lt;/p&gt;
+
+&lt;section class=&quot;ftco-section ftco-no-pb ftco-no-pt&quot; id=&quot;chapter-section&quot;&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;div class=&quot;row justify-content-center py-5 mt-5&quot;&gt;
+&lt;div class=&quot;col-md-12 heading-section text-center ftco-animate&quot;&gt;
+&lt;h2 id=&quot;method-1&quot; class=&quot;mb-4&quot;&gt;METHOD 1&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;row&quot;&gt;
+&lt;div class=&quot;col-md-3 mb-4&quot;&gt;
+&lt;nav id=&quot;navi&quot;&gt;
+    &lt;ul&gt;
+     &lt;li&gt;&lt;a href=&quot;#method-1&quot;&gt;METHOD 1&lt;/a&gt;
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#page-1&quot;&gt;Step 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#page-2&quot;&gt;Step 2&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+     &lt;/li&gt;
+     &lt;li&gt;&lt;a href=&quot;#method-2&quot;&gt;METHOD 2&lt;/a&gt;
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#page-3&quot;&gt;Step 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#page-4&quot;&gt;Step 2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#page-5&quot;&gt;Step 3&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#page-6&quot;&gt;Step 4&lt;/a&gt;&lt;/li&gt;            
+      &lt;/ul&gt;
+     &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-md-9&quot;&gt;
+  &lt;div id=&quot;page-1&quot; class=&quot;page bg-light one&quot;&gt;
+  	&lt;h2 class=&quot;heading center&quot;&gt;Update all installed packages&lt;/h2&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;p class=&quot;console&quot;&gt;sudo apt update&lt;/p&gt;
+&lt;p class=&quot;console&quot;&gt;sudo apt upgrade&lt;/p&gt;
+
+&lt;h5 class=&quot;hashed&quot;&gt;# Remove unused kernels to free up the space from /boot partition&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;sudo apt autoremove&lt;/p&gt;
+
+&lt;p class=&quot;console&quot;&gt;sudo reboot&lt;/p&gt;   
+&lt;/div&gt;
+&lt;/section&gt;					  						  	
+  &lt;/div&gt;
+  
+  &lt;div id=&quot;page-2&quot; class=&quot;page bg-light two&quot;&gt;
+  	&lt;h2 class=&quot;heading center&quot;&gt;Installation Process&lt;/h2&gt;
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+    &lt;h5 class=&quot;hashed&quot;&gt;#1. Execute below command to install “update-manager-core“, as it is required for upgrade, though on most of the systems it should be installed by default. In case it is not installed run below command&lt;/h5&gt;
+
+&lt;p class=&quot;console&quot;&gt;sudo apt install update-manager-core -y&lt;/p&gt;
+
+    &lt;h5 class=&quot;hashed&quot;&gt;#2. Begin upgrade process&lt;/h5&gt;
+&lt;p class=&quot;console&quot;&gt;do-release-upgrade&lt;/p&gt;
+  
+&lt;/div&gt;
+&lt;/section&gt;					  						  		
+  &lt;/div&gt;
+
+&lt;div class=&quot;row justify-content-center py-5 mt-5&quot;&gt;
+&lt;div class=&quot;col-md-12 heading-section text-center ftco-animate&quot;&gt;
+&lt;h2 id=&quot;method-2&quot; class=&quot;mb-4&quot;&gt;METHOD 2&lt;/h2&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;We cannot upgrade ubuntu from a version that has reached it&apos;s end of life support with Method 1 above. But there&apos;s a workaround which involves changing a few files and upgrading incrementally from one version to the next i.e we go from `18.10` to `19.04` to `19.10` and finally to `20.04`
+&lt;/p&gt; 
+  &lt;div id=&quot;page-3&quot; class=&quot;page bg-light two&quot;&gt;
+  	&lt;h2 class=&quot;heading center&quot;&gt;Point to the correct repository&lt;/h2&gt;
+ 	
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+&lt;p class=&quot;console&quot;&gt;sudo nano /etc/apt/sources.list&lt;/p&gt; 
+&lt;/div&gt;
+&lt;/section&gt;
+The above file originally has these lines of code among others:
+
+NB: Keep in mind, our ubuntu here is 18.10 hence the code name &quot;cosmic&quot;. And this varies with the ubuntu version you are using. 
+
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;archive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restricted&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;archive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;updates&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restricted&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;archive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;universe&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;archive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;updates&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;universe&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;archive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiverse&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;archive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;updates&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiverse&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;archive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backports&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restricted&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;universe&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiverse&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restricted&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;universe&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiverse&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+
+
+If the ubuntu version we are upgrading to is past it&apos;s end of life support it is &quot;obsolete&quot; and it&apos;s archive has been moved to &quot;old-releases&quot;, so you will need to edit /etc/apt/sources.list to point to: &quot;deb http://old-releases.ubuntu.com/ubuntu&quot; like so:
+
+
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic main restricted #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to.Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ disco main restricted &lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disco&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restricted&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-updates main restricted #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ disco-updates main restricted &lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disco&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;updates&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restricted&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic universe #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ disco universe &lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disco&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;universe&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-updates universe #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ disco-updates universe &lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disco&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;updates&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;universe&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic multiverse #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ disco multiverse &lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disco&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiverse&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-updates multiverse #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ disco-updates multiverse &lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disco&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;updates&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiverse&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-backports main restricted universe multiverse #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ disco-backports main restricted universe multiverse &lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disco&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;backports&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restricted&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;universe&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiverse&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# deb http://security.ubuntu.com/ubuntu cosmic-security main restricted #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://security.ubuntu.com/ubuntu disco-security main restricted &lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disco&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restricted&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# deb http://security.ubuntu.com/ubuntu cosmic-security universe #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://security.ubuntu.com/ubuntu disco-security universe &lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cosmic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;universe&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# deb http://security.ubuntu.com/ubuntu cosmic-security multiverse #current version. comment it out&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# deb http://security.ubuntu.com/ubuntu disco-security multiverse &lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;old&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;releases&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;disco&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;security&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiverse&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+					  						  		
+&lt;/div&gt;
+
+  &lt;div id=&quot;page-4&quot; class=&quot;page bg-light two&quot;&gt;
+  	&lt;h2 class=&quot;heading center&quot;&gt;Installation Process&lt;/h2&gt;
+ 	
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+    &lt;h5 class=&quot;hashed&quot;&gt;#1. Open release-upgrades file and make sure it has &quot;Prompt=normal&quot;&lt;/h5&gt;
+    &lt;p class=&quot;console&quot;&gt;sudo nano /etc/update-manager/release-upgrades&lt;/p&gt;
+
+    &lt;h5 class=&quot;hashed&quot;&gt;#2. Edit the cached update list which is in: ~/.cache/update-manager-core/meta-release. Make sure the supported flag of your ubuntu code name reads &quot;1&quot;. e.g in our case we change &quot;cosmic&quot; supported flag from &quot;0&quot; to &quot;1&quot;&lt;/h5&gt; 
+    &lt;p class=&quot;console&quot;&gt;sudo nano ~/.cache/update-manager-core/meta-release&lt;/p&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;  
+ 
+  &lt;div id=&quot;page-5&quot; class=&quot;page bg-light two&quot;&gt;
+  	&lt;h2 class=&quot;heading center&quot;&gt;Update all installed packages&lt;/h2&gt;
+ 	
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+    &lt;p class=&quot;console&quot;&gt;sudo apt update&lt;/p&gt;
+    &lt;p class=&quot;console&quot;&gt;sudo apt upgrade&lt;/p&gt;
+    &lt;p class=&quot;console&quot;&gt;sudo apt autoremove&lt;/p&gt;
+    &lt;h5 class=&quot;hashed&quot;&gt;# Restart your machine&lt;/h5&gt;     
+    &lt;p class=&quot;console&quot;&gt;sudo reboot&lt;/p&gt;                    
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt; 
+
+  &lt;div id=&quot;page-6&quot; class=&quot;page bg-light two&quot;&gt;
+  	&lt;h2 class=&quot;heading center&quot;&gt;Upgrade Process&lt;/h2&gt;
+ 	
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+    &lt;h5 class=&quot;hashed&quot;&gt;#1. Open release-upgrades file and make sure it has &quot;Prompt=normal&quot;&lt;/h5&gt;
+    &lt;p class=&quot;console&quot;&gt;sudo nano /etc/update-manager/release-upgrades&lt;/p&gt;
+
+    &lt;h5 class=&quot;hashed&quot;&gt;#2. Edit the cached update list which is in: ~/.cache/update-manager-core/meta-release. Make sure the supported flag of your ubuntu code name reads &quot;1&quot;. e.g in our case we change &quot;disco&quot; supported flag from &quot;0&quot; to &quot;1&quot;&lt;/h5&gt; 
+    &lt;p class=&quot;console&quot;&gt;sudo nano ~/.cache/update-manager-core/meta-release&lt;/p&gt;
+
+    &lt;h5 class=&quot;hashed&quot;&gt;#3. Begin upgrade process&lt;/h5&gt;
+    &lt;p class=&quot;console&quot;&gt;do-release-upgrade&lt;/p&gt;                 
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;/div&gt;  
+ 
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/section&gt;
+
+&lt;p&gt;We repeat steps 1 through 4 for the next versions. Arduous but works like a charm.&lt;/p&gt;
+
+&lt;p&gt;That’s it!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="os" /><summary type="html">In this tutorial we are going to upgrade ubuntu from ubuntu 18.10 to ubuntu 20.04 LTS.</summary></entry><entry><title type="html">Ruby on Rails Best Practices</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/theories/202006/ruby-on-rails-best-practices" rel="alternate" type="text/html" title="Ruby on Rails Best Practices" /><published>2020-06-10T16:53:00+03:00</published><updated>2020-06-10T16:53:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/theories/202006/ruby-on-rails-best-practices</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/theories/202006/ruby-on-rails-best-practices">&lt;h4 id=&quot;1-space-indentations&quot;&gt;1. Space Indentations&lt;/h4&gt;
+
+&lt;p&gt;One of the easiest and most widely agreed-upon Ruby on Rails best practices is to use two space indentations instead of four space indentations. Additionally, most Ruby on Rails developers agree on never using tabs, which includes not mixing tabs and spaces. This will keep long strings of code easier to read and maintain.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;some_method&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;some_var&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;some_var&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;do_something&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;do_something_else&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-iteration-use-each-instead-of-for&quot;&gt;2. Iteration: Use each Instead of for&lt;/h4&gt;
+
+&lt;p&gt;Use each instead of a for when iterating through a collection. It is simply more readable.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;#for loop&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# each&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3-conditionals-use-unless-instead-of-if&quot;&gt;3. Conditionals: Use unless Instead of !if:&lt;/h4&gt;
+
+&lt;p&gt;Avoid using an if statement with a negative condition unless you need to involve an else to your conditional.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;# don&apos;t do this&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;do_this&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# or&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;pluto&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;do_that&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# use Ruby’s exclusive unless&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;do_this&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;pluto&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;do_that&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;That’s it!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">1. Space Indentations</summary></entry><entry><title type="html">Git Cheatsheet</title><link href="http://0.0.0.0:4000/category/vcs/github/cheatsheet/202006/git-cheatsheet" rel="alternate" type="text/html" title="Git Cheatsheet" /><published>2020-06-09T17:07:06+03:00</published><updated>2020-06-09T17:07:06+03:00</updated><id>http://0.0.0.0:4000/category/vcs/github/cheatsheet/202006/git-cheatsheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/vcs/github/cheatsheet/202006/git-cheatsheet">&lt;p&gt;Git is used as a version control system. If you don’t already have a Github account, &lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot;&gt;register&lt;/a&gt; one.&lt;/p&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# List SSH keys on your machine&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;ls -al ~/.ssh&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Switching remote URL from SSH to HTTPS&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;git remote set-url origin https://github.com/USERNAME/REPOSITORY.git&lt;/p&gt;
+ 
+ &lt;h5 class=&quot;hashed&quot;&gt;# Switching remote URL from HTTPS to SSH&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;git remote set-url origin git@github.com:USERNAME/REPOSITORY.git&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Create a new branch&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;git checkout -b your_branch_name&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# List available branches&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;git branch&lt;/p&gt;
+ 
+ &lt;h5 class=&quot;hashed&quot;&gt;# Navigate to a branch&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;git checkout your_branch_name&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Check Git status&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;git status&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Force unrelated merge&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;git merge your_branch_name --allow-unrelated-histories&lt;/p&gt;
+  
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. If you don’t already have a Github account, register one.</summary></entry><entry><title type="html">Add SSH Key to a Git Repository</title><link href="http://0.0.0.0:4000/category/vcs/github/configurations/202006/add-ssh-key-to-git-repository" rel="alternate" type="text/html" title="Add SSH Key to a Git Repository" /><published>2020-06-09T17:07:06+03:00</published><updated>2020-06-09T17:07:06+03:00</updated><id>http://0.0.0.0:4000/category/vcs/github/configurations/202006/add-ssh-key-to-git-repository</id><content type="html" xml:base="http://0.0.0.0:4000/category/vcs/github/configurations/202006/add-ssh-key-to-git-repository">&lt;p&gt;Git is used as a version control system. In this tutorial we are going to set up SSH to a repository. If you don’t already have a Github account, &lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot;&gt;register&lt;/a&gt; one.&lt;/p&gt;
+
+&lt;h4 align=&quot;center&quot;&gt;STEP 1: &lt;h5 align=&quot;center&quot;&gt;Generate the SSH Key&lt;/h5&gt;&lt;/h4&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Generate SSH key: Replace my email address in the following steps with the ones you used for your Github account.&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;ssh-keygen -t rsa -b 4096 -C &quot;YOUR@EMAIL.com&quot;&lt;/p&gt;
+ 
+ &lt;h5 class=&quot;hashed&quot;&gt;# You will get a message similar to the one below&lt;/h5&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;#Enter the path and the file name after the prompt. Notice how the path matches the one above&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;/home/pc_user/.ssh/name_of_your_key&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# You will be prompted to enter a paraphrase. You can leave it blank and press enter if you like&lt;/h5&gt;
+ 
+ &lt;h5 class=&quot;hashed&quot;&gt;# Copy SSH key. This command outputs your SSH key on the terminal. Highlight everything and copy.&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;cat ~/.ssh/name_of_your_key.pub&lt;/p&gt;
+   
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 align=&quot;center&quot;&gt;STEP 2: &lt;h5 align=&quot;center&quot;&gt;Copy the generated SSH key and add it to your Github repository&lt;/h5&gt;&lt;/h4&gt;
+&lt;p&gt;You do that by opening your repository, go to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;settings&lt;/code&gt; menu of that repository. Then click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deploy keys&lt;/code&gt;, click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add&lt;/code&gt; and paste the key.&lt;/p&gt;
+
+&lt;p&gt;That’s it!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. In this tutorial we are going to set up SSH to a repository. If you don’t already have a Github account, register one.</summary></entry><entry><title type="html">Ruby &amp;amp; Ruby on Rails Errors</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors" rel="alternate" type="text/html" title="Ruby &amp;amp; Ruby on Rails Errors" /><published>2020-06-09T15:51:06+03:00</published><updated>2020-06-09T15:51:06+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors">&lt;h4 align=&quot;center&quot;&gt;ERROR TYPE: &lt;h5 align=&quot;center&quot;&gt;Dependency Error&lt;/h5&gt;&lt;/h4&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Error when trying to run a jekyll project&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;Dependency Error: Yikes! It looks like you don&apos;t have jekyll-commonmark-ghpages or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;incompatible library version - /home/koby/gems/gems/commonmarker-0.17.13/lib/commonmarker/commonmarker.so&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Step 1:&lt;/h5&gt;
+ &lt;h5 class=&quot;hashed&quot;&gt;# Warning! This will uninstall bundler and all other gems&lt;/h5&gt;
+ &lt;h5 class=&quot;hashed&quot;&gt;# a removes all versions&lt;/h5&gt;
+ &lt;h5 class=&quot;hashed&quot;&gt;# I ignores dependencies&lt;/h5&gt;
+ &lt;h5 class=&quot;hashed&quot;&gt;# x includes executables&lt;/h5&gt;
+
+ 
+ &lt;h5 class=&quot;hashed&quot;&gt;For Rubygems &amp;gt;= 2.1.0:&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;gem uninstall -aIx&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;For Rubygems &amp;lt; 2.1.0:&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;for i in `gem list --no-versions`; do gem uninstall -aIx $i; done&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# If the above didn&apos;t work: You could also build out a new Gemfile and run bundle clean --force. This will remove all other gems that aren&apos;t included in the new Gemfile.&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;bundle clean --force&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Step 2:&lt;/h5&gt;
+ 
+ &lt;h5 class=&quot;hashed&quot;&gt;# Now install the version of bundler required by your project&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;gem install bundler:2.1.4&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Step 3:&lt;/h5&gt;
+ 
+ &lt;h5 class=&quot;hashed&quot;&gt;#After this everything should be ok!&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;bundle install&lt;/p&gt;
+   
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">ERROR TYPE: Dependency Error</summary></entry><entry><title type="html">rbenv Cheat Sheet</title><link href="http://0.0.0.0:4000/category/programming/ruby/rbenv/cheatsheet/202006/rbenv-cheatsheet" rel="alternate" type="text/html" title="rbenv Cheat Sheet" /><published>2020-06-06T14:17:06+03:00</published><updated>2020-06-06T14:17:06+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/rbenv/cheatsheet/202006/rbenv-cheatsheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/rbenv/cheatsheet/202006/rbenv-cheatsheet">&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+ &lt;h5 class=&quot;hashed&quot;&gt;# list all available versions&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;rbenv install -l&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# install a specific Ruby version&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;rbenv install 2.7.1&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Install rbenv&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;brew install rbenv&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Set a local application-specific Ruby version&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;rbenv local 2.0.0&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Set a global Ruby version (default version)&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;rbenv global 2.7.1&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Completely uninstall rbenv&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;brew uninstall rbenv&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Set a shell-specific Ruby version by setting the RBENV_VERSION environment variable in your shell.&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;rbenv shell 2.2.1&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# List all Ruby versions known to rbenv&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;rbenv versions&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Display the current active Ruby version (current opened project)&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;rbenv version&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Run this command after you install a new version of Ruby or install a gem that provides commands if you&apos;re using rbenv&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;rbenv rehash&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Display the full path to the executable that rbenv will invoke&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;rbenv which irb&lt;/p&gt;
+  
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">user@local_machine</summary></entry><entry><title type="html">Configure Git on Ubuntu 18.10 Cosmic Canimal</title><link href="http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10" rel="alternate" type="text/html" title="Configure Git on Ubuntu 18.10 Cosmic Canimal" /><published>2020-06-06T14:17:06+03:00</published><updated>2020-06-06T14:17:06+03:00</updated><id>http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10</id><content type="html" xml:base="http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10">&lt;p&gt;Git is used as a version control system. In this tutorial we are going to set it up to match our Github account. If you don’t already have a Github account, &lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot;&gt;register&lt;/a&gt; one.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu version: 18.10&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 align=&quot;center&quot;&gt;STEP 1: &lt;h5 align=&quot;center&quot;&gt;Account Configuration&lt;/h5&gt;&lt;/h4&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Replace name and email in the following steps with the ones you used for your Github account.&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;git config --global color.ui true&lt;/p&gt;
+
+ &lt;p class=&quot;console&quot;&gt;git config --global user.name &quot;YOUR NAME&quot;&lt;/p&gt;
+
+ &lt;p class=&quot;console&quot;&gt;git config --global user.email &quot;YOUR@EMAIL.com&quot;&lt;/p&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Generate SSH key&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;ssh-keygen -t rsa -b 4096 -C &quot;YOUR@EMAIL.com&quot;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 align=&quot;center&quot;&gt;STEP 2: &lt;h5 align=&quot;center&quot;&gt;Copy the generated SSH key and add it to your Github account&lt;/h5&gt;&lt;/h4&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+
+ &lt;h5 class=&quot;hashed&quot;&gt;# Copy SSH key. This command outputs your SSH key on the terminal. Highlight everything and copy.&lt;/h5&gt;
+ &lt;p class=&quot;console&quot;&gt;cat ~/.ssh/id_rsa.pub&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Paste the output of the above command &lt;a href=&quot;https://github.com/settings/ssh&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; . &lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h4 align=&quot;center&quot;&gt;STEP 3: &lt;h5 align=&quot;center&quot;&gt;Verify it Worked&lt;/h5&gt;&lt;/h4&gt;
+
+&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
+&lt;header class=&quot;terminal&quot;&gt;
+&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
+user@local_machine
+&lt;/header&gt;
+
+&lt;div class=&quot;terminal-home&quot;&gt;
+
+ &lt;p class=&quot;console&quot;&gt;ssh -T git@github.com&lt;/p&gt;
+ &lt;h5 class=&quot;hashed&quot;&gt;Hi user_name! You&apos;ve successfully authenticated but GitHub does not provide shell access.&lt;/h5&gt;
+ 
+&lt;/div&gt;
+&lt;/section&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s it!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. In this tutorial we are going to set it up to match our Github account. If you don’t already have a Github account, register one.</summary></entry></feed>
