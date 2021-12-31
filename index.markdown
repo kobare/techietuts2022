@@ -20,7 +20,7 @@ layout: home
 <div id="z-wrapper">
     <div class="home-banner xxzig-zag-bottom">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1>Let's code in Ruby, JS, CSS, Python and More...</h1>             
+      <h1>Ruby, JS, CSS, Python and More...</h1>             
     </div>
 </div>
 
@@ -36,7 +36,7 @@ layout: home
           <div class="grid-image"><img src="{{ post.img }}"></div>
           <div class="grid-title">
             <p style="font-size: 18px; font-weight: 600; text-align: left;"><a href="{{ site_url }}{{ post.url | append: site.baseurl }}" style="color: inherit; text-decoration: none;">{{ post.title }}</a></p>
-            <p style="font-size: 12px; font-weight: 600; text-align: left;"><i class="fa fa-user"></i> {{ post.author }} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ post.date | date: "%B %Y" }}</p>
+            <p style="font-size: 12px; font-weight: 600; text-align: left;"><i class="fa fa-user"></i> {% if post.author == "Denis Kobare" %} Techie {% else %} {{ post.author }} {% endif %} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ post.date | date: "%B %Y" }}</p>
           </div>          
         </div>
         {% endfor %}                

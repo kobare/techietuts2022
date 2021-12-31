@@ -17,7 +17,7 @@ layout: default
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
       <h1 style="padding: -50px">{{page.title}}</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i> {{ page.author }} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ page.date | date: "%B %Y" }}</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i> {% if page.author == "Denis Kobare" %} Techie {% else %} {{ page.author }} {% endif %} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ page.date | date: "%B %Y" }}</p>
     <div>
                 <!-- Page content object inserted below -->
         {{page.content | markdownify}}

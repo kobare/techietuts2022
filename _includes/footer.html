@@ -17,7 +17,7 @@
     <div class="center-icon grid-image"><img src="{{ post.img }}"></div>
     <div class="white-text grid-title" style="text-align: left;">
      <p class="footer-post-title"><a href="{{ site_url }}{{ post.url | append: site.baseurl }}">{{ post.title }}</a></p>
-     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i> {{ post.author }} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ post.date | date: "%B %Y" }}</p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i> {% if post.author == "Denis Kobare" %} Techie {% else %} {{ post.author }} {% endif %} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ post.date | date: "%B %Y" }}</p>
     </div>          
     
    {% endfor %}
@@ -47,8 +47,9 @@
  </div> 
   
   <div class="bottom-footer txt-center">
-    <div>
-    <a class="white-text" href="{{ site_url }}{{ '/category/blog' | append: site.baseurl }}">Blog</a> | About 
+    <div><!--
+    <a class="white-text" href="{{ site_url }}{{ '/category/blog' | append: site.baseurl }}">Blog</a> | About
+    --> 
     </div>
     <div>
       Privacy Statement | Disclaimer Statement
