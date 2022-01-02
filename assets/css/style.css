@@ -1,3 +1,12 @@
+:root { 
+  --navy: #001f35;
+  --navy-1: #072c46;
+  --navy-2: #667986;
+  --navy-4: #ccd2d7;
+  --navy-5: #e5e9eb;
+  --navy-6: #011627;
+ }
+
 body {
   margin: 0;
   background-color: #f1f1f1;
@@ -386,7 +395,7 @@ h2.recent-header{
   display: none;
   /* opacity: 0.9; */
   position: absolute;
-  background-color: #323a56;
+  background-color: var(--navy); /* #323a56; */
   width: 100%;
   left: 0;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -394,7 +403,7 @@ h2.recent-header{
 }
 
 .dropdown-content .header {
-  background: #323a56;
+  background: var(--navy); /* #323a56; */
   padding: 16px;
   color: white;
   text-align: center;
@@ -434,7 +443,7 @@ h2.recent-header{
   width: 25%;
   padding-left: 100px;
   padding-left: 100px;
-  background-color: #323a56;
+  background-color: var(--navy); /* #323a56; */
   color: #fff;
   height: 250px;
 }
@@ -477,7 +486,7 @@ h2.recent-header{
 
 .mobile-nav {
   overflow: scroll;
-  background-color: #202658; /* #1f618d; */
+  background-color: var(--navy); /* #202658; */ /* #1f618d; */
   box-shadow: 0 1px 4px rgba(39,44,49,.15);
   position: sticky;
   top: 0;
@@ -498,7 +507,7 @@ h2.recent-header{
 }
 
 .mobile-nav a.icon {
-  background: #202658; /* #1f618d; */
+  background: var(--navy); /* #202658; */ /* #1f618d; */
   display: block;
   position: absolute;
   right: 0;
@@ -599,7 +608,7 @@ h2.recent-header{
 .footer {
   position: relative;
   bottom: 0;
-  background: #313970;
+  background: var(--navy-1); /* #313970; */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -623,7 +632,7 @@ h2.recent-header{
 }
 
 .bottom-footer {
-  background: #202658;
+  background: var(--navy); /* #202658; */
   height: 143.567px;
   color: #fff;
   text-transform: capitalize;
