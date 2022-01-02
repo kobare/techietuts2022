@@ -9,6 +9,10 @@ body {
 
 }
 
+@font-face {font-family: "CamphorPro-Regular";
+  src: url('../fonts/CamphorPro-Regular.ttf');
+}
+
 
 .center {
   margin: auto;
@@ -305,6 +309,7 @@ h2.recent-header{
 
 .navbar {
   background-color: #fff;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
   position: fixed;
   top: 0;
   width: 100%;
@@ -402,7 +407,7 @@ h2.recent-header{
 .header h2{
  text-transform: uppercase;
 }
-
+ 
 .search a {
  text-decoration: none;
  color: #fff;
@@ -473,6 +478,7 @@ h2.recent-header{
 .mobile-nav {
   overflow: scroll;
   background-color: #202658; /* #1f618d; */
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
   position: sticky;
   top: 0;
   width: 100%;

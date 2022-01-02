@@ -3,34 +3,54 @@ layout: default
 ---
 
 <style>
-.reduce-size{
-  padding: 30px;
- /* background-color: #efefef; */
-  width: 1080px;
+
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
   max-width: 100%;
-  margin: 0 auto;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
+  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
+
+@media(max-width: 81rem) {
+
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
 }
 </style>
-<div class="main-content">
-  <div class="content">
+<div class="main-content reduce-size main-content-tweak">
+
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px">{{page.title}}</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">{{page.title}}</h1>             
     </div>
     <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i> {% if page.author == "Denis Kobare" %} Techie {% else %} {{ page.author }} {% endif %} &nbsp; &nbsp;<i class="fa fa-calendar"></i> {{ page.date | date: "%B %Y" }}</p>
     <div>
                 <!-- Page content object inserted below -->
         {{page.content | markdownify}}
    </div>
- </div>   
+
+   <div>
+     {% include newsletter.html %}
+   </div>
+     
+   <div>
+     {% include disqus.html %}
+   </div>
+   
 </div>
 
 <br>
-<section>
-        {% include newsletter.html %}
-</section>
 
-
-<section class="reduce-size bg-light">
-        {% include disqus.html %}
-</section>
