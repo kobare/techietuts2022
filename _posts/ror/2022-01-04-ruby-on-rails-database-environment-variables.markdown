@@ -58,7 +58,7 @@ Rails.application.initialize!
 {% endhighlight %} 
 
 <br>
-With the these steps you are done setting up the environment variables for your database. Now if you open the rails console and enter this ENV['MYSQL_USERNAME'], it should output the content of that variable
+With the these steps you are done setting up the environment variables for your database. Now if you open the rails console and enter this ENV['MYSQL_USERNAME'], it should output the content of that variable:
 
 {% highlight rails-console %} 
 
