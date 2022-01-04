@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-01-03T19:40:35+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">TechieTuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Build a Simple Django Blog App</title><link href="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app" rel="alternate" type="text/html" title="Build a Simple Django Blog App" /><published>2021-01-24T16:15:00+03:00</published><updated>2021-01-24T16:15:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app">&lt;p&gt;This tutorial will focus on how to create a standard Django CRUD project.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-01-04T19:55:06+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">TechieTuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Ruby on Rails Database Environment Variables</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables" rel="alternate" type="text/html" title="Ruby on Rails Database Environment Variables" /><published>2022-01-04T16:30:00+03:00</published><updated>2022-01-04T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;Environment variables are configuration variables stored in the computer for applictions to access. You can configure environment variable on your computer for all applications to access, but this article will only focus on setting up these variables for Rails applications.&lt;/p&gt;
+
+&lt;p&gt;As a developer, you want store database configuration variables i.e user name and password securely with env vars rather than ‘hard-coding’ the keys into your rails app, to avoid giving away such information when you push projects to VCS repositories online. Environment variable help you achieve that.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;setting-up-environment-variables-for-the-database-in-a-rails-app&quot;&gt;Setting Up Environment Variables For The Database in a Rails App&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;In your rails project, create a  ruby file in /config directory that will contain the ENV variables.&lt;/p&gt;
+
+    &lt;p&gt;e.g my_secret.rb, which will contain this:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# /config/my_secret.rb&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;MYSQL_USERNAME&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;admin&apos;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;MYSQL_PASSWORD&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;complexpassword&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . You want the rails app to load my_secret.rb file as soon as the serve fires up. To do that, you will use the File and load methods inside the /config/environment.rb file in the rails project. Make sure to place this code just above the line: Rails.application.initialize!&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# /config/environment.rb&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# load my_secret.rb&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;app_credentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;config&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;my_secret.rb&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app_credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;exist?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app_credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Initialize the Rails application.&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;initialize!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Ensure the my_secret.rb file is not submitted to github whenever you commit your project to github repository. To do that, open the .gitignore file and add and add the path to the file as shown below:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# .gitignore
+
+/config/my_secret.rb&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+With the these steps you are done setting up the environment variables for your database. Now if you open the rails console and enter this ENV[‘MYSQL_USERNAME’], it should output the content of that variable&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-rails-console&quot; data-lang=&quot;rails-console&quot;&gt; 
+
+$ ENV[&apos;MYSQL_USERNAME&apos;]
+
+$ admin
+
+$ ENV[&apos;MYSQL_PASSWORD&apos;] 
+
+$ complexpassword&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;accessing-the-env-variables-in-databaseyml-file&quot;&gt;Accessing the ENV Variables in database.yml file&lt;/h3&gt;
+
+&lt;p&gt;In the database.yml file, you can now access the ENV variables and not have to ‘hardcode’ the credentials in there.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt; 
+
+&lt;span class=&quot;na&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;&amp;amp;default&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql2&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;utf8mb4&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;pool&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV.fetch(&quot;RAILS_MAX_THREADS&quot;) { 5 } %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&quot;MYSQL_USERNAME&quot;] %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&quot;MYSQL_PASSWORD&quot;] %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/var/run/mysqld/mysqld.sock&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*default&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my_app_development&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*default&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my_app_test&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Note that you can easily achieve this using a gem like figaro, but it’s always good to know how to do things by yourself to enrich your understanding of how bundled solutions work.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">Build a Simple Django Blog App</title><link href="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app" rel="alternate" type="text/html" title="Build a Simple Django Blog App" /><published>2021-01-24T16:15:00+03:00</published><updated>2021-01-24T16:15:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app">&lt;p&gt;This tutorial will focus on how to create a standard Django CRUD project.&lt;/p&gt;
 
 &lt;table class=&quot;table table-bordered&quot;&gt;
     &lt;thead&gt;
@@ -1233,76 +1314,4 @@ user@local_machine
 
 &lt;p&gt;That’s it!&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">user@local_machine</summary></entry><entry><title type="html">Configure Git on Ubuntu 18.10 Cosmic Canimal</title><link href="http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10" rel="alternate" type="text/html" title="Configure Git on Ubuntu 18.10 Cosmic Canimal" /><published>2020-06-06T14:17:06+03:00</published><updated>2020-06-06T14:17:06+03:00</updated><id>http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10</id><content type="html" xml:base="http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10">&lt;p&gt;Git is used as a version control system. In this tutorial we are going to set it up to match our Github account. If you don’t already have a Github account, &lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot;&gt;register&lt;/a&gt; one.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu version: 18.10&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 align=&quot;center&quot;&gt;STEP 1: &lt;h5 align=&quot;center&quot;&gt;Account Configuration&lt;/h5&gt;&lt;/h4&gt;
-
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Replace name and email in the following steps with the ones you used for your Github account.&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;git config --global color.ui true&lt;/p&gt;
-
- &lt;p class=&quot;console&quot;&gt;git config --global user.name &quot;YOUR NAME&quot;&lt;/p&gt;
-
- &lt;p class=&quot;console&quot;&gt;git config --global user.email &quot;YOUR@EMAIL.com&quot;&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Generate SSH key&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;ssh-keygen -t rsa -b 4096 -C &quot;YOUR@EMAIL.com&quot;&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 align=&quot;center&quot;&gt;STEP 2: &lt;h5 align=&quot;center&quot;&gt;Copy the generated SSH key and add it to your Github account&lt;/h5&gt;&lt;/h4&gt;
-
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Copy SSH key. This command outputs your SSH key on the terminal. Highlight everything and copy.&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;cat ~/.ssh/id_rsa.pub&lt;/p&gt;
-
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Paste the output of the above command &lt;a href=&quot;https://github.com/settings/ssh&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; . &lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 align=&quot;center&quot;&gt;STEP 3: &lt;h5 align=&quot;center&quot;&gt;Verify it Worked&lt;/h5&gt;&lt;/h4&gt;
-
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
-
- &lt;p class=&quot;console&quot;&gt;ssh -T git@github.com&lt;/p&gt;
- &lt;h5 class=&quot;hashed&quot;&gt;Hi user_name! You&apos;ve successfully authenticated but GitHub does not provide shell access.&lt;/h5&gt;
- 
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;That’s it!&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. In this tutorial we are going to set it up to match our Github account. If you don’t already have a Github account, register one.</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">user@local_machine</summary></entry></feed>
