@@ -20,7 +20,7 @@ As a developer, you want to store database configuration variables i.e user name
 <br>
 ### Setting Up Environment Variables For the Database in a Rails App
 
-1. In your rails project, create a  ruby file in /config directory that will contain the ENV variables.
+1 . In your rails project, create a  ruby file in /config directory that will contain the ENV variables.
 
    e.g my_secret.rb, which will contain this:
 
