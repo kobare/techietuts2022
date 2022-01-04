@@ -15,7 +15,7 @@ permalink: "category/:categories/ruby-on-rails/concepts/:year:month/:title"
 
 Environment variables are configuration variables stored in the computer for applications to access. You can configure environment variables on your computer for all applications to access, but this article will only focus on setting up these variables for Rails applications.
 
-As a developer, you want to store database configuration variables i.e user name and password securely with env vars rather than ‘hard-coding’ the keys into your rails app, to avoid giving away such information when you push projects to VCS repositories online. Environment variable help you achieve that.
+As a developer, you want to store database configuration variables i.e user name and password securely with env vars rather than ‘hard-coding’ the keys into your rails app, to avoid giving away such information when you push projects to VCS repositories online. Environment variables help you achieve that.
 
 <br>
 ### Setting Up Environment Variables For the Database in a Rails App
