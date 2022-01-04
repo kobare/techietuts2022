@@ -33,7 +33,7 @@ ENV['MYSQL_PASSWORD'] = 'complexpassword'
 {% endhighlight %} 
 
 <br>
-2 . You want the rails app to load my_secret.rb file as soon as the serve fires up. To do that, you will use the File and load methods inside the /config/environment.rb file in the rails project. Make sure to place this code just above the line: Rails.application.initialize!
+2 . You want the rails app to load my_secret.rb file as soon as the server fires up. To do that, you will use the File and load methods inside the /config/environment.rb file in the rails project. Make sure to place this code just above the line: Rails.application.initialize!
 
 {% highlight ruby %}
 # /config/environment.rb
@@ -48,7 +48,7 @@ Rails.application.initialize!
 {% endhighlight %}  
 
 <br>
-3 . Ensure the my_secret.rb file is not submitted to github whenever you commit your project to github repository. To do that, open the .gitignore file and add and add the path to the file as shown below:
+3 . Ensure the my_secret.rb file is not submitted to github whenever you commit your project to a github repository. To do that, open the .gitignore file and add the path to the file as shown below:
 
 {% highlight text %}
 # .gitignore
