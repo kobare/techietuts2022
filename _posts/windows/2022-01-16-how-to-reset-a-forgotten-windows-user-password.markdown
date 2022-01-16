@@ -19,7 +19,7 @@ It's rather uncommon to forget your windows login password but sometimes you may
 <br>
 ### Procedure
 
-1 . Power up your computer and at the first appearance of the logo, force it shutdown by pressing and holding the power button.
+1 . Power up your computer and at the first appearance of the logo, force it to shutdown by pressing and holding the power button.
  
   <img srcset="/assets/img/posts/windows_loading.png 1x, /assets/img/posts/windows_loading.png 2.2x">
 
@@ -86,7 +86,8 @@ It's rather uncommon to forget your windows login password but sometimes you may
     <img srcset="/assets/img/posts/select_folder.jpg 1.8x, /assets/img/posts/select_folder.png 4x"> <br><br>
     <img srcset="/assets/img/posts/unload_hive.jpg 1.8x, /assets/img/posts/unload_hive.png 4x">
 
-17 . Close all the windows including the command line
+<br>
+17 . Close all the windows including the command line.
 
 
 <br>
