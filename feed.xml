@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-01-05T11:15:48+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Ruby on Rails Database Environment Variables</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables" rel="alternate" type="text/html" title="Ruby on Rails Database Environment Variables" /><published>2022-01-04T16:30:00+03:00</published><updated>2022-01-04T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-01-16T18:54:52+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Ruby on Rails Database Environment Variables</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables" rel="alternate" type="text/html" title="Ruby on Rails Database Environment Variables" /><published>2022-01-04T16:30:00+03:00</published><updated>2022-01-04T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Environment variables are configuration variables stored in the computer for applications to access. You can configure environment variables on your computer for all applications to access, but this article will only focus on setting up these variables for Rails applications.&lt;/p&gt;
 
@@ -75,7 +75,92 @@ $ complexpassword&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;br /&gt;
 Note that you can easily achieve this using a gem like figaro, but it’s always good to know how to do things by yourself to enrich your understanding of how bundled solutions work.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">Build a Simple Django Blog App</title><link href="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app" rel="alternate" type="text/html" title="Build a Simple Django Blog App" /><published>2021-01-24T16:15:00+03:00</published><updated>2021-01-24T16:15:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app">&lt;p&gt;This tutorial will focus on how to create a standard Django CRUD project.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">How to Reset a Forgotten Windows User Password</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password" rel="alternate" type="text/html" title="How to Reset a Forgotten Windows User Password" /><published>2022-01-04T16:30:00+03:00</published><updated>2022-01-04T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;It’s rather uncommon to forget your windows login password but sometimes you may find yourself in that situation. If you ever find yourself locked out of your own computer, then worry not because you can actually hack into it and reset the password.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;procedure&quot;&gt;Procedure&lt;/h3&gt;
+
+&lt;p&gt;1 . Power up your computer and at the first appearance of the logo, force it shutdown by pressing and holding the power button.&lt;/p&gt;
+
+&lt;p&gt;&lt;img srcset=&quot;/assets/img/posts/windows_loading.png 1x, /assets/img/posts/windows_loading.png 2.2x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . Incessantly repeat step 1 above until system restore starts. You will see the message “Diagnosing your PC”  followed by “Preparing automatic repair”
+    &lt;img srcset=&quot;/assets/img/posts/windows_preparing.png 1x, /assets/img/posts/windows_preparing.png 1.6x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Click on “Advanced options”
+    &lt;img srcset=&quot;/assets/img/posts/automatic_repair_advanced_options.jpg 1.17x, /assets/img/posts/automatic_repair_advanced_options.jpg 2.6x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+4 . Next click on “Troubleshoot”
+    &lt;img srcset=&quot;/assets/img/posts/troubleshoot.jpg 1.17x, /assets/img/posts/troubleshoot.jpg 2.6x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+5 . Next click on “Advanced Options”
+    &lt;img srcset=&quot;/assets/img/posts/troubleshoot_advanced_options.jpg 1.17x, /assets/img/posts/troubleshoot_advanced_options.jpg 2.6x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+6 . Next click on “Command Prompt”
+    &lt;img srcset=&quot;/assets/img/posts/command_prompt.jpg 1x, /assets/img/posts/command_prompt.jpg 2.2x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+7 . On the command prompt type “regedit” and click enter to open the Registry Editor.
+    &lt;img srcset=&quot;/assets/img/posts/command_prompt_regedit.png 1x, /assets/img/posts/command_prompt_regedit.png 2x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+8 . In the Registry Editor, click on the directory “HKEY_LOCAL_MACHINE” to make it the current selection and then click on “File” on the top left corner.
+    &lt;img srcset=&quot;/assets/img/posts/hkey_local_machine.png 1.16x, /assets/img/posts/hkey_local_machine.png 2.6x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+9 . Click on “load hive”
+    &lt;br /&gt;&lt;img srcset=&quot;/assets/img/posts/load_hive.png 1.16x, /assets/img/posts/load_hive.png 1x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+10 . Find System32 Directory
+    &lt;img srcset=&quot;/assets/img/posts/windows_system32.png 1.16x, /assets/img/posts/windows_system32.png 2x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+11 . Find the file “SYSTEM” in config directory and double click on it.
+    &lt;img srcset=&quot;/assets/img/posts/config_system.jpg 1.16x, /assets/img/posts/config_system.jpg 2x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+12 . Type a key name in the load hive prompt. This will be the name of a folder that we’re going to use in the next step. Click “Ok”
+    &lt;img srcset=&quot;/assets/img/posts/key_name.jpg 1.8x, /assets/img/posts/key_name.jpg 4x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+13 . Open the folder we’ve just created, find the sub-folder “Setup”, click on it and find the file “CmdLine”
+    &lt;img srcset=&quot;/assets/img/posts/setup_cmdline.jpg 1.8x, /assets/img/posts/setup_cmdline.jpg 4x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+14 . Double click on the file “CmdLine” and in the window that opens type “cmd.exe” in the second input field and click “Ok”
+    &lt;img srcset=&quot;/assets/img/posts/cmd_line.jpg 1.8x, /assets/img/posts/cmd_line.jpg 4x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+15 . Double click on the file “SetupType” and in the window that opens type “2” in the second input field and click “Ok”
+    &lt;img srcset=&quot;/assets/img/posts/setup_type.jpg 1.8x, /assets/img/posts/setup_type.jpg 4x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+16 . Click on the directory we created (1234) to make it the current selection and then click on “File” on the top left corner and click “Unload Hive” followed by “Yes”.
+    &lt;img srcset=&quot;/assets/img/posts/select_folder.jpg 1.8x, /assets/img/posts/select_folder.png 4x&quot; /&gt; &lt;br /&gt;&lt;br /&gt;
+    &lt;img srcset=&quot;/assets/img/posts/unload_hive.jpg 1.8x, /assets/img/posts/unload_hive.png 4x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;17 . Close all the windows including the command line&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+18 . Click on “Continue”. The system will automatically restart.
+    &lt;img srcset=&quot;/assets/img/posts/continue.jpg 1.8x, /assets/img/posts/continue.jpg 4x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;19 . Upon restarting, the command line will open. Type “net user” to list the user accounts on your machine.
+     Type “net user [the_account_name] * “. (NB: If your account name contains several separate words, enclose the account name in quotation marks)
+    &lt;img srcset=&quot;/assets/img/posts/change_account_password_cmd.jpg 1.4x, /assets/img/posts/change_account_password_cmd.jpg 4x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;20 . Follow the password reset prompts and either leave it blank or input a new password then close the command prompt by typing “exit” followed by pressing enter key. The system will restart and now you are able to login.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Build a Simple Django Blog App</title><link href="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app" rel="alternate" type="text/html" title="Build a Simple Django Blog App" /><published>2021-01-24T16:15:00+03:00</published><updated>2021-01-24T16:15:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app">&lt;p&gt;This tutorial will focus on how to create a standard Django CRUD project.&lt;/p&gt;
 
 &lt;table class=&quot;table table-bordered&quot;&gt;
     &lt;thead&gt;
@@ -1262,52 +1347,4 @@ user@local_machine
 
 &lt;p&gt;That’s it!&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">ERROR TYPE: Dependency Error</summary></entry><entry><title type="html">rbenv Cheat Sheet</title><link href="http://0.0.0.0:4000/category/programming/ruby/rbenv/cheatsheet/202006/rbenv-cheatsheet" rel="alternate" type="text/html" title="rbenv Cheat Sheet" /><published>2020-06-06T14:17:06+03:00</published><updated>2020-06-06T14:17:06+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/rbenv/cheatsheet/202006/rbenv-cheatsheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/rbenv/cheatsheet/202006/rbenv-cheatsheet">&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
- &lt;h5 class=&quot;hashed&quot;&gt;# list all available versions&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;rbenv install -l&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# install a specific Ruby version&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;rbenv install 2.7.1&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Install rbenv&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;brew install rbenv&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Set a local application-specific Ruby version&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;rbenv local 2.0.0&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Set a global Ruby version (default version)&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;rbenv global 2.7.1&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Completely uninstall rbenv&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;brew uninstall rbenv&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Set a shell-specific Ruby version by setting the RBENV_VERSION environment variable in your shell.&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;rbenv shell 2.2.1&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# List all Ruby versions known to rbenv&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;rbenv versions&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Display the current active Ruby version (current opened project)&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;rbenv version&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Run this command after you install a new version of Ruby or install a gem that provides commands if you&apos;re using rbenv&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;rbenv rehash&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Display the full path to the executable that rbenv will invoke&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;rbenv which irb&lt;/p&gt;
-  
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;That’s it!&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">user@local_machine</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">ERROR TYPE: Dependency Error</summary></entry></feed>
