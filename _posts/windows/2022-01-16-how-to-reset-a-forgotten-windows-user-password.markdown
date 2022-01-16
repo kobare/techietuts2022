@@ -2,7 +2,7 @@
 layout: post
 title:  "How to Reset a Forgotten Windows User Password"
 author: Denis Kobare
-date:   2022-01-04 16:30:00 +0300
+date:   2022-01-16 15:30:00 +0300
 img: /assets/img/svg/windows.svg
 categories: more-topics
 sub_category: operating-systems
