@@ -57,70 +57,52 @@ This tutorial will teach you how to deploy your rails 6 app to heroku.
 Lets begin: 
 
 ### 1. Install Heroku CLI
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<p class="console">sudo snap install --classic heroku</p>
+{% highlight terminal %}
 
-<h5 class="hashed"># Verify your installation</h5>
-<p class="console">heroku --version</p>
-  <h5 class="hashed">heroku/7.47.4 linux-x64 node-v12.16.2</h5>
-</div>
-</section><br><br><br>
+$ sudo snap install --classic heroku
+
+ # Verify your installation
+$ heroku --version
+  heroku/7.47.4 linux-x64 node-v12.16.2
+
+{% endhighlight %}<br>
 
 
 ### 2. Login to Heroku
 After you install the CLI, run the heroku login command. You’ll be prompted to enter any key to go to your web browser to complete the login process. The CLI will then log you in automatically.
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<p class="console">heroku login</p>
-  <h5 class="hashed">
-   heroku: Press any key to open up the browser to login or q to exit
-   <br> ›   Warning: If browser does not open, visit
-   <br> ›   https://cli-auth.heroku.com/auth/browser/***
-   <br>heroku: Waiting for login...
-   <br>Logging in... done
-   <br>Logged in as me@example.com
-  </h5>
-</div>
-</section>
+{% highlight terminal %}
 
-<br><br>
+$ heroku login
+
+  heroku: Press any key to open up the browser to login or q to exit
+        ›   Warning: If browser does not open, visit
+        ›   https://cli-auth.heroku.com/auth/browser/***
+          heroku: Waiting for login...
+          Logging in... done
+          Logged in as me@example.com
+
+{% endhighlight %}<br>
+
+
+
 If you’d prefer to stay in the CLI to enter your credentials, you may run heroku login -i
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<p class="console">heroku login -i</p>
-  <h5 class="hashed">
-   heroku: Enter your login credentials
-   <br> Email: me@example.com
-   <br> Password: ***************
-   <br> Two-factor code: ********
-   <br> Logged in as me@heroku.com
-  </h5>
-</div>
-</section>
+{% highlight terminal %}
 
-<br><br>
+$ heroku login -i
+
+  heroku: Enter your login credentials
+  Email: me@example.com
+  Password: ***************
+  Two-factor code: ********
+  Logged in as me@heroku.com
+
+{% endhighlight %}<br>
+
+
+
 ### 3. Create Your App in Heroku
 Open Heroku site, go to dashboard and [create](https://dashboard.heroku.com/new-app){:target="_blank"} a new app.
 
@@ -130,85 +112,70 @@ Open Heroku site, go to dashboard and [create](https://dashboard.heroku.com/new-
 Open your rails 6 app on terminal in your local machine and follow the commands below:
 
 Update your git remotes to match the name of the app you created previously on Heroku site. Replace app-name with that name.
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<h5 class="hashed"># go to the root of your project</h5>
-<p class="console">cd ~/myapp</p>
-<br>
-<h5 class="hashed"># initialize git for your project</h5>
-<p class="console">git init</p>
-<h5 class="hashed">Initialized empty Git repository in .git/</h5>
-<br>
-<h5 class="hashed"># set up git remotes</h5>
-<p class="console">heroku git:remote -a  app-name</p>
-  <h5 class="hashed">
-   module: @oclif/config@1.17.0
-   <br>task: runHook prerun
-   <br>plugin: heroku
-   <br>root: /snap/heroku/4010
-   <br>See more details with DEBUG=*
-   <br>set git remote heroku to https://git.heroku.com/app-name.git
-  </h5>
-</div>
-</section>
+{% highlight terminal %}
+
+ # go to the root of your project
+$ cd ~/myapp
+
+ # initialize git for your project
+$ git init
+  
+  Initialized empty Git repository in .git/
+ 
+ # set up git remotes
+$ heroku git:remote -a  app-name
+
+  module: @oclif/config@1.17.0
+  task: runHook prerun
+  plugin: heroku
+  root: /snap/heroku/4010
+  See more details with DEBUG=*
+  set git remote heroku to https://git.heroku.com/app-name.git
+
+{% endhighlight %}<br>
 
 
 <br><br>
 ### 5. Deploy Your Rails 6 App
 Stage, commit and push your rails 6 project to Heroku.
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<p class="console">cd ~/myapp</p>
-<h5 class="hashed"># verify git remote</h5>
-<p class="console">git remote -v</p>
- <h5 class="hashed">
-      heroku	https://git.heroku.com/app-name.git (fetch)
-  <br>heroku	https://git.heroku.com/app-name.git (push)
- </h5>
-<br>
-<h5 class="hashed"># stage your project</h5>
-<p class="console">git add .</p>
-<h5 class="hashed"># commit</h5>
-<p class="console">git commit -m 'Initial commit'</p>
-<h5 class="hashed"># push</h5>
-<p class="console">git push heroku master</p>
-</div>
-</section>
+{% highlight terminal %}
+
+$ cd ~/myapp
+
+ # verify git remote
+$ git remote -v
+
+  heroku    https://git.heroku.com/app-name.git (fetch)
+  heroku    https://git.heroku.com/app-name.git (push)
+
+ # stage your project
+$ git add .
+
+ # commit
+$ git commit -m 'Initial commit'
+
+ # push
+$ git push heroku master
+
+{% endhighlight %}<br>
 
 
 <br><br>
 ### 6. Setup your database
 Set up database
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<h5 class="hashed"># migrate database</h5>
-<p class="console">heroku run rake db:migrate</p>
-<h5 class="hashed"># open your deployed site</h5>
-<p class="console">heroku open</p>
-</div>
-</section>
-<br>
+{% highlight terminal %}
+
+ # migrate database
+$ heroku run rake db:migrate
+
+ # open your deployed site
+$ heroku open
+
+{% endhighlight %}<br>
+
 
 **Note:** In case of webpack error after deploying:
 

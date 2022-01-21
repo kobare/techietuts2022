@@ -45,7 +45,7 @@ It's rather uncommon to forget your windows login password but sometimes you may
 
 
 <br>
-7 . On the command prompt type "regedit" and click enter to open the Registry Editor.
+7 . On the command prompt type "regedit" and press the enter key to open the Registry Editor.
     <img srcset="/assets/img/posts/command_prompt_regedit.png 1x, /assets/img/posts/command_prompt_regedit.png 2x">
 
 
@@ -59,26 +59,26 @@ It's rather uncommon to forget your windows login password but sometimes you may
 
 <br>
 10 . Find System32 Directory
-    <img srcset="/assets/img/posts/windows_system32.png 1.16x, /assets/img/posts/windows_system32.png 2x">
+    <img srcset="/assets/img/posts/windows_system32.png 1x, /assets/img/posts/windows_system32.png 2x">
 
 <br>
 11 . Find the file "SYSTEM" in config directory and double click on it.
-    <img srcset="/assets/img/posts/config_system.jpg 1.16x, /assets/img/posts/config_system.jpg 2x">
+    <img srcset="/assets/img/posts/config_system.jpg 1x, /assets/img/posts/config_system.jpg 2x">
 
 <br>
 12 . Type a key name in the load hive prompt. This will be the name of a folder that we're going to use in the next step. Click "Ok"
     <img srcset="/assets/img/posts/key_name.jpg 1.8x, /assets/img/posts/key_name.jpg 4x">
 
 <br>
-13 . Open the folder we've just created, find the sub-folder "Setup", click on it and find the file "CmdLine"
+13 . Open the folder we've just created, find the sub-folder "Setup", click on it and find the file "CmdLine" on the right section of the window.
     <img srcset="/assets/img/posts/setup_cmdline.jpg 1.8x, /assets/img/posts/setup_cmdline.jpg 4x">
 
 <br>
-14 . Double click on the file "CmdLine" and in the window that opens type "cmd.exe" in the second input field and click "Ok"
+14 . Double click on the file "CmdLine" and in the window that opens type "cmd.exe" in the value data input field and click "Ok"
     <img srcset="/assets/img/posts/cmd_line.jpg 1.8x, /assets/img/posts/cmd_line.jpg 4x">
 
 <br>
-15 . Double click on the file "SetupType" and in the window that opens type "2" in the second input field and click "Ok"
+15 . Double click on the file "SetupType" and in the window that opens type "2" in the value data input field and click "Ok"
     <img srcset="/assets/img/posts/setup_type.jpg 1.8x, /assets/img/posts/setup_type.jpg 4x">
 
 <br>
@@ -94,11 +94,10 @@ It's rather uncommon to forget your windows login password but sometimes you may
 18 . Click on "Continue". The system will automatically restart.
     <img srcset="/assets/img/posts/continue.jpg 1.8x, /assets/img/posts/continue.jpg 4x">
 
-19 . Upon restarting, the command line will open. Type "net user" to list the user accounts on your machine.
-     Type "net user [the_account_name] * ". (NB: If your account name contains several separate words, enclose the account name in quotation marks)
+19 . Upon restarting, the command line will open. Type "net user" and press enter to list the user accounts on your machine. Then type "net user [the_account_name] * ". (NB: If your account name contains several separate words, enclose the account name in quotation marks)
     <img srcset="/assets/img/posts/change_account_password_cmd.jpg 1.4x, /assets/img/posts/change_account_password_cmd.jpg 3x">
 
-20 . Follow the password reset prompts and either leave it blank or input a new password then close the command prompt by typing "exit" followed by pressing enter key. The system will restart and now you are able to login.
+20 . Follow the password reset prompts and either leave it blank or input a new password then close the command prompt by typing "exit" followed by pressing the enter key. The system will restart and now you are able to login.
 
 <br>
 *Thanks for reading, see you in the next one!*

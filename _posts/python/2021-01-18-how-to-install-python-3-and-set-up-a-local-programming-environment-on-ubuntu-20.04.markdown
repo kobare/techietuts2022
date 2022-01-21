@@ -21,208 +21,170 @@ tags:
 Ubuntu 20.04 ships with Python 3 pre-installed. This guide explains how to configure and set up environments for python projects.
 
 
-    NB: To use Python 3 on the terminal, you have to explicitly use the command "python3"
+NB: To use Python 3 on the terminal, you have to explicitly use the command "python3"
 
 
 ### 1. Update Your System
-<pre class="language-html">
- <code>
-  <span class="unselectable">$</span>sudo apt update && sudo apt -y upgrade
-  <h6 class="hashed">
-   <br>› Hit:1 http://ke.archive.ubuntu.com/ubuntu focal InRelease
-   <br>› Get:2 http://ke.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]     
-   <br>› Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [109 kB]      
-   <br>› Hit:4 http://repo.mysql.com/apt/ubuntu bionic InRelease                        
-   <br>› Hit:5 http://dl.winehq.org/wine-builds/ubuntu artful InRelease                 
-   <br>› Hit:6 https://dl.yarnpkg.com/debian stable InRelease ...
-  </h6>
-</code>
-</pre>
+{% highlight terminal %}
 
-<br><br>
+sudo apt update && sudo apt -y upgrade
+
+{% endhighlight %}
+<br>
  
 
 ### 2. Confirm Python is Installed
-<pre class="language-html">
-<code>
-<span class="unselectable">$</span>python3 -V
-<span class="unselectable">$</span>Python 3.8.5
-</code>
-</pre><br><br><br>
+{% highlight terminal %}
+
+$ python3 -V
+
+$ Python 3.8.5
+
+{% endhighlight %}<br>
 
 
 ### 3. Install PIP
 PIP is a package manager for Python packages, or modules.
-<pre class="language-html">
-<code>
-<span class="unselectable">$</span>sudo apt install -y python3-pip
- <h3 class="hashed"># With PIP installed, Python packages can be installed with: </h3>
-<span class="unselectable">$</span>pip3 install package_name
- <h6 class="hashed"></h6>
-</code>
-</pre><br><br><br>
+
+{% highlight terminal %}
+
+$ sudo apt install -y python3-pip
+
+ # With PIP installed, Python packages can be installed with:
+$ pip3 install package_name
+
+{% endhighlight %}<br>
 
 
 ### 4. Install Dependencies
-<pre class="language-html">
-<code>
-<span class="unselectable">$</span>sudo apt install build-essential libssl-dev libffi-dev python-dev
-</code>
-</pre><br><br><br>
 
+{% highlight terminal %}
+
+$ sudo apt install build-essential libssl-dev libffi-dev python-dev
+
+{% endhighlight %}<br>
 
 
 ### 5. Set Up a Virtual Environment
 A virtual environment allows you to manage separate package installations for different projects. Basically, it isolates your project dependencies from the broader context of your local machine, to avoid conflicts.
 To achieve that, we'll use a tool called venv. 
-<pre class="language-html">
-<code>
- <h4 class="hashed">#Install venv</h4>
- <span class="unselectable">$</span>sudo apt install -y python3-venv
- <h4 class="hashed">#Create a directory called python_projects or any other name. This is where you'll keep your python projects</h4>
- <span class="unselectable">$</span>mkdir python_projects 
-</code>
-</pre><br><br><br>
+
+{% highlight terminal %}
+ #Install venv
+$ sudo apt install -y python3-venv
+
+ # Create a directory called python_projects or any other name. This is where you'll keep your python projects
+$ mkdir python_projects 
+
+{% endhighlight %}<br>
 
 
 ### 6. Install virtualenvwrapper
 Virtualenvwrapper is a wrapper script around the main virtualenv tool. It helps to organize all of your virtual environments in one location, provides methods to help you easily create, delete, and copy environments and also provides a single command to switch between environments.
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
- <h6 class="hashed">#Install virtualenvwrapper</h6>
- <p class="console">pip3 install virtualenvwrapper</p>
- <h6 class="hashed">#Get the exact location of virtualenvwrapper.sh. You will replace the path on line 4 in step 7 below with this path.</h6>
- <p class="console">which virtualenvwrapper.sh</p>
- <h6 class="hashed">/usr/local/bin/virtualenvwrapper.sh</h6><br>
- <h6 class="hashed">#Alternatively you can do</h6>   
- <p class="console">find / -name virtualenvwrapper.sh</p> 
- <h6 class="hashed">/usr/local/bin/virtualenvwrapper.sh</h6>  
-</div>
-</section><br><br><br>
+{% highlight terminal %}
+
+ # Install virtualenvwrapper
+$ pip3 install virtualenvwrapper
+
+ # Get the exact location of virtualenvwrapper.sh. You will replace the path on line 4 in step 7 below with this path. 
+$ which virtualenvwrapper.sh
+ /usr/local/bin/virtualenvwrapper.sh
+ 
+ # Alternatively you can do  
+$ find / -name virtualenvwrapper.sh
+  /usr/local/bin/virtualenvwrapper.sh 
+
+{% endhighlight %}<br>
 
 
 ### 7. Edit  the ~/.bashrc file or the ~/.profile file 
 Using that path, add the following four lines to your shell’s startup file. If you’re using the Bash shell, you would place these lines in either the ~/.bashrc file or the ~/.profile file.
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
- <h6 class="hashed">#Open the ~/.bashrc file with gedit</h6>
- <p class="console">gedit ~/.bashrc</p>
-</div>
-</section><br>
+{% highlight terminal %}
 
-Copy the code below and add it in the bash file.
-<button onclick="copyCodeToClipboard()" class="btn btn-warning btn-sm float-right">Copy</button>
-<div id="output"></div>
+ # Open the ~/.bashrc file with gedit
+$ gedit ~/.bashrc
 
-{% highlight bash linenos%}
+{% endhighlight %}<br>
+
+
+Copy the code below and add it to the bash file.
+
+{% highlight bash %}
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs   # ".virtualenvs" can be whatever name you like
 export PROJECT_HOME=$HOME/python_projects      # "python_projects" can be whatever name you like
 source /usr/local/bin/virtualenvwrapper.sh
 
-
-{% endhighlight %}
-<br>
-
-<section class="terminal-container terminal-fixed-top">
-Reload the startup file<br><br>
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
-
-<div class="terminal-home">
- <p class="console">source ~/.bashrc</p>
- <h6 class="hashed">#Confirm there is a directory located at $WORKON_HOME that contains all of the virtualenvwrapper data/files</h6>
- <p class="console">echo $WORKON_HOME</p>
- <h6 class="hashed">/home/sys-admin/.virtualenvs</h6>
-</div>
-</section><br><br>
+{% endhighlight %}<br>
 
 
-<section class="terminal-container terminal-fixed-top">
-Now, anytime you want to start a new project, you just have to do this:<br><br>
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
- <p class="console">mkvirtualenv my-new-project</p>
- <h6 class="hashed">(my-new-project) $</h6>
-</div><br>
+{% highlight terminal %}
+ # Reload the startup file
+$ source ~/.bashrc
+
+ # Confirm there is a directory located at $WORKON_HOME that contains all of the virtualenvwrapper data/files
+$ echo $WORKON_HOME
+  /home/sys-admin/.virtualenvs
+
+{% endhighlight %}<br>
+
+
+
+{% highlight terminal %}
+
+ # Now, anytime you want to start a new project, you just have to do this:
+$ mkvirtualenv my-new-project
+(my-new-project) $
+
+{% endhighlight %}<br>
+
 This will create and activate a new environment in the directory located at $WORKON_HOME, where all virtualenvwrapper environments are stored.
-</section><br>
 
 
-<section class="terminal-container terminal-fixed-top">
+
 You’ll also now have the shell commands available to you to help you manage the environments:
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
- <h6 class="hashed">#Create a new environment, in the WORKON_HOME.</h6>
- <p class="console">mkvirtualenv ENVNAME</p>
- <h6 class="hashed">#Remove an environment, in the WORKON_HOME.</h6>
- <p class="console">rmvirtualenv ENVNAME </p>
- <h6 class="hashed">#To stop using an environment, you just need to deactivate it like this</h6>
- <p class="console">deactivate</p>
- <h6 class="hashed">#List environments</h6>
- <p class="console">workon</p>
- <h6 class="hashed">#Activate an environment from the list</h6>
- <p class="console">workon environment_name</p>
+{% highlight terminal %}
 
-</div>
-</section><br><br><br>
+ # Create a new environment, in the WORKON_HOME.
+$ mkvirtualenv ENVNAME
+
+ # Remove an environment, in the WORKON_HOME.
+$ rmvirtualenv ENVNAME
+
+ # To stop using an environment, you just need to deactivate it like this
+$ deactivate
+ 
+ # List environments
+$ workon
+
+ # Activate an environment from the list
+$ workon environment_name
+
+{% endhighlight %}<br>
 
 
 ### 8. Create a Simple Text Game and Play 
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+{% highlight terminal %}
 
+ # cd into the python_projects directory we created earlier
+$ cd python_projects
 
-<div class="terminal-home">
- <h6 class="hashed">#cd into the python_projects directory we created earlier</h6>
- <p class="console">cd python_projects</p>
- <h6 class="hashed">#Create a virtual environment for our new project</h6>
- <p class="console">mkvirtualenv text_game</p>
- <h6 class="hashed">#Create a file</h6>
- <p class="console">gedit text_game.py</p>
-</div>
-</section><br><br><br>
+ # Create a virtual environment for our new project
+$ mkvirtualenv text_game
+ 
+ # Create a file
+$ gedit text_game.py
+ 
+{% endhighlight %}<br>
 
  
-<pre class="language-javascript">
-<code>
+{% highlight python %}
 
 import time #Imports a module to add a pause
 
@@ -367,24 +329,16 @@ def option_town():
 
 intro()
 
-</code>
-</pre>
-<br><br>
+{% endhighlight %}<br>
 
 
 ### 9. Run the Game and Enjoy
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<p class="console">python text_game.py</p>
-</div>
-</section><br><br><br>
+{% highlight terminal %}
+
+$ python text_game.py
+
+{% endhighlight %}<br>
 
 
 That's it! You have successfully set up, configured and tested python.
