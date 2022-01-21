@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How To Install Python 3 and Set Up a Local Programming Environment on Ubuntu 20.04" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Ubuntu 20.04 ships with Python 3 pre-installed. This guide explains how to configure and set up environments for python projects.","headline":"How To Install Python 3 and Set Up a Local Programming Environment on Ubuntu 20.04","dateModified":"2021-01-18T09:45:15+03:00","datePublished":"2021-01-18T09:45:15+03:00","url":"http://0.0.0.0:4000/category/programming/python/setup-and-configurations/202101/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-20.04","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/python/setup-and-configurations/202101/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-20.04"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"How To Install Python 3 and Set Up a Local Programming Environment on Ubuntu 20.04","description":"Ubuntu 20.04 ships with Python 3 pre-installed. This guide explains how to configure and set up environments for python projects.","datePublished":"2021-01-18T09:45:15+03:00","dateModified":"2021-01-18T09:45:15+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/python/setup-and-configurations/202101/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-20.04"},"url":"http://0.0.0.0:4000/category/programming/python/setup-and-configurations/202101/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-20.04","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -887,370 +887,270 @@
                 <!-- Page content object inserted below -->
         <p>Ubuntu 20.04 ships with Python 3 pre-installed. This guide explains how to configure and set up environments for python projects.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NB: To use Python 3 on the terminal, you have to explicitly use the command "python3"
-</code></pre></div></div>
+<p>NB: To use Python 3 on the terminal, you have to explicitly use the command “python3”</p>
 
 <h3 id="1-update-your-system">1. Update Your System</h3>
-<pre class="language-html">
- <code>
-  <span class="unselectable">$</span>sudo apt update &amp;&amp; sudo apt -y upgrade
-  <h6 class="hashed">
-   <br />› Hit:1 http://ke.archive.ubuntu.com/ubuntu focal InRelease
-   <br />› Get:2 http://ke.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]     
-   <br />› Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [109 kB]      
-   <br />› Hit:4 http://repo.mysql.com/apt/ubuntu bionic InRelease                        
-   <br />› Hit:5 http://dl.winehq.org/wine-builds/ubuntu artful InRelease                 
-   <br />› Hit:6 https://dl.yarnpkg.com/debian stable InRelease ...
-  </h6>
-</code>
-</pre>
 
-<p><br /><br /></p>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="go">sudo apt update &amp;&amp; sudo apt -y upgrade</span></code></pre></figure>
+
+<p><br /></p>
 
 <h3 id="2-confirm-python-is-installed">2. Confirm Python is Installed</h3>
-<pre class="language-html">
-<code>
-<span class="unselectable">$</span>python3 -V
-<span class="unselectable">$</span>Python 3.8.5
-</code>
-</pre>
-<p><br /><br /><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>python3 <span class="nt">-V</span>
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>Python 3.8.5</code></pre></figure>
+<p><br /></p>
 
 <h3 id="3-install-pip">3. Install PIP</h3>
 <p>PIP is a package manager for Python packages, or modules.</p>
-<pre class="language-html">
-<code>
-<span class="unselectable">$</span>sudo apt install -y python3-pip
- <h3 class="hashed"># With PIP installed, Python packages can be installed with: </h3>
-<span class="unselectable">$</span>pip3 install package_name
- <h6 class="hashed"></h6>
-</code>
-</pre>
-<p><br /><br /><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> python3-pip
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>With PIP installed, Python packages can be installed with:
+<span class="gp">$</span><span class="w"> </span>pip3 <span class="nb">install </span>package_name</code></pre></figure>
+<p><br /></p>
 
 <h3 id="4-install-dependencies">4. Install Dependencies</h3>
-<pre class="language-html">
-<code>
-<span class="unselectable">$</span>sudo apt install build-essential libssl-dev libffi-dev python-dev
-</code>
-</pre>
-<p><br /><br /><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt <span class="nb">install </span>build-essential libssl-dev libffi-dev python-dev</code></pre></figure>
+<p><br /></p>
 
 <h3 id="5-set-up-a-virtual-environment">5. Set Up a Virtual Environment</h3>
 <p>A virtual environment allows you to manage separate package installations for different projects. Basically, it isolates your project dependencies from the broader context of your local machine, to avoid conflicts.
 To achieve that, we’ll use a tool called venv.</p>
-<pre class="language-html">
-<code>
- <h4 class="hashed">#Install venv</h4>
- <span class="unselectable">$</span>sudo apt install -y python3-venv
- <h4 class="hashed">#Create a directory called python_projects or any other name. This is where you'll keep your python projects</h4>
- <span class="unselectable">$</span>mkdir python_projects 
-</code>
-</pre>
-<p><br /><br /><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp"> #</span>Install venv
+<span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt <span class="nb">install</span> <span class="nt">-y</span> python3-venv
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>Create a directory called python_projects or any other name. This is where you<span class="s1">'ll keep your python projects
+</span><span class="gp">$</span><span class="w"> </span><span class="s1">mkdir python_projects </span></code></pre></figure>
+<p><br /></p>
 
 <h3 id="6-install-virtualenvwrapper">6. Install virtualenvwrapper</h3>
 <p>Virtualenvwrapper is a wrapper script around the main virtualenv tool. It helps to organize all of your virtual environments in one location, provides methods to help you easily create, delete, and copy environments and also provides a single command to switch between environments.</p>
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
- <h6 class="hashed">#Install virtualenvwrapper</h6>
- <p class="console">pip3 install virtualenvwrapper</p>
- <h6 class="hashed">#Get the exact location of virtualenvwrapper.sh. You will replace the path on line 4 in step 7 below with this path.</h6>
- <p class="console">which virtualenvwrapper.sh</p>
- <h6 class="hashed">/usr/local/bin/virtualenvwrapper.sh</h6><br />
- <h6 class="hashed">#Alternatively you can do</h6>   
- <p class="console">find / -name virtualenvwrapper.sh</p> 
- <h6 class="hashed">/usr/local/bin/virtualenvwrapper.sh</h6>  
-</div>
-</section>
-<p><br /><br /><br /></p>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp"> #</span><span class="w"> </span>Install virtualenvwrapper
+<span class="gp">$</span><span class="w"> </span>pip3 <span class="nb">install </span>virtualenvwrapper
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>Get the exact location of virtualenvwrapper.sh. You will replace the path on line 4 <span class="k">in </span>step 7 below with this path. 
+<span class="gp">$</span><span class="w"> </span>which virtualenvwrapper.sh
+<span class="go"> /usr/local/bin/virtualenvwrapper.sh
+ 
+</span><span class="gp"> #</span><span class="w"> </span>Alternatively you can <span class="k">do</span>  
+<span class="gp">$</span><span class="w"> </span>find / <span class="nt">-name</span> virtualenvwrapper.sh
+<span class="go">  /usr/local/bin/virtualenvwrapper.sh </span></code></pre></figure>
+<p><br /></p>
 
 <h3 id="7-edit--the-bashrc-file-or-the-profile-file">7. Edit  the ~/.bashrc file or the ~/.profile file</h3>
 <p>Using that path, add the following four lines to your shell’s startup file. If you’re using the Bash shell, you would place these lines in either the ~/.bashrc file or the ~/.profile file.</p>
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
- <h6 class="hashed">#Open the ~/.bashrc file with gedit</h6>
- <p class="console">gedit ~/.bashrc</p>
-</div>
-</section>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp"> #</span><span class="w"> </span>Open the ~/.bashrc file with gedit
+<span class="gp">$</span><span class="w"> </span>gedit ~/.bashrc</code></pre></figure>
 <p><br /></p>
 
-<p>Copy the code below and add it in the bash file.
-<button onclick="copyCodeToClipboard()" class="btn btn-warning btn-sm float-right">Copy</button></p>
-<div id="output"></div>
+<p>Copy the code below and add it to the bash file.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-4
-</pre></td><td class="code"><pre><span class="nb">export </span><span class="nv">VIRTUALENVWRAPPER_PYTHON</span><span class="o">=</span>/usr/bin/python3
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">export </span><span class="nv">VIRTUALENVWRAPPER_PYTHON</span><span class="o">=</span>/usr/bin/python3
 <span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs   <span class="c"># ".virtualenvs" can be whatever name you like</span>
 <span class="nb">export </span><span class="nv">PROJECT_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/python_projects      <span class="c"># "python_projects" can be whatever name you like</span>
-<span class="nb">source</span> /usr/local/bin/virtualenvwrapper.sh
-</pre></td></tr></tbody></table></code></pre></figure>
-
+<span class="nb">source</span> /usr/local/bin/virtualenvwrapper.sh</code></pre></figure>
 <p><br /></p>
 
-<section class="terminal-container terminal-fixed-top">
-Reload the startup file<br /><br />
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
-
-<div class="terminal-home">
- <p class="console">source ~/.bashrc</p>
- <h6 class="hashed">#Confirm there is a directory located at $WORKON_HOME that contains all of the virtualenvwrapper data/files</h6>
- <p class="console">echo $WORKON_HOME</p>
- <h6 class="hashed">/home/sys-admin/.virtualenvs</h6>
-</div>
-</section>
-<p><br /><br /></p>
-
-<section class="terminal-container terminal-fixed-top">
-Now, anytime you want to start a new project, you just have to do this:<br /><br />
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
-
-<div class="terminal-home">
- <p class="console">mkvirtualenv my-new-project</p>
- <h6 class="hashed">(my-new-project) $</h6>
-</div><br />
-This will create and activate a new environment in the directory located at $WORKON_HOME, where all virtualenvwrapper environments are stored.
-</section>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp"> #</span><span class="w"> </span>Reload the startup file
+<span class="gp">$</span><span class="w"> </span><span class="nb">source</span> ~/.bashrc
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>Confirm there is a directory located at <span class="nv">$WORKON_HOME</span> that contains all of the virtualenvwrapper data/files
+<span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="nv">$WORKON_HOME</span>
+<span class="go">  /home/sys-admin/.virtualenvs</span></code></pre></figure>
 <p><br /></p>
 
-<section class="terminal-container terminal-fixed-top">
-You’ll also now have the shell commands available to you to help you manage the environments:
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp"> #</span><span class="w"> </span>Now, anytime you want to start a new project, you just have to <span class="k">do </span>this:
+<span class="gp">$</span><span class="w"> </span>mkvirtualenv my-new-project
+<span class="gp">(my-new-project) $</span></code></pre></figure>
+<p><br /></p>
 
-<div class="terminal-home">
- <h6 class="hashed">#Create a new environment, in the WORKON_HOME.</h6>
- <p class="console">mkvirtualenv ENVNAME</p>
- <h6 class="hashed">#Remove an environment, in the WORKON_HOME.</h6>
- <p class="console">rmvirtualenv ENVNAME </p>
- <h6 class="hashed">#To stop using an environment, you just need to deactivate it like this</h6>
- <p class="console">deactivate</p>
- <h6 class="hashed">#List environments</h6>
- <p class="console">workon</p>
- <h6 class="hashed">#Activate an environment from the list</h6>
- <p class="console">workon environment_name</p>
+<p>This will create and activate a new environment in the directory located at $WORKON_HOME, where all virtualenvwrapper environments are stored.</p>
 
-</div>
-</section>
-<p><br /><br /><br /></p>
+<p>You’ll also now have the shell commands available to you to help you manage the environments:</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp"> #</span><span class="w"> </span>Create a new environment, <span class="k">in </span>the WORKON_HOME.
+<span class="gp">$</span><span class="w"> </span>mkvirtualenv ENVNAME
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>Remove an environment, <span class="k">in </span>the WORKON_HOME.
+<span class="gp">$</span><span class="w"> </span>rmvirtualenv ENVNAME
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>To stop using an environment, you just need to deactivate it like this
+<span class="gp">$</span><span class="w"> </span>deactivate
+<span class="go"> 
+</span><span class="gp"> #</span><span class="w"> </span>List environments
+<span class="gp">$</span><span class="w"> </span>workon
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>Activate an environment from the list
+<span class="gp">$</span><span class="w"> </span>workon environment_name</code></pre></figure>
+<p><br /></p>
 
 <h3 id="8-create-a-simple-text-game-and-play">8. Create a Simple Text Game and Play</h3>
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp"> #</span><span class="w"> </span><span class="nb">cd </span>into the python_projects directory we created earlier
+<span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>python_projects
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>Create a virtual environment <span class="k">for </span>our new project
+<span class="gp">$</span><span class="w"> </span>mkvirtualenv text_game
+<span class="go"> 
+</span><span class="gp"> #</span><span class="w"> </span>Create a file
+<span class="gp">$</span><span class="w"> </span>gedit text_game.py
+<span class="go"> </span></code></pre></figure>
+<p><br /></p>
 
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">time</span> <span class="c1">#Imports a module to add a pause
+</span>
+<span class="c1">#Figuring out how users might respond
+</span><span class="n">answer_A</span> <span class="o">=</span> <span class="p">[</span><span class="s">"A"</span><span class="p">,</span> <span class="s">"a"</span><span class="p">]</span>
+<span class="n">answer_B</span> <span class="o">=</span> <span class="p">[</span><span class="s">"B"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">]</span>
+<span class="n">answer_C</span> <span class="o">=</span> <span class="p">[</span><span class="s">"C"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">]</span>
+<span class="n">yes</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Y"</span><span class="p">,</span> <span class="s">"y"</span><span class="p">,</span> <span class="s">"yes"</span><span class="p">]</span>
+<span class="n">no</span> <span class="o">=</span> <span class="p">[</span><span class="s">"N"</span><span class="p">,</span> <span class="s">"n"</span><span class="p">,</span> <span class="s">"no"</span><span class="p">]</span>
 
-<div class="terminal-home">
- <h6 class="hashed">#cd into the python_projects directory we created earlier</h6>
- <p class="console">cd python_projects</p>
- <h6 class="hashed">#Create a virtual environment for our new project</h6>
- <p class="console">mkvirtualenv text_game</p>
- <h6 class="hashed">#Create a file</h6>
- <p class="console">gedit text_game.py</p>
-</div>
-</section>
-<p><br /><br /><br /></p>
+<span class="c1">#Grabbing objects
+</span><span class="n">sword</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">flower</span> <span class="o">=</span> <span class="mi">0</span>
 
-<pre class="language-javascript">
-<code>
-
-import time #Imports a module to add a pause
-
-#Figuring out how users might respond
-answer_A = ["A", "a"]
-answer_B = ["B", "b"]
-answer_C = ["C", "c"]
-yes = ["Y", "y", "yes"]
-no = ["N", "n", "no"]
-
-#Grabbing objects
-sword = 0
-flower = 0
-
-required = ("\nUse only A, B, or C\n") #Cutting down on duplication
-
-#The story is broken into sections, starting with "intro"
-def intro():
-  print ("After a drunken night out with friends, you awaken the "
-  "next morning in a thick, dank forest. Head spinning and " 
-  "fighting the urge to vomit, you stand and marvel at your new, "
-  "unfamiliar setting. The peace quickly fades when you hear a "
-  "grotesque sound emitting behind you. A slobbering orc is "
-  "running towards you. You will:")
-  time.sleep(1)
-  print ("""  A. Grab a nearby rock and throw it at the orc
+<span class="n">required</span> <span class="o">=</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Use only A, B, or C</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span> <span class="c1">#Cutting down on duplication
+</span>
+<span class="c1">#The story is broken into sections, starting with "intro"
+</span><span class="k">def</span> <span class="nf">intro</span><span class="p">():</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"After a drunken night out with friends, you awaken the "</span>
+  <span class="s">"next morning in a thick, dank forest. Head spinning and "</span> 
+  <span class="s">"fighting the urge to vomit, you stand and marvel at your new, "</span>
+  <span class="s">"unfamiliar setting. The peace quickly fades when you hear a "</span>
+  <span class="s">"grotesque sound emitting behind you. A slobbering orc is "</span>
+  <span class="s">"running towards you. You will:"</span><span class="p">)</span>
+  <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"""  A. Grab a nearby rock and throw it at the orc
   B. Lie down and wait to be mauled
-  C. Run""")
-  choice = input("&gt;&gt;&gt; ") #Here is your first choice.
-  if choice in answer_A:
-    option_rock()
-  elif choice in answer_B:
-    print ("\nWelp, that was quick. "
-    "\n\nYou died!")
-  elif choice in answer_C:
-    option_run()
-  else:
-    print (required)
-    intro()
+  C. Run"""</span><span class="p">)</span>
+  <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"&gt;&gt;&gt; "</span><span class="p">)</span> <span class="c1">#Here is your first choice.
+</span>  <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_A</span><span class="p">:</span>
+    <span class="n">option_rock</span><span class="p">()</span>
+  <span class="k">elif</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_B</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Welp, that was quick. "</span>
+    <span class="s">"</span><span class="se">\n\n</span><span class="s">You died!"</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_C</span><span class="p">:</span>
+    <span class="n">option_run</span><span class="p">()</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span>
+    <span class="n">intro</span><span class="p">()</span>
 
-def option_rock(): 
-  print ("\nThe orc is stunned, but regains control. He begins "
-  "running towards you again. Will you:")
-  time.sleep(1)
-  print ("""  A. Run
+<span class="k">def</span> <span class="nf">option_rock</span><span class="p">():</span> 
+  <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">The orc is stunned, but regains control. He begins "</span>
+  <span class="s">"running towards you again. Will you:"</span><span class="p">)</span>
+  <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"""  A. Run
   B. Throw another rock
-  C. Run towards a nearby cave""")
-  choice = input("&gt;&gt;&gt; ")
-  if choice in answer_A:
-    option_run()
-  elif choice in answer_B:
-    print ("\nYou decided to throw another rock, as if the first " 
-    "rock thrown did much damage. The rock flew well over the "
-    "orcs head. You missed. \n\nYou died!")
-  elif choice in answer_C:
-    option_cave()
-  else:
-    print (required)
-    option_rock()
+  C. Run towards a nearby cave"""</span><span class="p">)</span>
+  <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"&gt;&gt;&gt; "</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_A</span><span class="p">:</span>
+    <span class="n">option_run</span><span class="p">()</span>
+  <span class="k">elif</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_B</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You decided to throw another rock, as if the first "</span> 
+    <span class="s">"rock thrown did much damage. The rock flew well over the "</span>
+    <span class="s">"orcs head. You missed. </span><span class="se">\n\n</span><span class="s">You died!"</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_C</span><span class="p">:</span>
+    <span class="n">option_cave</span><span class="p">()</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span>
+    <span class="n">option_rock</span><span class="p">()</span>
 
-def option_cave():
-  print ("\nYou were hesitant, since the cave was dark and "
-  "ominous. Before you fully enter, you notice a shiny sword on "
-  "the ground. Do you pick up a sword. Y/N?")
-  choice = input("&gt;&gt;&gt; ")
-  if choice in yes:
-    sword = 1 #adds a sword
-  else:
-    sword = 0
-  print ("\nWhat do you do next?")
-  time.sleep(1)
-  print ("""  A. Hide in silence
+<span class="k">def</span> <span class="nf">option_cave</span><span class="p">():</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You were hesitant, since the cave was dark and "</span>
+  <span class="s">"ominous. Before you fully enter, you notice a shiny sword on "</span>
+  <span class="s">"the ground. Do you pick up a sword. Y/N?"</span><span class="p">)</span>
+  <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"&gt;&gt;&gt; "</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">yes</span><span class="p">:</span>
+    <span class="n">sword</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#adds a sword
+</span>  <span class="k">else</span><span class="p">:</span>
+    <span class="n">sword</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">What do you do next?"</span><span class="p">)</span>
+  <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"""  A. Hide in silence
   B. Fight
-  C. Run""")
-  choice = input("&gt;&gt;&gt; ")
-  if choice in answer_A:
-    print ("\nReally? You're going to hide in the dark? I think "
-    "orcs can see very well in the dark, right? Not sure, but "
-    "I'm going with YES, so...\n\nYou died!")
-  elif choice in answer_B:
-   if sword &gt; 0:
-    print ("\nYou laid in wait. The shimmering sword attracted "
-    "the orc, which thought you were no match. As he walked "
-    "closer and closer, your heart beat rapidly. As the orc "
-    "reached out to grab the sword, you pierced the blade into "
-    "its chest. \n\nYou survived!")
-   else: #If the user didn't grab the sword
-     print ("\nYou should have picked up that sword. You're "
-     "defenseless. \n\nYou died!")
-  elif choice in answer_C:
-    print ("As the orc enters the dark cave, you sliently "
-    "sneak out. You're several feet away, but the orc turns "
-    "around and sees you running.")
-    option_run()
-  else:
-    print (required)
-    option_cave()
+  C. Run"""</span><span class="p">)</span>
+  <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"&gt;&gt;&gt; "</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_A</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Really? You're going to hide in the dark? I think "</span>
+    <span class="s">"orcs can see very well in the dark, right? Not sure, but "</span>
+    <span class="s">"I'm going with YES, so...</span><span class="se">\n\n</span><span class="s">You died!"</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_B</span><span class="p">:</span>
+   <span class="k">if</span> <span class="n">sword</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You laid in wait. The shimmering sword attracted "</span>
+    <span class="s">"the orc, which thought you were no match. As he walked "</span>
+    <span class="s">"closer and closer, your heart beat rapidly. As the orc "</span>
+    <span class="s">"reached out to grab the sword, you pierced the blade into "</span>
+    <span class="s">"its chest. </span><span class="se">\n\n</span><span class="s">You survived!"</span><span class="p">)</span>
+   <span class="k">else</span><span class="p">:</span> <span class="c1">#If the user didn't grab the sword
+</span>     <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You should have picked up that sword. You're "</span>
+     <span class="s">"defenseless. </span><span class="se">\n\n</span><span class="s">You died!"</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_C</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"As the orc enters the dark cave, you sliently "</span>
+    <span class="s">"sneak out. You're several feet away, but the orc turns "</span>
+    <span class="s">"around and sees you running."</span><span class="p">)</span>
+    <span class="n">option_run</span><span class="p">()</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span>
+    <span class="n">option_cave</span><span class="p">()</span>
 
-def option_run():
-  print ("\nYou run as quickly as possible, but the orc's "
-  "speed is too great. You will:")
-  time.sleep(1)
-  print ("""  A. Hide behind boulder
+<span class="k">def</span> <span class="nf">option_run</span><span class="p">():</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You run as quickly as possible, but the orc's "</span>
+  <span class="s">"speed is too great. You will:"</span><span class="p">)</span>
+  <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"""  A. Hide behind boulder
   B. Trapped, so you fight
-  C. Run towards an abandoned town""")
-  choice = input("&gt;&gt;&gt; ")
-  if choice in answer_A:
-    print ("You're easily spotted. "
-    "\n\nYou died!")
-  elif choice in answer_B:
-    print ("\nYou're no match for an orc. "
-    "\n\nYou died!")
-  elif choice in answer_C:
-    option_town()
-  else:
-    print (required)
-    option_run()
+  C. Run towards an abandoned town"""</span><span class="p">)</span>
+  <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"&gt;&gt;&gt; "</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_A</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"You're easily spotted. "</span>
+    <span class="s">"</span><span class="se">\n\n</span><span class="s">You died!"</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_B</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You're no match for an orc. "</span>
+    <span class="s">"</span><span class="se">\n\n</span><span class="s">You died!"</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">answer_C</span><span class="p">:</span>
+    <span class="n">option_town</span><span class="p">()</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">required</span><span class="p">)</span>
+    <span class="n">option_run</span><span class="p">()</span>
     
-def option_town():
-  print ("\nWhile frantically running, you notice a rusted "
-  "sword lying in the mud. You quickly reach down and grab it, "
-  "but miss. You try to calm your heavy breathing as you hide "
-  "behind a delapitated building, waiting for the orc to come "
-  "charging around the corner. You notice a purple flower "
-  "near your foot. Do you pick it up? Y/N")
-  choice = input("&gt;&gt;&gt; ")
-  if choice in yes:
-    flower = 1 #adds a flower
-  else:
-    flower = 0
-  print ("You hear its heavy footsteps and ready yourself for "
-  "the impending orc.")
-  time.sleep(1)
-  if flower &gt; 0:
-    print ("\nYou quickly hold out the purple flower, somehow "
-    "hoping it will stop the orc. It does! The orc was looking "
-    "for love. "
-    "\n\nThis got weird, but you survived!")
-  else: #If the user didn't grab the sword
-     print ("\nMaybe you should have picked up the flower. "
-     "\n\nYou died!")
+<span class="k">def</span> <span class="nf">option_town</span><span class="p">():</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">While frantically running, you notice a rusted "</span>
+  <span class="s">"sword lying in the mud. You quickly reach down and grab it, "</span>
+  <span class="s">"but miss. You try to calm your heavy breathing as you hide "</span>
+  <span class="s">"behind a delapitated building, waiting for the orc to come "</span>
+  <span class="s">"charging around the corner. You notice a purple flower "</span>
+  <span class="s">"near your foot. Do you pick it up? Y/N"</span><span class="p">)</span>
+  <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">"&gt;&gt;&gt; "</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="n">yes</span><span class="p">:</span>
+    <span class="n">flower</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#adds a flower
+</span>  <span class="k">else</span><span class="p">:</span>
+    <span class="n">flower</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="k">print</span> <span class="p">(</span><span class="s">"You hear its heavy footsteps and ready yourself for "</span>
+  <span class="s">"the impending orc."</span><span class="p">)</span>
+  <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">flower</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">You quickly hold out the purple flower, somehow "</span>
+    <span class="s">"hoping it will stop the orc. It does! The orc was looking "</span>
+    <span class="s">"for love. "</span>
+    <span class="s">"</span><span class="se">\n\n</span><span class="s">This got weird, but you survived!"</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span> <span class="c1">#If the user didn't grab the sword
+</span>     <span class="k">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">Maybe you should have picked up the flower. "</span>
+     <span class="s">"</span><span class="se">\n\n</span><span class="s">You died!"</span><span class="p">)</span>
 
-intro()
-
-</code>
-</pre>
-<p><br /><br /></p>
+<span class="n">intro</span><span class="p">()</span></code></pre></figure>
+<p><br /></p>
 
 <h3 id="9-run-the-game-and-enjoy">9. Run the Game and Enjoy</h3>
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<p class="console">python text_game.py</p>
-</div>
-</section>
-<p><br /><br /><br /></p>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>python text_game.py</code></pre></figure>
+<p><br /></p>
 
 <p>That’s it! You have successfully set up, configured and tested python.</p>
 
@@ -1471,7 +1371,7 @@ user@local_machine
     --> 
     </div>
     <div>
-      <a class="white-text" href="/privacy_policy">Privacy Statement</a> | <a class="white-text" href="/disclaimer">Disclaimer Statement</a> 
+      <a class="white-text link" href="/privacy_policy">Privacy Statement</a> | <a class="white-text link" href="/disclaimer">Disclaimer Statement</a> 
     </div>
     <div>
         Copyright &copy; 2020 - 2022 <a href="https://www.techietuts.com" style="color: #fff; text-decoration: none;">Techietuts</a>

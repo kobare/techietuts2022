@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="How to Deploy A Rails 6 App to Heroku: Using Heroku Git" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps. The platform is elegant, flexible, and easy to use, offering developers the simplest path to getting their apps to market.","headline":"How to Deploy A Rails 6 App to Heroku: Using Heroku Git","dateModified":"2020-12-14T10:45:06+03:00","datePublished":"2020-12-14T10:45:06+03:00","url":"http://0.0.0.0:4000/category/cloud/heroku/tutorials/202012/deploy-rails-6-app-to-heroku-using-heroku-git","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/cloud/heroku/tutorials/202012/deploy-rails-6-app-to-heroku-using-heroku-git"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"How to Deploy A Rails 6 App to Heroku: Using Heroku Git","description":"Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps. The platform is elegant, flexible, and easy to use, offering developers the simplest path to getting their apps to market.","datePublished":"2020-12-14T10:45:06+03:00","dateModified":"2020-12-14T10:45:06+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/cloud/heroku/tutorials/202012/deploy-rails-6-app-to-heroku-using-heroku-git"},"url":"http://0.0.0.0:4000/category/cloud/heroku/tutorials/202012/deploy-rails-6-app-to-heroku-using-heroku-git","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -923,70 +923,38 @@
 <p>Lets begin:</p>
 
 <h3 id="1-install-heroku-cli">1. Install Heroku CLI</h3>
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<p class="console">sudo snap install --classic heroku</p>
-
-<h5 class="hashed"># Verify your installation</h5>
-<p class="console">heroku --version</p>
-  <h5 class="hashed">heroku/7.47.4 linux-x64 node-v12.16.2</h5>
-</div>
-</section>
-<p><br /><br /><br /></p>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>snap <span class="nb">install</span> <span class="nt">--classic</span> heroku
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>Verify your installation
+<span class="gp">$</span><span class="w"> </span>heroku <span class="nt">--version</span>
+<span class="go">  heroku/7.47.4 linux-x64 node-v12.16.2</span></code></pre></figure>
+<p><br /></p>
 
 <h3 id="2-login-to-heroku">2. Login to Heroku</h3>
 <p>After you install the CLI, run the heroku login command. You’ll be prompted to enter any key to go to your web browser to complete the login process. The CLI will then log you in automatically.</p>
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<p class="console">heroku login</p>
-  <h5 class="hashed">
-   heroku: Press any key to open up the browser to login or q to exit
-   <br /> ›   Warning: If browser does not open, visit
-   <br /> ›   https://cli-auth.heroku.com/auth/browser/***
-   <br />heroku: Waiting for login...
-   <br />Logging in... done
-   <br />Logged in as me@example.com
-  </h5>
-</div>
-</section>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>heroku login
+<span class="go">
+  heroku: Press any key to open up the browser to login or q to exit
+        ›   Warning: If browser does not open, visit
+        ›   https://cli-auth.heroku.com/auth/browser/***
+          heroku: Waiting for login...
+          Logging in... done
+          Logged in as me@example.com</span></code></pre></figure>
+<p><br /></p>
 
-<p><br /><br />
-If you’d prefer to stay in the CLI to enter your credentials, you may run heroku login -i</p>
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<p>If you’d prefer to stay in the CLI to enter your credentials, you may run heroku login -i</p>
 
-<div class="terminal-home">
-<p class="console">heroku login -i</p>
-  <h5 class="hashed">
-   heroku: Enter your login credentials
-   <br /> Email: me@example.com
-   <br /> Password: ***************
-   <br /> Two-factor code: ********
-   <br /> Logged in as me@heroku.com
-  </h5>
-</div>
-</section>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>heroku login <span class="nt">-i</span>
+<span class="go">
+  heroku: Enter your login credentials
+  Email: me@example.com
+  Password: ***************
+  Two-factor code: ********
+  Logged in as me@heroku.com</span></code></pre></figure>
+<p><br /></p>
 
-<p><br /><br /></p>
 <h3 id="3-create-your-app-in-heroku">3. Create Your App in Heroku</h3>
 <p>Open Heroku site, go to dashboard and <a href="https://dashboard.heroku.com/new-app" target="_blank">create</a> a new app.</p>
 
@@ -995,82 +963,57 @@ user@local_machine
 <p>Open your rails 6 app on terminal in your local machine and follow the commands below:</p>
 
 <p>Update your git remotes to match the name of the app you created previously on Heroku site. Replace app-name with that name.</p>
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<h5 class="hashed"># go to the root of your project</h5>
-<p class="console">cd ~/myapp</p>
-<br />
-<h5 class="hashed"># initialize git for your project</h5>
-<p class="console">git init</p>
-<h5 class="hashed">Initialized empty Git repository in .git/</h5>
-<br />
-<h5 class="hashed"># set up git remotes</h5>
-<p class="console">heroku git:remote -a  app-name</p>
-  <h5 class="hashed">
-   module: @oclif/config@1.17.0
-   <br />task: runHook prerun
-   <br />plugin: heroku
-   <br />root: /snap/heroku/4010
-   <br />See more details with DEBUG=*
-   <br />set git remote heroku to https://git.heroku.com/app-name.git
-  </h5>
-</div>
-</section>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp"> #</span><span class="w"> </span>go to the root of your project
+<span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> ~/myapp
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>initialize git <span class="k">for </span>your project
+<span class="gp">$</span><span class="w"> </span>git init
+<span class="go">  
+  Initialized empty Git repository in .git/
+ 
+</span><span class="gp"> #</span><span class="w"> </span><span class="nb">set </span>up git remotes
+<span class="gp">$</span><span class="w"> </span>heroku git:remote <span class="nt">-a</span>  app-name
+<span class="go">
+  module: @oclif/config@1.17.0
+  task: runHook prerun
+  plugin: heroku
+  root: /snap/heroku/4010
+  See more details with DEBUG=*
+  set git remote heroku to https://git.heroku.com/app-name.git</span></code></pre></figure>
+<p><br /></p>
 
 <p><br /><br /></p>
 <h3 id="5-deploy-your-rails-6-app">5. Deploy Your Rails 6 App</h3>
 <p>Stage, commit and push your rails 6 project to Heroku.</p>
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<p class="console">cd ~/myapp</p>
-<h5 class="hashed"># verify git remote</h5>
-<p class="console">git remote -v</p>
- <h5 class="hashed">
-      heroku	https://git.heroku.com/app-name.git (fetch)
-  <br />heroku	https://git.heroku.com/app-name.git (push)
- </h5>
-<br />
-<h5 class="hashed"># stage your project</h5>
-<p class="console">git add .</p>
-<h5 class="hashed"># commit</h5>
-<p class="console">git commit -m 'Initial commit'</p>
-<h5 class="hashed"># push</h5>
-<p class="console">git push heroku master</p>
-</div>
-</section>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">cd</span> ~/myapp
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>verify git remote
+<span class="gp">$</span><span class="w"> </span>git remote <span class="nt">-v</span>
+<span class="go">
+  heroku    https://git.heroku.com/app-name.git (fetch)
+  heroku    https://git.heroku.com/app-name.git (push)
+
+</span><span class="gp"> #</span><span class="w"> </span>stage your project
+<span class="gp">$</span><span class="w"> </span>git add <span class="nb">.</span>
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>commit
+<span class="gp">$</span><span class="w"> </span>git commit <span class="nt">-m</span> <span class="s1">'Initial commit'</span>
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>push
+<span class="gp">$</span><span class="w"> </span>git push heroku master</code></pre></figure>
+<p><br /></p>
 
 <p><br /><br /></p>
 <h3 id="6-setup-your-database">6. Setup your database</h3>
 <p>Set up database</p>
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
 
-<div class="terminal-home">
-<h5 class="hashed"># migrate database</h5>
-<p class="console">heroku run rake db:migrate</p>
-<h5 class="hashed"># open your deployed site</h5>
-<p class="console">heroku open</p>
-</div>
-</section>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp"> #</span><span class="w"> </span>migrate database
+<span class="gp">$</span><span class="w"> </span>heroku run rake db:migrate
+<span class="go">
+</span><span class="gp"> #</span><span class="w"> </span>open your deployed site
+<span class="gp">$</span><span class="w"> </span>heroku open</code></pre></figure>
 <p><br /></p>
 
 <p><strong>Note:</strong> In case of webpack error after deploying:</p>
@@ -1303,7 +1246,7 @@ user@local_machine
     --> 
     </div>
     <div>
-      <a class="white-text" href="/privacy_policy">Privacy Statement</a> | <a class="white-text" href="/disclaimer">Disclaimer Statement</a> 
+      <a class="white-text link" href="/privacy_policy">Privacy Statement</a> | <a class="white-text link" href="/disclaimer">Disclaimer Statement</a> 
     </div>
     <div>
         Copyright &copy; 2020 - 2022 <a href="https://www.techietuts.com" style="color: #fff; text-decoration: none;">Techietuts</a>
