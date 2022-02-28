@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!-- Techie Tuts website copyright 2020-->
 <html lang="en">
+
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>projects - Techietuts</title>
+ <title>CSS Grid Layout - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -44,17 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="projects" />
+<meta property="og:title" content="CSS Grid Layout" />
+<meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/programming/python/projects/" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/programming/python/projects/" />
+<meta name="description" content="Definition" />
+<meta property="og:description" content="Definition" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/css/concepts/202202/css-grid-layout" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/css/concepts/202202/css-grid-layout" />
 <meta property="og:site_name" content="Techietuts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-28T03:33:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="projects" />
+<meta property="twitter:title" content="CSS Grid Layout" />
 <script type="application/ld+json">
-{"@type":"WebPage","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"projects","url":"http://0.0.0.0:4000/category/programming/python/projects/","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Definition","headline":"CSS Grid Layout","dateModified":"2022-02-28T03:33:00+03:00","datePublished":"2022-02-28T03:33:00+03:00","url":"http://0.0.0.0:4000/category/frameworks/css/concepts/202202/css-grid-layout","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/css/concepts/202202/css-grid-layout"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -73,7 +77,8 @@
 }
 </style>
     
-  <body>
+
+  <body class="animsition">
 	  
 		<!-- Header module inserted below -->
         <!-- Mobile Phone Navigation Menu -->
@@ -843,221 +848,123 @@
 
 	  
 		<!-- Content -->
-	<!-- Content -->
-<div class="home-content">
-
-  <div class="content">
-    <div class="blog-post blog">
-      <!-- Page heading -->
-      <h2 style="padding-left: 15px; padding-top: 60px;">
-             
-         Projects
-       
-      </h2>                
-      <div class="grid-container">
-      						
-        <!-- ########################## Categories Page ########################## -->      
-
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-
-
-<!-- ########################## Sub Categories Page ########################## -->
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-
-
-<!-- ########################## Post Type Page ########################## -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-          
-
-                      
-
-
-
-
-        
-      </div>
-    </div>  
-  </div>
-</div>
-
-<br>
-<section>
         <style>
+
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
+  max-width: 100%;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
+  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
+
+@media(max-width: 81rem) {
+
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
+}
+</style>
+<div class="main-content reduce-size main-content-tweak">
+
+    <div class="tittle-banner">
+      <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
+      <h1 style="padding: -50px; line-height: 1.2em;">CSS Grid Layout</h1>             
+    </div>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2022</p>
+    <div>
+                <!-- Page content object inserted below -->
+        <h3 id="definition">Definition</h3>
+
+<p>The CSS Grid layout uses rows and columns to position elements on a web page without having to use floats.</p>
+
+<p>It is an alternative to flexbox but most developers agree that the grid is more suitable for the general layout while flexbox is more effective when you narrow down to smaller layouts within the main layout.</p>
+
+<p><br />
+1 . Set display to grid.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css">  <span class="nt">display</span><span class="o">:</span> <span class="nt">grid</span><span class="o">;</span>
+  </code></pre></figure>
+
+<p><br />
+2 . Declare your columns or rows using grid-template-column/row.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css">  <span class="nt">grid-template-column</span><span class="o">:</span> <span class="err">50</span><span class="o">%</span> <span class="err">25</span><span class="o">%</span> <span class="err">25</span><span class="o">%;</span> <span class="c">/* declares 3 columns of those particular widths */</span></code></pre></figure>
+
+<p><br />
+3 . Use the fraction unit fr to divide columns or rows equally.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css">  <span class="nt">grid-template-column</span><span class="o">:</span> <span class="err">1</span><span class="nt">fr</span> <span class="err">1</span><span class="nt">fr</span> <span class="err">1</span><span class="nt">fr</span> <span class="err">1</span><span class="nt">fr</span><span class="o">;</span>
+
+  <span class="nt">grid-template-column</span><span class="o">:</span> <span class="nt">repeat</span><span class="o">(</span><span class="err">4</span><span class="o">,</span> <span class="err">1</span><span class="nt">fr</span><span class="o">);</span> <span class="c">/* use the repeat function to achieve the same results */</span>   </code></pre></figure>
+
+<p><br />
+4 . Use grid-auto-flow instead of grid-template-column/grid-template-rows if you want the width to auto-adjust depending on the number of columns or rows.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css">  <span class="nt">grid-auto-flow</span><span class="o">:</span> <span class="nt">column</span><span class="o">;</span>
+
+  <span class="c">/* Doing this: */</span>
+  <span class="nt">grid-template-column</span><span class="o">:</span> <span class="err">50</span><span class="o">%</span> <span class="err">25</span><span class="o">%</span> <span class="err">25</span><span class="o">%;</span> <span class="c">/* would not evenly re-distribute the with in case you reduced the number of columns to 2. */</span></code></pre></figure>
+
+<p><br />
+5 . Use grid-auto-flow with media queries to change the direction of the elements e.g from columns to rows whenever the screen size gets smaller.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css">  <span class="nc">.main-grid</span> <span class="p">{</span>
+    <span class="py">grid-auto-flow</span><span class="p">:</span> <span class="n">row</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">@media</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">55em</span><span class="p">){</span>
+    <span class="nc">.main-grid</span> <span class="p">{</span>
+      <span class="py">grid-auto-flow</span><span class="p">:</span> <span class="n">column</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p><br />
+6 . Use grid gap to space the elements instead of margins.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css">  <span class="nt">gap</span><span class="o">:</span> <span class="err">1</span><span class="o">.</span><span class="err">5</span><span class="nt">rem</span><span class="o">;</span>
+  </code></pre></figure>
+
+<p><br />
+7 . No need to declare grid-template-row. Unless you absolutely have too, leave it out, let it be implicit. This will help you reduce the overheads incase you add more columns than you declared.</p>
+
+<p><br />
+8 . Use span to extend columns or rows.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css">  <span class="nc">.grid-col-span-2</span> <span class="p">{</span>
+  <span class="nl">grid-column</span><span class="p">:</span> <span class="n">span</span> <span class="m">2</span><span class="p">;</span>
+  <span class="p">}</span>
+  </code></pre></figure>
+
+<p><br />
+9 . Re-position elements within the grid using grid-column-start, grid-column-end and the nth-child properties.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css">  <span class="nc">.main-grid</span><span class="nd">:first-child</span> <span class="p">{</span>
+    <span class="py">grid-column-start</span><span class="p">:</span> <span class="m">4</span><span class="p">;</span>
+    <span class="py">grid-column-end</span><span class="p">:</span> <span class="m">5</span><span class="p">;</span>
+  
+    <span class="nl">grid-column</span><span class="p">:</span> <span class="m">4</span> <span class="p">/</span> <span class="m">5</span>    <span class="c">/* short hand for the above two lines */</span>
+    <span class="n">grid-row</span><span class="p">:</span> <span class="m">1</span> <span class="p">/</span> <span class="n">span</span> <span class="m">2</span>  
+  <span class="p">}</span>
+  </code></pre></figure>
+
+<p><em>Thanks for reading, see you in the next one!</em></p>
+
+   </div>
+
+   <div>
+     <style>
 
 .newsletter {
   text-align: center;
@@ -1170,11 +1077,10 @@
   </div>
 </div> <!-- End Newsletter -->
 
-</section>
-
-
-<section class="reduce-size bg-light">
-        <section class="comment-area" style="background: #eaecee; padding: 30px;">
+   </div>
+     
+   <div>
+     <section class="comment-area" style="background: #eaecee; padding: 30px;">
   <div class="comment-wrapper">
     
     <div id="disqus_thread" class="article-comments"></div>
@@ -1191,8 +1097,11 @@
   </div>
 </section> <!-- End Comment Area -->
 
-</section>
-                                                            
+   </div>
+   
+</div>
+
+<br>
 
 
                 <!-- footer module inserted below -->

@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-01-18T20:28:58+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">How to Reset a Forgotten Windows User Password</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password" rel="alternate" type="text/html" title="How to Reset a Forgotten Windows User Password" /><published>2022-01-16T15:30:00+03:00</published><updated>2022-01-16T15:30:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-02-28T16:23:10+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">CSS Grid Layout</title><link href="http://0.0.0.0:4000/category/frameworks/css/concepts/202202/css-grid-layout" rel="alternate" type="text/html" title="CSS Grid Layout" /><published>2022-02-28T03:33:00+03:00</published><updated>2022-02-28T03:33:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/css/concepts/202202/css-grid-layout</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/css/concepts/202202/css-grid-layout">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;The CSS Grid layout uses rows and columns to position elements on a web page without having to use floats.&lt;/p&gt;
+
+&lt;p&gt;It is an alternative to flexbox but most developers agree that the grid is more suitable for the general layout while flexbox is more effective when you narrow down to smaller layouts within the main layout.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+1 . Set display to grid.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . Declare your columns or rows using grid-template-column/row.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;grid-template-column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* declares 3 columns of those particular widths */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Use the fraction unit fr to divide columns or rows equally.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;grid-template-column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;grid-template-column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;repeat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* use the repeat function to achieve the same results */&lt;/span&gt;   &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+4 . Use grid-auto-flow instead of grid-template-column/grid-template-rows if you want the width to auto-adjust depending on the number of columns or rows.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;grid-auto-flow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c&quot;&gt;/* Doing this: */&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;grid-template-column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* would not evenly re-distribute the with in case you reduced the number of columns to 2. */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+5 . Use grid-auto-flow with media queries to change the direction of the elements e.g from columns to rows whenever the screen size gets smaller.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nc&quot;&gt;.main-grid&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-auto-flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;55em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;.main-grid&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;py&quot;&gt;grid-auto-flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+6 . Use grid gap to space the elements instead of margins.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;gap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;rem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+7 . No need to declare grid-template-row. Unless you absolutely have too, leave it out, let it be implicit. This will help you reduce the overheads incase you add more columns than you declared.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+8 . Use span to extend columns or rows.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nc&quot;&gt;.grid-col-span-2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;grid-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+9 . Re-position elements within the grid using grid-column-start, grid-column-end and the nth-child properties.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nc&quot;&gt;.main-grid&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:first-child&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-column-start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;py&quot;&gt;grid-column-end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+    &lt;span class=&quot;nl&quot;&gt;grid-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;/* short hand for the above two lines */&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;grid-row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;  
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">How to Reset a Forgotten Windows User Password</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password" rel="alternate" type="text/html" title="How to Reset a Forgotten Windows User Password" /><published>2022-01-16T15:30:00+03:00</published><updated>2022-01-16T15:30:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;It’s rather uncommon to forget your windows login password but sometimes you may find yourself in that situation. If you ever find yourself locked out of your own computer, then worry not because you can actually hack into it and reset the password.&lt;/p&gt;
 
@@ -974,51 +1048,4 @@ user@local_machine
 
 &lt;p&gt;That’s it!&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. In this tutorial we are going to set up SSH to a repository. If you don’t already have a Github account, register one.</summary></entry><entry><title type="html">Ruby &amp;amp; Ruby on Rails Errors</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors" rel="alternate" type="text/html" title="Ruby &amp;amp; Ruby on Rails Errors" /><published>2020-06-09T15:51:06+03:00</published><updated>2020-06-09T15:51:06+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors">&lt;h4 align=&quot;center&quot;&gt;ERROR TYPE: &lt;h5 align=&quot;center&quot;&gt;Dependency Error&lt;/h5&gt;&lt;/h4&gt;
-
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Error when trying to run a jekyll project&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;Dependency Error: Yikes! It looks like you don&apos;t have jekyll-commonmark-ghpages or one of its dependencies installed. In order to use Jekyll as currently configured, you&apos;ll need to install this gem. The full error message from Ruby is: &apos;incompatible library version - /home/koby/gems/gems/commonmarker-0.17.13/lib/commonmarker/commonmarker.so&apos; If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Step 1:&lt;/h5&gt;
- &lt;h5 class=&quot;hashed&quot;&gt;# Warning! This will uninstall bundler and all other gems&lt;/h5&gt;
- &lt;h5 class=&quot;hashed&quot;&gt;# a removes all versions&lt;/h5&gt;
- &lt;h5 class=&quot;hashed&quot;&gt;# I ignores dependencies&lt;/h5&gt;
- &lt;h5 class=&quot;hashed&quot;&gt;# x includes executables&lt;/h5&gt;
-
- 
- &lt;h5 class=&quot;hashed&quot;&gt;For Rubygems &amp;gt;= 2.1.0:&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;gem uninstall -aIx&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;For Rubygems &amp;lt; 2.1.0:&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;for i in `gem list --no-versions`; do gem uninstall -aIx $i; done&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# If the above didn&apos;t work: You could also build out a new Gemfile and run bundle clean --force. This will remove all other gems that aren&apos;t included in the new Gemfile.&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;bundle clean --force&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Step 2:&lt;/h5&gt;
- 
- &lt;h5 class=&quot;hashed&quot;&gt;# Now install the version of bundler required by your project&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;gem install bundler:2.1.4&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Step 3:&lt;/h5&gt;
- 
- &lt;h5 class=&quot;hashed&quot;&gt;#After this everything should be ok!&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;bundle install&lt;/p&gt;
-   
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;That’s it!&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">ERROR TYPE: Dependency Error</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. In this tutorial we are going to set up SSH to a repository. If you don’t already have a Github account, register one.</summary></entry></feed>
