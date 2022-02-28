@@ -2,7 +2,7 @@
 layout: post
 title:  "CSS Grid Layout"
 author: Denis Kobare
-date:   2022-02-28 3:33:00 +0300
+date:   2022-02-28 15:33:00 +0300
 img: /assets/img/svg/css3.svg
 categories: programming
 sub_category: css
