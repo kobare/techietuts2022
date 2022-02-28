@@ -2,7 +2,7 @@
 layout: post
 title:  "Install Rails Admin on a Rails App"
 author: Denis Kobare
-date:   2022-02-28 17:48:00 +0300
+date:   2022-02-28 17:28:00 +0300
 img: /assets/img/svg/ror.svg
 categories: frameworks
 sub_category: ruby-on-rails
