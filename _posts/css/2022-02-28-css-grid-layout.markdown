@@ -115,7 +115,7 @@ It is an alternative to flexbox but most developers agree that the grid is more 
     grid-column-start: 4;
     grid-column-end: 5;
   
-    grid-column: 4 / 5    /* short hand for the above two lines */
+    grid-column: 4 / 5    /* short hand for the two lines above */
     grid-row: 1 / span 2  
   }
   
