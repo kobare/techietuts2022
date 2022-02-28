@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-02-28T17:43:09+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Install Devise on a Rails App</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app" rel="alternate" type="text/html" title="Install Devise on a Rails App" /><published>2022-02-28T16:30:00+03:00</published><updated>2022-02-28T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-02-28T18:03:20+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Install Activeadmin on a Rails App</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-activeadmin-on-a-rails-app" rel="alternate" type="text/html" title="Install Activeadmin on a Rails App" /><published>2022-02-28T17:48:00+03:00</published><updated>2022-02-28T17:48:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-activeadmin-on-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-activeadmin-on-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;Active Admin is a Ruby on Rails gem for generating administration interfaces.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Make sure device is installed and properly configured.&lt;/p&gt;
+&lt;h3 id=&quot;1-add-the-gem&quot;&gt;1. Add the gem&lt;/h3&gt;
+
+&lt;p&gt;Open up your Gemfile and add these lines.
+NB: This has been tested with Rails 7 ☑️&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#/Gemfile&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Use activeadmin&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;activeadmin&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;github: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;tagliala/activeadmin&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;branch: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;feature/railties-7&apos;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# FIXME: revert to stable&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;arbre&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;github: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;activeadmin/arbre&apos;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# FIXME: remove&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;inherited_resources&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;github: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;activeadmin/inherited_resources&apos;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# FIXME: remove&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Use sass-rails&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;sass-rails&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and run:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;	&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-set-up-activeadmin-in-your-app&quot;&gt;2. Set up activeadmin in your app&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;	
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate active_admin:install
+&lt;span class=&quot;go&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:migrate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-visit-httplocalhost3000admin-and-log-in-using&quot;&gt;3. Visit http://localhost:3000/admin and log in using:&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;User: admin@example.com
+Password: password
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;4-register-a-model&quot;&gt;4. Register a model&lt;/h3&gt;
+&lt;p&gt;To register your first model, run:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;$ rails generate active_admin:resource MyModel&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">Install Devise on a Rails App</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app" rel="alternate" type="text/html" title="Install Devise on a Rails App" /><published>2022-02-28T16:30:00+03:00</published><updated>2022-02-28T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Devise is an authentication gem for rails applications. It allows you to create users that can log in and out of your application.&lt;/p&gt;
 
@@ -1069,46 +1117,4 @@ $ do-release-upgrade                 &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;That’s it!&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">1. Space Indentations</summary></entry><entry><title type="html">Git Cheatsheet</title><link href="http://0.0.0.0:4000/category/vcs/github/cheatsheet/202006/git-cheatsheet" rel="alternate" type="text/html" title="Git Cheatsheet" /><published>2020-06-09T17:07:06+03:00</published><updated>2020-06-09T17:07:06+03:00</updated><id>http://0.0.0.0:4000/category/vcs/github/cheatsheet/202006/git-cheatsheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/vcs/github/cheatsheet/202006/git-cheatsheet">&lt;p&gt;Git is used as a version control system. If you don’t already have a Github account, &lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot;&gt;register&lt;/a&gt; one.&lt;/p&gt;
-
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# List SSH keys on your machine&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;ls -al ~/.ssh&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Switching remote URL from SSH to HTTPS&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;git remote set-url origin https://github.com/USERNAME/REPOSITORY.git&lt;/p&gt;
- 
- &lt;h5 class=&quot;hashed&quot;&gt;# Switching remote URL from HTTPS to SSH&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;git remote set-url origin git@github.com:USERNAME/REPOSITORY.git&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Create a new branch&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;git checkout -b your_branch_name&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# List available branches&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;git branch&lt;/p&gt;
- 
- &lt;h5 class=&quot;hashed&quot;&gt;# Navigate to a branch&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;git checkout your_branch_name&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Check Git status&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;git status&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Force unrelated merge&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;git merge your_branch_name --allow-unrelated-histories&lt;/p&gt;
-  
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;That’s it!&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. If you don’t already have a Github account, register one.</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">1. Space Indentations</summary></entry></feed>
