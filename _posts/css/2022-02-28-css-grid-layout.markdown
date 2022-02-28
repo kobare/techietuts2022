@@ -4,7 +4,7 @@ title:  "CSS Grid Layout"
 author: Denis Kobare
 date:   2022-02-28 3:33:00 +0300
 img: /assets/img/svg/css3.svg
-categories: frameworks
+categories: programming
 sub_category: css
 type: concepts
 technology: CSS
