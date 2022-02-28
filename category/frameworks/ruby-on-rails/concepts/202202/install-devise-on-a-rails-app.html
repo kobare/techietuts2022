@@ -948,7 +948,7 @@
 
 <p><br /></p>
 <h3 id="6-add-sign-up-and-login-links">6. Add sign-up and login links.</h3>
-<p>In order to do that go to, edit app/views/layouts/application.html.erb add:</p>
+<p>In order to do that go to, app/views/layouts/application.html.erb and add:</p>
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html">// app/views/layouts/application.html.erb
 
@@ -969,7 +969,7 @@
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/controllers/</span><span class="n">application_controller</span><span class="p">.</span><span class="nf">rb</span>
  
- <span class="n">protect_from_forgery</span> <span class="ss">with: :exception</span>
+ <span class="c1"># protect_from_forgery with: :exception</span>
 
  <span class="n">before_action</span> <span class="ss">:authenticate_user!</span>
   </code></pre></figure>
