@@ -1,4 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-02-28T16:32:52+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">CSS Grid Layout</title><link href="http://0.0.0.0:4000/category/programming/css/concepts/202202/css-grid-layout" rel="alternate" type="text/html" title="CSS Grid Layout" /><published>2022-02-28T03:33:00+03:00</published><updated>2022-02-28T03:33:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/css/concepts/202202/css-grid-layout</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/css/concepts/202202/css-grid-layout">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-02-28T17:34:27+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Install Devise on a Rails App</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app" rel="alternate" type="text/html" title="Install Devise on a Rails App" /><published>2022-02-28T16:30:00+03:00</published><updated>2022-02-28T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;Devise is an authentication gem for rails applications. It allows you to create users that can log in and out of your application.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-add-devise-gem&quot;&gt;1. Add devise gem&lt;/h3&gt;
+
+&lt;p&gt;a). Open up your Gemfile and add this line&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#/Gemfile&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;devise&apos;&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;and run:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;	&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Or:&lt;/p&gt;
+
+&lt;p&gt;b).Run:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle add devise
+&lt;span class=&quot;go&quot;&gt; 	&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-set-up-devise-in-your-app&quot;&gt;2. Set up devise in your app&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;	
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g devise:install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-configure-devise&quot;&gt;3. Configure Devise&lt;/h3&gt;
+&lt;p&gt;Ensure you have defined default url options in your environments files. Open up config/environments/development.rb and add this line before the ‘end’ keyword:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# /config/environments/development.rb&lt;/span&gt;
+   
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;action_mailer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;default_url_options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;host: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;localhost&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;port: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3000&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;4-add-the-notification-alert&quot;&gt;4. Add the notification alert&lt;/h3&gt;
+&lt;p&gt;Open up app/views/layouts/application.html.erb and add the following right above &amp;lt;%= yield %&amp;gt; :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; // app/views/layouts/application.html.erb
+ 
+ &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;notice&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alert alert-success&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;notice&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+ &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+ &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alert&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alert alert-danger&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alert&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+ &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;5-setup-the-user-model&quot;&gt;5. Setup the User model&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g devise user
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rake db:migrate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;6-add-sign-up-and-login-links&quot;&gt;6. Add sign-up and login links.&lt;/h3&gt;
+&lt;p&gt;In order to do that go to, edit app/views/layouts/application.html.erb add:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;// app/views/layouts/application.html.erb
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navbar-text pull-right&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+ &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;user_signed_in&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  Logged in as &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;current_user.email&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;.
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Edit&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;profile&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;edit_user_registration_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;navbar-link&apos;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; |
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Logout&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;destroy_user_session_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method:&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:delete&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;navbar-link&apos;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+ &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Sign&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;new_user_registration_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;navbar-link&apos;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; |
+   &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Login&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;new_user_session_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;navbar-link&apos;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;7-redirect-the-user&quot;&gt;7. Redirect the User&lt;/h3&gt;
+&lt;p&gt;Finally, force the user to redirect to the login page if the user was not logged in. Open up app/controllers/application_controller.rb and add the following after the protect_from_forgery with: :exception. :&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;sr&quot;&gt;/controllers/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;application_controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rb&lt;/span&gt;
+ 
+ &lt;span class=&quot;n&quot;&gt;protect_from_forgery&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: :exception&lt;/span&gt;
+
+ &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:authenticate_user!&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Make sure your rails server is running, open http://localhost:3000/users/sign_up and create your user account.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;8-customize-devise-views&quot;&gt;8. Customize Devise Views&lt;/h3&gt;
+
+&lt;p&gt;You can style the devise views according to your preference. Run the command below to generate the views and then provide css style for them:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate devise:views&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">CSS Grid Layout</title><link href="http://0.0.0.0:4000/category/programming/css/concepts/202202/css-grid-layout" rel="alternate" type="text/html" title="CSS Grid Layout" /><published>2022-02-28T15:33:00+03:00</published><updated>2022-02-28T15:33:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/css/concepts/202202/css-grid-layout</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/css/concepts/202202/css-grid-layout">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;The CSS Grid layout uses rows and columns to position elements on a web page without having to use floats.&lt;/p&gt;
 
@@ -1012,40 +1111,4 @@ user@local_machine
 
 &lt;p&gt;That’s it!&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. If you don’t already have a Github account, register one.</summary></entry><entry><title type="html">Add SSH Key to a Git Repository</title><link href="http://0.0.0.0:4000/category/vcs/github/configurations/202006/add-ssh-key-to-git-repository" rel="alternate" type="text/html" title="Add SSH Key to a Git Repository" /><published>2020-06-09T17:07:06+03:00</published><updated>2020-06-09T17:07:06+03:00</updated><id>http://0.0.0.0:4000/category/vcs/github/configurations/202006/add-ssh-key-to-git-repository</id><content type="html" xml:base="http://0.0.0.0:4000/category/vcs/github/configurations/202006/add-ssh-key-to-git-repository">&lt;p&gt;Git is used as a version control system. In this tutorial we are going to set up SSH to a repository. If you don’t already have a Github account, &lt;a href=&quot;https://github.com/&quot; target=&quot;_blank&quot;&gt;register&lt;/a&gt; one.&lt;/p&gt;
-
-&lt;h4 align=&quot;center&quot;&gt;STEP 1: &lt;h5 align=&quot;center&quot;&gt;Generate the SSH Key&lt;/h5&gt;&lt;/h4&gt;
-
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# Generate SSH key: Replace my email address in the following steps with the ones you used for your Github account.&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;ssh-keygen -t rsa -b 4096 -C &quot;YOUR@EMAIL.com&quot;&lt;/p&gt;
- 
- &lt;h5 class=&quot;hashed&quot;&gt;# You will get a message similar to the one below&lt;/h5&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;#Enter the path and the file name after the prompt. Notice how the path matches the one above&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;/home/pc_user/.ssh/name_of_your_key&lt;/p&gt;
-
- &lt;h5 class=&quot;hashed&quot;&gt;# You will be prompted to enter a paraphrase. You can leave it blank and press enter if you like&lt;/h5&gt;
- 
- &lt;h5 class=&quot;hashed&quot;&gt;# Copy SSH key. This command outputs your SSH key on the terminal. Highlight everything and copy.&lt;/h5&gt;
- &lt;p class=&quot;console&quot;&gt;cat ~/.ssh/name_of_your_key.pub&lt;/p&gt;
-   
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h4 align=&quot;center&quot;&gt;STEP 2: &lt;h5 align=&quot;center&quot;&gt;Copy the generated SSH key and add it to your Github repository&lt;/h5&gt;&lt;/h4&gt;
-&lt;p&gt;You do that by opening your repository, go to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;settings&lt;/code&gt; menu of that repository. Then click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;deploy keys&lt;/code&gt;, click &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add&lt;/code&gt; and paste the key.&lt;/p&gt;
-
-&lt;p&gt;That’s it!&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. In this tutorial we are going to set up SSH to a repository. If you don’t already have a Github account, register one.</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Git is used as a version control system. If you don’t already have a Github account, register one.</summary></entry></feed>
