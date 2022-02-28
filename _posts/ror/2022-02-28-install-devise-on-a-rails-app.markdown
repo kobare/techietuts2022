@@ -102,7 +102,7 @@ $ rake db:migrate
 
 <br>
 ### 6. Add sign-up and login links. 
-In order to do that go to, edit app/views/layouts/application.html.erb add:
+In order to do that go to, app/views/layouts/application.html.erb and add:
 
 {% highlight html %}
 
@@ -130,7 +130,7 @@ Finally, force the user to redirect to the login page if the user was not logged
 
 /controllers/application_controller.rb
  
- protect_from_forgery with: :exception
+ # protect_from_forgery with: :exception
 
  before_action :authenticate_user!
   
