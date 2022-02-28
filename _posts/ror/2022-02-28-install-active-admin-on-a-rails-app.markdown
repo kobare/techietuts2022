@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Install Activeadmin on a Rails App"
+title:  "Install Active Admin on a Rails App"
 author: Denis Kobare
 date:   2022-02-28 17:48:00 +0300
 img: /assets/img/svg/ror.svg
@@ -17,7 +17,7 @@ Active Admin is a Ruby on Rails gem for generating administration interfaces.
 
 
 <br>
-Make sure device is installed and properly configured.
+Make sure [Devise](/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app) is installed and properly configured.
 ### 1. Add the gem
  
 Open up your Gemfile and add these lines.
