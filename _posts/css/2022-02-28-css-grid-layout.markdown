@@ -57,7 +57,7 @@ It is an alternative to flexbox but most developers agree that the grid is more 
   grid-auto-flow: column;
 
   /* Doing this: */
-  grid-template-column: 50% 25% 25%; /* would not evenly re-distribute the with in case you reduced the number of columns to 2. */
+  grid-template-column: 50% 25% 25%; /* would not evenly re-distribute the width in case you reduced the number of columns to 2. */
 
 {% endhighlight %} 
 
