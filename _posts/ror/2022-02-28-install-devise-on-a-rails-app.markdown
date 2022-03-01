@@ -77,7 +77,7 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 Open up app/views/layouts/application.html.erb and add the following right above <%= yield %> :
 
 {% highlight html %}
- // app/views/layouts/application.html.erb
+ <!-- app/views/layouts/application.html.erb -->
  
  <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -106,7 +106,7 @@ In order to do that go to, app/views/layouts/application.html.erb and add:
 
 {% highlight html %}
 
-// app/views/layouts/application.html.erb
+<!-- app/views/layouts/application.html.erb -->
 
 <p class="navbar-text pull-right">
  <% if user_signed_in? %>
