@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Install Devise on a Rails App" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Definition","headline":"Install Devise on a Rails App","dateModified":"2022-02-28T16:30:00+03:00","datePublished":"2022-02-28T16:30:00+03:00","url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Install Devise on a Rails App","description":"Definition","datePublished":"2022-02-28T16:30:00+03:00","dateModified":"2022-02-28T16:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -930,7 +930,7 @@
 <h3 id="4-add-the-notification-alert">4. Add the notification alert</h3>
 <p>Open up app/views/layouts/application.html.erb and add the following right above &lt;%= yield %&gt; :</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"> // app/views/layouts/application.html.erb
+<figure class="highlight"><pre><code class="language-html" data-lang="html"> <span class="c">&lt;!-- app/views/layouts/application.html.erb --&gt;</span>
  
  <span class="nt">&lt;</span><span class="err">%</span> <span class="na">if</span> <span class="na">notice</span> <span class="err">%</span><span class="nt">&gt;</span>
   <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"alert alert-success"</span><span class="nt">&gt;&lt;</span><span class="err">%=</span> <span class="na">notice</span> <span class="err">%</span><span class="nt">&gt;&lt;/p&gt;</span>
@@ -950,7 +950,7 @@
 <h3 id="6-add-sign-up-and-login-links">6. Add sign-up and login links.</h3>
 <p>In order to do that go to, app/views/layouts/application.html.erb and add:</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html">// app/views/layouts/application.html.erb
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/views/layouts/application.html.erb --&gt;</span>
 
 <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"navbar-text pull-right"</span><span class="nt">&gt;</span>
  <span class="nt">&lt;</span><span class="err">%</span> <span class="na">if</span> <span class="na">user_signed_in</span><span class="err">?</span> <span class="err">%</span><span class="nt">&gt;</span>
