@@ -1,0 +1,325 @@
+---
+layout: post
+title:  "Linux iptables"
+author: Denis Kobare
+date:   2022-03-06 14:30:00 +0300
+img: /assets/img/svg/ubuntu.svg
+categories: os
+sub_category: ubuntu
+type: concepts
+technology: iptables
+permalink: "category/:categories/ubuntu/concepts/:year:month/:title"
+---
+
+### Definition
+
+iptables is a command line interface used to set up and maintain tables for the Netfilter firewall facilitating Network Address Translation (NAT), packet filtering, and packet mangling.
+
+
+
+<br>
+### The Common Table Structures are:
+
+<strong>NAT Table:</strong> This is the table you use to perform network address translation and that includes data associated with traffic e.g routing network traffic.
+
+<strong>Mangle Table:</strong> For altering packets e.g. you may want to alter the type of service (ToS).
+
+<strong>Filter Table:</strong> The default table that filters packets.
+
+
+
+<br>
+#### Installation:
+To install iptables, run this command:
+
+    sudo apt-get update && sudo apt-get install iptables
+
+
+<br>
+#### Saving iptables
+
+Normally, when you set your iptables rules and then proceed to save them using iptables save, the rules are saved but get errased when you reboot the machine. To make the rules persistent even after a reboot, you can either:
+
+i). run this command:
+ 
+    iptables-restore /etc/iptables/rules.v4 
+    
+everytime after booting up.
+
+or<br>
+ii). install iptables-persistent using: 
+
+    apt install iptables-persistent and let it run the show.
+
+
+
+
+<br>
+### Command Options
+
+-A, --append: Append one or more rules to the end of the selected chain. When the source and/or destination names resolve to more than one address, a rule will be added for each possible address combination.
+ 
+    iptables --append chain rule-specification
+
+
+<br>
+-I, --insert: Insert one or more rules in the selected chain as the given rule number. So, if the rule number is 1, the rule or rules are inserted at the head of the chain. This is also the default if no rule number is specified. 
+
+    iptables --insert chain [rulenum] rule-specification
+
+
+<br>    
+-D, --delete: Delete one or more rules from the selected chain. There are two versions of this command: the rule can be specified as a number in the chain (starting at 1 for the first rule) or a rule to match. 
+    
+    iptables --delete chain rule-specification
+    iptables --delete chain rulenum
+  
+
+<br>    
+-R, --replace: Replace a rule in the selected chain. If the source and/or destination names resolve to multiple addresses, the command will fail. Rules are numbered starting at 1.
+    
+     iptables --replace chain rulenum rule-specification
+     
+
+<br>     
+-L, --list: List all rules in the selected chain. If no chain is selected, all chains are listed.
+
+    iptables --list [chain]
+        
+If a table is not specified, filter table is used as the default, so NAT rules get listed by
+
+     iptables -t nat -n -L
+
+We use the -n option in order to avoid long reverse DNS lookups.
+
+
+<br>
+-F, --flush: Flush the selected chain (all the chains in the table if none is given). This is equivalent to deleting all the rules one by one. 
+    
+    iptables --flush [chain]
+ 
+
+<br>    
+-Z, --zero: Zero the packet and byte counters in all chains. You can also specify the -L, --list (list) option to see the counters immediately before they are cleared.
+    
+    iptables --zero [chain]
+    
+
+<br>    
+-N, --new-chain: Create a new user-defined chain by the given name. There must be no target already present with the same name.
+    
+    iptables --new-chain chain
+    
+
+<br>     
+-X, --delete-chain: Delete the optional user-defined chain specified. There must be no references to the chain. If there are, you must delete or replace the referring rules before the chain can be deleted. The chain must be empty, i.e. must not contain any rules. If no argument is given, it will attempt to delete every non-built-in chain in the table. 
+    
+    iptables --delete-chain [chain]
+    
+
+<br>    
+-P, --policy: Set the policy for the chain to the given target. Only built-in (non-user-defined) chains can have policies, and neither built-in nor user-defined chains can be policy targets. 
+    
+    iptables --policy chain target
+    
+
+<br>    
+-E, --rename-chain: Rename the user specified chain to the user supplied name. This is cosmetic, and has no effect on the structure of the table. 
+    
+    iptables --rename-chain old-chain new-chain
+    
+
+<br>    
+-h: Help. Give a description of the command syntax.
+
+    iptables -h 
+
+
+
+<br>
+### Parameter Options
+
+NB: Using the exclamation point character "!" argument after a parameter inverts the directive.
+
+
+-p, --protocol: The protocol of the rule or of the packet to check. The specified protocol can be one of tcp, udp, icmp, or all, or it can be a numeric value, representing one of these protocols or a different one. A protocol name from /etc/protocols is also allowed. The number zero is equivalent to all. Protocol all will match with all protocols and is taken as default when this option is omitted. 
+    
+    iptables --protocol [!] protocol
+    
+
+<br>    
+-s, --source: Sets the source for a particular packet using the same syntax as the destination. A "!" argument before the address specification inverts the sense of the address. The flag --src is an alias for this option. 
+    
+    iptables --source [!] address[/mask]
+    
+
+<br>    
+-d, --destination: Sets the destination hostname, IP address, or network of a packet that matches the rule. The flag --dst is an alias for this option. 
+    
+    iptables --destination [!] address[/mask]
+    
+
+<br>    
+-j, --jump: This specifies the target of the rule; i.e., what to do if the packet matches it. The target can be a user-defined chain, one of the special built-in targets which decide the fate of the packet immediately, or an extension. If this option is omitted in a rule (and -g is not used), then matching the rule will have no effect on the packet's fate, but the counters on the rule will be incremented. 
+    
+    iptables --jump target
+    
+
+<br>    
+-g, --goto: This specifies that the processing should continue in a user specified chain.
+    
+    iptables --goto chain
+    
+
+<br>    
+-i, --in-interface: Name of an interface via which a packet was received (only for packets entering the INPUT, FORWARD and PREROUTING chains). If the interface name ends in a "+", then any interface which begins with this name will match. If this option is omitted, any interface name will match. 
+    
+    iptables --in-interface [!] name
+    
+
+<br>    
+-o, --out-interface: Name of an interface via which a packet is going to be sent (for packets entering the FORWARD, OUTPUT and POSTROUTING chains). If the interface name ends in a "+", then any interface which begins with this name will match. If this option is omitted, any interface name will match.
+    
+    iptables --out-interface [!] name 
+    
+
+<br>    
+-f, --fragment: This means that the rule only refers to second and further fragments of fragmented packets. Since there is no way to tell the source or destination ports of such a packet (or ICMP type), such a packet will not match any rules which specify them. 
+    
+    iptables [!] -f
+    
+
+<br>    
+-c, --set-counters: Resets the counters for a particular rule. This parameter accepts the PKTS and BYTES options to specify what counter to reset.
+    
+    iptables --set-counters PKTS BYTES
+    
+
+<br>
+-v, --verbose: Verbose output. This option makes the list command show the interface name, the rule options (if any), and the TOS masks. The packet and byte counters are also listed, with the suffix 'K', 'M' or 'G' for 1000, 1,000,000 and 1,000,000,000 multipliers respectively. For appending, insertion, deletion and replacement, this causes detailed information on the rule or rules to be printed. 
+    
+
+<br>    
+-n, --numeric: Numeric output. IP addresses and port numbers will be printed in numeric format. By default, the program will try to display them as host names, network names, or services. 
+    
+
+<br>    
+-x, --exact: Expand numbers. Display the exact value of the packet and byte counters, instead of only the rounded number in K's (multiples of 1000) M's (multiples of 1000K) or G's (multiples of 1000M). This option is only relevant for the -L command. 
+    
+
+<br>    
+--line-numbers: When listing rules, add line numbers to the beginning of each rule, corresponding to that rule's position in the chain. 
+    
+
+<br>    
+--modprobe: When adding or inserting rules into a chain, use command to load any necessary modules (targets, match extensions, etc). 
+    
+    iptables --modprobe=command
+
+
+
+<br><br>
+### Example Cheatsheet:
+
+1 .  List iptables rules: 
+
+    iptables -L -v
+
+
+<br>
+2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this ploicy enacted, you will get a "Request timed out" message.
+
+    iptables --policy INPUT DROP
+   
+   # the inverse is
+   
+    iptables --policy UNPUT ACCEPT
+
+
+<br>
+3 .  If you've ever enabled ufw on ubuntu, you've probably realized that it creates a lot of ufw chains and roles with just one command `ufw enable`. When you disable ufw, these chains are deactivated but still remain on the list of rules. So when you do `iptables -L -v`, you see those dozens of deactivated chains which makes it look messy. This two liner run as root will find all the names and run them through a for loop that runs `itables -F` to flush references to the chain followed by `iptables -X` to completely delete them.
+
+    for ufw in `iptables -L |grep ufw|awk '{ print $2 }'`; do iptables -F $ufw; done
+    for ufw in `iptables -L |grep ufw|awk '{ print $2 }'`; do iptables -X $ufw; done
+
+
+<br>
+4 .  Allow Established Outgoing Connections
+Allows outgoing traffic of all established connections, which are typically the responses to legitimate incoming connections
+
+    sudo iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
+   
+
+<br>
+5 .  Block a particular IP from accessing the ssh port on a server
+
+    iptables -A INPUT -p tcp -s 192.168.0.13 --dport 22 -j DROP
+
+
+<br>
+6 .  Allow Established and Related Incoming Connections
+Allows the server to return traffic for outgoing connections initiated by the server itself   
+   
+    sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+  
+
+<br>   
+7 .  Prevent ssh Brute Force
+You can permanently block an IP address that attempts to access ssh port a given number of times within a given time period. This is vital when you have a server that you need to expose to the internet. Given the nature of the internet, when you expose your server, it might get several brute force hits. 
+
+    iptables -A INPUT -p tcp -m state --state NEW -m recent --update --seconds 60 --hitcount 5 --dport 22 -j DROP
+
+Use that to block those machines that are trying to brute force their way in but make sure to not lock yourself out by using ssh keys instead of passwords to access your server.
+
+
+<br>
+8 .  Allow Loopback Connections
+
+The loopback interface also known as lo is the network interface that allows a computer to send traffic to itself. It is used for testing purposes such as self pinging and also to configure your application server to connect to a database server with the localhost or 127.0.0.1 address.
+You can accept all traffic on the loopback interface, by running these commands:
+
+    sudo iptables -A INPUT -i lo -j ACCEPT
+    sudo iptables -A OUTPUT -o lo -j ACCEPT
+
+
+<br>
+9 .  Allowing Incoming SSH from Specific IP address or subnet
+
+    sudo iptables -A INPUT -p tcp -s 52.74.208.0/32 --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+    sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+
+<br>
+10 .  Allowing All Incoming SSH
+
+    sudo iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+    sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+
+
+<br>
+11 .  Flush All Rules In The Mangle, NAT and Filter Tables
+
+    iptables -t mangle -F
+    iptables -t nat -F
+    iptables -t filter -F
+
+
+<br>
+12 .  Delete All User-Defined Chains In The Tables
+
+    iptables -t mangle -X
+    iptables -t nat -X
+    iptables -t filter -X
+
+
+<br>
+13 .  Set All Policies For All Built-In Chains To Drop
+
+    iptables -P INPUT DROP
+    iptables -P OUTPUT DROP
+    iptables -P FORWARD DROP
+
+
+
+<br>
+*Thanks for reading, see you in the next one!*
