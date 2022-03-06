@@ -1,4 +1,304 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-01T13:17:18+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Install Active Admin on a Rails App</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-active-admin-on-a-rails-app" rel="alternate" type="text/html" title="Install Active Admin on a Rails App" /><published>2022-02-28T17:48:00+03:00</published><updated>2022-02-28T17:48:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-active-admin-on-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-active-admin-on-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-06T22:55:08+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Linux iptables</title><link href="http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables" rel="alternate" type="text/html" title="Linux iptables" /><published>2022-03-06T14:30:00+03:00</published><updated>2022-03-06T14:30:00+03:00</updated><id>http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables</id><content type="html" xml:base="http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;iptables is a command line interface used to set up and maintain tables for the Netfilter firewall facilitating Network Address Translation (NAT), packet filtering, and packet mangling.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;the-common-table-structures-are&quot;&gt;The Common Table Structures are:&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;NAT Table:&lt;/strong&gt; This is the table you use to perform network address translation and that includes data associated with traffic e.g routing network traffic.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Mangle Table:&lt;/strong&gt; For altering packets e.g. you may want to alter the type of service (ToS).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Filter Table:&lt;/strong&gt; The default table that filters packets.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;installation&quot;&gt;Installation:&lt;/h4&gt;
+&lt;p&gt;To install iptables, run this command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install iptables
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;saving-iptables&quot;&gt;Saving iptables&lt;/h4&gt;
+
+&lt;p&gt;Normally, when you set your iptables rules and then proceed to save them using iptables save, the rules are saved but get errased when you reboot the machine. To make the rules persistent even after a reboot, you can either:&lt;/p&gt;
+
+&lt;p&gt;i). run this command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables-restore /etc/iptables/rules.v4 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;everytime after booting up.&lt;/p&gt;
+
+&lt;p&gt;or&lt;br /&gt;
+ii). install iptables-persistent using:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install iptables-persistent and let it run the show.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;command-options&quot;&gt;Command Options&lt;/h3&gt;
+
+&lt;p&gt;-A, –append: Append one or more rules to the end of the selected chain. When the source and/or destination names resolve to more than one address, a rule will be added for each possible address combination.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --append chain rule-specification
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+-I, –insert: Insert one or more rules in the selected chain as the given rule number. So, if the rule number is 1, the rule or rules are inserted at the head of the chain. This is also the default if no rule number is specified.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --insert chain [rulenum] rule-specification
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-D, –delete: Delete one or more rules from the selected chain. There are two versions of this command: the rule can be specified as a number in the chain (starting at 1 for the first rule) or a rule to match.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --delete chain rule-specification
+iptables --delete chain rulenum
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-R, –replace: Replace a rule in the selected chain. If the source and/or destination names resolve to multiple addresses, the command will fail. Rules are numbered starting at 1.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; iptables --replace chain rulenum rule-specification
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;   &lt;br /&gt;
+-L, –list: List all rules in the selected chain. If no chain is selected, all chains are listed.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --list [chain]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If a table is not specified, filter table is used as the default, so NAT rules get listed by&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; iptables -t nat -n -L
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We use the -n option in order to avoid long reverse DNS lookups.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+-F, –flush: Flush the selected chain (all the chains in the table if none is given). This is equivalent to deleting all the rules one by one.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --flush [chain]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-Z, –zero: Zero the packet and byte counters in all chains. You can also specify the -L, –list (list) option to see the counters immediately before they are cleared.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --zero [chain]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-N, –new-chain: Create a new user-defined chain by the given name. There must be no target already present with the same name.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --new-chain chain
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;   &lt;br /&gt;
+-X, –delete-chain: Delete the optional user-defined chain specified. There must be no references to the chain. If there are, you must delete or replace the referring rules before the chain can be deleted. The chain must be empty, i.e. must not contain any rules. If no argument is given, it will attempt to delete every non-built-in chain in the table.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --delete-chain [chain]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-P, –policy: Set the policy for the chain to the given target. Only built-in (non-user-defined) chains can have policies, and neither built-in nor user-defined chains can be policy targets.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --policy chain target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-E, –rename-chain: Rename the user specified chain to the user supplied name. This is cosmetic, and has no effect on the structure of the table.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --rename-chain old-chain new-chain
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-h: Help. Give a description of the command syntax.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -h 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;parameter-options&quot;&gt;Parameter Options&lt;/h3&gt;
+
+&lt;p&gt;NB: Using the exclamation point character “!” argument after a parameter inverts the directive.&lt;/p&gt;
+
+&lt;p&gt;-p, –protocol: The protocol of the rule or of the packet to check. The specified protocol can be one of tcp, udp, icmp, or all, or it can be a numeric value, representing one of these protocols or a different one. A protocol name from /etc/protocols is also allowed. The number zero is equivalent to all. Protocol all will match with all protocols and is taken as default when this option is omitted.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --protocol [!] protocol
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-s, –source: Sets the source for a particular packet using the same syntax as the destination. A “!” argument before the address specification inverts the sense of the address. The flag –src is an alias for this option.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --source [!] address[/mask]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-d, –destination: Sets the destination hostname, IP address, or network of a packet that matches the rule. The flag –dst is an alias for this option.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --destination [!] address[/mask]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-j, –jump: This specifies the target of the rule; i.e., what to do if the packet matches it. The target can be a user-defined chain, one of the special built-in targets which decide the fate of the packet immediately, or an extension. If this option is omitted in a rule (and -g is not used), then matching the rule will have no effect on the packet’s fate, but the counters on the rule will be incremented.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --jump target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-g, –goto: This specifies that the processing should continue in a user specified chain.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --goto chain
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-i, –in-interface: Name of an interface via which a packet was received (only for packets entering the INPUT, FORWARD and PREROUTING chains). If the interface name ends in a “+”, then any interface which begins with this name will match. If this option is omitted, any interface name will match.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --in-interface [!] name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-o, –out-interface: Name of an interface via which a packet is going to be sent (for packets entering the FORWARD, OUTPUT and POSTROUTING chains). If the interface name ends in a “+”, then any interface which begins with this name will match. If this option is omitted, any interface name will match.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --out-interface [!] name 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-f, –fragment: This means that the rule only refers to second and further fragments of fragmented packets. Since there is no way to tell the source or destination ports of such a packet (or ICMP type), such a packet will not match any rules which specify them.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables [!] -f
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-c, –set-counters: Resets the counters for a particular rule. This parameter accepts the PKTS and BYTES options to specify what counter to reset.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --set-counters PKTS BYTES
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+-v, –verbose: Verbose output. This option makes the list command show the interface name, the rule options (if any), and the TOS masks. The packet and byte counters are also listed, with the suffix ‘K’, ‘M’ or ‘G’ for 1000, 1,000,000 and 1,000,000,000 multipliers respectively. For appending, insertion, deletion and replacement, this causes detailed information on the rule or rules to be printed.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-n, –numeric: Numeric output. IP addresses and port numbers will be printed in numeric format. By default, the program will try to display them as host names, network names, or services.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+-x, –exact: Expand numbers. Display the exact value of the packet and byte counters, instead of only the rounded number in K’s (multiples of 1000) M’s (multiples of 1000K) or G’s (multiples of 1000M). This option is only relevant for the -L command.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+–line-numbers: When listing rules, add line numbers to the beginning of each rule, corresponding to that rule’s position in the chain.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;  &lt;br /&gt;
+–modprobe: When adding or inserting rules into a chain, use command to load any necessary modules (targets, match extensions, etc).&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --modprobe=command
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;example-cheatsheet&quot;&gt;Example Cheatsheet:&lt;/h3&gt;
+
+&lt;p&gt;1 .  List iptables rules:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -L -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this ploicy enacted, you will get a “Request timed out” message.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --policy INPUT DROP
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;# the inverse is&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --policy UNPUT ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 .  If you’ve ever enabled ufw on ubuntu, you’ve probably realized that it creates a lot of ufw chains and roles with just one command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw enable&lt;/code&gt;. When you disable ufw, these chains are deactivated but still remain on the list of rules. So when you do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iptables -L -v&lt;/code&gt;, you see those dozens of deactivated chains which makes it look messy. This two liner run as root will find all the names and run them through a for loop that runs &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itables -F&lt;/code&gt; to flush references to the chain followed by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iptables -X&lt;/code&gt; to completely delete them.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for ufw in `iptables -L |grep ufw|awk &apos;{ print $2 }&apos;`; do iptables -F $ufw; done
+for ufw in `iptables -L |grep ufw|awk &apos;{ print $2 }&apos;`; do iptables -X $ufw; done
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+4 .  Allow Established Outgoing Connections
+Allows outgoing traffic of all established connections, which are typically the responses to legitimate incoming connections&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+5 .  Block a particular IP from accessing the ssh port on a server&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -A INPUT -p tcp -s 192.168.0.13 --dport 22 -j DROP
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+6 .  Allow Established and Related Incoming Connections
+Allows the server to return traffic for outgoing connections initiated by the server itself&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt; &lt;br /&gt;
+7 .  Prevent ssh Brute Force
+You can permanently block an IP address that attempts to access ssh port a given number of times within a given time period. This is vital when you have a server that you need to expose to the internet. Given the nature of the internet, when you expose your server, it might get several brute force hits.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -A INPUT -p tcp -m state --state NEW -m recent --update --seconds 60 --hitcount 5 --dport 22 -j DROP
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Use that to block those machines that are trying to brute force their way in but make sure to not lock yourself out by using ssh keys instead of passwords to access your server.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+8 .  Allow Loopback Connections&lt;/p&gt;
+
+&lt;p&gt;The loopback interface also known as lo is the network interface that allows a computer to send traffic to itself. It is used for testing purposes such as self pinging and also to configure your application server to connect to a database server with the localhost or 127.0.0.1 address.
+You can accept all traffic on the loopback interface, by running these commands:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A INPUT -i lo -j ACCEPT
+sudo iptables -A OUTPUT -o lo -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+9 .  Allowing Incoming SSH from Specific IP address or subnet&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A INPUT -p tcp -s 52.74.208.0/32 --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+10 .  Allowing All Incoming SSH&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+11 .  Flush All Rules In The Mangle, NAT and Filter Tables&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -t mangle -F
+iptables -t nat -F
+iptables -t filter -F
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+12 .  Delete All User-Defined Chains In The Tables&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -t mangle -X
+iptables -t nat -X
+iptables -t filter -X
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+13 .  Set All Policies For All Built-In Chains To Drop&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="os" /><summary type="html">Definition</summary></entry><entry><title type="html">Install Active Admin on a Rails App</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-active-admin-on-a-rails-app" rel="alternate" type="text/html" title="Install Active Admin on a Rails App" /><published>2022-02-28T17:48:00+03:00</published><updated>2022-02-28T17:48:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-active-admin-on-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-active-admin-on-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Active Admin is a Ruby on Rails gem for generating administration interfaces.&lt;/p&gt;
 
@@ -1050,148 +1350,4 @@ To achieve that, we’ll use a tool called venv.&lt;/p&gt;
 
 &lt;p&gt;That’s it! You have successfully deployed a Rails 6 app to Heroku.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="cloud" /><category term="heroku" /><category term="deploy" /><category term="rails" /><category term="heroku-git" /><summary type="html">Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps. The platform is elegant, flexible, and easy to use, offering developers the simplest path to getting their apps to market.</summary></entry><entry><title type="html">Upgrade Ubuntu</title><link href="http://0.0.0.0:4000/category/os/ubuntu/installations/202006/upgrade-ubuntu" rel="alternate" type="text/html" title="Upgrade Ubuntu" /><published>2020-06-13T14:22:00+03:00</published><updated>2020-06-13T14:22:00+03:00</updated><id>http://0.0.0.0:4000/category/os/ubuntu/installations/202006/upgrade-ubuntu</id><content type="html" xml:base="http://0.0.0.0:4000/category/os/ubuntu/installations/202006/upgrade-ubuntu">&lt;p&gt;In this tutorial we are going to upgrade ubuntu from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ubuntu 18.10&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ubuntu 20.04 LTS&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;NB: If the version of ubuntu we are upgrading from is past it’s end of life support, we follow Method 2 otherwise we follow Method 1.&lt;/p&gt;
-
-&lt;h2 id=&quot;method-1&quot;&gt;METHOD 1:&lt;/h2&gt;
-
-&lt;h3 id=&quot;update-all-installed-packages&quot;&gt;Update all installed packages&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt upgrade
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt; #&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Remove unused kernels to free up the space from /boot partition
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt autoremove
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;reboot  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;installation-process&quot;&gt;Installation Process&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt; #&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;1. Execute below &lt;span class=&quot;nb&quot;&gt;command &lt;/span&gt;to &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; “update-manager-core“, as it is required &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;upgrade, though on most of the systems it should be installed by default. In &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; it is not installed run below &lt;span class=&quot;nb&quot;&gt;command&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;update-manager-core &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt; #&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;2. Begin upgrade process
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-release-upgrade&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;  &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;method-2&quot;&gt;METHOD 2&lt;/h2&gt;
-
-&lt;p&gt;We cannot upgrade ubuntu from a version that has reached it’s end of life support with Method 1 above. But there’s a workaround which involves changing a few files and upgrading incrementally from one version to the next i.e we go from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;18.10&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;19.04&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;19.10&lt;/code&gt; and finally to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;20.04&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;point-to-the-correct-repository&quot;&gt;Point to the correct repository&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo nano /etc/apt/sources.list&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;The above file originally has these lines of code among others:&lt;/p&gt;
-
-&lt;p&gt;NB: Keep in mind, our ubuntu here is 18.10 hence the code name “cosmic”. And this varies with the ubuntu version you are using.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-nano&quot; data-lang=&quot;nano&quot;&gt;deb http://ke.archive.ubuntu.com/ubuntu/ cosmic main restricted
-deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-updates main restricted
-deb http://ke.archive.ubuntu.com/ubuntu/ cosmic universe
-deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-updates universe
-deb http://ke.archive.ubuntu.com/ubuntu/ cosmic multiverse
-deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-updates multiverse
-deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-backports main restricted universe multiverse
-deb http://security.ubuntu.com/ubuntu cosmic-security main restricted
-deb http://security.ubuntu.com/ubuntu cosmic-security universe
-deb http://security.ubuntu.com/ubuntu cosmic-security multiverse&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;If the ubuntu version we are upgrading to is past it’s end of life support it is “obsolete” and it’s archive has been moved to “old-releases”, so you will need to edit /etc/apt/sources.list to point to: “deb http://old-releases.ubuntu.com/ubuntu” like so:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-nano&quot; data-lang=&quot;nano&quot;&gt;# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic main restricted #current version. comment it out
-#the version we are upgrading to.Uncomment this if disco is still supported, otherwise use the last line
-# deb http://ke.archive.ubuntu.com/ubuntu/ disco main restricted 
-deb http://old-releases.ubuntu.com/ubuntu/ disco main restricted
-
-# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-updates main restricted #current version. comment it out
-#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line
-# deb http://ke.archive.ubuntu.com/ubuntu/ disco-updates main restricted 
- deb http://old-releases.ubuntu.com/ubuntu/ disco-updates main restricted
-
-# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic universe #current version. comment it out
-#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line
-# deb http://ke.archive.ubuntu.com/ubuntu/ disco universe 
-deb http://old-releases.ubuntu.com/ubuntu/ disco universe
-
-
-# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-updates universe #current version. comment it out
-#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line
-# deb http://ke.archive.ubuntu.com/ubuntu/ disco-updates universe 
- deb http://old-releases.ubuntu.com/ubuntu/ disco-updates universe
-
-# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic multiverse #current version. comment it out
-#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line
-# deb http://ke.archive.ubuntu.com/ubuntu/ disco multiverse 
- deb http://old-releases.ubuntu.com/ubuntu/ disco multiverse
-
-# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-updates multiverse #current version. comment it out
-#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line
-# deb http://ke.archive.ubuntu.com/ubuntu/ disco-updates multiverse 
- deb http://old-releases.ubuntu.com/ubuntu/ disco-updates multiverse
-
-
-# deb http://ke.archive.ubuntu.com/ubuntu/ cosmic-backports main restricted universe multiverse #current version. comment it out
-#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line
-# deb http://ke.archive.ubuntu.com/ubuntu/ disco-backports main restricted universe multiverse 
- deb http://old-releases.ubuntu.com/ubuntu/ disco-backports main restricted universe multiverse
-
-# deb http://security.ubuntu.com/ubuntu cosmic-security main restricted #current version. comment it out
-#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line
-# deb http://security.ubuntu.com/ubuntu disco-security main restricted 
- deb http://old-releases.ubuntu.com/ubuntu/ disco-security main restricted
-
-# deb http://security.ubuntu.com/ubuntu cosmic-security universe #current version. comment it out
-#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line
-# deb http://security.ubuntu.com/ubuntu disco-security universe 
- deb http://old-releases.ubuntu.com/ubuntu/ cosmic-security universe
-
-# deb http://security.ubuntu.com/ubuntu cosmic-security multiverse #current version. comment it out
-#the version we are upgrading to. Uncomment this if disco is still supported, otherwise use the last line
-# deb http://security.ubuntu.com/ubuntu disco-security multiverse 
- deb http://old-releases.ubuntu.com/ubuntu/ disco-security multiverse&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;installation-process-1&quot;&gt;Installation Process&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-nano&quot; data-lang=&quot;nano&quot;&gt; 	
- #1. Open release-upgrades file and make sure it has &quot;Prompt=normal&quot;
-$ sudo nano /etc/update-manager/release-upgrades
-
- # 2. Edit the cached update list which is in: ~/.cache/update-manager-core/meta-release. Make sure the supported flag of your ubuntu code name reads &quot;1&quot;. e.g in our case we change &quot;cosmic&quot; supported flag from &quot;0&quot; to &quot;1&quot; 
-$ sudo nano ~/.cache/update-manager-core/meta-release&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;update-all-installed-packages-1&quot;&gt;Update all installed packages&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-nano&quot; data-lang=&quot;nano&quot;&gt;$ sudo apt update
-$ sudo apt upgrade
-$ sudo apt autoremove
- 
- # Restart your machine 
-$ sudo reboot                  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;upgrade-process&quot;&gt;Upgrade Process&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-nano&quot; data-lang=&quot;nano&quot;&gt; 	
- # 1. Open release-upgrades file and make sure it has &quot;Prompt=normal&quot;
-$ sudo nano /etc/update-manager/release-upgrades
-
- # 2. Edit the cached update list which is in: ~/.cache/update-manager-core/meta-release. Make sure the supported flag of your ubuntu code name reads &quot;1&quot;. e.g in our case we change &quot;disco&quot; supported flag from &quot;0&quot; to &quot;1&quot; 
-$ sudo nano ~/.cache/update-manager-core/meta-release
-
- # 3. Begin upgrade process
-$ do-release-upgrade                 &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;We repeat steps 1 through 4 for the next versions. Arduous but works like a charm.&lt;/p&gt;
-
-&lt;p&gt;That’s it!&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="os" /><summary type="html">In this tutorial we are going to upgrade ubuntu from ubuntu 18.10 to ubuntu 20.04 LTS.</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="cloud" /><category term="heroku" /><category term="deploy" /><category term="rails" /><category term="heroku-git" /><summary type="html">Heroku is a container-based cloud Platform as a Service (PaaS). Developers use Heroku to deploy, manage, and scale modern apps. The platform is elegant, flexible, and easy to use, offering developers the simplest path to getting their apps to market.</summary></entry></feed>
