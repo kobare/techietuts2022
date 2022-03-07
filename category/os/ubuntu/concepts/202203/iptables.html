@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Linux iptables" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Linux iptables","description":"Definition","datePublished":"2022-03-06T14:30:00+03:00","dateModified":"2022-03-06T14:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables"},"url":"http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Definition","headline":"Linux iptables","dateModified":"2022-03-06T14:30:00+03:00","datePublished":"2022-03-06T14:30:00+03:00","url":"http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -920,7 +920,7 @@
 <p>or<br />
 ii). install iptables-persistent using:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install iptables-persistent and let it run the show.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install iptables-persistent # and let it run the show.
 </code></pre></div></div>
 
 <p><br /></p>
@@ -1090,7 +1090,7 @@ iptables --delete chain rulenum
 </code></pre></div></div>
 
 <p><br />
-2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this ploicy enacted, you will get a “Request timed out” message.</p>
+2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this policy enacted, you will get a “Request timed out” message.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iptables --policy INPUT DROP
 </code></pre></div></div>

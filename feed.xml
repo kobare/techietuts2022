@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-06T22:55:08+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Linux iptables</title><link href="http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables" rel="alternate" type="text/html" title="Linux iptables" /><published>2022-03-06T14:30:00+03:00</published><updated>2022-03-06T14:30:00+03:00</updated><id>http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables</id><content type="html" xml:base="http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-07T15:21:20+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Linux iptables</title><link href="http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables" rel="alternate" type="text/html" title="Linux iptables" /><published>2022-03-06T14:30:00+03:00</published><updated>2022-03-06T14:30:00+03:00</updated><id>http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables</id><content type="html" xml:base="http://0.0.0.0:4000/category/os/ubuntu/concepts/202203/iptables">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;iptables is a command line interface used to set up and maintain tables for the Netfilter firewall facilitating Network Address Translation (NAT), packet filtering, and packet mangling.&lt;/p&gt;
 
@@ -33,7 +33,7 @@
 &lt;p&gt;or&lt;br /&gt;
 ii). install iptables-persistent using:&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install iptables-persistent and let it run the show.
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install iptables-persistent # and let it run the show.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -203,7 +203,7 @@ iptables --delete chain rulenum
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this ploicy enacted, you will get a “Request timed out” message.&lt;/p&gt;
+2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this policy enacted, you will get a “Request timed out” message.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --policy INPUT DROP
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
