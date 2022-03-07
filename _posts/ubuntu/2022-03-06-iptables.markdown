@@ -49,7 +49,7 @@ everytime after booting up.
 or<br>
 ii). install iptables-persistent using: 
 
-    apt install iptables-persistent and let it run the show.
+    apt install iptables-persistent # and let it run the show.
 
 
 
@@ -227,7 +227,7 @@ NB: Using the exclamation point character "!" argument after a parameter inverts
 
 
 <br>
-2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this ploicy enacted, you will get a "Request timed out" message.
+2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this policy enacted, you will get a "Request timed out" message.
 
     iptables --policy INPUT DROP
    
