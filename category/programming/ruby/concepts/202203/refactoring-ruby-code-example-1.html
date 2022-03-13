@@ -1047,7 +1047,8 @@ In this case we’ll extract, start_date and end_ate into it’s own class, Date
   <span class="kp">private</span>
   
   <span class="k">def</span> <span class="nf">total_sales</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span>
-    <span class="n">orders</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">amount</span><span class="o">|</span> <span class="n">amount</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">}</span>   
+    <span class="c1"># orders.map(&amp;:amount).inject(0) { |sum, amount| amount + sum } #refactor this to this:</span>
+    <span class="n">orders</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">:</span><span class="o">+</span><span class="p">)</span>   
   <span class="k">end</span>
   <span class="c1"># ...</span></code></pre></figure>
 
@@ -1070,7 +1071,7 @@ In this case we’ll extract, start_date and end_ate into it’s own class, Date
   <span class="kp">private</span>
   
   <span class="k">def</span> <span class="nf">total_sales</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span>
-    <span class="n">orders</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">amount</span><span class="o">|</span> <span class="n">amount</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">}</span>   
+    <span class="n">orders</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">:</span><span class="o">+</span><span class="p">)</span>   
   <span class="k">end</span>
    
   <span class="k">def</span> <span class="nf">orders_within_range</span>
