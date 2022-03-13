@@ -69,7 +69,7 @@ This is more likely reusable than when clamped in another method and also create
 <br>
 2 . The "Tell Dont Ask" principle: Its better to send an object a message and have it perform work rather than ask that object about its internal states and decide what to do on its behalf. Essentially, we dont want the internal details of an object leaking out into code surrounding it.
 
-This code violates the above principle since it is asking it for data and acting on that data. It is asking orders object if there are orders placed at a given start_date and end_date: 
+This code violates the above principle since it is exposing the internal states of the order object, which can be abstracted. It is asking orders object if there are orders placed at a given start_date and end_date: 
 
 {% highlight ruby %}
   private
