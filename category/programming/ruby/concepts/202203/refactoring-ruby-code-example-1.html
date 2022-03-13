@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!-- Techie Tuts website copyright 2020-->
 <html lang="en">
+
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>cheat-sheets - Techietuts</title>
+ <title>Refactoring Ruby Code: Example 1 - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -44,17 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="cheat-sheets" />
+<meta property="og:title" content="Refactoring Ruby Code: Example 1" />
+<meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/jekyll/cheat-sheets/" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/jekyll/cheat-sheets/" />
+<meta name="description" content="Definition" />
+<meta property="og:description" content="Definition" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1" />
 <meta property="og:site_name" content="Techietuts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-13T14:15:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="cheat-sheets" />
+<meta property="twitter:title" content="Refactoring Ruby Code: Example 1" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"cheat-sheets","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","url":"http://0.0.0.0:4000/category/frameworks/jekyll/cheat-sheets/","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Refactoring Ruby Code: Example 1","description":"Definition","datePublished":"2022-03-13T14:15:00+03:00","dateModified":"2022-03-13T14:15:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1"},"url":"http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -73,7 +77,8 @@
 }
 </style>
     
-  <body>
+
+  <body class="animsition">
 	  
 		<!-- Header module inserted below -->
         <!-- Mobile Phone Navigation Menu -->
@@ -843,236 +848,256 @@
 
 	  
 		<!-- Content -->
-	<!-- Content -->
-<div class="home-content">
-
-  <div class="content">
-    <div class="blog-post blog">
-      <!-- Page heading -->
-      <h2 style="padding-left: 15px; padding-top: 60px;">
-             
-         Cheat-sheets
-       
-      </h2>                
-      <div class="grid-container">
-      						
-        <!-- ########################## Categories Page ########################## -->      
-
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-
-
-<!-- ########################## Sub Categories Page ########################## -->
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-
-
-<!-- ########################## Post Type Page ########################## -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-          
-
-                      
-
-
-
-
-        
-      </div>
-    </div>  
-  </div>
-</div>
-
-<br>
-<section>
         <style>
+
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
+  max-width: 100%;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
+  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
+
+@media(max-width: 81rem) {
+
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
+}
+</style>
+<div class="main-content reduce-size main-content-tweak">
+
+    <div class="tittle-banner">
+      <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
+      <h1 style="padding: -50px; line-height: 1.2em;">Refactoring Ruby Code: Example 1</h1>             
+    </div>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> March 2022</p>
+    <div>
+                <!-- Page content object inserted below -->
+        <h3 id="definition">Definition</h3>
+
+<p>Code refactoring is the process of restructuring existing code without changing its functionality, in order to improve the design, structure and implementation of the program.</p>
+
+<p>Refactoring ultimately makes software easier to understand, improves performance and helps us find bugs faster.</p>
+
+<p><br /></p>
+<h3 id="refactoring-step-by-step">Refactoring Step by Step</h3>
+
+<p>Have a look at this code which we’ll be refactoring in this example:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">OrdersReport</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+    <span class="vi">@orders</span> <span class="o">=</span> <span class="n">orders</span>
+    <span class="vi">@start_date</span> <span class="o">=</span> <span class="n">start_date</span>
+    <span class="vi">@end_date</span> <span class="o">=</span> <span class="n">end_date</span>
+  <span class="k">end</span>
+  
+  <span class="k">def</span> <span class="nf">total_sales_within_date_range</span>
+    <span class="n">orders_within_range</span> <span class="o">=</span> <span class="vi">@orders</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">order</span><span class="o">|</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_at</span> <span class="o">&gt;=</span> <span class="vi">@start_date</span> <span class="o">&amp;&amp;</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_at</span> <span class="o">&lt;=</span> <span class="vi">@end_date</span> <span class="p">}</span>
+    
+    <span class="n">orders_within_range</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">amount</span><span class="o">|</span> <span class="n">amount</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">}</span>
+  <span class="k">end</span>  
+<span class="k">end</span>  
+
+<span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">OpenStruct</span>
+
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+1 . Extract this into a private method:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">orders_within_range</span> <span class="o">=</span> <span class="vi">@orders</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">order</span><span class="o">|</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_at</span> <span class="o">&gt;=</span> <span class="vi">@start_date</span> <span class="o">&amp;&amp;</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_at</span> <span class="o">&lt;=</span> <span class="vi">@end_date</span> <span class="p">}</span></code></pre></figure>
+
+<p>This is more likely reusable than when clamped in another method and also creates some level of abstraction as compared to the original code.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># ...</span>
+  <span class="k">def</span> <span class="nf">total_sales_within_date_range</span>
+    <span class="n">orders_within_range</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">amount</span><span class="o">|</span> <span class="n">amount</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">}</span>
+  <span class="k">end</span>  
+
+  <span class="kp">private</span>
+  
+  <span class="k">def</span> <span class="nf">orders_within_range</span>
+    <span class="vi">@orders</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">order</span><span class="o">|</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_at</span> <span class="o">&gt;=</span> <span class="vi">@start_date</span> <span class="o">&amp;&amp;</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_at</span> <span class="o">&lt;=</span> <span class="vi">@end_date</span> <span class="p">}</span>
+  <span class="k">end</span></code></pre></figure>
+
+<p><br />
+2 . The “Tell Dont Ask” principle: Its better to send an object a message and have it perform work rather than ask that object about its internal states and decide what to do on its behalf. Essentially, we dont want the internal details of an object leaking out into code surrounding it.</p>
+
+<p>This code violates the above principle since it is asking it for data and acting on that data. It is asking orders object if there are orders placed at a given start_date and end_date:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby">  <span class="kp">private</span>
+  
+  <span class="k">def</span> <span class="nf">orders_within_range</span>
+    <span class="vi">@orders</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">order</span><span class="o">|</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_at</span> <span class="o">&gt;=</span> <span class="vi">@start_date</span> <span class="o">&amp;&amp;</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_at</span> <span class="o">&lt;=</span> <span class="vi">@end_date</span> <span class="p">}</span>
+  <span class="k">end</span></code></pre></figure>
+
+<p>Notice how we are now not exposing the internal attributes of the order object. We’re now just sending a message and waiting for the results. Cleaner and more readable:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">OrdersReport</span>
+<span class="c1"># ...</span>
+  <span class="kp">private</span>
+  
+  <span class="k">def</span> <span class="nf">orders_within_range</span>
+    <span class="vi">@orders</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">order</span><span class="o">|</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_between?</span><span class="p">(</span><span class="vi">@start_date</span><span class="p">,</span> <span class="vi">@end_date</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">OpenStruct</span>
+  <span class="k">def</span> <span class="nf">placed_between?</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+    <span class="n">placed_at</span> <span class="o">&gt;=</span> <span class="n">start_date</span> <span class="o">&amp;&amp;</span> <span class="n">placed_at</span> <span class="o">&lt;=</span> <span class="n">end_date</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+3 . Extract an object to hold data clamp values</p>
+
+<p>A data clamp is a pair of arguments that have an implicit reliance on each other i.e you have to pass them together all the time. Data clamps should be extracted into objects.
+In this case we’ll extract, start_date and end_ate into it’s own class, DateRange:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+
+<span class="k">class</span> <span class="nc">OrdersReport</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">date_range</span><span class="p">)</span>
+    <span class="vi">@orders</span> <span class="o">=</span> <span class="n">orders</span>
+    <span class="vi">@date_range</span> <span class="o">=</span> <span class="n">date_range</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">total_sales_within_date_range</span>
+    <span class="n">orders_within_range</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">amount</span><span class="o">|</span> <span class="n">amount</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">}</span>
+  <span class="k">end</span>  
+    
+  <span class="kp">private</span>
+  
+  <span class="k">def</span> <span class="nf">orders_within_range</span>
+    <span class="vi">@orders</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">order</span><span class="o">|</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_between?</span><span class="p">(</span><span class="vi">@date_range</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">DateRange</span> <span class="o">&lt;</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:start_date</span><span class="p">,</span> <span class="ss">:end_date</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">OpenStruct</span>
+  <span class="k">def</span> <span class="nf">placed_between?</span><span class="p">(</span><span class="n">date_range</span><span class="p">)</span>
+    <span class="n">placed_at</span> <span class="o">&gt;=</span> <span class="n">date_range</span> <span class="o">&amp;&amp;</span> <span class="n">date_range</span> <span class="o">&lt;=</span> <span class="n">end_date</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Notice that the DateRange class is a simple class which doesn’t even have a single behaviour at this stage of refactoring. But it is still useful because it allowed us to make the data clamp explicit and also reduced parameter coupling (coupling the degree to which two components rely on each other. The lower the coupling the easier it is to make changes without breaking the functionality of other components). So don’t be reluctant to extract classes as long as something is improved.</p>
+
+<p><br /></p>
+
+<p>4 . Combine data and behavior</p>
+
+<p>Things that are tightly coupled should be in the same component. In this case, knowing if a date is between two dates might not be a good responsibility for Order but it is for DateRange:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+<span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">OpenStruct</span>
+  <span class="k">def</span> <span class="nf">placed_between?</span><span class="p">(</span><span class="n">date_range</span><span class="p">)</span>
+    <span class="n">placed_at</span> <span class="o">&gt;=</span> <span class="n">date_range</span> <span class="o">&amp;&amp;</span> <span class="n">date_range</span> <span class="o">&lt;=</span> <span class="n">end_date</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+
+<span class="k">class</span> <span class="nc">DateRange</span> <span class="o">&lt;</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:start_date</span><span class="p">,</span> <span class="ss">:end_date</span><span class="p">)</span>
+  <span class="k">def</span> <span class="nf">include?</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="c1"># date &gt;= start_date &amp;&amp; date &lt;= end_date # refactor this to:</span>
+    <span class="p">(</span><span class="n">start_date</span><span class="o">..</span><span class="n">end_date</span><span class="p">).</span><span class="nf">cover?</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">OpenStruct</span>
+  <span class="k">def</span> <span class="nf">placed_between?</span><span class="p">(</span><span class="n">date_range</span><span class="p">)</span>
+    <span class="n">date_range</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">placed_at</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>NB: (start_date..end_date).include?(date) could work too but cover is much better performance-wise since it only instanciates the two endpoints as opposed to the former which will instanciates all the objects within that range.</p>
+
+<p><br />
+5 . Improve the readability</p>
+
+<p>Public methods should be very clear. Suppose we want to expose the method below via an API, this not easily readable:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+  <span class="k">def</span> <span class="nf">total_sales_within_date_range</span>
+    <span class="n">orders_within_range</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">amount</span><span class="o">|</span> <span class="n">amount</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">}</span>
+  <span class="k">end</span>  </code></pre></figure>
+
+<p>Refactor it to this, and its now simple to consume via API:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+  <span class="k">def</span> <span class="nf">total_sales_within_date_range</span>
+    <span class="n">total_sales</span><span class="p">(</span><span class="n">orders_within_range</span><span class="p">)</span>
+  <span class="k">end</span>  
+  
+  <span class="kp">private</span>
+  
+  <span class="k">def</span> <span class="nf">total_sales</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span>
+    <span class="n">orders</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">amount</span><span class="o">|</span> <span class="n">amount</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">}</span>   
+  <span class="k">end</span>
+  <span class="c1"># ...</span></code></pre></figure>
+
+<h4 id="final-results">Final Results</h4>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+<span class="k">class</span> <span class="nc">OrdersReport</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">orders</span><span class="p">,</span> <span class="n">date_range</span><span class="p">)</span>
+    <span class="vi">@orders</span> <span class="o">=</span> <span class="n">orders</span>
+    <span class="vi">@date_range</span> <span class="o">=</span> <span class="n">date_range</span>
+  <span class="k">end</span>
+
+ 
+  <span class="k">def</span> <span class="nf">total_sales_within_date_range</span>
+    <span class="n">total_sales</span><span class="p">(</span><span class="n">orders_within_range</span><span class="p">)</span>
+  <span class="k">end</span>  
+ 
+  
+  <span class="kp">private</span>
+  
+  <span class="k">def</span> <span class="nf">total_sales</span><span class="p">(</span><span class="n">orders</span><span class="p">)</span>
+    <span class="n">orders</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">amount</span><span class="o">|</span> <span class="n">amount</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">}</span>   
+  <span class="k">end</span>
+   
+  <span class="k">def</span> <span class="nf">orders_within_range</span>
+    <span class="vi">@orders</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">order</span><span class="o">|</span> <span class="n">order</span><span class="p">.</span><span class="nf">placed_between?</span><span class="p">(</span><span class="vi">@date_range</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+
+<span class="k">class</span> <span class="nc">DateRange</span> <span class="o">&lt;</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:start_date</span><span class="p">,</span> <span class="ss">:end_date</span><span class="p">)</span>
+  <span class="k">def</span> <span class="nf">include?</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">start_date</span><span class="o">..</span><span class="n">end_date</span><span class="p">).</span><span class="nf">cover?</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+
+<span class="k">class</span> <span class="nc">Order</span> <span class="o">&lt;</span> <span class="no">OpenStruct</span>
+  <span class="k">def</span> <span class="nf">placed_between?</span><span class="p">(</span><span class="n">date_range</span><span class="p">)</span>
+    <span class="n">date_range</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">placed_at</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p><em>Thanks for reading, see you in the next one!</em></p>
+
+   </div>
+
+   <div>
+     <style>
 
 .newsletter {
   text-align: center;
@@ -1185,11 +1210,10 @@
   </div>
 </div> <!-- End Newsletter -->
 
-</section>
-
-
-<section class="reduce-size bg-light">
-        <section class="comment-area" style="background: #eaecee; padding: 30px;">
+   </div>
+     
+   <div>
+     <section class="comment-area" style="background: #eaecee; padding: 30px;">
   <div class="comment-wrapper">
     
     <div id="disqus_thread" class="article-comments"></div>
@@ -1206,8 +1230,11 @@
   </div>
 </section> <!-- End Comment Area -->
 
-</section>
-                                                            
+   </div>
+   
+</div>
+
+<br>
 
 
                 <!-- footer module inserted below -->
