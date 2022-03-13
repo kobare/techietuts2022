@@ -197,7 +197,8 @@ Refactor it to this, and its now simple to consume via API:
   private
   
   def total_sales(orders)
-    orders.map(&:amount).inject(0) { |sum, amount| amount + sum }   
+    # orders.map(&:amount).inject(0) { |sum, amount| amount + sum } #refactor this to this:
+    orders.map(&:amount).inject(0, :+)   
   end
   # ...
 {% endhighlight %}
@@ -221,7 +222,7 @@ class OrdersReport
   private
   
   def total_sales(orders)
-    orders.map(&:amount).inject(0) { |sum, amount| amount + sum }   
+    orders.map(&:amount).inject(0, :+)   
   end
    
   def orders_within_range
