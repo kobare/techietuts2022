@@ -139,7 +139,7 @@ end
 
 {% endhighlight %}
 
-Notice that the DateRange class is a simple class which doesn't even have a single behaviour at this stage of refactoring. But it is still useful because it allowed us to make the data clamp explicit and also reduced parameter coupling (coupling the degree to which two components rely on each other. The lower the coupling the easier it is to make changes without breaking the functionality of other components). So don't be reluctant to extract classes as long as something is improved.
+Notice that the DateRange class is a simple class which doesn't even have a single behaviour at this stage of refactoring. But it is still useful because it allowed us to make the data clamp explicit and also reduced parameter coupling (coupling is the degree to which two components rely on each other. The lower the coupling the easier it is to make changes without breaking the functionality of other components). So don't be reluctant to extract classes as long as something is improved.
 
 <br>
 
@@ -174,12 +174,12 @@ end
 
 {% endhighlight %}
 
-NB: (start_date..end_date).include?(date) could work too but cover is much better performance-wise since it only instanciates the two endpoints as opposed to the former which will instanciates all the objects within that range.
+NB: (start_date..end_date).include?(date) could work too but the cover method is much better performance-wise since it only instanciates the two endpoints as opposed to the former which will instanciate all the objects within that range.
 
 <br>
 5 . Improve the readability
 
-Public methods should be very clear. Suppose we want to expose the method below via an API, this not easily readable:
+Public methods should be very clear. Suppose we want to expose the method below as an API, this is not easily readable:
 
 {% highlight ruby %} 
   def total_sales_within_date_range
@@ -187,7 +187,7 @@ Public methods should be very clear. Suppose we want to expose the method below 
   end  
 {% endhighlight %}
 
-Refactor it to this, and its now simple to consume via API:
+Refactor it to this, and its now simple to consume as an API:
 
 {% highlight ruby %} 
   def total_sales_within_date_range
