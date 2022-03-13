@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Refactoring Ruby Code: Example 1" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Refactoring Ruby Code: Example 1","description":"Definition","datePublished":"2022-03-13T14:15:00+03:00","dateModified":"2022-03-13T14:15:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1"},"url":"http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Definition","headline":"Refactoring Ruby Code: Example 1","dateModified":"2022-03-13T14:15:00+03:00","datePublished":"2022-03-13T14:15:00+03:00","url":"http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -995,7 +995,7 @@ In this case we’ll extract, start_date and end_ate into it’s own class, Date
   <span class="k">end</span>
 <span class="k">end</span></code></pre></figure>
 
-<p>Notice that the DateRange class is a simple class which doesn’t even have a single behaviour at this stage of refactoring. But it is still useful because it allowed us to make the data clamp explicit and also reduced parameter coupling (coupling the degree to which two components rely on each other. The lower the coupling the easier it is to make changes without breaking the functionality of other components). So don’t be reluctant to extract classes as long as something is improved.</p>
+<p>Notice that the DateRange class is a simple class which doesn’t even have a single behaviour at this stage of refactoring. But it is still useful because it allowed us to make the data clamp explicit and also reduced parameter coupling (coupling is the degree to which two components rely on each other. The lower the coupling the easier it is to make changes without breaking the functionality of other components). So don’t be reluctant to extract classes as long as something is improved.</p>
 
 <p><br /></p>
 
@@ -1025,19 +1025,19 @@ In this case we’ll extract, start_date and end_ate into it’s own class, Date
   <span class="k">end</span>
 <span class="k">end</span></code></pre></figure>
 
-<p>NB: (start_date..end_date).include?(date) could work too but cover is much better performance-wise since it only instanciates the two endpoints as opposed to the former which will instanciates all the objects within that range.</p>
+<p>NB: (start_date..end_date).include?(date) could work too but the cover method is much better performance-wise since it only instanciates the two endpoints as opposed to the former which will instanciate all the objects within that range.</p>
 
 <p><br />
 5 . Improve the readability</p>
 
-<p>Public methods should be very clear. Suppose we want to expose the method below via an API, this not easily readable:</p>
+<p>Public methods should be very clear. Suppose we want to expose the method below as an API, this is not easily readable:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
   <span class="k">def</span> <span class="nf">total_sales_within_date_range</span>
     <span class="n">orders_within_range</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:amount</span><span class="p">).</span><span class="nf">inject</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">sum</span><span class="p">,</span> <span class="n">amount</span><span class="o">|</span> <span class="n">amount</span> <span class="o">+</span> <span class="n">sum</span> <span class="p">}</span>
   <span class="k">end</span>  </code></pre></figure>
 
-<p>Refactor it to this, and its now simple to consume via API:</p>
+<p>Refactor it to this, and its now simple to consume as an API:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
   <span class="k">def</span> <span class="nf">total_sales_within_date_range</span>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-13T19:04:54+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Refactoring Ruby Code: Example 1</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1" rel="alternate" type="text/html" title="Refactoring Ruby Code: Example 1" /><published>2022-03-13T14:15:00+03:00</published><updated>2022-03-13T14:15:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-13T23:03:16+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Refactoring Ruby Code: Example 1</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1" rel="alternate" type="text/html" title="Refactoring Ruby Code: Example 1" /><published>2022-03-13T14:15:00+03:00</published><updated>2022-03-13T14:15:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Code refactoring is the process of restructuring existing code without changing its functionality, in order to improve the design, structure and implementation of the program.&lt;/p&gt;
 
@@ -108,7 +108,7 @@ In this case we’ll extract, start_date and end_ate into it’s own class, Date
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Notice that the DateRange class is a simple class which doesn’t even have a single behaviour at this stage of refactoring. But it is still useful because it allowed us to make the data clamp explicit and also reduced parameter coupling (coupling the degree to which two components rely on each other. The lower the coupling the easier it is to make changes without breaking the functionality of other components). So don’t be reluctant to extract classes as long as something is improved.&lt;/p&gt;
+&lt;p&gt;Notice that the DateRange class is a simple class which doesn’t even have a single behaviour at this stage of refactoring. But it is still useful because it allowed us to make the data clamp explicit and also reduced parameter coupling (coupling is the degree to which two components rely on each other. The lower the coupling the easier it is to make changes without breaking the functionality of other components). So don’t be reluctant to extract classes as long as something is improved.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -138,19 +138,19 @@ In this case we’ll extract, start_date and end_ate into it’s own class, Date
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;NB: (start_date..end_date).include?(date) could work too but cover is much better performance-wise since it only instanciates the two endpoints as opposed to the former which will instanciates all the objects within that range.&lt;/p&gt;
+&lt;p&gt;NB: (start_date..end_date).include?(date) could work too but the cover method is much better performance-wise since it only instanciates the two endpoints as opposed to the former which will instanciate all the objects within that range.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
 5 . Improve the readability&lt;/p&gt;
 
-&lt;p&gt;Public methods should be very clear. Suppose we want to expose the method below via an API, this not easily readable:&lt;/p&gt;
+&lt;p&gt;Public methods should be very clear. Suppose we want to expose the method below as an API, this is not easily readable:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;total_sales_within_date_range&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;orders_within_range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;inject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Refactor it to this, and its now simple to consume via API:&lt;/p&gt;
+&lt;p&gt;Refactor it to this, and its now simple to consume as an API:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;total_sales_within_date_range&lt;/span&gt;
