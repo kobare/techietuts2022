@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!-- Techie Tuts website copyright 2020-->
 <html lang="en">
+
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>tutorials - Techietuts</title>
+ <title>Encoding And Decoding Base64 Strings in Ruby - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -44,17 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="tutorials" />
+<meta property="og:title" content="Encoding And Decoding Base64 Strings in Ruby" />
+<meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/programming/css/tutorials/" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/programming/css/tutorials/" />
+<meta name="description" content="Definition" />
+<meta property="og:description" content="Definition" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings" />
 <meta property="og:site_name" content="Techietuts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-22T06:30:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="tutorials" />
+<meta property="twitter:title" content="Encoding And Decoding Base64 Strings in Ruby" />
 <script type="application/ld+json">
-{"@type":"WebPage","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"tutorials","url":"http://0.0.0.0:4000/category/programming/css/tutorials/","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Definition","headline":"Encoding And Decoding Base64 Strings in Ruby","dateModified":"2022-03-22T06:30:00+03:00","datePublished":"2022-03-22T06:30:00+03:00","url":"http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -73,7 +77,8 @@
 }
 </style>
     
-  <body>
+
+  <body class="animsition">
 	  
 		<!-- Header module inserted below -->
         <!-- Mobile Phone Navigation Menu -->
@@ -843,239 +848,105 @@
 
 	  
 		<!-- Content -->
-	<!-- Content -->
-<div class="home-content">
-
-  <div class="content">
-    <div class="blog-post blog">
-      <!-- Page heading -->
-      <h2 style="padding-left: 15px; padding-top: 60px;">
-             
-         Tutorials
-       
-      </h2>                
-      <div class="grid-container">
-      						
-        <!-- ########################## Categories Page ########################## -->      
-
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-
-
-<!-- ########################## Sub Categories Page ########################## -->
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-
-
-<!-- ########################## Post Type Page ########################## -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-          
-
-                      
-
-
-
-
-        
-      </div>
-    </div>  
-  </div>
-</div>
-
-<br>
-<section>
         <style>
+
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
+  max-width: 100%;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
+  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
+
+@media(max-width: 81rem) {
+
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
+}
+</style>
+<div class="main-content reduce-size main-content-tweak">
+
+    <div class="tittle-banner">
+      <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
+      <h1 style="padding: -50px; line-height: 1.2em;">Encoding And Decoding Base64 Strings in Ruby</h1>             
+    </div>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> March 2022</p>
+    <div>
+                <!-- Page content object inserted below -->
+        <h3 id="definition">Definition</h3>
+
+<p>Base64 encoding is a process that takes binary data and converts it into an ASCII string. This string can then be easily embedded into a URL or email without taking up too much space. The recipient can then decode the string back to its original form.</p>
+
+<p>Base64 decoding is the reverse process. It takes an ASCII string and converts it back to binary data. This can be useful for retrieving files that have been attached to an email or for displaying images on a web page.</p>
+
+<p><br /></p>
+<h3 id="base64-applications">Base64 Applications</h3>
+
+<p>There are many different ways to use Base64 encoding. Some of the most common use cases include:</p>
+
+<p>1 . Embedding images into emails.</p>
+
+<p>2 . Reducing the size of files and data compression.</p>
+
+<p>3 . Encode data in a URL.</p>
+
+<p>4 . Obfuscate data. This means that the data can be encoded in such a way that it is difficult to understand without the proper decoding algorithm. Obfuscating data can be helpful for protecting sensitive information.</p>
+
+<p><br /></p>
+<h3 id="how-to-base64-encodedecode-in-ruby">How To Base64 Encode/Decode In Ruby</h3>
+
+<p>The simplest ways to do a base64 encode/decode are:</p>
+
+<p>1 . Use the built-in pack method from array class. The pack method returns a base64 encoded string (given the parameter “m”). The String class has a method unpack that likewise decodes(base64) the string.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">str</span> <span class="o">=</span> <span class="s2">"QE3OWEefBhYu16PPDOUBeKUHqqZxNVZJ"</span>
+
+<span class="n">encoded_string</span> <span class="o">=</span> <span class="p">[</span><span class="n">str</span><span class="p">].</span><span class="nf">pack</span><span class="p">(</span><span class="s2">"m"</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="n">encoded_string</span> 
+<span class="c1"># UUUzT1dFZWZCaFl1MTZQUERPVUJlS1VIcXFaeE5WWko=</span>
+
+<span class="n">decoded_string</span> <span class="o">=</span> <span class="n">encoded_string</span><span class="p">.</span><span class="nf">unpack</span><span class="p">(</span><span class="s2">"m"</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="n">decoded_string</span> 
+<span class="c1"># QE3OWEefBhYu16PPDOUBeKUHqqZxNVZJ</span></code></pre></figure>
+
+<p><br />
+2 . Use the base64 library</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">"base64"</span>
+
+<span class="n">str</span> <span class="o">=</span> <span class="s2">"QE3OWEefBhYu16PPDOUBeKUHqqZxNVZJ"</span>
+
+<span class="n">encoded_string</span> <span class="o">=</span> <span class="no">Base64</span><span class="p">.</span><span class="nf">encode64</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+
+<span class="nb">puts</span> <span class="n">encoded_string</span> 
+<span class="c1"># UUUzT1dFZWZCaFl1MTZQUERPVUJlS1VIcXFaeE5WWko=</span>
+
+<span class="n">decoded_string</span> <span class="o">=</span> <span class="no">Base64</span><span class="p">.</span><span class="nf">decode64</span><span class="p">(</span><span class="n">encoded_string</span><span class="p">)</span>
+<span class="c1"># QE3OWEefBhYu16PPDOUBeKUHqqZxNVZJ</span>
+
+<span class="nb">puts</span> <span class="n">decoded_string</span> </code></pre></figure>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
+
+   </div>
+
+   <div>
+     <style>
 
 .newsletter {
   text-align: center;
@@ -1188,11 +1059,10 @@
   </div>
 </div> <!-- End Newsletter -->
 
-</section>
-
-
-<section class="reduce-size bg-light">
-        <section class="comment-area" style="background: #eaecee; padding: 30px;">
+   </div>
+     
+   <div>
+     <section class="comment-area" style="background: #eaecee; padding: 30px;">
   <div class="comment-wrapper">
     
     <div id="disqus_thread" class="article-comments"></div>
@@ -1209,8 +1079,11 @@
   </div>
 </section> <!-- End Comment Area -->
 
-</section>
-                                                            
+   </div>
+   
+</div>
+
+<br>
 
 
                 <!-- footer module inserted below -->
