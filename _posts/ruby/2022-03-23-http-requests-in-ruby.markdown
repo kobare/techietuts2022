@@ -149,7 +149,7 @@ require 'json'
 
 url = URI("https://compare-flight-prices.p.rapidapi.com/GetPricesAPI/GetPrices.aspx?SearchID=%3CREQUIRED%3E")
 
-request = Net::HTTP.get_response(url, {'x-rapidapi-host' => 'compare-flight-prices.p.rapidapi.com', 'x-rapidapi-key' => 'ac89149b5bmsh5a1b0c18ca230fcp19f1b3jsn2ef80b09b974'})
+request = Net::HTTP.get_response(url, {'x-rapidapi-host' => 'compare-flight-prices.p.rapidapi.com', 'x-rapidapi-key' => 'cr89000b5bmsh5a1b0c18ca230fcp19f1b3jsn2ef80b09b521'})
 
 puts JSON.parse(request.body)
 
