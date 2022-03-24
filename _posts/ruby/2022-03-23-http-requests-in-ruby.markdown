@@ -19,7 +19,7 @@ The GET and POST methods are most common types of request methods. Other methods
 
 The get method is used to request information from a web server, while the post method is used to send information to a web server. The data transmitted through the HTTP client is usually in text, JSON, or XML format.
 
-
+<br>
 ### Structure of an HTTP Request
 An HTTP request consists of three parts:
 
@@ -115,7 +115,7 @@ You get the following results:
 
 {% endhighlight %}
 
-
+<br>
 As you can see, the API here contains data that is serialized into JSON, therefore, you need to deserealize it into a hash object in order to work with it in Ruby. You should require the json library and then parse the result body like so:
 
 {% highlight ruby %}
