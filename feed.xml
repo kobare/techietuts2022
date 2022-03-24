@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-24T18:58:24+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Encoding And Decoding Base64 Strings in Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings" rel="alternate" type="text/html" title="Encoding And Decoding Base64 Strings in Ruby" /><published>2022-03-22T06:30:00+03:00</published><updated>2022-03-22T06:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-24T19:06:39+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Encoding And Decoding Base64 Strings in Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings" rel="alternate" type="text/html" title="Encoding And Decoding Base64 Strings in Ruby" /><published>2022-03-22T06:30:00+03:00</published><updated>2022-03-22T06:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Base64 encoding is a process that takes binary data and converts it into an ASCII string. This string can then be easily embedded into a URL or email without taking up too much space. The recipient can then decode the string back to its original form.&lt;/p&gt;
 
@@ -62,6 +62,7 @@
 
 &lt;p&gt;The get method is used to request information from a web server, while the post method is used to send information to a web server. The data transmitted through the HTTP client is usually in text, JSON, or XML format.&lt;/p&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;structure-of-an-http-request&quot;&gt;Structure of an HTTP Request&lt;/h3&gt;
 &lt;p&gt;An HTTP request consists of three parts:&lt;/p&gt;
 
@@ -148,7 +149,8 @@ There are multiple ways to implement an http request in Ruby, this section will 
   }
 ]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;As you can see, the API here contains data that is serialized into JSON, therefore, you need to deserealize it into a hash object in order to work with it in Ruby. You should require the json library and then parse the result body like so:&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;
+As you can see, the API here contains data that is serialized into JSON, therefore, you need to deserealize it into a hash object in order to work with it in Ruby. You should require the json library and then parse the result body like so:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# http.rb&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;net/http&apos;&lt;/span&gt;

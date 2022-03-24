@@ -893,6 +893,7 @@
 
 <p>The get method is used to request information from a web server, while the post method is used to send information to a web server. The data transmitted through the HTTP client is usually in text, JSON, or XML format.</p>
 
+<p><br /></p>
 <h3 id="structure-of-an-http-request">Structure of an HTTP Request</h3>
 <p>An HTTP request consists of three parts:</p>
 
@@ -979,7 +980,8 @@ There are multiple ways to implement an http request in Ruby, this section will 
   }
 ]</span></code></pre></figure>
 
-<p>As you can see, the API here contains data that is serialized into JSON, therefore, you need to deserealize it into a hash object in order to work with it in Ruby. You should require the json library and then parse the result body like so:</p>
+<p><br />
+As you can see, the API here contains data that is serialized into JSON, therefore, you need to deserealize it into a hash object in order to work with it in Ruby. You should require the json library and then parse the result body like so:</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># http.rb</span>
 <span class="nb">require</span> <span class="s1">'net/http'</span>
