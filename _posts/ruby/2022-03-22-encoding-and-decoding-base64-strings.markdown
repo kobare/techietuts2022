@@ -29,7 +29,7 @@ There are many different ways to use Base64 encoding. Some of the most common us
 
 3 . Encode data in a URL.
 
-4 . Obfuscate data. This means that the data can be encoded in such a way that it is difficult to understand without the proper decoding algorithm. Obfuscating data can be helpful for protecting sensitive information.
+4 . Obfuscate data. This means that the data can be encoded in such a way that it is difficult to understand without the proper decoding algorithm. Obfuscating data can be helpful for protecting sensitive information like login passwords.
 
 <br>
 ### How To Base64 Encode/Decode In Ruby

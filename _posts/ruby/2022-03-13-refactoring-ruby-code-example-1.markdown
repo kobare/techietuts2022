@@ -105,7 +105,7 @@ end
 3 . Extract an object to hold data clamp values
 
 A data clamp is a pair of arguments that have an implicit reliance on each other i.e you have to pass them together all the time. Data clamps should be extracted into objects.
-In this case we'll extract, start_date and end_ate into it's own class, DateRange:
+In this case we'll extract, start_date and end_date into it's own class, DateRange:
 
 
 {% highlight ruby %} 
