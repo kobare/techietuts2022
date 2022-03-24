@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-22T08:14:49+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Encoding And Decoding Base64 Strings in Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings" rel="alternate" type="text/html" title="Encoding And Decoding Base64 Strings in Ruby" /><published>2022-03-22T06:30:00+03:00</published><updated>2022-03-22T06:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-24T18:58:24+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Encoding And Decoding Base64 Strings in Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings" rel="alternate" type="text/html" title="Encoding And Decoding Base64 Strings in Ruby" /><published>2022-03-22T06:30:00+03:00</published><updated>2022-03-22T06:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Base64 encoding is a process that takes binary data and converts it into an ASCII string. This string can then be easily embedded into a URL or email without taking up too much space. The recipient can then decode the string back to its original form.&lt;/p&gt;
 
@@ -15,7 +15,7 @@
 
 &lt;p&gt;3 . Encode data in a URL.&lt;/p&gt;
 
-&lt;p&gt;4 . Obfuscate data. This means that the data can be encoded in such a way that it is difficult to understand without the proper decoding algorithm. Obfuscating data can be helpful for protecting sensitive information.&lt;/p&gt;
+&lt;p&gt;4 . Obfuscate data. This means that the data can be encoded in such a way that it is difficult to understand without the proper decoding algorithm. Obfuscating data can be helpful for protecting sensitive information like login passwords.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;how-to-base64-encodedecode-in-ruby&quot;&gt;How To Base64 Encode/Decode In Ruby&lt;/h3&gt;
@@ -52,6 +52,190 @@
 &lt;span class=&quot;c1&quot;&gt;# QE3OWEefBhYu16PPDOUBeKUHqqZxNVZJ&lt;/span&gt;
 
 &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decoded_string&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Definition</summary></entry><entry><title type="html">HTTP Requests in Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/http-requests-in-ruby" rel="alternate" type="text/html" title="HTTP Requests in Ruby" /><published>2022-03-22T06:30:00+03:00</published><updated>2022-03-22T06:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/http-requests-in-ruby</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/http-requests-in-ruby">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;HTTP(Hypertext Transfer Protocol) is the fundamental protocol used to transfer data over the internet. An HTTP request typically contains three parts: the URL, headers and body. And this data is transferred using a specific method.&lt;/p&gt;
+
+&lt;p&gt;The GET and POST methods are most common types of request methods. Other methods include HEAD, PUT, DELETE, CONNECT, and OPTIONS.&lt;/p&gt;
+
+&lt;p&gt;The get method is used to request information from a web server, while the post method is used to send information to a web server. The data transmitted through the HTTP client is usually in text, JSON, or XML format.&lt;/p&gt;
+
+&lt;h3 id=&quot;structure-of-an-http-request&quot;&gt;Structure of an HTTP Request&lt;/h3&gt;
+&lt;p&gt;An HTTP request consists of three parts:&lt;/p&gt;
+
+&lt;p&gt;1 . The request line: containing the method, uri and protocol version&lt;/p&gt;
+
+&lt;p&gt;2 . The header: containing the metadata (optional)&lt;/p&gt;
+
+&lt;p&gt;3 . The body: containing the data (optional)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+There are multiple ways to implement an http request in Ruby, this section will look at the standard built-in HTTP library.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;the-nethttp-library&quot;&gt;The Net::HTTP Library&lt;/h3&gt;
+
+&lt;p&gt;Ruby has a built-in HTTP client that you can use to make requests to web servers. The Ruby HTTP client is a module called Net::HTTP. This module is used alongside the URI module. URI(Uniform Resource Identifier) contains two subsets, URN, which gives the name, and URL, which gives the location of the resource.
+&lt;br /&gt;
+&lt;em&gt;NB: When using net/http module, you don’t need to require ‘uri’ separately since net/http takes care of that.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;the-get-request&quot;&gt;The GET Request&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# http.rb&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;net/http&apos;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://jsonplaceholder.typicode.com/users&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is_a?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTPSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This sends a GET request to the API endpoint located at typicode.com, that contains a list of users and their information.&lt;/p&gt;
+
+&lt;p&gt;If you run the file on the console like so:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;  ruby http.rb&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You get the following results:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Leanne Graham&quot;,
+    &quot;username&quot;: &quot;Bret&quot;,
+    &quot;email&quot;: &quot;Sincere@april.biz&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Kulas Light&quot;,
+      &quot;suite&quot;: &quot;Apt. 556&quot;,
+      &quot;city&quot;: &quot;Gwenborough&quot;,
+      &quot;zipcode&quot;: &quot;92998-3874&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-37.3159&quot;,
+        &quot;lng&quot;: &quot;81.1496&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;1-770-736-8031 x56442&quot;,
+    &quot;website&quot;: &quot;hildegard.org&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Romaguera-Crona&quot;,
+      &quot;catchPhrase&quot;: &quot;Multi-layered client-server neural-net&quot;,
+      &quot;bs&quot;: &quot;harness real-time e-markets&quot;
+    }
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;Ervin Howell&quot;,
+    &quot;username&quot;: &quot;Antonette&quot;,
+    &quot;email&quot;: &quot;Shanna@melissa.tv&quot;,
+    &quot;address&quot;: {
+      &quot;street&quot;: &quot;Victor Plains&quot;,
+      &quot;suite&quot;: &quot;Suite 879&quot;,
+      &quot;city&quot;: &quot;Wisokyburgh&quot;,
+      &quot;zipcode&quot;: &quot;90566-7771&quot;,
+      &quot;geo&quot;: {
+        &quot;lat&quot;: &quot;-43.9509&quot;,
+        &quot;lng&quot;: &quot;-34.4618&quot;
+      }
+    },
+    &quot;phone&quot;: &quot;010-692-6593 x09125&quot;,
+    &quot;website&quot;: &quot;anastasia.net&quot;,
+    &quot;company&quot;: {
+      &quot;name&quot;: &quot;Deckow-Crist&quot;,
+      &quot;catchPhrase&quot;: &quot;Proactive didactic contingency&quot;,
+      &quot;bs&quot;: &quot;synergize scalable supply-chains&quot;
+    }
+  }
+]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;As you can see, the API here contains data that is serialized into JSON, therefore, you need to deserealize it into a hash object in order to work with it in Ruby. You should require the json library and then parse the result body like so:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# http.rb&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;net/http&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;json&apos;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://jsonplaceholder.typicode.com/users&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is_a?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTPSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;After parsing it, you get:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;gp&quot;&gt;{&quot;id&quot;=&amp;gt;&lt;/span&gt;1, &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Leanne Graham&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Bret&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Sincere@april.biz&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;address&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;street&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Kulas Light&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;suite&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Apt. 556&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;city&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Gwenborough&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;zipcode&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;92998-3874&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;geo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;lat&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-37.3159&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;lng&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;81.1496&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}}&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;phone&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1-770-736-8031 x56442&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;website&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;hildegard.org&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;company&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Romaguera-Crona&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;catchPhrase&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Multi-layered client-server neural-net&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;bs&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;harness real-time e-markets&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}}&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;{&quot;id&quot;=&amp;gt;&lt;/span&gt;2, &lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Ervin Howell&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Antonette&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Shanna@melissa.tv&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;address&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;street&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Victor Plains&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;suite&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Suite 879&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;city&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Wisokyburgh&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;zipcode&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;90566-7771&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;geo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;lat&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-43.9509&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;lng&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-34.4618&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}}&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;phone&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;010-692-6593 x09125&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;website&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;anastasia.net&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;company&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Deckow-Crist&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;catchPhrase&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Proactive didactic contingency&quot;&lt;/span&gt;, &lt;span class=&quot;s2&quot;&gt;&quot;bs&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;synergize scalable supply-chains&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+A GET request may contain a header. The header provides additional information about the request in the form of a key-value pair. For instance, an API may require that you provide authentication details on the headers as shown below:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;net/http&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;json&apos;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://compare-flight-prices.p.rapidapi.com/GetPricesAPI/GetPrices.aspx?SearchID=%3CREQUIRED%3E&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;x-rapidapi-host&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;compare-flight-prices.p.rapidapi.com&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;x-rapidapi-key&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;ac89149b5bmsh5a1b0c18ca230fcp19f1b3jsn2ef80b09b974&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;the-post-request&quot;&gt;The POST Request&lt;/h4&gt;
+&lt;p&gt;A POST request always has a body and sometimes both a header and a body. The body contains the payload.
+Sending a post request is also simple:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;net/http&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;json&apos;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;https://jsonplaceholder.typicode.com/posts&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;post_form&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;title&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;et ea vero quia laudantium autem&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;body&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;delectus reiciendis molestiae&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;userID&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;is_a?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTPSuccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+However, the API that you are posting to may require that you configure your request to send appropriate headers. Unfortunately Net::HTTP’s post_form method doesn’t support headers. 
+The key to achieving that is to create a new Net::HTTP object and then send the headers hash as a third argument to its post method:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;net/http&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;openssl&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;json&apos;&lt;/span&gt;
+
+
+
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;use_ssl&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+
+
+
+&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authentication&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Bearer MdgtzT0ZFZWZBaFl1MTZQUERPVVBlS1V
+            IcySAeE5WWko6QVlDWkdTQWJscm1IcmROdR==&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           &lt;span class=&quot;s2&quot;&gt;&quot;Content-Type&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;application/json&quot;&lt;/span&gt;
+           &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+           
+&lt;span class=&quot;n&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;BusinessShortCode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;174379&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;Password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;passwrd&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    
+      &lt;span class=&quot;s2&quot;&gt;&quot;Timestamp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;2022-03-24 18:05:18.563720136 +0300&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;TransactionType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;CustomerPayBillOnline&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;Amount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;300000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;PartyA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;254700111000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;PartyB&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;234563&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;PhoneNumber&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;254700111000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;CallBackURL&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;https://2eb8-41-90-179-155/callback&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;AccountReference&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;S-Ential Technologies LLC&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+      &lt;span class=&quot;s2&quot;&gt;&quot;TransactionDesc&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Payment of SaaS Product&quot;&lt;/span&gt; 
+
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+
+
+&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Definition</summary></entry><entry><title type="html">Refactoring Ruby Code: Example 1</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1" rel="alternate" type="text/html" title="Refactoring Ruby Code: Example 1" /><published>2022-03-13T14:15:00+03:00</published><updated>2022-03-13T14:15:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
@@ -133,7 +317,7 @@
 3 . Extract an object to hold data clamp values&lt;/p&gt;
 
 &lt;p&gt;A data clamp is a pair of arguments that have an implicit reliance on each other i.e you have to pass them together all the time. Data clamps should be extracted into objects.
-In this case we’ll extract, start_date and end_ate into it’s own class, DateRange:&lt;/p&gt;
+In this case we’ll extract, start_date and end_date into it’s own class, DateRange:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
 
@@ -1076,129 +1260,4 @@ $ complexpassword&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;&lt;br /&gt;
 Note that you can easily achieve this using a gem like figaro, but it’s always good to know how to do things by yourself to enrich your understanding of how bundled solutions work.&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">Build a Simple Django Blog App</title><link href="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app" rel="alternate" type="text/html" title="Build a Simple Django Blog App" /><published>2021-01-24T16:15:00+03:00</published><updated>2021-01-24T16:15:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/django/tutorials/202101/simple-django-crud-app">&lt;p&gt;This tutorial will focus on how to create a standard Django CRUD project.&lt;/p&gt;
-
-&lt;table class=&quot;table table-bordered&quot;&gt;
-    &lt;thead&gt;
-      &lt;tr&gt;
-        &lt;th colspan=&quot;5&quot; style=&quot;text-align: center;&quot;&gt;This tutrial will cover the following:&lt;/th&gt;
-      &lt;/tr&gt;
-    &lt;/thead&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-       &lt;td&gt;1. URLs&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-       &lt;td&gt;2. Templates&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-       &lt;td&gt;3. Views&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-       &lt;td&gt;4. Models&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-       &lt;td&gt;5. Django Admin&lt;/td&gt;
-      &lt;/tr&gt;
-      
-    &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;If you haven’t installed and configured virtual environment and the virtualenvwrapper on your machine, I have a tutorial that will show you how to. Click &lt;a href=&quot;/category/programming/python/setup-and-configurations/202101/how-to-install-python-3-and-set-up-a-local-programming-environment-on-ubuntu-20.04&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; to read it.&lt;/p&gt;
-
-&lt;h3 id=&quot;1-create-a-virtual-environment&quot;&gt;1. Create a Virtual Environment&lt;/h3&gt;
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-cd into your projects directory and pass the following command to create and activate a new virtual environment named my_website
-&lt;br /&gt;&lt;br /&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
-&lt;p class=&quot;console&quot;&gt;mkvirtualenv my_website&lt;/p&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;2-install-the-latest-version-of-django&quot;&gt;2. Install the latest version of Django&lt;/h3&gt;
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
-&lt;p class=&quot;console&quot;&gt;pip install django&lt;/p&gt;
- &lt;h6 class=&quot;hashed&quot;&gt;Verify and check the version installed&lt;/h6&gt;
-&lt;p class=&quot;console&quot;&gt;django-admin --version &lt;/p&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;3-create-the-django-project&quot;&gt;3. Create the Django Project&lt;/h3&gt;
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
- &lt;p class=&quot;console&quot;&gt;django-admin startproject my_website&lt;/p&gt;
- &lt;h6 class=&quot;hashed&quot;&gt;# cd into the project: &lt;/h6&gt;
- &lt;p class=&quot;console&quot;&gt;cd my_website&lt;/p&gt;
- &lt;h6 class=&quot;hashed&quot;&gt;Run the development server to make sure everything is ok so far&lt;/h6&gt;
- &lt;p class=&quot;console&quot;&gt;python manage.py runserver&lt;/p&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now if you navigate to &lt;a href=&quot;http://localhost:8000/&quot; target=&quot;_blank&quot;&gt;http://localhost:8000/&lt;/a&gt; on your browser and you should see something like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img srcset=&quot;   /assets/img/django_project_page.png 1.5x,   /assets/img/django_project_page.png 3.5x &quot; alt=&quot;missing image&quot; /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Now close the development server with Ctrl + C 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;4-create-a-django-app&quot;&gt;4. Create a Django App&lt;/h3&gt;
-&lt;p&gt;A django project can have multiple apps in it. For example, you can have an ecommerce app and a blog app within one project. With this approach, Django allows you to manage the apps independently and you can easily move your apps into other projects if need be.&lt;/p&gt;
-&lt;section class=&quot;terminal-container terminal-fixed-top&quot;&gt;
-&lt;header class=&quot;terminal&quot;&gt;
-&lt;span class=&quot;button red&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button yellow&quot;&gt;&lt;/span&gt;
-&lt;span class=&quot;button green&quot;&gt;&lt;/span&gt;
-user@local_machine
-&lt;/header&gt;
-
-&lt;div class=&quot;terminal-home&quot;&gt;
- &lt;p class=&quot;console&quot;&gt;python manage.py startapp blog&lt;/p&gt;
-&lt;/div&gt;
-&lt;/section&gt;
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Open the settings.py file and specify the allowed hosts as well as add the blog app to installed apps. You should have something similar to this:
-&lt;img srcset=&quot;   /assets/img/blog_app_settings.png 1x,   /assets/img/blog_app_settings.png 2x &quot; alt=&quot;missing image&quot; /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;At this point, the project tree should resemble this:
-&lt;img srcset=&quot;   /assets/img/blog_app_tree.png 1x,   /assets/img/blog_app_tree.png 2x &quot; alt=&quot;missing image&quot; /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;6-create-a-templates-directory&quot;&gt;6. Create a Templates Directory&lt;/h3&gt;
-&lt;p&gt;If you are familiar with Ruby on Rails, Templates in Django are the equivalent of Views in Rails. Basically, this is where the HTML files go. Open the blog directory and create a directory called templates.&lt;/p&gt;
-
-&lt;h3 id=&quot;7-create-a-blog-sub-directory&quot;&gt;7. Create a Blog Sub-Directory&lt;/h3&gt;
-&lt;p&gt;Within the templates directory, create a sub-directory called blog. For every app in your project, you must create a sub-directory within the templates directory with the same name as your app. For instance, if we created another app in our project called ecommerce, we would then create a sub-directory inside templates directory called ecommerce.&lt;/p&gt;
-
-&lt;p&gt;That’s it! You have successfully set up, configured and tested python.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;See you in the next tuts&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><category term="python" /><category term="django" /><category term="tutorial" /><category term="crud" /><summary type="html">This tutorial will focus on how to create a standard Django CRUD project.</summary></entry></feed>
+&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry></feed>
