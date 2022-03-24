@@ -198,7 +198,7 @@ headers = {"Authentication" => "Bearer MdgtzT0ZFZWZBaFl1MTZQUERPVVBlS1V
            
 body = {
 
-      "BusinessShortCode": 174379,
+      "BusinessShortCode": 000000,
 
       "Password": "passwrd",
     
@@ -210,7 +210,7 @@ body = {
 
       "PartyA": 254700111000,
 
-      "PartyB": 234563,
+      "PartyB": 000000,
 
       "PhoneNumber": 254700111000,
 
