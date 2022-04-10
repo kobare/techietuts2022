@@ -46,7 +46,7 @@ $ yarn add jquery jquery-ui
 3 . Import jquery and jquery-ui in app/javascript/application.js
 
 Normally, this is how we would import jquery and jquery-ui in application.js.
-{% highlight text %}
+{% highlight javascript %}
 // app/javascript/application.js
 // ...
 
@@ -62,7 +62,7 @@ But since JavaScript imports are hoisted; i.e. all imports are loaded before any
 
 i). In app/javascript, create src sub-directory and a jquery.js file and add this to it:
 
-{% highlight text %}
+{% highlight javascript %}
 // app/javascript/src/jquery.js
 
 import jquery from 'jquery';
@@ -74,7 +74,7 @@ window.$ = jquery;
 <br>
  ii). In app/javascript/application.js add this:
 
-{% highlight text %}
+{% highlight javascript %}
 // app/javascript/application.js
 // ...
 
