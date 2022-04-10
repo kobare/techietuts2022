@@ -911,32 +911,32 @@ We will use esbuild for JavaScript bundling, bootstrap for CSS and JQuery for Ja
 
 <p>Normally, this is how we would import jquery and jquery-ui in application.js.</p>
 
-<figure class="highlight"><pre><code class="language-text" data-lang="text">// app/javascript/application.js
-// ...
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/javascript/application.js</span>
+<span class="c1">// ...</span>
 
-import jquery from 'jquery';
-window.jQuery = jquery;
-window.$ = jquery;
-import "jquery-ui"</code></pre></figure>
+<span class="k">import</span> <span class="nx">jquery</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">jquery</span><span class="dl">'</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span> <span class="o">=</span> <span class="nx">jquery</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">$</span> <span class="o">=</span> <span class="nx">jquery</span><span class="p">;</span>
+<span class="k">import</span> <span class="dl">"</span><span class="s2">jquery-ui</span><span class="dl">"</span></code></pre></figure>
 
 <p>But since JavaScript imports are hoisted; i.e. all imports are loaded before any other code regardless of the order. This creates a problem because JavaScript will try to load jquery-ui before jquery is made available to the window. No problem, here’s the fix:</p>
 
 <p>i). In app/javascript, create src sub-directory and a jquery.js file and add this to it:</p>
 
-<figure class="highlight"><pre><code class="language-text" data-lang="text">// app/javascript/src/jquery.js
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/javascript/src/jquery.js</span>
 
-import jquery from 'jquery';
-window.jQuery = jquery;
-window.$ = jquery;</code></pre></figure>
+<span class="k">import</span> <span class="nx">jquery</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">jquery</span><span class="dl">'</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">jQuery</span> <span class="o">=</span> <span class="nx">jquery</span><span class="p">;</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">$</span> <span class="o">=</span> <span class="nx">jquery</span><span class="p">;</span></code></pre></figure>
 
 <p><br />
  ii). In app/javascript/application.js add this:</p>
 
-<figure class="highlight"><pre><code class="language-text" data-lang="text">// app/javascript/application.js
-// ...
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/javascript/application.js</span>
+<span class="c1">// ...</span>
 
-import "./src/jquery"
-import "jquery-ui"</code></pre></figure>
+<span class="k">import</span> <span class="dl">"</span><span class="s2">./src/jquery</span><span class="dl">"</span>
+<span class="k">import</span> <span class="dl">"</span><span class="s2">jquery-ui</span><span class="dl">"</span></code></pre></figure>
 
 <p><br /></p>
 <h3 id="run-the-app">Run the app</h3>
