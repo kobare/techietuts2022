@@ -1,9 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-04-10T17:00:09+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Creating A Rails 7 App: With esbuild, bootstrap and jquery</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app" rel="alternate" type="text/html" title="Creating A Rails 7 App: With esbuild, bootstrap and jquery" /><published>2022-04-10T14:27:00+03:00</published><updated>2022-04-10T14:27:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-04-10T22:03:46+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Creating A Rails 7 App: With esbuild, bootstrap and jquery</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app" rel="alternate" type="text/html" title="Creating A Rails 7 App: With esbuild, bootstrap and jquery" /><published>2022-04-10T14:27:00+03:00</published><updated>2022-04-10T14:27:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Creating a Rails project is as simple as running one line of command on the terminal. While it’s easy to do so, it’s imperative to configure the basic tools for the project. This section outlines the necessary steps for creating and configuring a new Rails 7 project.
-We will use esbuild for JavaScript bundling, bootstrap for CSS and JQuery for JavaScript.&lt;/p&gt;
+We will use esbuild for JavaScript bundling, bootstrap for CSS and JQuery for JavaScript and SQLite as the database.&lt;/p&gt;
 
-&lt;p&gt;NB: Make sure you have npm version &amp;gt;= 6.14.16 and yarn.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;dependencies&quot;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;rails 7.0.0 or higher (Rails 7.0.2.3 was used at the time of writing this document)&lt;/li&gt;
+  &lt;li&gt;npm version 8.6.0 (or higher, nmp 8.6.0 was used at the time of writing this document)&lt;/li&gt;
+  &lt;li&gt;yarn&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;create-the-project&quot;&gt;Create the project&lt;/h3&gt;
