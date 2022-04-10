@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-03-24T19:13:42+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Encoding And Decoding Base64 Strings in Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings" rel="alternate" type="text/html" title="Encoding And Decoding Base64 Strings in Ruby" /><published>2022-03-22T06:30:00+03:00</published><updated>2022-03-22T06:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-04-10T16:28:25+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Creating A Rails 7 App: With esbuild, bootstrap and jquery</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app" rel="alternate" type="text/html" title="Creating A Rails 7 App: With esbuild, bootstrap and jquery" /><published>2022-04-10T14:27:00+03:00</published><updated>2022-04-10T14:27:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;Creating a Rails project is as simple as running one line of command on the terminal. While it’s easy to do so, it’s impertive to configure the basic tools for the project. This section outlines the necessary steps for creating and configuring a new Rails 7 project.
+We will use esbuild for JavaScript bundling, bootstrap for CSS and JQuery for JavaScript.&lt;/p&gt;
+
+&lt;p&gt;NB: Make sure you have npm version &amp;gt;= 6.14.16 and yarn.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;create-the-project&quot;&gt;Create the project&lt;/h3&gt;
+&lt;p&gt;1 . Open the terminal, cd into your projects directory and run this  command:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails new my_app &lt;span class=&quot;nt&quot;&gt;-j&lt;/span&gt; esbuild &lt;span class=&quot;nt&quot;&gt;--css&lt;/span&gt; bootstrap&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The -j directive is used to define the JavaScript bundler while the - -css directive defines the CSS library.
+&lt;br /&gt;NB: The bootstrap version installed will be the latest version.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . cd into my_app and add jquery and jquery-ui&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yarn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jquery&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jquery&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ui&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Import jquery and jquery-ui in app/javascript/application.js&lt;/p&gt;
+
+&lt;p&gt;Normally, this is how we would add jquery and jquery-ui in application.js.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;// app/javascript/application.js
+// ...
+
+import jquery from &apos;jquery&apos;;
+window.jQuery = jquery;
+window.$ = jquery;
+import &quot;jquery-ui&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;But since JavaScript imports are hoisted; i.e. all imports are loaded before any other code regardless of the order. This creates a problem because JavaScript will try to load jquery-ui before jquery is made available to the window. No problem, here’s the fix:&lt;/p&gt;
+
+&lt;p&gt;i). In app/javascript, create src sub-directory and a jquery.js file and add this to it:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;// app/javascript/src/jquery.js
+
+import jquery from &apos;jquery&apos;;
+window.jQuery = jquery;
+window.$ = jquery;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+ ii). In app/javascript/application.js add this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;// app/javascript/application.js
+// ...
+
+import &quot;./src/jquery&quot;
+import &quot;jquery-ui&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;run-the-app&quot;&gt;Run the app&lt;/h3&gt;
+&lt;p&gt;To run the app, do this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bin/dev&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you wish to change the default port, open the Procfile.dev file located in the root of the project and change the port number.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;// /Procfile.dev
+// ...
+
+web: bin/rails server -p 3000
+js: yarn build --watch
+css: yarn build:css --watch&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+We have covered the necessary configurations for the project. If you run the app, you should now be able to use jquery and bootstrap to build the project.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">Encoding And Decoding Base64 Strings in Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings" rel="alternate" type="text/html" title="Encoding And Decoding Base64 Strings in Ruby" /><published>2022-03-22T06:30:00+03:00</published><updated>2022-03-22T06:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202203/encoding-and-decoding-base64-strings">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Base64 encoding is a process that takes binary data and converts it into an ASCII string. This string can then be easily embedded into a URL or email without taking up too much space. The recipient can then decode the string back to its original form.&lt;/p&gt;
 
@@ -1185,81 +1256,4 @@ We can’t include custom js in a bundled theme with rails_admin for now, you ha
 &lt;p&gt;20 . Follow the password reset prompts and either leave it blank or input a new password then close the command prompt by typing “exit” followed by pressing the enter key. The system will restart and now you are able to login.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Ruby on Rails Database Environment Variables</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables" rel="alternate" type="text/html" title="Ruby on Rails Database Environment Variables" /><published>2022-01-04T16:30:00+03:00</published><updated>2022-01-04T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202201/ruby-on-rails-database-environment-variables">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-
-&lt;p&gt;Environment variables are configuration variables stored in the computer for applications to access. You can configure environment variables on your computer for all applications to access, but this article will only focus on setting up these variables for Rails applications.&lt;/p&gt;
-
-&lt;p&gt;As a developer, you want to store database configuration variables i.e user name and password securely with env vars rather than ‘hard-coding’ the keys into your rails app, to avoid giving away such information when you push projects to VCS repositories online. Environment variables help you achieve that.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;setting-up-environment-variables-for-the-database-in-a-rails-app&quot;&gt;Setting Up Environment Variables For the Database in a Rails App&lt;/h3&gt;
-
-&lt;p&gt;1 . In your rails project, create a  ruby file in /config directory that will contain the ENV variables.&lt;/p&gt;
-
-&lt;p&gt;e.g my_secret.rb, which will contain this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# /config/my_secret.rb&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;MYSQL_USERNAME&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;admin&apos;&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;ENV&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;MYSQL_PASSWORD&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;complexpassword&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . You want the rails app to load my_secret.rb file as soon as the server fires up. To do that, you will use the File and load methods inside the /config/environment.rb file in the rails project. Make sure to place this code just above the line: Rails.application.initialize!&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# /config/environment.rb&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# load my_secret.rb&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;app_credentials&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;config&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;my_secret.rb&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app_credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;exist?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app_credentials&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Initialize the Rails application.&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;initialize!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Ensure the my_secret.rb file is not submitted to github whenever you commit your project to a github repository. To do that, open the .gitignore file and add the path to the file as shown below:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# .gitignore
-
-/config/my_secret.rb&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-With the these steps you are done setting up the environment variables for your database. Now if you open the rails console and enter this ENV[‘MYSQL_USERNAME’], it should output the content of that variable:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-rails-console&quot; data-lang=&quot;rails-console&quot;&gt; 
-
-$ ENV[&apos;MYSQL_USERNAME&apos;]
-
-$ admin
-
-$ ENV[&apos;MYSQL_PASSWORD&apos;] 
-
-$ complexpassword&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;accessing-the-env-variables-in-databaseyml-file&quot;&gt;Accessing the ENV Variables in database.yml file&lt;/h3&gt;
-
-&lt;p&gt;In the database.yml file, you can now access the ENV variables and not have to ‘hardcode’ the credentials in there.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt; 
-
-&lt;span class=&quot;na&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;&amp;amp;default&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql2&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;utf8mb4&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;pool&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV.fetch(&quot;RAILS_MAX_THREADS&quot;) { 5 } %&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&quot;MYSQL_USERNAME&quot;] %&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&quot;MYSQL_PASSWORD&quot;] %&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/var/run/mysqld/mysqld.sock&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*default&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my_app_development&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*default&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my_app_test&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Note that you can easily achieve this using a gem like figaro, but it’s always good to know how to do things by yourself to enrich your understanding of how bundled solutions work.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry></feed>
