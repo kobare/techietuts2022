@@ -13,7 +13,7 @@ permalink: "category/:categories/ruby-on-rails/concepts/:year:month/:title"
 
 ### Definition
 
-Creating a Rails project is as simple as running one line of command on the terminal. While it's easy to do so, it's impertive to configure the basic tools for the project. This section outlines the necessary steps for creating and configuring a new Rails 7 project.
+Creating a Rails project is as simple as running one line of command on the terminal. While it's easy to do so, it's imperative to configure the basic tools for the project. This section outlines the necessary steps for creating and configuring a new Rails 7 project.
 We will use esbuild for JavaScript bundling, bootstrap for CSS and JQuery for JavaScript.
 
 NB: Make sure you have npm version >= 6.14.16 and yarn.
@@ -45,7 +45,7 @@ $ yarn add jquery jquery-ui
 <br>
 3 . Import jquery and jquery-ui in app/javascript/application.js
 
-Normally, this is how we would add jquery and jquery-ui in application.js.
+Normally, this is how we would import jquery and jquery-ui in application.js.
 {% highlight text %}
 // app/javascript/application.js
 // ...
