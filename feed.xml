@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-04-10T22:03:46+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Creating A Rails 7 App: With esbuild, bootstrap and jquery</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app" rel="alternate" type="text/html" title="Creating A Rails 7 App: With esbuild, bootstrap and jquery" /><published>2022-04-10T14:27:00+03:00</published><updated>2022-04-10T14:27:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-04-17T11:14:57+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Creating A Rails 7 App: With esbuild, bootstrap and jquery</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app" rel="alternate" type="text/html" title="Creating A Rails 7 App: With esbuild, bootstrap and jquery" /><published>2022-04-10T14:27:00+03:00</published><updated>2022-04-10T14:27:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Creating a Rails project is as simple as running one line of command on the terminal. While it’s easy to do so, it’s imperative to configure the basic tools for the project. This section outlines the necessary steps for creating and configuring a new Rails 7 project.
 We will use esbuild for JavaScript bundling, bootstrap for CSS and JQuery for JavaScript and SQLite as the database.&lt;/p&gt;
@@ -730,45 +730,53 @@ iptables --delete chain rulenum
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this policy enacted, you will get a “Request timed out” message.&lt;/p&gt;
+2 . Open a port e.g port 3306.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To remove the rule,  replace the “-A” with “-D”.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this policy enacted, you will get a “Request timed out” message.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --policy INPUT DROP
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;# the inverse is&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --policy UNPUT ACCEPT
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables --policy INPUT ACCEPT
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-3 .  If you’ve ever enabled ufw on ubuntu, you’ve probably realized that it creates a lot of ufw chains and roles with just one command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw enable&lt;/code&gt;. When you disable ufw, these chains are deactivated but still remain on the list of rules. So when you do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iptables -L -v&lt;/code&gt;, you see those dozens of deactivated chains which makes it look messy. This two liner run as root will find all the names and run them through a for loop that runs &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itables -F&lt;/code&gt; to flush references to the chain followed by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iptables -X&lt;/code&gt; to completely delete them.&lt;/p&gt;
+4 .  If you’ve ever enabled ufw on ubuntu, you’ve probably realized that it creates a lot of ufw chains and roles with just one command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ufw enable&lt;/code&gt;. When you disable ufw, these chains are deactivated but still remain on the list of rules. So when you do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iptables -L -v&lt;/code&gt;, you see those dozens of deactivated chains which makes it look messy. This two liner run as root will find all the names and run them through a for loop that runs &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;itables -F&lt;/code&gt; to flush references to the chain followed by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iptables -X&lt;/code&gt; to completely delete them.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;for ufw in `iptables -L |grep ufw|awk &apos;{ print $2 }&apos;`; do iptables -F $ufw; done
 for ufw in `iptables -L |grep ufw|awk &apos;{ print $2 }&apos;`; do iptables -X $ufw; done
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-4 .  Allow Established Outgoing Connections
+5 .  Allow Established Outgoing Connections
 Allows outgoing traffic of all established connections, which are typically the responses to legitimate incoming connections&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-5 .  Block a particular IP from accessing the ssh port on a server&lt;/p&gt;
+6 .  Block a particular IP from accessing the ssh port on a server&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -A INPUT -p tcp -s 192.168.0.13 --dport 22 -j DROP
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-6 .  Allow Established and Related Incoming Connections
+7 .  Allow Established and Related Incoming Connections
 Allows the server to return traffic for outgoing connections initiated by the server itself&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt; &lt;br /&gt;
-7 .  Prevent ssh Brute Force
+8 .  Prevent ssh Brute Force
 You can permanently block an IP address that attempts to access ssh port a given number of times within a given time period. This is vital when you have a server that you need to expose to the internet. Given the nature of the internet, when you expose your server, it might get several brute force hits.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -A INPUT -p tcp -m state --state NEW -m recent --update --seconds 60 --hitcount 5 --dport 22 -j DROP
@@ -777,7 +785,7 @@ You can permanently block an IP address that attempts to access ssh port a given
 &lt;p&gt;Use that to block those machines that are trying to brute force their way in but make sure to not lock yourself out by using ssh keys instead of passwords to access your server.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-8 .  Allow Loopback Connections&lt;/p&gt;
+9 .  Allow Loopback Connections&lt;/p&gt;
 
 &lt;p&gt;The loopback interface also known as lo is the network interface that allows a computer to send traffic to itself. It is used for testing purposes such as self pinging and also to configure your application server to connect to a database server with the localhost or 127.0.0.1 address.
 You can accept all traffic on the loopback interface, by running these commands:&lt;/p&gt;
@@ -787,21 +795,21 @@ sudo iptables -A OUTPUT -o lo -j ACCEPT
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-9 .  Allowing Incoming SSH from Specific IP address or subnet&lt;/p&gt;
+10 .  Allowing Incoming SSH from Specific IP address or subnet&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A INPUT -p tcp -s 52.74.208.0/32 --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-10 .  Allowing All Incoming SSH&lt;/p&gt;
+11 .  Allowing All Incoming SSH&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-11 .  Flush All Rules In The Mangle, NAT and Filter Tables&lt;/p&gt;
+12 .  Flush All Rules In The Mangle, NAT and Filter Tables&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -t mangle -F
 iptables -t nat -F
@@ -809,7 +817,7 @@ iptables -t filter -F
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-12 .  Delete All User-Defined Chains In The Tables&lt;/p&gt;
+13 .  Delete All User-Defined Chains In The Tables&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -t mangle -X
 iptables -t nat -X
@@ -817,7 +825,7 @@ iptables -t filter -X
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-13 .  Set All Policies For All Built-In Chains To Drop&lt;/p&gt;
+14 .  Set All Policies For All Built-In Chains To Drop&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iptables -P INPUT DROP
 iptables -P OUTPUT DROP
