@@ -227,44 +227,52 @@ NB: Using the exclamation point character "!" argument after a parameter inverts
 
 
 <br>
-2 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this policy enacted, you will get a "Request timed out" message.
+2 . Open a port e.g port 3306.
+
+    sudo iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
+
+To remove the rule,  replace the "-A" with "-D".
+
+
+<br>
+3 .  Drop input packets. This blocks incoming traffic. If you try pinging a machine that has this policy enacted, you will get a "Request timed out" message.
 
     iptables --policy INPUT DROP
    
    # the inverse is
    
-    iptables --policy UNPUT ACCEPT
+    iptables --policy INPUT ACCEPT
 
 
 <br>
-3 .  If you've ever enabled ufw on ubuntu, you've probably realized that it creates a lot of ufw chains and roles with just one command `ufw enable`. When you disable ufw, these chains are deactivated but still remain on the list of rules. So when you do `iptables -L -v`, you see those dozens of deactivated chains which makes it look messy. This two liner run as root will find all the names and run them through a for loop that runs `itables -F` to flush references to the chain followed by `iptables -X` to completely delete them.
+4 .  If you've ever enabled ufw on ubuntu, you've probably realized that it creates a lot of ufw chains and roles with just one command `ufw enable`. When you disable ufw, these chains are deactivated but still remain on the list of rules. So when you do `iptables -L -v`, you see those dozens of deactivated chains which makes it look messy. This two liner run as root will find all the names and run them through a for loop that runs `itables -F` to flush references to the chain followed by `iptables -X` to completely delete them.
 
     for ufw in `iptables -L |grep ufw|awk '{ print $2 }'`; do iptables -F $ufw; done
     for ufw in `iptables -L |grep ufw|awk '{ print $2 }'`; do iptables -X $ufw; done
 
 
 <br>
-4 .  Allow Established Outgoing Connections
+5 .  Allow Established Outgoing Connections
 Allows outgoing traffic of all established connections, which are typically the responses to legitimate incoming connections
 
     sudo iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
    
 
 <br>
-5 .  Block a particular IP from accessing the ssh port on a server
+6 .  Block a particular IP from accessing the ssh port on a server
 
     iptables -A INPUT -p tcp -s 192.168.0.13 --dport 22 -j DROP
 
 
 <br>
-6 .  Allow Established and Related Incoming Connections
+7 .  Allow Established and Related Incoming Connections
 Allows the server to return traffic for outgoing connections initiated by the server itself   
    
     sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
   
 
 <br>   
-7 .  Prevent ssh Brute Force
+8 .  Prevent ssh Brute Force
 You can permanently block an IP address that attempts to access ssh port a given number of times within a given time period. This is vital when you have a server that you need to expose to the internet. Given the nature of the internet, when you expose your server, it might get several brute force hits. 
 
     iptables -A INPUT -p tcp -m state --state NEW -m recent --update --seconds 60 --hitcount 5 --dport 22 -j DROP
@@ -273,7 +281,7 @@ Use that to block those machines that are trying to brute force their way in but
 
 
 <br>
-8 .  Allow Loopback Connections
+9 .  Allow Loopback Connections
 
 The loopback interface also known as lo is the network interface that allows a computer to send traffic to itself. It is used for testing purposes such as self pinging and also to configure your application server to connect to a database server with the localhost or 127.0.0.1 address.
 You can accept all traffic on the loopback interface, by running these commands:
@@ -283,21 +291,21 @@ You can accept all traffic on the loopback interface, by running these commands:
 
 
 <br>
-9 .  Allowing Incoming SSH from Specific IP address or subnet
+10 .  Allowing Incoming SSH from Specific IP address or subnet
 
     sudo iptables -A INPUT -p tcp -s 52.74.208.0/32 --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
     sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 
 
 <br>
-10 .  Allowing All Incoming SSH
+11 .  Allowing All Incoming SSH
 
     sudo iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
     sudo iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 
 
 <br>
-11 .  Flush All Rules In The Mangle, NAT and Filter Tables
+12 .  Flush All Rules In The Mangle, NAT and Filter Tables
 
     iptables -t mangle -F
     iptables -t nat -F
@@ -305,7 +313,7 @@ You can accept all traffic on the loopback interface, by running these commands:
 
 
 <br>
-12 .  Delete All User-Defined Chains In The Tables
+13 .  Delete All User-Defined Chains In The Tables
 
     iptables -t mangle -X
     iptables -t nat -X
@@ -313,7 +321,7 @@ You can accept all traffic on the loopback interface, by running these commands:
 
 
 <br>
-13 .  Set All Policies For All Built-In Chains To Drop
+14 .  Set All Policies For All Built-In Chains To Drop
 
     iptables -P INPUT DROP
     iptables -P OUTPUT DROP
