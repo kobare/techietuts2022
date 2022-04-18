@@ -2,7 +2,7 @@
 layout: post
 title:  "Securing A Ruby on Rails API With Token-Based Authentication (JWT)"
 author: Denis Kobare
-date:   2022-04-17 17:09:00 +0300
+date:   2023-04-17 17:09:00 +0300
 img: /assets/img/svg/ruby.svg
 categories: programming
 sub_category: ruby
