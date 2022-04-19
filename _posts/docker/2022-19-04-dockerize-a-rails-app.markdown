@@ -243,7 +243,7 @@ $ docker run -p 3005:3000 myapp
 
 {% endhighlight %}       
 
-*NB: You may need to prepend "sudo" for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can escalate security issues. Always specify a user with least priviledges in the Dockerfile.* 
+*NB: You may need to prepend "sudo" for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can allow an attacker to escalate privileges on the host. Always specify a user with least privileges in the Dockerfile.*  
        
 The first (local's) port is beeing mapped to the second (container's )port. Open the browser and navigate to the localhost on port 3005.   
 
@@ -367,7 +367,7 @@ $ docker-compose up
 
 {% endhighlight %}       
 
-*NB: You may need to prepend "sudo" for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can escalate security issues. Always specify a user with least priviledges in the Dockerfile.* 
+*NB: You may need to prepend "sudo" for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can allow an attacker to escalate privileges on the host. Always specify a user with least privileges in the Dockerfile.* 
 
 You now have the database containers and the app container up and running and mapped together.
 
