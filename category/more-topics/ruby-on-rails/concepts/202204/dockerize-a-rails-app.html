@@ -1041,7 +1041,7 @@ You can also specify the version number like so:</p>
 
 <figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker run <span class="nt">-p</span> 3005:3000 myapp</code></pre></figure>
 
-<p><em>NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can escalate security issues. Always specify a user with least priviledges in the Dockerfile.</em></p>
+<p><em>NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can allow an attacker to escalate privileges on the host. Always specify a user with least privileges in the Dockerfile.</em></p>
 
 <p>The first (local’s) port is beeing mapped to the second (container’s )port. Open the browser and navigate to the localhost on port 3005.</p>
 
@@ -1141,7 +1141,7 @@ The final docker-compose.yml file should resemble this:</p>
 
 <figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker-compose up</code></pre></figure>
 
-<p><em>NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can escalate security issues. Always specify a user with least priviledges in the Dockerfile.</em></p>
+<p><em>NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can allow an attacker to escalate privileges on the host. Always specify a user with least privileges in the Dockerfile.</em></p>
 
 <p>You now have the database containers and the app container up and running and mapped together.</p>
 
