@@ -248,7 +248,7 @@ $ docker run -p 3005:3000 myapp
 The first (local's) port is beeing mapped to the second (container's )port. Open the browser and navigate to the localhost on port 3005.   
 
 
-You'll get an error because the containerized app has a different networking and cannot connect to the database. To fix that, we have to spin up other containers that will contain the database servers. Before that, shutdown the server and follow the next step.
+You'll get an error because the containerized app has a different networking interface and cannot connect to the database on the local machine. To fix that, we have to spin up other containers that will contain the database servers. Before that, shutdown the server and follow the next step.
 
 
 <br><br>
