@@ -1,4 +1,309 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-04-18T09:14:15+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Creating A Rails 7 App: With esbuild, bootstrap and jquery</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app" rel="alternate" type="text/html" title="Creating A Rails 7 App: With esbuild, bootstrap and jquery" /><published>2022-04-10T14:27:00+03:00</published><updated>2022-04-10T14:27:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-04-19T18:50:07+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Dockerize A Rails App</title><link href="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app" rel="alternate" type="text/html" title="Dockerize A Rails App" /><published>2022-04-19T12:40:00+03:00</published><updated>2022-04-19T12:40:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;Dockerizing an application, packages it in a docker image that can be run in a container and easily scaled by generating more instances. These containers can also be run in different machines without requiring extra configurations since environment configurations are encapsulated and reporduced.&lt;/p&gt;
+
+&lt;p&gt;During the process, we specify everything needed to run the application and the instructions for creating the docker image in a special file called Dockerfile (with no extension).&lt;/p&gt;
+
+&lt;p&gt;Since we can only have one application or service per container, the database has to be encapsulated in a separate container. Another file called docker-compose (a yaml file) is used to provide the instructions for spinning up a docker container with the database inter-linked with the app.&lt;/p&gt;
+
+&lt;p&gt;NB: Every docker container has it’s own networking interface i.e like Operating Systems running in different netwoks with different IP addresses. If you open the terminal and run the ifconfig command, you will see the docker containers’ network interfaces in addition to your local machine’s network interface.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;&lt;u&gt;This document assumes that you already have Docker installed on your operating system.&lt;/u&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;create-the-dockerfile&quot;&gt;Create the Dockerfile&lt;/h3&gt;
+&lt;p&gt;At the root of the rails project, create a file called Dockerfile, with no extension. Let’s add the following in a stepwise fashion:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+1 . Add an operating system containing the project’s version of ruby.&lt;/p&gt;
+
+&lt;p&gt;Alpine Linux is a lightweight operating system and therefore a great fit for docker containers or any system that is network-based and dedicated for a single purpose only, like in the case of routers.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span class=&quot;k&quot;&gt;From&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ruby:3.1.0-alpine&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;    &lt;br /&gt;
+2 . Add database dependencies and other project dependencies.&lt;/p&gt;
+
+&lt;p&gt;This example uses a postgres database. Project dependencies may vary depending on the rails project.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;apk add &lt;span class=&quot;nt&quot;&gt;--update&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--virtual&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; runtime-deps &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; postgresql-client &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; build-base &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; libxml2-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; libxslt-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; nodejs &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; yarn &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; libffi-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; readline &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; postgresql-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; libc-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; linux-headers &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; readline-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; file &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; imagemagick &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; git &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; tzdata &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; /var/cache/apk/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The “ &amp;amp;&amp;amp; rm -rf /var/cache/apk/* “ removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+3 .  Create a directory called “app” to put our project in the root of the docker image.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; WORKDIR /app&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;     &lt;br /&gt;
+4 . Copy the contents of the current directory (rails project) to the app directory created in step 3 above. The period stands for the current directory path.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; COPY . /app/       &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+5 . Set gems location.&lt;/p&gt;
+
+&lt;p&gt;We want to save our project’s gems in a directory called gems at the root of the docker image. This overrides the default location.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; ENV BUNDLE_PATH /gems&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+6 . Install yarn and then bundle.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; RUN yarn install
+ RUN bundle install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;    &lt;br /&gt;
+7 . Define the entry point.&lt;/p&gt;
+
+&lt;p&gt;This defines the command to be run when the docker image is started.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; ENTRYPOINT [&quot;bin/rails&quot;]  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+8 . Bind the server to 0.0.0.0&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; CMD [&quot;s&quot;, &quot;-b&quot;, &quot;0.0.0.0&quot;]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;    &lt;br /&gt;
+9 . Expose the port for the project.&lt;/p&gt;
+
+&lt;p&gt;Normally, rails apps run on port 3000&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; EXPOSE 3000&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;    &lt;br /&gt;
+10 . Final Dockerfile.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span class=&quot;k&quot;&gt;From&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ruby:3.1.0-alpine&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;apk add &lt;span class=&quot;nt&quot;&gt;--update&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--virtual&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; runtime-deps &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; postgresql-client &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; build-base &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; libxml2-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; libxslt-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; nodejs &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; yarn &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; libffi-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; readline &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; postgresql-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; libc-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; linux-headers &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; readline-dev &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; file &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; imagemagick &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; git &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; tzdata &lt;span class=&quot;se&quot;&gt;\
+&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; /var/cache/apk/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+
+
+ WORKDIR /app
+ COPY . /app/
+ 
+ ENV BUNDLE_PATH /gems
+ RUN yarn install 
+ RUN bundle install
+ 
+ ENTRYPOINT [&quot;bin/rails&quot;]
+ CMD [&quot;s&quot;, &quot;-b&quot;, &quot;0.0.0.0&quot;]
+ 
+ EXPOSE 3000  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+11 . Build the Dockerfile.&lt;/p&gt;
+
+&lt;p&gt;cd to the root of your project and run this command.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker build &lt;span class=&quot;nt&quot;&gt;--tag&lt;/span&gt; app_name path_to_the_docker_file&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;e.g&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker build &lt;span class=&quot;nt&quot;&gt;--tag&lt;/span&gt; myapp .&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+If you have an account on docker, you can you can specify your account name like so:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker build &lt;span class=&quot;nt&quot;&gt;--tag&lt;/span&gt; techietuts/myapp .&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+You can also specify the version number like so:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker build &lt;span class=&quot;nt&quot;&gt;--tag&lt;/span&gt; techietuts/myapp:1.0 .&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+12 . Run the docker app&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 3005:3000 myapp&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can escalate security issues. Always specify a user with least priviledges in the Dockerfile.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The first (local’s) port is beeing mapped to the second (container’s )port. Open the browser and navigate to the localhost on port 3005.&lt;/p&gt;
+
+&lt;p&gt;You’ll get an error because the containerized app has a different networking and cannot connect to the database. To fix that, we have to spin up other containers that will contain the database servers. Before that, shutdown the server and follow the next step.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;create-database-servers-with-docker-compose&quot;&gt;Create Database Servers with docker-compose&lt;/h3&gt;
+
+&lt;p&gt;1 . Create a docker-compose File&lt;/p&gt;
+
+&lt;p&gt;Create a docker-compose.yml file at the root of the project and add the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . Define docker-compose file version&lt;/p&gt;
+
+&lt;p&gt;It’s important to provide the supported version.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3.8&apos;&lt;/span&gt;    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Define the services&lt;/p&gt;
+
+&lt;p&gt;Services can include postgres server, redis server, rails app created in Dockerfile (then referenced using volumes key) etc&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;na&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+   &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;postgres:latest&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;POSTGRES_PASSWORD=password&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;5432:5432&quot;&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dbdata:/var/lib/postgresql/data&quot;&lt;/span&gt;  
+              
+ &lt;span class=&quot;na&quot;&gt;redis&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis:latest&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;6379:6379&quot;&lt;/span&gt;
+
+ &lt;span class=&quot;na&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.&lt;/span&gt; 
+   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3005:3000&quot;&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;depends_on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;db&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis&lt;/span&gt;  
+   &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DATABASE_URL=postgres://postgres:password@db:5432/postgres&lt;/span&gt;  
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;REDIS_URL=redis://redis:6379&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.:/app&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;dbdata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;     &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;NB: Notice how we used volumes key to persist the postgres data so that we dont lose it when the app restarts.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+The final docker-compose.yml file should resemble this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3.8&apos;&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+ &lt;span class=&quot;na&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+   &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;postgres:latest&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;POSTGRES_PASSWORD=password&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;5433:5432&quot;&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dbdata:/var/lib/postgresql/data&quot;&lt;/span&gt;  
+              
+ &lt;span class=&quot;na&quot;&gt;redis&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis:latest&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;6379:6379&quot;&lt;/span&gt;
+
+ &lt;span class=&quot;na&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.&lt;/span&gt; 
+   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3005:3000&quot;&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;depends_on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;db&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis&lt;/span&gt;  
+   &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DATABASE_URL=postgres://postgres:password@db:5432/postgres&lt;/span&gt;  
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;REDIS_URL=redis://redis:6379&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.:/app&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;dbdata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;     &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+4 . Finally, run docker-compose&lt;/p&gt;
+
+&lt;p&gt;Run this command at the root of the project. This will boot up the app. Open the browser and navigate to localhost on port 3005.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker-compose up&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;em&gt;NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can escalate security issues. Always specify a user with least priviledges in the Dockerfile.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;You now have the database containers and the app container up and running and mapped together.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Definition</summary></entry><entry><title type="html">Download A File Over SSH With Net::SCP In Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby" rel="alternate" type="text/html" title="Download A File Over SSH With Net::SCP In Ruby" /><published>2022-04-19T10:30:00+03:00</published><updated>2022-04-19T10:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;Downloading files from a remote server is part of the frequent tasks for a database admin. A DB admin would write scripts to dump backup files and download them to a backup storage.&lt;/p&gt;
+
+&lt;p&gt;While this document only demonstrates a basic implementation of NET::SCP to download a file over SSH, the concept can be used to build useful tools (with decent user interfaces) that automate backup processes.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;the-ruby-file&quot;&gt;The Ruby File&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;net/scp&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;downloadFileOverSCP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;remoteFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;localFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sshKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recursive&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:ssh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;ss&quot;&gt;:keys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sshKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;ss&quot;&gt;:port&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;port&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;:recursive&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recursive&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SCP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;download!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;remoteFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;localFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;received&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;percentage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;%.2f&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;received&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;%&apos;&lt;/span&gt;
+
+    &lt;span class=&quot;nb&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Saving to &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;: Received &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;received&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; of &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;total&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; bytes&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; (&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;percentage&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\r&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;no&quot;&gt;STDOUT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;flush&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Download completed! &quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# e.g&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;downloadFileOverSCP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&apos;41.35.26.17&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&apos;ubuntu&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&apos;/home/ubuntu/databases/backup_data.sql&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&apos;/home/techietuts/Databases/backup_data.sql&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# You can specify a different file name&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;&apos;/home/techietuts/key_pair.pem&apos;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Definition</summary></entry><entry><title type="html">Creating A Rails 7 App: With esbuild, bootstrap and jquery</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app" rel="alternate" type="text/html" title="Creating A Rails 7 App: With esbuild, bootstrap and jquery" /><published>2022-04-10T14:27:00+03:00</published><updated>2022-04-10T14:27:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202204/creating-a-rails-7-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Creating a Rails project is as simple as running one line of command on the terminal. While it’s easy to do so, it’s imperative to configure the basic tools for the project. This section outlines the necessary steps for creating and configuring a new Rails 7 project.
 We will use esbuild for JavaScript bundling, bootstrap for CSS and JQuery for JavaScript and SQLite as the database.&lt;/p&gt;
@@ -1111,163 +1416,4 @@ We can’t include custom js in a bundled theme with rails_admin for now, you ha
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate devise:views&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">CSS Grid Layout</title><link href="http://0.0.0.0:4000/category/programming/css/concepts/202202/css-grid-layout" rel="alternate" type="text/html" title="CSS Grid Layout" /><published>2022-02-28T15:33:00+03:00</published><updated>2022-02-28T15:33:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/css/concepts/202202/css-grid-layout</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/css/concepts/202202/css-grid-layout">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-
-&lt;p&gt;The CSS Grid layout uses rows and columns to position elements on a web page without having to use floats.&lt;/p&gt;
-
-&lt;p&gt;It is an alternative to flexbox but most developers agree that the grid is more suitable for the general layout while flexbox is more effective when you narrow down to smaller layouts within the main layout.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-1 . Set display to grid.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Declare your columns or rows using grid-template-column/row.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;grid-template-column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* declares 3 columns of those particular widths */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Use the fraction unit fr to divide columns or rows equally.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;grid-template-column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;grid-template-column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;repeat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;fr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* use the repeat function to achieve the same results */&lt;/span&gt;   &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-4 . Use grid-auto-flow instead of grid-template-column/grid-template-rows if you want the width to auto-adjust depending on the number of columns or rows.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;grid-auto-flow&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;c&quot;&gt;/* Doing this: */&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;grid-template-column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/* would not evenly re-distribute the width in case you reduced the number of columns to 2. */&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-5 . Use grid-auto-flow with media queries to change the direction of the elements e.g from columns to rows whenever the screen size gets smaller.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nc&quot;&gt;.main-grid&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;py&quot;&gt;grid-auto-flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;55em&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-    &lt;span class=&quot;nc&quot;&gt;.main-grid&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;py&quot;&gt;grid-auto-flow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-6 . Use grid gap to space the elements instead of margins.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;gap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;rem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-7 . No need to declare grid-template-row. Unless you absolutely have too, leave it out, let it be implicit. This will help you reduce the overheads incase you add more columns than you declared.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-8 . Use span to extend columns or rows.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nc&quot;&gt;.grid-col-span-2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;grid-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-9 . Re-position elements within the grid using grid-column-start, grid-column-end and the nth-child properties.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;  &lt;span class=&quot;nc&quot;&gt;.main-grid&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:first-child&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;py&quot;&gt;grid-column-start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;py&quot;&gt;grid-column-end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  
-    &lt;span class=&quot;nl&quot;&gt;grid-column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;/* short hand for the two lines above */&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;grid-row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;span&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;  
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Definition</summary></entry><entry><title type="html">How to Reset a Forgotten Windows User Password</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password" rel="alternate" type="text/html" title="How to Reset a Forgotten Windows User Password" /><published>2022-01-16T15:30:00+03:00</published><updated>2022-01-16T15:30:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/windows/202201/how-to-reset-a-forgotten-windows-user-password">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;It’s rather uncommon to forget your windows login password but sometimes you may find yourself in that situation. If you ever find yourself locked out of your own computer, then worry not because you can actually hack into it and reset the password.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;procedure&quot;&gt;Procedure&lt;/h3&gt;
-
-&lt;p&gt;1 . Power up your computer and at the first appearance of the logo, force it to shutdown by pressing and holding the power button.&lt;/p&gt;
-
-&lt;p&gt;&lt;img srcset=&quot;/assets/img/posts/windows_loading.png 1x, /assets/img/posts/windows_loading.png 2.2x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Incessantly repeat step 1 above until system restore starts. You will see the message “Diagnosing your PC”  followed by “Preparing automatic repair”
-    &lt;img srcset=&quot;/assets/img/posts/windows_preparing.png 1x, /assets/img/posts/windows_preparing.png 1.6x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Click on “Advanced options”
-    &lt;img srcset=&quot;/assets/img/posts/automatic_repair_advanced_options.jpg 1.17x, /assets/img/posts/automatic_repair_advanced_options.jpg 2.6x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-4 . Next click on “Troubleshoot”
-    &lt;img srcset=&quot;/assets/img/posts/troubleshoot.jpg 1.17x, /assets/img/posts/troubleshoot.jpg 2.6x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-5 . Next click on “Advanced Options”
-    &lt;img srcset=&quot;/assets/img/posts/troubleshoot_advanced_options.jpg 1.17x, /assets/img/posts/troubleshoot_advanced_options.jpg 2.6x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-6 . Next click on “Command Prompt”
-    &lt;img srcset=&quot;/assets/img/posts/command_prompt.jpg 1x, /assets/img/posts/command_prompt.jpg 2.2x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-7 . On the command prompt type “regedit” and press the enter key to open the Registry Editor.
-    &lt;img srcset=&quot;/assets/img/posts/command_prompt_regedit.png 1x, /assets/img/posts/command_prompt_regedit.png 2x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-8 . In the Registry Editor, click on the directory “HKEY_LOCAL_MACHINE” to make it the current selection and then click on “File” on the top left corner.
-    &lt;img srcset=&quot;/assets/img/posts/hkey_local_machine.png 1.16x, /assets/img/posts/hkey_local_machine.png 2.6x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-9 . Click on “load hive”
-    &lt;br /&gt;&lt;img srcset=&quot;/assets/img/posts/load_hive.png 1.16x, /assets/img/posts/load_hive.png 1x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-10 . Find System32 Directory
-    &lt;img srcset=&quot;/assets/img/posts/windows_system32.png 1x, /assets/img/posts/windows_system32.png 2x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-11 . Find the file “SYSTEM” in config directory and double click on it.
-    &lt;img srcset=&quot;/assets/img/posts/config_system.jpg 1x, /assets/img/posts/config_system.jpg 2x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-12 . Type a key name in the load hive prompt. This will be the name of a folder that we’re going to use in the next step. Click “Ok”
-    &lt;img srcset=&quot;/assets/img/posts/key_name.jpg 1.8x, /assets/img/posts/key_name.jpg 4x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-13 . Open the folder we’ve just created, find the sub-folder “Setup”, click on it and find the file “CmdLine” on the right section of the window.
-    &lt;img srcset=&quot;/assets/img/posts/setup_cmdline.jpg 1.8x, /assets/img/posts/setup_cmdline.jpg 4x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-14 . Double click on the file “CmdLine” and in the window that opens type “cmd.exe” in the value data input field and click “Ok”
-    &lt;img srcset=&quot;/assets/img/posts/cmd_line.jpg 1.8x, /assets/img/posts/cmd_line.jpg 4x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-15 . Double click on the file “SetupType” and in the window that opens type “2” in the value data input field and click “Ok”
-    &lt;img srcset=&quot;/assets/img/posts/setup_type.jpg 1.8x, /assets/img/posts/setup_type.jpg 4x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-16 . Click on the directory we created (1234) to make it the current selection and then click on “File” on the top left corner and click “Unload Hive” followed by “Yes”.
-    &lt;img srcset=&quot;/assets/img/posts/select_folder.jpg 1.8x, /assets/img/posts/select_folder.png 4x&quot; /&gt; &lt;br /&gt;&lt;br /&gt;
-    &lt;img srcset=&quot;/assets/img/posts/unload_hive.jpg 1.8x, /assets/img/posts/unload_hive.png 4x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-17 . Close all the windows including the command line.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-18 . Click on “Continue”. The system will automatically restart.
-    &lt;img srcset=&quot;/assets/img/posts/continue.jpg 1.8x, /assets/img/posts/continue.jpg 4x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;19 . Upon restarting, the command line will open. Type “net user” and press enter to list the user accounts on your machine. Then type “net user [the_account_name] * “. (NB: If your account name contains several separate words, enclose the account name in quotation marks)
-    &lt;img srcset=&quot;/assets/img/posts/change_account_password_cmd.jpg 1.4x, /assets/img/posts/change_account_password_cmd.jpg 3x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;20 . Follow the password reset prompts and either leave it blank or input a new password then close the command prompt by typing “exit” followed by pressing the enter key. The system will restart and now you are able to login.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry></feed>

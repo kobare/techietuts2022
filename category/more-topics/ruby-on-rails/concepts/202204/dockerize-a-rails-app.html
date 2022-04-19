@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!-- Techie Tuts website copyright 2020-->
 <html lang="en">
+
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>internet - Techietuts</title>
+ <title>Dockerize A Rails App - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -44,17 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="internet" />
+<meta property="og:title" content="Dockerize A Rails App" />
+<meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/blog/technology/internet/" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/blog/technology/internet/" />
+<meta name="description" content="Definition" />
+<meta property="og:description" content="Definition" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app" />
 <meta property="og:site_name" content="Techietuts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-19T12:40:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="internet" />
+<meta property="twitter:title" content="Dockerize A Rails App" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"internet","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","url":"http://0.0.0.0:4000/category/blog/technology/internet/","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Dockerize A Rails App","description":"Definition","datePublished":"2022-04-19T12:40:00+03:00","dateModified":"2022-04-19T12:40:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app"},"url":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -73,7 +77,8 @@
 }
 </style>
     
-  <body>
+
+  <body class="animsition">
 	  
 		<!-- Header module inserted below -->
         <!-- Mobile Phone Navigation Menu -->
@@ -843,251 +848,310 @@
 
 	  
 		<!-- Content -->
-	<!-- Content -->
-<div class="home-content">
-
-  <div class="content">
-    <div class="blog-post blog">
-      <!-- Page heading -->
-      <h2 style="padding-left: 15px; padding-top: 60px;">
-             
-         Internet
-       
-      </h2>                
-      <div class="grid-container">
-      						
-        <!-- ########################## Categories Page ########################## -->      
-
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-
-
-<!-- ########################## Sub Categories Page ########################## -->
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-
-
-<!-- ########################## Post Type Page ########################## -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-          
-
-                      
-
-
-
-
-        
-      </div>
-    </div>  
-  </div>
-</div>
-
-<br>
-<section>
         <style>
+
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
+  max-width: 100%;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
+  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
+
+@media(max-width: 81rem) {
+
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
+}
+</style>
+<div class="main-content reduce-size main-content-tweak">
+
+    <div class="tittle-banner">
+      <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
+      <h1 style="padding: -50px; line-height: 1.2em;">Dockerize A Rails App</h1>             
+    </div>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2022</p>
+    <div>
+                <!-- Page content object inserted below -->
+        <h3 id="definition">Definition</h3>
+
+<p>Dockerizing an application, packages it in a docker image that can be run in a container and easily scaled by generating more instances. These containers can also be run in different machines without requiring extra configurations since environment configurations are encapsulated and reporduced.</p>
+
+<p>During the process, we specify everything needed to run the application and the instructions for creating the docker image in a special file called Dockerfile (with no extension).</p>
+
+<p>Since we can only have one application or service per container, the database has to be encapsulated in a separate container. Another file called docker-compose (a yaml file) is used to provide the instructions for spinning up a docker container with the database inter-linked with the app.</p>
+
+<p>NB: Every docker container has it’s own networking interface i.e like Operating Systems running in different netwoks with different IP addresses. If you open the terminal and run the ifconfig command, you will see the docker containers’ network interfaces in addition to your local machine’s network interface.</p>
+
+<p><br />
+<em><u>This document assumes that you already have Docker installed on your operating system.</u></em></p>
+
+<p><br /></p>
+<h3 id="create-the-dockerfile">Create the Dockerfile</h3>
+<p>At the root of the rails project, create a file called Dockerfile, with no extension. Let’s add the following in a stepwise fashion:</p>
+
+<p><br />
+1 . Add an operating system containing the project’s version of ruby.</p>
+
+<p>Alpine Linux is a lightweight operating system and therefore a great fit for docker containers or any system that is network-based and dedicated for a single purpose only, like in the case of routers.</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"><span class="k">From</span><span class="s"> ruby:3.1.0-alpine</span></code></pre></figure>
+
+<p><br />    <br />
+2 . Add database dependencies and other project dependencies.</p>
+
+<p>This example uses a postgres database. Project dependencies may vary depending on the rails project.</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"><span class="k">RUN </span>apk add <span class="nt">--update</span> <span class="nt">--virtual</span> <span class="se">\
+</span> runtime-deps <span class="se">\
+</span> postgresql-client <span class="se">\
+</span> build-base <span class="se">\
+</span> libxml2-dev <span class="se">\
+</span> libxslt-dev <span class="se">\
+</span> nodejs <span class="se">\
+</span> yarn <span class="se">\
+</span> libffi-dev <span class="se">\
+</span> readline <span class="se">\
+</span> postgresql-dev <span class="se">\
+</span> libc-dev <span class="se">\
+</span> linux-headers <span class="se">\
+</span> readline-dev <span class="se">\
+</span> file <span class="se">\
+</span> imagemagick <span class="se">\
+</span> git <span class="se">\
+</span> tzdata <span class="se">\
+</span> <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <span class="nt">-rf</span> /var/cache/apk/<span class="k">*</span></code></pre></figure>
+
+<p>The “ &amp;&amp; rm -rf /var/cache/apk/* “ removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.</p>
+
+<p><br /> 
+3 .  Create a directory called “app” to put our project in the root of the docker image.</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> WORKDIR /app</code></pre></figure>
+
+<p><br />     <br />
+4 . Copy the contents of the current directory (rails project) to the app directory created in step 3 above. The period stands for the current directory path.</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> COPY . /app/       </code></pre></figure>
+
+<p><br />
+5 . Set gems location.</p>
+
+<p>We want to save our project’s gems in a directory called gems at the root of the docker image. This overrides the default location.</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> ENV BUNDLE_PATH /gems</code></pre></figure>
+
+<p><br />
+6 . Install yarn and then bundle.</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> RUN yarn install
+ RUN bundle install</code></pre></figure>
+
+<p><br />    <br />
+7 . Define the entry point.</p>
+
+<p>This defines the command to be run when the docker image is started.</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> ENTRYPOINT ["bin/rails"]  </code></pre></figure>
+
+<p><br />
+8 . Bind the server to 0.0.0.0</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> CMD ["s", "-b", "0.0.0.0"]</code></pre></figure>
+
+<p><br />    <br />
+9 . Expose the port for the project.</p>
+
+<p>Normally, rails apps run on port 3000</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> EXPOSE 3000</code></pre></figure>
+
+<p><br />    <br />
+10 . Final Dockerfile.</p>
+
+<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"><span class="k">From</span><span class="s"> ruby:3.1.0-alpine</span>
+<span class="k">RUN </span>apk add <span class="nt">--update</span> <span class="nt">--virtual</span> <span class="se">\
+</span> runtime-deps <span class="se">\
+</span> postgresql-client <span class="se">\
+</span> build-base <span class="se">\
+</span> libxml2-dev <span class="se">\
+</span> libxslt-dev <span class="se">\
+</span> nodejs <span class="se">\
+</span> yarn <span class="se">\
+</span> libffi-dev <span class="se">\
+</span> readline <span class="se">\
+</span> postgresql-dev <span class="se">\
+</span> libc-dev <span class="se">\
+</span> linux-headers <span class="se">\
+</span> readline-dev <span class="se">\
+</span> file <span class="se">\
+</span> imagemagick <span class="se">\
+</span> git <span class="se">\
+</span> tzdata <span class="se">\
+</span> <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <span class="nt">-rf</span> /var/cache/apk/<span class="k">*</span>
+
+
+ WORKDIR /app
+ COPY . /app/
+ 
+ ENV BUNDLE_PATH /gems
+ RUN yarn install 
+ RUN bundle install
+ 
+ ENTRYPOINT ["bin/rails"]
+ CMD ["s", "-b", "0.0.0.0"]
+ 
+ EXPOSE 3000  </code></pre></figure>
+
+<p><br />
+11 . Build the Dockerfile.</p>
+
+<p>cd to the root of your project and run this command.</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">--tag</span> app_name path_to_the_docker_file</code></pre></figure>
+
+<p>e.g</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">--tag</span> myapp .</code></pre></figure>
+
+<p><br />
+If you have an account on docker, you can you can specify your account name like so:</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">--tag</span> techietuts/myapp .</code></pre></figure>
+
+<p><br />
+You can also specify the version number like so:</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">--tag</span> techietuts/myapp:1.0 .</code></pre></figure>
+
+<p><br />
+12 . Run the docker app</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker run <span class="nt">-p</span> 3005:3000 myapp</code></pre></figure>
+
+<p><em>NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can escalate security issues. Always specify a user with least priviledges in the Dockerfile.</em></p>
+
+<p>The first (local’s) port is beeing mapped to the second (container’s )port. Open the browser and navigate to the localhost on port 3005.</p>
+
+<p>You’ll get an error because the containerized app has a different networking and cannot connect to the database. To fix that, we have to spin up other containers that will contain the database servers. Before that, shutdown the server and follow the next step.</p>
+
+<p><br /><br /></p>
+<h3 id="create-database-servers-with-docker-compose">Create Database Servers with docker-compose</h3>
+
+<p>1 . Create a docker-compose File</p>
+
+<p>Create a docker-compose.yml file at the root of the project and add the following:</p>
+
+<p><br />
+2 . Define docker-compose file version</p>
+
+<p>It’s important to provide the supported version.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.8'</span>    </code></pre></figure>
+
+<p><br />
+3 . Define the services</p>
+
+<p>Services can include postgres server, redis server, rails app created in Dockerfile (then referenced using volumes key) etc</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">services</span><span class="pi">:</span>
+ <span class="na">db</span><span class="pi">:</span> 
+   <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:latest</span>
+   <span class="na">environment</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">POSTGRES_PASSWORD=password</span>
+   <span class="na">ports</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s2">"</span><span class="s">5432:5432"</span>
+   <span class="na">volumes</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s2">"</span><span class="s">dbdata:/var/lib/postgresql/data"</span>  
+              
+ <span class="na">redis</span><span class="pi">:</span>
+   <span class="na">image</span><span class="pi">:</span> <span class="s">redis:latest</span>
+   <span class="na">ports</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s2">"</span><span class="s">6379:6379"</span>
+
+ <span class="na">web</span><span class="pi">:</span>
+   <span class="na">build</span><span class="pi">:</span> <span class="s">.</span> 
+   <span class="na">ports</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s2">"</span><span class="s">3005:3000"</span>
+   <span class="na">depends_on</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">db</span>
+     <span class="pi">-</span> <span class="s">redis</span>  
+   <span class="na">environment</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">DATABASE_URL=postgres://postgres:password@db:5432/postgres</span>  
+     <span class="pi">-</span> <span class="s">REDIS_URL=redis://redis:6379</span>
+   <span class="na">volumes</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">.:/app</span>
+
+<span class="na">volumes</span><span class="pi">:</span>
+  <span class="na">dbdata</span><span class="pi">:</span>     </code></pre></figure>
+
+<p>NB: Notice how we used volumes key to persist the postgres data so that we dont lose it when the app restarts.</p>
+
+<p><br />
+The final docker-compose.yml file should resemble this:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.8'</span>
+<span class="na">services</span><span class="pi">:</span>
+ <span class="na">db</span><span class="pi">:</span> 
+   <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:latest</span>
+   <span class="na">environment</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">POSTGRES_PASSWORD=password</span>
+   <span class="na">ports</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s2">"</span><span class="s">5433:5432"</span>
+   <span class="na">volumes</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s2">"</span><span class="s">dbdata:/var/lib/postgresql/data"</span>  
+              
+ <span class="na">redis</span><span class="pi">:</span>
+   <span class="na">image</span><span class="pi">:</span> <span class="s">redis:latest</span>
+   <span class="na">ports</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s2">"</span><span class="s">6379:6379"</span>
+
+ <span class="na">web</span><span class="pi">:</span>
+   <span class="na">build</span><span class="pi">:</span> <span class="s">.</span> 
+   <span class="na">ports</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s2">"</span><span class="s">3005:3000"</span>
+   <span class="na">depends_on</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">db</span>
+     <span class="pi">-</span> <span class="s">redis</span>  
+   <span class="na">environment</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">DATABASE_URL=postgres://postgres:password@db:5432/postgres</span>  
+     <span class="pi">-</span> <span class="s">REDIS_URL=redis://redis:6379</span>
+   <span class="na">volumes</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="s">.:/app</span>
+
+<span class="na">volumes</span><span class="pi">:</span>
+  <span class="na">dbdata</span><span class="pi">:</span>     </code></pre></figure>
+
+<p><br />
+4 . Finally, run docker-compose</p>
+
+<p>Run this command at the root of the project. This will boot up the app. Open the browser and navigate to localhost on port 3005.</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker-compose up</code></pre></figure>
+
+<p><em>NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can escalate security issues. Always specify a user with least priviledges in the Dockerfile.</em></p>
+
+<p>You now have the database containers and the app container up and running and mapped together.</p>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
+
+   </div>
+
+   <div>
+     <style>
 
 .newsletter {
   text-align: center;
@@ -1200,11 +1264,10 @@
   </div>
 </div> <!-- End Newsletter -->
 
-</section>
-
-
-<section class="reduce-size bg-light">
-        <section class="comment-area" style="background: #eaecee; padding: 30px;">
+   </div>
+     
+   <div>
+     <section class="comment-area" style="background: #eaecee; padding: 30px;">
   <div class="comment-wrapper">
     
     <div id="disqus_thread" class="article-comments"></div>
@@ -1221,8 +1284,11 @@
   </div>
 </section> <!-- End Comment Area -->
 
-</section>
-                                                            
+   </div>
+   
+</div>
+
+<br>
 
 
                 <!-- footer module inserted below -->
