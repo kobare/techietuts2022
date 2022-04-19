@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Dockerize A Rails App" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Dockerize A Rails App","description":"Definition","datePublished":"2022-04-19T12:40:00+03:00","dateModified":"2022-04-19T12:40:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app"},"url":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Definition","headline":"Dockerize A Rails App","dateModified":"2022-04-19T12:40:00+03:00","datePublished":"2022-04-19T12:40:00+03:00","url":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1045,7 +1045,7 @@ You can also specify the version number like so:</p>
 
 <p>The first (local’s) port is beeing mapped to the second (container’s )port. Open the browser and navigate to the localhost on port 3005.</p>
 
-<p>You’ll get an error because the containerized app has a different networking and cannot connect to the database. To fix that, we have to spin up other containers that will contain the database servers. Before that, shutdown the server and follow the next step.</p>
+<p>You’ll get an error because the containerized app has a different networking interface and cannot connect to the database on the local machine. To fix that, we have to spin up other containers that will contain the database servers. Before that, shutdown the server and follow the next step.</p>
 
 <p><br /><br /></p>
 <h3 id="create-database-servers-with-docker-compose">Create Database Servers with docker-compose</h3>
