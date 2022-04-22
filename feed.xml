@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-04-19T21:04:01+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Dockerize A Rails App</title><link href="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app" rel="alternate" type="text/html" title="Dockerize A Rails App" /><published>2022-04-19T12:40:00+03:00</published><updated>2022-04-19T12:40:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-04-22T18:30:43+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Dockerize A Rails App</title><link href="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app" rel="alternate" type="text/html" title="Dockerize A Rails App" /><published>2022-04-19T12:40:00+03:00</published><updated>2022-04-19T12:40:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Dockerizing an application, packages it in a docker image that can be run in a container and easily scaled by generating more instances. These containers can also be run in different machines without requiring extra configurations since environment configurations are encapsulated and reporduced.&lt;/p&gt;
 
@@ -16,7 +16,7 @@
 &lt;p&gt;At the root of the rails project, create a file called Dockerfile, with no extension. Let’s add the following in a stepwise fashion:&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-1 . Add an operating system containing the project’s version of ruby.&lt;/p&gt;
+1 . Add an operating system containing the project’s version of ruby using the “from” primitive.&lt;/p&gt;
 
 &lt;p&gt;Alpine Linux is a lightweight operating system and therefore a great fit for docker containers or any system that is network-based and dedicated for a single purpose only, like in the case of routers.&lt;/p&gt;
 
@@ -47,7 +47,7 @@
 &lt;/span&gt; tzdata &lt;span class=&quot;se&quot;&gt;\
 &lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; /var/cache/apk/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The “ &amp;amp;&amp;amp; rm -rf /var/cache/apk/* “ removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.&lt;/p&gt;
+&lt;p&gt;Remove the package manager cache: The “ &amp;amp;&amp;amp; rm -rf /var/cache/apk/* “ removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt; 
 3 .  Create a directory called “app” to put our project in the root of the docker image.&lt;/p&gt;
@@ -259,7 +259,114 @@ The final docker-compose.yml file should resemble this:&lt;/p&gt;
 &lt;p&gt;You now have the database containers and the app container up and running and mapped together.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Definition</summary></entry><entry><title type="html">Download A File Over SSH With Net::SCP In Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby" rel="alternate" type="text/html" title="Download A File Over SSH With Net::SCP In Ruby" /><published>2022-04-19T10:30:00+03:00</published><updated>2022-04-19T10:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Definition</summary></entry><entry><title type="html">Docker Best Practices</title><link href="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/docker-best-practices" rel="alternate" type="text/html" title="Docker Best Practices" /><published>2022-04-19T12:40:00+03:00</published><updated>2022-04-19T12:40:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/docker-best-practices</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/docker-best-practices">&lt;p&gt;&lt;br /&gt;
+1 . Do not run SSH inside of a container.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . Use Minimal base images: A Minimal base images has the minimum essential resources required to run an application. The most common minimal base image is Alpine Linux which is around 2MB compared to Ubuntu which is around 60MB. Minimal base images translates to faster deploys and smaller attack surface.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Verify the authenticity of any software you install in your images. You may use official apt-get softwares. If you are downloading from unofficial third party repositories, always verify they are signed or have valid checksums. For example:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use official base images.&lt;/li&gt;
+  &lt;li&gt;If you are adding a file remotely you should make sure that the URL is using HTTPS.&lt;/li&gt;
+  &lt;li&gt;If you are using a third-party repository, you should always include the right GPG keys before using your package manager to update these packages.&lt;/li&gt;
+  &lt;li&gt;You can even pin to specific hashes of a file to ensure that these remote files have not been maliciously modified.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Always use a specific tag on your “from” directive e.g&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; from node:17.0.1 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;not this:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; from node
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+4 . Never run your applications as root. Always use the user directive inside of the Dockerfile to make sure that you drop privileges of your user.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-docker&quot; data-lang=&quot;docker&quot;&gt;...
+
+# create group and user
+
+&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;groupadd &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; your_user &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; useradd &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; your_user your_user
+
+&lt;span class=&quot;c&quot;&gt;# some images like nodejs already have a generic user node, so you may skip creating a user&lt;/span&gt;
+
+
+&lt;span class=&quot;c&quot;&gt;# set ownership and permissions&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; your_user:your_user /app
+
+
+&lt;span class=&quot;c&quot;&gt;# switch to user&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;USER&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; your_user&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;CMD&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; node index.js&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If your application has to start as root because it runs on a privileged support, you can map arbitrary ports on your host inside of the container so you that it doesn’t need to run with the same port inside of the container as it does outside.&lt;/p&gt;
+
+&lt;p&gt;In the case you need to run as root not because of the port, ensure you draw privileges preferably using gosu and not sudo.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+5 . Identify cacheable units: Order Dockerfile commands from the least to the most frequently changing to take advantage of docker caching for faster builds.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+6 . Exclude unnecessary files and directories when building to reduce the image size: You should remove unnecessary items like auto-generated directories(e.g target, build) and README files. Simply add them in the .dockerignore file in the root of the project.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+7 . Use multi-stage builds to remove build dependencies such as package.json, pom.xml: The multi-stage build feature allows the use of multiple temporary images during the build process but only keeps the latest image as the final artifact.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-docker&quot; data-lang=&quot;docker&quot;&gt;&lt;span class=&quot;c&quot;&gt;# Build stage&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;From&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; maven AS build&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;WORKDIR&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; /app&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; myapp /app&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;mvn package
+
+
+&lt;span class=&quot;c&quot;&gt;# Run stage&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; tomcat&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;COPY&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; --from=build /app/target/file.war /usr/local/tomcat/webapps/&lt;/span&gt;
+
+...&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Notice the use of directive - -from=build, to get the files generated from the build stage and copy them to the final image. The final application image is only created in the last stage.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+8 . Scan the image for security vulnerabilities:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Login to docker hub
+&lt;span class=&quot;go&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker login
+&lt;span class=&quot;go&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;scan app
+&lt;span class=&quot;go&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker scan myapp:1.0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The scan uses an up-to date database of vulnerabilities to identify them.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;You can also configure Docker Hub to scan the images automatically when pushed to the repository.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">1 . Do not run SSH inside of a container.</summary></entry><entry><title type="html">Download A File Over SSH With Net::SCP In Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby" rel="alternate" type="text/html" title="Download A File Over SSH With Net::SCP In Ruby" /><published>2022-04-19T10:30:00+03:00</published><updated>2022-04-19T10:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Downloading files from a remote server is part of the frequent tasks for a database admin. A DB admin would write scripts to dump backup files and download them to a backup storage.&lt;/p&gt;
 
@@ -1315,105 +1422,6 @@ We can’t include custom js in a bundled theme with rails_admin for now, you ha
 	    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.sub-menu-container&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;slideDown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 	  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;	&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">Install Devise on a Rails App</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app" rel="alternate" type="text/html" title="Install Devise on a Rails App" /><published>2022-02-28T16:30:00+03:00</published><updated>2022-02-28T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-
-&lt;p&gt;Devise is an authentication gem for rails applications. It allows you to create users that can log in and out of your application.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1-add-devise-gem&quot;&gt;1. Add devise gem&lt;/h3&gt;
-
-&lt;p&gt;a). Open up your Gemfile and add this line&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#/Gemfile&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;devise&apos;&lt;/span&gt;
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;and run:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;	&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Or:&lt;/p&gt;
-
-&lt;p&gt;b).Run:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle add devise
-&lt;span class=&quot;go&quot;&gt; 	&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2-set-up-devise-in-your-app&quot;&gt;2. Set up devise in your app&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;	
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g devise:install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3-configure-devise&quot;&gt;3. Configure Devise&lt;/h3&gt;
-&lt;p&gt;Ensure you have defined default url options in your environments files. Open up config/environments/development.rb and add this line before the ‘end’ keyword:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# /config/environments/development.rb&lt;/span&gt;
-   
-&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;action_mailer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;default_url_options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;host: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;localhost&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;port: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3000&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-   &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;4-add-the-notification-alert&quot;&gt;4. Add the notification alert&lt;/h3&gt;
-&lt;p&gt;Open up app/views/layouts/application.html.erb and add the following right above &amp;lt;%= yield %&amp;gt; :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- app/views/layouts/application.html.erb --&amp;gt;&lt;/span&gt;
- 
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;notice&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alert alert-success&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;notice&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alert&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alert alert-danger&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alert&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
- &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;5-setup-the-user-model&quot;&gt;5. Setup the User model&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g devise user
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rake db:migrate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;6-add-sign-up-and-login-links&quot;&gt;6. Add sign-up and login links.&lt;/h3&gt;
-&lt;p&gt;In order to do that go to, app/views/layouts/application.html.erb and add:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- app/views/layouts/application.html.erb --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navbar-text pull-right&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;user_signed_in&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  Logged in as &lt;span class=&quot;nt&quot;&gt;&amp;lt;strong&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;current_user.email&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;.
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Edit&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;profile&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;edit_user_registration_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;navbar-link&apos;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; |
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Logout&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;destroy_user_session_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method:&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:delete&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;navbar-link&apos;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Sign&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;new_user_registration_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;navbar-link&apos;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt; |
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Login&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;new_user_session_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;navbar-link&apos;&lt;/span&gt;  &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;7-redirect-the-user&quot;&gt;7. Redirect the User&lt;/h3&gt;
-&lt;p&gt;Finally, force the user to redirect to the login page if the user was not logged in. Open up app/controllers/application_controller.rb and add the following after the protect_from_forgery with: :exception. :&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;sr&quot;&gt;/controllers/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;application_controller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rb&lt;/span&gt;
- 
- &lt;span class=&quot;c1&quot;&gt;# protect_from_forgery with: :exception&lt;/span&gt;
-
- &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:authenticate_user!&lt;/span&gt;
-  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Make sure your rails server is running, open http://localhost:3000/users/sign_up and create your user account.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;8-customize-devise-views&quot;&gt;8. Customize Devise Views&lt;/h3&gt;
-
-&lt;p&gt;You can style the devise views according to your preference. Run the command below to generate the views and then provide css style for them:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate devise:views&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry></feed>

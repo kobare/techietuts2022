@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!-- Techie Tuts website copyright 2020-->
 <html lang="en">
+
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>technology - Techietuts</title>
+ <title>Docker Best Practices - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -44,17 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="technology" />
+<meta property="og:title" content="Docker Best Practices" />
+<meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/blog/technology/" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/blog/technology/" />
+<meta name="description" content="1 . Do not run SSH inside of a container." />
+<meta property="og:description" content="1 . Do not run SSH inside of a container." />
+<link rel="canonical" href="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/docker-best-practices" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/docker-best-practices" />
 <meta property="og:site_name" content="Techietuts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-19T12:40:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="technology" />
+<meta property="twitter:title" content="Docker Best Practices" />
 <script type="application/ld+json">
-{"@type":"WebPage","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"technology","url":"http://0.0.0.0:4000/category/blog/technology/","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"1 . Do not run SSH inside of a container.","headline":"Docker Best Practices","dateModified":"2022-04-19T12:40:00+03:00","datePublished":"2022-04-19T12:40:00+03:00","url":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/docker-best-practices","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/docker-best-practices"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -73,7 +77,8 @@
 }
 </style>
     
-  <body>
+
+  <body class="animsition">
 	  
 		<!-- Header module inserted below -->
         <!-- Mobile Phone Navigation Menu -->
@@ -843,288 +848,156 @@
 
 	  
 		<!-- Content -->
-	<!-- Content -->
-<div class="home-content">
-
-  <div class="content">
-    <div class="blog-post blog">
-      <!-- Page heading -->
-      <h2 style="padding-left: 15px; padding-top: 60px;">
-             
-         Technology
-       
-      </h2>                
-      <div class="grid-container">
-      						
-        <!-- ########################## Categories Page ########################## -->      
-
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-
-
-<!-- ########################## Sub Categories Page ########################## -->
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-                            
-
-        <div class="grid-item" style="height: auto;">
-          <div><img src="/assets/img/ai_01.jpg"></div>
-          <div style="text-align: left;">
-            <p style="font-size: 18px; font-weight: 600; text-align: left;"><a href="/category/blog/technology/ai" style="color: inherit; text-decoration: none;">AI</a></p>
-          </div>
-        </div>
-                              
-
-        <div class="grid-item" style="height: auto;">
-          <div><img src="/assets/img/android_01.jpg"></div>
-          <div style="text-align: left;">
-            <p style="font-size: 18px; font-weight: 600; text-align: left;"><a href="/category/blog/technology/android" style="color: inherit; text-decoration: none;">Android</a></p>
-          </div>
-        </div>
-                              
-
-        <div class="grid-item" style="height: auto;">
-          <div><img src="/assets/img/internet_01.jpg"></div>
-          <div style="text-align: left;">
-            <p style="font-size: 18px; font-weight: 600; text-align: left;"><a href="/category/blog/technology/internet" style="color: inherit; text-decoration: none;">Internet</a></p>
-          </div>
-        </div>
-                              
-
-        <div class="grid-item" style="height: auto;">
-          <div><img src="/assets/img/content_01.jpg"></div>
-          <div style="text-align: left;">
-            <p style="font-size: 18px; font-weight: 600; text-align: left;"><a href="/category/blog/technology/table-of-content" style="color: inherit; text-decoration: none;">Table of Content</a></p>
-          </div>
-        </div>
-            
-                    
-        
-        
-
-  
-
-
-
-<!-- ########################## Post Type Page ########################## -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-          
-
-                      
-
-
-
-
-        
-      </div>
-    </div>  
-  </div>
-</div>
-
-<br>
-<section>
         <style>
+
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
+  max-width: 100%;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
+  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
+
+@media(max-width: 81rem) {
+
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
+}
+</style>
+<div class="main-content reduce-size main-content-tweak">
+
+    <div class="tittle-banner">
+      <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
+      <h1 style="padding: -50px; line-height: 1.2em;">Docker Best Practices</h1>             
+    </div>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2022</p>
+    <div>
+                <!-- Page content object inserted below -->
+        <p><br />
+1 . Do not run SSH inside of a container.</p>
+
+<p><br />
+2 . Use Minimal base images: A Minimal base images has the minimum essential resources required to run an application. The most common minimal base image is Alpine Linux which is around 2MB compared to Ubuntu which is around 60MB. Minimal base images translates to faster deploys and smaller attack surface.</p>
+
+<p><br />
+3 . Verify the authenticity of any software you install in your images. You may use official apt-get softwares. If you are downloading from unofficial third party repositories, always verify they are signed or have valid checksums. For example:</p>
+
+<ul>
+  <li>Use official base images.</li>
+  <li>If you are adding a file remotely you should make sure that the URL is using HTTPS.</li>
+  <li>If you are using a third-party repository, you should always include the right GPG keys before using your package manager to update these packages.</li>
+  <li>You can even pin to specific hashes of a file to ensure that these remote files have not been maliciously modified.</li>
+  <li>
+    <p>Always use a specific tag on your “from” directive e.g</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> from node:17.0.1 
+</code></pre></div>    </div>
+
+    <p>not this:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> from node
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /> 
+4 . Never run your applications as root. Always use the user directive inside of the Dockerfile to make sure that you drop privileges of your user.</p>
+
+<figure class="highlight"><pre><code class="language-docker" data-lang="docker">...
+
+# create group and user
+
+<span class="k">RUN </span>groupadd <span class="nt">-r</span> your_user <span class="o">&amp;&amp;</span> useradd <span class="nt">-g</span> your_user your_user
+
+<span class="c"># some images like nodejs already have a generic user node, so you may skip creating a user</span>
+
+
+<span class="c"># set ownership and permissions</span>
+
+<span class="k">RUN </span><span class="nb">chown</span> <span class="nt">-R</span> your_user:your_user /app
+
+
+<span class="c"># switch to user</span>
+
+<span class="k">USER</span><span class="s"> your_user</span>
+
+
+<span class="k">CMD</span><span class="s"> node index.js</span></code></pre></figure>
+
+<p>If your application has to start as root because it runs on a privileged support, you can map arbitrary ports on your host inside of the container so you that it doesn’t need to run with the same port inside of the container as it does outside.</p>
+
+<p>In the case you need to run as root not because of the port, ensure you draw privileges preferably using gosu and not sudo.</p>
+
+<p><br />
+5 . Identify cacheable units: Order Dockerfile commands from the least to the most frequently changing to take advantage of docker caching for faster builds.</p>
+
+<p><br />
+6 . Exclude unnecessary files and directories when building to reduce the image size: You should remove unnecessary items like auto-generated directories(e.g target, build) and README files. Simply add them in the .dockerignore file in the root of the project.</p>
+
+<p><br />
+7 . Use multi-stage builds to remove build dependencies such as package.json, pom.xml: The multi-stage build feature allows the use of multiple temporary images during the build process but only keeps the latest image as the final artifact.</p>
+
+<figure class="highlight"><pre><code class="language-docker" data-lang="docker"><span class="c"># Build stage</span>
+
+<span class="k">From</span><span class="s"> maven AS build</span>
+
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+
+<span class="k">COPY</span><span class="s"> myapp /app</span>
+
+<span class="k">RUN </span>mvn package
+
+
+<span class="c"># Run stage</span>
+
+<span class="k">FROM</span><span class="s"> tomcat</span>
+
+<span class="k">COPY</span><span class="s"> --from=build /app/target/file.war /usr/local/tomcat/webapps/</span>
+
+...</code></pre></figure>
+
+<p>Notice the use of directive - -from=build, to get the files generated from the build stage and copy them to the final image. The final application image is only created in the last stage.</p>
+
+<p><br />
+8 . Scan the image for security vulnerabilities:</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">#</span><span class="w"> </span>Login to docker hub
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>docker login
+<span class="go">
+
+</span><span class="gp">#</span><span class="w"> </span>scan app
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>docker scan myapp:1.0</code></pre></figure>
+
+<ul>
+  <li>
+    <p>The scan uses an up-to date database of vulnerabilities to identify them.</p>
+  </li>
+  <li>
+    <p>You can also configure Docker Hub to scan the images automatically when pushed to the repository.</p>
+  </li>
+</ul>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
+
+   </div>
+
+   <div>
+     <style>
 
 .newsletter {
   text-align: center;
@@ -1237,11 +1110,10 @@
   </div>
 </div> <!-- End Newsletter -->
 
-</section>
-
-
-<section class="reduce-size bg-light">
-        <section class="comment-area" style="background: #eaecee; padding: 30px;">
+   </div>
+     
+   <div>
+     <section class="comment-area" style="background: #eaecee; padding: 30px;">
   <div class="comment-wrapper">
     
     <div id="disqus_thread" class="article-comments"></div>
@@ -1258,8 +1130,11 @@
   </div>
 </section> <!-- End Comment Area -->
 
-</section>
-                                                            
+   </div>
+   
+</div>
+
+<br>
 
 
                 <!-- footer module inserted below -->

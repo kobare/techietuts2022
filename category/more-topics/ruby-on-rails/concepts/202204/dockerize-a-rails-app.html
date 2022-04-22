@@ -903,7 +903,7 @@
 <p>At the root of the rails project, create a file called Dockerfile, with no extension. Let’s add the following in a stepwise fashion:</p>
 
 <p><br />
-1 . Add an operating system containing the project’s version of ruby.</p>
+1 . Add an operating system containing the project’s version of ruby using the “from” primitive.</p>
 
 <p>Alpine Linux is a lightweight operating system and therefore a great fit for docker containers or any system that is network-based and dedicated for a single purpose only, like in the case of routers.</p>
 
@@ -934,7 +934,7 @@
 </span> tzdata <span class="se">\
 </span> <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <span class="nt">-rf</span> /var/cache/apk/<span class="k">*</span></code></pre></figure>
 
-<p>The “ &amp;&amp; rm -rf /var/cache/apk/* “ removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.</p>
+<p>Remove the package manager cache: The “ &amp;&amp; rm -rf /var/cache/apk/* “ removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.</p>
 
 <p><br /> 
 3 .  Create a directory called “app” to put our project in the root of the docker image.</p>
@@ -1308,6 +1308,14 @@ The final docker-compose.yml file should resemble this:</p>
    <div class="white-text" style="text-align: justify; text-decoration: underline #999"><span>Other Posts</span></a></p></div>
     
    
+    <div class="center-icon grid-image"><img src="/assets/img/svg/ruby.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/programming/ruby/concepts/202203/refactoring-ruby-code-example-1">Refactoring Ruby Code: Example 1</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> March 2022</p>
+    </div>          
+    
+     
+   
     <div class="center-icon grid-image"><img src="/assets/img/svg/ubuntu.svg"></div>
     <div class="white-text grid-title" style="text-align: left;">
      <p class="footer-post-title"><a href="/category/os/ubuntu/concepts/202203/iptables">Linux iptables</a></p>
@@ -1319,14 +1327,6 @@ The final docker-compose.yml file should resemble this:</p>
     <div class="center-icon grid-image"><img src="/assets/img/svg/ror.svg"></div>
     <div class="white-text grid-title" style="text-align: left;">
      <p class="footer-post-title"><a href="/category/frameworks/ruby-on-rails/concepts/202202/install-active-admin-on-a-rails-app">Install Active Admin on a Rails App</a></p>
-     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2022</p>
-    </div>          
-    
-     
-   
-    <div class="center-icon grid-image"><img src="/assets/img/svg/ror.svg"></div>
-    <div class="white-text grid-title" style="text-align: left;">
-     <p class="footer-post-title"><a href="/category/frameworks/ruby-on-rails/concepts/202202/install-rails-admin-on-a-rails-app">Install Rails Admin on a Rails App</a></p>
      <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2022</p>
     </div>          
     
