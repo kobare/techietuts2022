@@ -17,7 +17,7 @@ permalink: "category/:categories/ruby-on-rails/concepts/:year:month/:title"
 
 
 <br>
-2 . Use Minimal base images: A Minimal base images has the minimum essential resources required to run an application. The most common minimal base image is Alpine Linux which is around 2MB compared to Ubuntu which is around 60MB. Minimal base images translates to faster deploys and smaller attack surface.
+2 . Use Minimal base images: A Minimal base image has the minimum essential resources required to run an application. The most common minimal base image is Alpine Linux which is around 2MB compared to Ubuntu which is around 60MB. Minimal base images translate to faster deploys and smaller attack surface.
 
 
 <br>
