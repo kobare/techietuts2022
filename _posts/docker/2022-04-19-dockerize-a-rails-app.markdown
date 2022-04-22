@@ -31,7 +31,7 @@ At the root of the rails project, create a file called Dockerfile, with no exten
 
 
 <br>
-1 . Add an operating system containing the project's version of ruby. 
+1 . Add an operating system containing the project's version of ruby using the "from" primitive. 
 
 Alpine Linux is a lightweight operating system and therefore a great fit for docker containers or any system that is network-based and dedicated for a single purpose only, like in the case of routers.
 
@@ -72,7 +72,7 @@ RUN apk add --update --virtual \
 
 {% endhighlight %}
  
-The " && rm -rf /var/cache/apk/* " removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.
+Remove the package manager cache: The " && rm -rf /var/cache/apk/* " removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.
  
 
 <br> 
