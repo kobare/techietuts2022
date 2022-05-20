@@ -32,7 +32,7 @@ This will work on linux distros, both server and desktop. The steps on here were
 <br>
 2 . In the "General type of mail configuration:" prompt, choose "Internet Site" and press enter.
 
-<img srcset="
+<img class="zoom-on-hover" srcset="
   {{site.baseurl}}/assets/img/posts/postfix_configuration_1.png 1.1x,
   {{site.baseurl}}/assets/img/posts/postfix_configuration_1.png 2x
 " alt="missing image">
@@ -41,7 +41,7 @@ This will work on linux distros, both server and desktop. The steps on here were
 <br>
 3 . A postfix configuration prompt will open. On the "System mail name:" prompt, enter gmail.com
 
-<img srcset="
+<img class="zoom-on-hover" srcset="
   {{site.baseurl}}/assets/img/posts/postfix_configuration_2.png.png 2.3x,
   {{site.baseurl}}/assets/img/posts/postfix_configuration_2.png.png 3x
 " alt="missing image">
