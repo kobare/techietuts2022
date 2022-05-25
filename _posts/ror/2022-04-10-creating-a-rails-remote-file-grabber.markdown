@@ -8,7 +8,7 @@ categories: frameworks
 sub_category: ruby-on-rails
 type: tutorials
 technology: Ruby/Rails
-permalink: "category/:categories/ruby-on-rails/concepts/:year:month/:title"
+permalink: "category/:categories/ruby-on-rails/tutorials/:year:month/:title"
 ---
 
 ### Definition
