@@ -17,10 +17,8 @@
        <button class="mob-dropbtn"><i class="fa fa-github">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>
      {% elsif title[0] == "more-topics"%}
        <button class="mob-dropbtn"><i class="fa fa-connectdevelop">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>
-     {% elsif title[0] == "blog"%}
+     {% elsif title[0] == "xblog"%}
        <button class="mob-dropbtn"><i class="fa fa-th">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>              
-     {% else %}
-     <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>{{ category_name | capitalize }}</button>
     {% endif %}
      <div class="mob-dropdown-content">
       {% for frameworks in category[1] %}

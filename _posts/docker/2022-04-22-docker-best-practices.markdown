@@ -8,7 +8,7 @@ categories: more-topics
 sub_category: cloud-services
 type: microservice-architecture
 technology: Docker
-permalink: "category/:categories/ruby-on-rails/concepts/:year:month/:title"
+permalink: "category/:categories/cloud-services/concepts/:year:month/:title"
 ---
 
 
