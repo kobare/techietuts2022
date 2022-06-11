@@ -486,7 +486,17 @@ e.g
 
 
 <br>
-58 . Restart machine
+58 . Search words in files
+
+    $ grep -i -R 'the_word' search_path
+
+e.g
+ 
+    $ grep -i -R 'users' /home/Desktop
+
+
+<br>
+59 . Restart machine
 
     $ sudo shutdown -r
 
@@ -496,13 +506,12 @@ or:
     
 
 <br>
-59 . Shutdown machine
+60 . Shutdown machine
 
     $ sudo shutdown -h now
 
 
-<br>
-60 . Shutdown machine after a specific period of time
+Shutdown machine after a specific period of time
 
     $ sudo shutdown -h 10
 
