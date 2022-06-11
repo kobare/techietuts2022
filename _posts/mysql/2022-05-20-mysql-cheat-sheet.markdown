@@ -68,7 +68,7 @@ select distinct location from users;
 
 
 <br>
-6 .  View table structure
+6 . View table structure
 
 {% highlight sql %}
 
@@ -95,7 +95,7 @@ CREATE TABLE `users` (
 
 
 <br>
-8 .  Create a table and set a unique compound key
+8 . Create a table and set a unique compound key
 
 {% highlight sql %}
 
@@ -112,7 +112,37 @@ CREATE TABLE `users` (
 
 
 <br>
-9 .  Create a table with datetime columns that have a default current time stamp
+9 . Alter a table and set a unique key
+
+{% highlight sql %}
+
+alter table users add unique (id);
+
+{% endhighlight %}
+
+
+<br>
+10 . Alter a table and set a unique compound key
+
+{% highlight sql %}
+
+alter table users add constraint UC_User UNIQUE (id, sur_name); 
+
+{% endhighlight %}
+
+
+<br>
+11 . Drop a unique Constraint
+
+{% highlight sql %}
+
+alter table users drop index UC_User; 
+
+{% endhighlight %}
+
+
+<br>
+12 .  Create a table with datetime columns that have a default current time stamp
 
 {% highlight sql %}
 
@@ -131,7 +161,7 @@ CREATE TABLE `users` (
 
 
 <br>
-10 .  View the script that created a table
+13 .  View the script that created a table
 
 {% highlight sql %}
 
@@ -141,7 +171,7 @@ CREATE TABLE `users` (
 
 
 <br>
-11 .  Add column to an existing table
+14 .  Add column to an existing table
 
 {% highlight sql %}
 
@@ -151,7 +181,7 @@ CREATE TABLE `users` (
 
 
 <br>
-12 .  Add column to an existing table after a given column
+15 .  Add column to an existing table after a given column
 
 {% highlight sql %}
 
@@ -161,7 +191,7 @@ CREATE TABLE `users` (
 
 
 <br>
-13 .  Create a table with the same metadata as an existing table;
+16 .  Create a table with the same metadata as an existing table;
 
 {% highlight sql %}
 
@@ -171,7 +201,7 @@ CREATE TABLE `users` (
 
 
 <br>
-14 .  Query data from multiple related tables using left join method
+17 .  Query data from multiple related tables using left join method
 
 {% highlight sql %}
 
@@ -181,7 +211,7 @@ select prices.id, clients.name as client, products.id, products.name as product,
 
 
 <br>
-15 .  Use alias to shorten table names while querying
+18 .  Use alias to shorten table names while querying
 
 {% highlight sql %}
 
@@ -191,7 +221,7 @@ select p.id, clients.name as client, products.id, products.name as product, size
 
 
 <br>
-16 .  If you want to update a table while using a where clause that specifies columns from multiple other related tables
+19 .  If you want to update a table while using a where clause that specifies columns from multiple other related tables
 
 {% highlight sql %}
 
@@ -201,7 +231,7 @@ update prices left join sizes on prices.size_id=sizes.id left join clients on pr
 
 
 <br>
-17 .  Insert multiple values
+20 .  Insert multiple values
 
 {% highlight sql %}
 
@@ -211,7 +241,7 @@ insert into prices (client_id, size_id, price_cents) values ('3', '193', '159483
 
 
 <br>
-18 .  Insert multiple values from another table
+21 .  Insert multiple values from another table
 
 {% highlight sql %}
 
@@ -221,7 +251,7 @@ insert into users (first_name, middle_name, sur_name) select first_name, middle_
 
 
 <br>
-19 .  Insert multiple values from another table when the column names are different.
+22 .  Insert multiple values from another table when the column names are different.
 
 {% highlight sql %}
 
@@ -231,7 +261,7 @@ insert into users (first_name, middle_name, sur_name) select name, second_name, 
 
 
 <br>
-20 .  Create database backup file
+23 .  Create database backup file
 
 {% highlight sql %}
 
@@ -241,7 +271,7 @@ mysqldump -u user_name_here -p database_name_here > backup_file_name_here.sql
 
 
 <br>
-21 .  Insert data  from the backup file back into the database
+24 .  Insert data  from the backup file back into the database
 
 {% highlight sql %}
 

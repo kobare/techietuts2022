@@ -4,11 +4,11 @@ title:  "Automate File Backups to Gmail with Bash and Crontab"
 author: Denis Kobare
 date:   2022-05-16 06:20:00 +0300
 img: /assets/img/svg/ubuntu.svg
-categories: os
-sub_category: ubuntu
-type: tutorials
+categories: more-topics
+sub_category: operating-systems
+type: ubuntu
 technology: bash, crontab, gmail
-permalink: "category/:categories/ubuntu/tutorials/:year:month/:title"
+permalink: "category/:categories/operating-systems/ubuntu/:year:month/:title"
 ---
 
 ### Introduction
