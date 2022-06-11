@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="MySQL Cheat Sheet" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"1 . Update only part of a date column e.g year","headline":"MySQL Cheat Sheet","dateModified":"2022-05-20T07:00:00+03:00","datePublished":"2022-05-20T07:00:00+03:00","url":"http://0.0.0.0:4000/category/databases/mysql/tutorials/202205/mysql-cheat-sheet","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/databases/mysql/tutorials/202205/mysql-cheat-sheet"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"MySQL Cheat Sheet","description":"1 . Update only part of a date column e.g year","datePublished":"2022-05-20T07:00:00+03:00","dateModified":"2022-05-20T07:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/databases/mysql/tutorials/202205/mysql-cheat-sheet"},"url":"http://0.0.0.0:4000/category/databases/mysql/tutorials/202205/mysql-cheat-sheet","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -914,7 +914,7 @@
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="k">distinct</span> <span class="k">location</span> <span class="k">from</span> <span class="n">users</span><span class="p">;</span></code></pre></figure>
 
 <p><br />
-6 .  View table structure</p>
+6 . View table structure</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">describe</span> <span class="n">attendances</span><span class="p">;</span></code></pre></figure>
 
@@ -931,7 +931,7 @@
 <span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">17</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">latin1</span> </code></pre></figure>
 
 <p><br />
-8 .  Create a table and set a unique compound key</p>
+8 . Create a table and set a unique compound key</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nv">`users`</span> <span class="p">(</span>
   <span class="nv">`id`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="nb">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
@@ -943,7 +943,22 @@
 <span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">17</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">latin1</span> </code></pre></figure>
 
 <p><br />
-9 .  Create a table with datetime columns that have a default current time stamp</p>
+9 . Alter a table and set a unique key</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">alter</span> <span class="k">table</span> <span class="n">users</span> <span class="k">add</span> <span class="k">unique</span> <span class="p">(</span><span class="n">id</span><span class="p">);</span></code></pre></figure>
+
+<p><br />
+10 . Alter a table and set a unique compound key</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">alter</span> <span class="k">table</span> <span class="n">users</span> <span class="k">add</span> <span class="k">constraint</span> <span class="n">UC_User</span> <span class="k">UNIQUE</span> <span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">sur_name</span><span class="p">);</span> </code></pre></figure>
+
+<p><br />
+11 . Drop a unique Constraint</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">alter</span> <span class="k">table</span> <span class="n">users</span> <span class="k">drop</span> <span class="k">index</span> <span class="n">UC_User</span><span class="p">;</span> </code></pre></figure>
+
+<p><br />
+12 .  Create a table with datetime columns that have a default current time stamp</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nv">`users`</span> <span class="p">(</span>
   <span class="nv">`id`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="nb">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
@@ -956,62 +971,62 @@
 <span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="n">AUTO_INCREMENT</span><span class="o">=</span><span class="mi">17</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">latin1</span> </code></pre></figure>
 
 <p><br />
-10 .  View the script that created a table</p>
+13 .  View the script that created a table</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">show</span> <span class="k">create</span> <span class="k">table</span> <span class="n">users</span></code></pre></figure>
 
 <p><br />
-11 .  Add column to an existing table</p>
+14 .  Add column to an existing table</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">alter</span> <span class="k">table</span> <span class="n">users</span> <span class="k">add</span> <span class="k">column</span> <span class="n">email</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span></code></pre></figure>
 
 <p><br />
-12 .  Add column to an existing table after a given column</p>
+15 .  Add column to an existing table after a given column</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">alter</span> <span class="k">table</span> <span class="n">users</span> <span class="k">add</span> <span class="k">column</span> <span class="n">email</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span> <span class="k">after</span> <span class="n">sur_name</span><span class="p">;</span></code></pre></figure>
 
 <p><br />
-13 .  Create a table with the same metadata as an existing table;</p>
+16 .  Create a table with the same metadata as an existing table;</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql">    <span class="k">create</span> <span class="k">table</span> <span class="n">sale_orders</span> <span class="k">like</span> <span class="n">orders</span><span class="p">;</span></code></pre></figure>
 
 <p><br />
-14 .  Query data from multiple related tables using left join method</p>
+17 .  Query data from multiple related tables using left join method</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">prices</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">clients</span><span class="p">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">client</span><span class="p">,</span> <span class="n">products</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">products</span><span class="p">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">product</span><span class="p">,</span> <span class="n">sizes</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">sizes</span><span class="p">.</span><span class="n">name</span> <span class="k">as</span> <span class="k">size</span><span class="p">,</span> <span class="n">prices</span><span class="p">.</span><span class="n">price_cents</span> <span class="k">from</span> <span class="n">prices</span> <span class="k">left</span> <span class="k">join</span> <span class="n">sizes</span> <span class="k">on</span> <span class="n">prices</span><span class="p">.</span><span class="n">size_id</span><span class="o">=</span><span class="n">sizes</span><span class="p">.</span><span class="n">id</span> <span class="k">left</span> <span class="k">join</span> <span class="n">clients</span> <span class="k">on</span> <span class="n">prices</span><span class="p">.</span><span class="n">client_id</span><span class="o">=</span><span class="n">clients</span><span class="p">.</span><span class="n">id</span> <span class="k">left</span> <span class="k">join</span> <span class="n">products</span> <span class="k">on</span> <span class="n">sizes</span><span class="p">.</span><span class="n">product_id</span><span class="o">=</span><span class="n">products</span><span class="p">.</span><span class="n">id</span> <span class="k">where</span> <span class="n">clients</span><span class="p">.</span><span class="n">name</span> <span class="k">like</span> <span class="s1">'%Jenkins%'</span> <span class="k">order</span> <span class="k">by</span> <span class="n">products</span><span class="p">.</span><span class="n">id</span><span class="p">;</span></code></pre></figure>
 
 <p><br />
-15 .  Use alias to shorten table names while querying</p>
+18 .  Use alias to shorten table names while querying</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="n">p</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">clients</span><span class="p">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">client</span><span class="p">,</span> <span class="n">products</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">products</span><span class="p">.</span><span class="n">name</span> <span class="k">as</span> <span class="n">product</span><span class="p">,</span> <span class="n">sizes</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">sizes</span><span class="p">.</span><span class="n">name</span> <span class="k">as</span> <span class="k">size</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">price_cents</span> <span class="k">from</span> <span class="n">prices</span> <span class="k">as</span> <span class="n">p</span> <span class="k">left</span> <span class="k">join</span> <span class="n">sizes</span> <span class="k">as</span> <span class="n">s</span> <span class="k">on</span> <span class="n">p</span><span class="p">.</span><span class="n">size_id</span><span class="o">=</span><span class="n">s</span><span class="p">.</span><span class="n">id</span> <span class="k">left</span> <span class="k">join</span> <span class="n">clients</span> <span class="k">as</span> <span class="k">c</span> <span class="k">on</span> <span class="n">p</span><span class="p">.</span><span class="n">client_id</span><span class="o">=</span><span class="k">c</span><span class="p">.</span><span class="n">id</span> <span class="k">left</span> <span class="k">join</span> <span class="n">products</span> <span class="k">as</span> <span class="n">d</span> <span class="k">on</span> <span class="n">s</span><span class="p">.</span><span class="n">product_id</span><span class="o">=</span><span class="n">d</span><span class="p">.</span><span class="n">id</span> <span class="k">where</span> <span class="k">c</span><span class="p">.</span><span class="n">name</span> <span class="k">like</span> <span class="s1">'%Jenkins%'</span> <span class="k">order</span> <span class="k">by</span> <span class="n">d</span><span class="p">.</span><span class="n">id</span><span class="p">;</span></code></pre></figure>
 
 <p><br />
-16 .  If you want to update a table while using a where clause that specifies columns from multiple other related tables</p>
+19 .  If you want to update a table while using a where clause that specifies columns from multiple other related tables</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">update</span> <span class="n">prices</span> <span class="k">left</span> <span class="k">join</span> <span class="n">sizes</span> <span class="k">on</span> <span class="n">prices</span><span class="p">.</span><span class="n">size_id</span><span class="o">=</span><span class="n">sizes</span><span class="p">.</span><span class="n">id</span> <span class="k">left</span> <span class="k">join</span> <span class="n">clients</span> <span class="k">on</span> <span class="n">prices</span><span class="p">.</span><span class="n">client_id</span><span class="o">=</span><span class="n">clients</span><span class="p">.</span><span class="n">id</span> <span class="k">left</span> <span class="k">join</span> <span class="n">products</span> <span class="k">on</span> <span class="n">sizes</span><span class="p">.</span><span class="n">product_id</span><span class="o">=</span><span class="n">products</span><span class="p">.</span><span class="n">id</span> <span class="k">set</span> <span class="n">prices</span><span class="p">.</span><span class="n">price_cents</span> <span class="o">=</span> <span class="mi">51724</span> <span class="k">where</span> <span class="n">products</span><span class="p">.</span><span class="n">id</span> <span class="k">in</span> <span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="k">and</span> <span class="n">sizes</span><span class="p">.</span><span class="n">id</span> <span class="k">in</span> <span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="k">and</span> <span class="n">clients</span><span class="p">.</span><span class="n">id</span> <span class="k">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span></code></pre></figure>
 
 <p><br />
-17 .  Insert multiple values</p>
+20 .  Insert multiple values</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">insert</span> <span class="k">into</span> <span class="n">prices</span> <span class="p">(</span><span class="n">client_id</span><span class="p">,</span> <span class="n">size_id</span><span class="p">,</span> <span class="n">price_cents</span><span class="p">)</span> <span class="k">values</span> <span class="p">(</span><span class="s1">'3'</span><span class="p">,</span> <span class="s1">'193'</span><span class="p">,</span> <span class="s1">'159483'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'7'</span><span class="p">,</span> <span class="s1">'193'</span><span class="p">,</span> <span class="s1">'159483'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'193'</span><span class="p">,</span> <span class="s1">'159483'</span><span class="p">),</span> <span class="p">(</span><span class="s1">'15'</span><span class="p">,</span> <span class="s1">'193'</span><span class="p">,</span> <span class="s1">'159483'</span><span class="p">);</span></code></pre></figure>
 
 <p><br />
-18 .  Insert multiple values from another table</p>
+21 .  Insert multiple values from another table</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">insert</span> <span class="k">into</span> <span class="n">users</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">middle_name</span><span class="p">,</span> <span class="n">sur_name</span><span class="p">)</span> <span class="k">select</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">middle_name</span><span class="p">,</span> <span class="n">sur_name</span> <span class="k">from</span> <span class="n">admin_users</span><span class="p">;</span></code></pre></figure>
 
 <p><br />
-19 .  Insert multiple values from another table when the column names are different.</p>
+22 .  Insert multiple values from another table when the column names are different.</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">insert</span> <span class="k">into</span> <span class="n">users</span> <span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">middle_name</span><span class="p">,</span> <span class="n">sur_name</span><span class="p">)</span> <span class="k">select</span> <span class="n">name</span><span class="p">,</span> <span class="n">second_name</span><span class="p">,</span> <span class="n">last_name</span> <span class="k">from</span> <span class="n">staff_users</span><span class="p">;</span></code></pre></figure>
 
 <p><br />
-20 .  Create database backup file</p>
+23 .  Create database backup file</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysqldump</span> <span class="o">-</span><span class="n">u</span> <span class="n">user_name_here</span> <span class="o">-</span><span class="n">p</span> <span class="n">database_name_here</span> <span class="o">&gt;</span> <span class="n">backup_file_name_here</span><span class="p">.</span><span class="k">sql</span></code></pre></figure>
 
 <p><br />
-21 .  Insert data  from the backup file back into the database</p>
+24 .  Insert data  from the backup file back into the database</p>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">mysql</span> <span class="o">-</span><span class="n">u</span> <span class="n">user_name_here</span> <span class="o">-</span><span class="n">p</span> <span class="n">database_name_here</span> <span class="o">&lt;</span> <span class="n">backup_file_name_here</span><span class="p">.</span><span class="k">sql</span></code></pre></figure>
 
@@ -1180,6 +1195,14 @@
    
     <div class="center-icon grid-image"><img src="/assets/img/svg/docker.svg"></div>
     <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/more-topics/cloud-services/concepts/202204/docker-best-practices">Docker Best Practices</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2022</p>
+    </div>          
+    
+     
+   
+    <div class="center-icon grid-image"><img src="/assets/img/svg/docker.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
      <p class="footer-post-title"><a href="/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app">Dockerize A Rails App</a></p>
      <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2022</p>
     </div>          
@@ -1189,14 +1212,6 @@
     <div class="center-icon grid-image"><img src="/assets/img/svg/ruby.svg"></div>
     <div class="white-text grid-title" style="text-align: left;">
      <p class="footer-post-title"><a href="/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby">Download A File Over SSH With Net::SCP In Ruby</a></p>
-     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2022</p>
-    </div>          
-    
-     
-   
-    <div class="center-icon grid-image"><img src="/assets/img/svg/ror.svg"></div>
-    <div class="white-text grid-title" style="text-align: left;">
-     <p class="footer-post-title"><a href="/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app">Creating A Rails 7 App: With esbuild, bootstrap and jquery</a></p>
      <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2022</p>
     </div>          
     
