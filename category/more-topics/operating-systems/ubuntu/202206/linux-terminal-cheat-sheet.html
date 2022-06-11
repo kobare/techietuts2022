@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Ubuntu Terminal Cheat Sheet" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Ubuntu Terminal Cheat Sheet","description":"1 . Navigate back to a previous directory.","datePublished":"2022-06-11T07:00:00+03:00","dateModified":"2022-06-11T07:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202206/linux-terminal-cheat-sheet"},"url":"http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202206/linux-terminal-cheat-sheet","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"1 . Navigate back to a previous directory.","headline":"Ubuntu Terminal Cheat Sheet","dateModified":"2022-06-11T07:00:00+03:00","datePublished":"2022-06-11T07:00:00+03:00","url":"http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202206/linux-terminal-cheat-sheet","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202206/linux-terminal-cheat-sheet"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -1384,7 +1384,18 @@ tail gives you no choice but to display the whole line no matter how long it is.
 </code></pre></div></div>
 
 <p><br />
-58 . Restart machine</p>
+58 . Search words in files</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep -i -R 'the_word' search_path
+</code></pre></div></div>
+
+<p>e.g</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep -i -R 'users' /home/Desktop
+</code></pre></div></div>
+
+<p><br />
+59 . Restart machine</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo shutdown -r
 </code></pre></div></div>
@@ -1395,13 +1406,12 @@ tail gives you no choice but to display the whole line no matter how long it is.
 </code></pre></div></div>
 
 <p><br />
-59 . Shutdown machine</p>
+60 . Shutdown machine</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo shutdown -h now
 </code></pre></div></div>
 
-<p><br />
-60 . Shutdown machine after a specific period of time</p>
+<p>Shutdown machine after a specific period of time</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo shutdown -h 10
 </code></pre></div></div>
