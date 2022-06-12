@@ -157,7 +157,7 @@ e.g
 
 Alternatively:
 
-*NB: With this method, If the first command fails, subsequent commands wont be executed.*
+*NB: With this method, If the first command fails, subsequent commands won't be executed.*
 
     $ command_1 && command_2
     
@@ -231,7 +231,7 @@ tail gives you no choice but to display the whole line no matter how long it is.
 
 
 <br>
-23 . Pipe a commands output into the column command to make the results readable
+23 . Pipe a command's output into the column command to make the results readable
  
     $ command_1 | column -t
 
@@ -271,7 +271,7 @@ Undo the the cut:
 
 
 <br>
-27 . Use a editor to write long commands or script-like commands 
+27 . Use a file editor to write long commands or script-like commands 
 
 *NB: Set micro, vim etc as your default text editor, since nano is not efficient for this task*
 
@@ -346,15 +346,15 @@ e.g
 
 
 <br>
-38 . Copy a file
+38 . Compress a file
 
-    $ cp original_file copy_file
+    $ zip zipped_file_name.zip file_name
 
 
 <br>
-39 . Delete a file
+39 . Decompress a file
 
-    $ rm file_name 
+    $ unzip zipped_file_name.zip 
 
 
 <br>
@@ -380,9 +380,9 @@ or:
 
 
 <br>
-43 . Show network information
+43 . Show current user's name
 
-    $ ifconfig 
+    $ whoami 
 
 
 <br>
@@ -452,9 +452,34 @@ e.g
 
 
 <br>
-53 . Display the disk space used in the file system
+53 . Running a process in the background
 
-    $ df
+Continue to run processes after exiting the terminal
+
+    $ nohup command_name &
+
+*NB: You must note down the ID. You will need it to kill the process.*
+
+
+Incase you lose the process id:
+
+Find the process by name
+
+    $ ps -ef | grep "name_of process" 
+    
+e.g
+       
+    $ ps -ef | grep "jekyll"
+
+Kill the process by PID
+
+    $ kill id_here
+
+or:
+
+Bring the process to the foreground and then CTRL + C
+
+    $ fg 
 
 
 <br>
