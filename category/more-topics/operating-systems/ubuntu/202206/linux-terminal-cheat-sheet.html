@@ -1039,7 +1039,7 @@ $ popd    # navigates back to that directory
 
 <p>Alternatively:</p>
 
-<p><em>NB: With this method, If the first command fails, subsequent commands wont be executed.</em></p>
+<p><em>NB: With this method, If the first command fails, subsequent commands won’t be executed.</em></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ command_1 &amp;&amp; command_2
 </code></pre></div></div>
@@ -1117,7 +1117,7 @@ tail gives you no choice but to display the whole line no matter how long it is.
 </code></pre></div></div>
 
 <p><br />
-23 . Pipe a commands output into the column command to make the results readable</p>
+23 . Pipe a command’s output into the column command to make the results readable</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ command_1 | column -t
 </code></pre></div></div>
@@ -1161,7 +1161,7 @@ tail gives you no choice but to display the whole line no matter how long it is.
 </code></pre></div></div>
 
 <p><br />
-27 . Use a editor to write long commands or script-like commands</p>
+27 . Use a file editor to write long commands or script-like commands</p>
 
 <p><em>NB: Set micro, vim etc as your default text editor, since nano is not efficient for this task</em></p>
 
@@ -1239,15 +1239,15 @@ tail gives you no choice but to display the whole line no matter how long it is.
 </code></pre></div></div>
 
 <p><br />
-38 . Copy a file</p>
+38 . Compress a file</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cp original_file copy_file
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ zip zipped_file_name.zip file_name
 </code></pre></div></div>
 
 <p><br />
-39 . Delete a file</p>
+39 . Decompress a file</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rm file_name 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ unzip zipped_file_name.zip 
 </code></pre></div></div>
 
 <p><br />
@@ -1274,9 +1274,9 @@ tail gives you no choice but to display the whole line no matter how long it is.
 </code></pre></div></div>
 
 <p><br />
-43 . Show network information</p>
+43 . Show current user’s name</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ifconfig 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ whoami 
 </code></pre></div></div>
 
 <p><br />
@@ -1349,9 +1349,37 @@ tail gives you no choice but to display the whole line no matter how long it is.
 </code></pre></div></div>
 
 <p><br />
-53 . Display the disk space used in the file system</p>
+53 . Running a process in the background</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ df
+<p>Continue to run processes after exiting the terminal</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nohup command_name &amp;
+</code></pre></div></div>
+
+<p><em>NB: You must note down the ID. You will need it to kill the process.</em></p>
+
+<p>Incase you lose the process id:</p>
+
+<p>Find the process by name</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ps -ef | grep "name_of process" 
+</code></pre></div></div>
+
+<p>e.g</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ps -ef | grep "jekyll"
+</code></pre></div></div>
+
+<p>Kill the process by PID</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ kill id_here
+</code></pre></div></div>
+
+<p>or:</p>
+
+<p>Bring the process to the foreground and then CTRL + C</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ fg 
 </code></pre></div></div>
 
 <p><br />
