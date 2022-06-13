@@ -11,67 +11,117 @@ technology: Ruby
 permalink: "category/:categories/ruby/concepts/:year:month/:title"
 ---
 
-### Definition
 
-Base64 encoding is a process that takes binary data and converts it into an ASCII string. This string can then be easily embedded into a URL or email without taking up too much space. The recipient can then decode the string back to its original form.
-
-
-Base64 decoding is the reverse process. It takes an ASCII string and converts it back to binary data. This can be useful for retrieving files that have been attached to an email or for displaying images on a web page.
-
-<br>
-### Base64 Applications
-
-There are many different ways to use Base64 encoding. Some of the most common use cases include:
-
-1 . Embedding images into emails.
-
-2 . Reducing the size of files and data compression.
-
-3 . Encode data in a URL.
-
-4 . Obfuscate data. This means that the data can be encoded in such a way that it is difficult to understand without the proper decoding algorithm. Obfuscating data can be helpful for protecting sensitive information like login passwords.
-
-<br>
-### How To Base64 Encode/Decode In Ruby
-
-The simplest ways to do a base64 encode/decode are:
-
-1 . Use the built-in pack method from array class. The pack method returns a base64 encoded string (given the parameter “m”). The String class has a method unpack that likewise decodes(base64) the string.
+### 1 . at()
+Finds item at the given index and returns nil if the index does not exist in the array.
 
 {% highlight ruby %}
-str = "QE3OWEefBhYu16PPDOUBeKUHqqZxNVZJ"
 
-encoded_string = [str].pack("m")
+# Array.at(index)
 
-puts encoded_string 
-# UUUzT1dFZWZCaFl1MTZQUERPVUJlS1VIcXFaeE5WWko=
+arr = [1, 2, 3, 4, 5]
 
-decoded_string = encoded_string.unpack("m")
+third_item = arr.at(2)
 
-puts decoded_string 
-# QE3OWEefBhYu16PPDOUBeKUHqqZxNVZJ
-{% endhighlight %} 
+# 3
+
+{% endhighlight %}
 
 
 <br>
-2 . Use the base64 library
+### 2 . append()
+Appends items to the end of the array.
 
 {% highlight ruby %}
-require "base64"
 
-str = "QE3OWEefBhYu16PPDOUBeKUHqqZxNVZJ"
+# Array.append(index)
 
-encoded_string = Base64.encode64(str)
+arr = [1, 2, 3, 4, 5]
 
-puts encoded_string 
-# UUUzT1dFZWZCaFl1MTZQUERPVUJlS1VIcXFaeE5WWko=
+third_item = arr.append(6)
 
-decoded_string = Base64.decode64(encoded_string)
-# QE3OWEefBhYu16PPDOUBeKUHqqZxNVZJ
+# [1, 2, 3, 4, 5, 6]
 
-puts decoded_string 
+{% endhighlight %}
 
-{% endhighlight %} 
+
+<br>
+### 3 . assoc()
+Searches for an array within another array. The argument is compared with first 
+item of the inner array, and that array is returned if that first item matches the argument. Further matches are ignored.
+
+*NB: Works only for two dimensional arrays*
+
+{% highlight ruby %}
+
+# Array.assoc(key_word)
+
+arr = [1, 2, 3, 4, 5, [6, 8, 9], [8, 9, 10] ]
+
+find_first_array_containing_8 = arr.assoc(8)
+
+# [8, 9, 10]
+
+{% endhighlight %}
+
+
+<br>
+### 4 . all?
+With no block given and no argument, returns true if self contains only 
+truthy elements, false otherwise
+
+{% highlight ruby %}
+
+# Array.assoc(key_word)
+
+arr = [1, 2, 3, 4, 5, [6, 8, 9], [8, 9, 10], 0]
+
+arr.all?
+
+# true
+
+
+
+arr = [1, 2, 3, 4, 5, [6, 8, 9], [8, 9, 10], 0, true]
+
+arr.all?
+
+# true
+
+
+arr = [1, 2, 3, 4, 5, [6, 8, 9], [8, 9, 10], 0, nil]
+
+arr.all?
+
+# false
+
+
+arr = [1, 2, 3, 4, 5, [6, 8, 9], [8, 9, 10], 0, false]
+
+arr.all?
+
+# false
+
+{% endhighlight %}
+
+
+<br>
+### 5 . any?
+With no block given and no argument, returns true if self has any truthy 
+element, false otherwise
+
+{% highlight ruby %}
+
+# Array.append(index)
+
+arr = [1, 2, 3, 4, 5]
+
+arr.any?
+
+# true
+
+{% endhighlight %}
+
 
 
 <br>

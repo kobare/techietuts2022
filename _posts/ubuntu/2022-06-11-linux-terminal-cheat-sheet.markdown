@@ -273,7 +273,7 @@ Undo the the cut:
 <br>
 27 . Use a file editor to write long commands or script-like commands 
 
-*NB: Set micro, vim etc as your default text editor, since nano is not efficient for this task*
+*NB: Set micro, vim etc as your default text editor, since nano is not suitable for this task*
 
     CTRL + X + E
 
@@ -398,7 +398,10 @@ For wireless info:
 <br>
 45 . Find a directory by name
 
-    $ find / -type d -name "directory_name" 
+    $ find location_path -type d -name "directory_name" 
+
+e.g
+    $ find / -type d -name "dendrite" 
 
 
 <br>
@@ -465,7 +468,7 @@ Incase you lose the process id:
 
 Find the process by name
 
-    $ ps -ef | grep "name_of process" 
+    $ ps -ef | grep "name_of_process" 
     
 e.g
        
@@ -538,7 +541,12 @@ or:
 
 Shutdown machine after a specific period of time
 
-    $ sudo shutdown -h 10
+    $ sudo shutdown -h 10    
+    
+    
+    # Do this to cancel
+    
+    $ shutdown -c
 
 or:
 
