@@ -1163,7 +1163,7 @@ tail gives you no choice but to display the whole line no matter how long it is.
 <p><br />
 27 . Use a file editor to write long commands or script-like commands</p>
 
-<p><em>NB: Set micro, vim etc as your default text editor, since nano is not efficient for this task</em></p>
+<p><em>NB: Set micro, vim etc as your default text editor, since nano is not suitable for this task</em></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CTRL + X + E
 </code></pre></div></div>
@@ -1293,8 +1293,11 @@ tail gives you no choice but to display the whole line no matter how long it is.
 <p><br />
 45 . Find a directory by name</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ find / -type d -name "directory_name" 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ find location_path -type d -name "directory_name" 
 </code></pre></div></div>
+
+<p>e.g
+    $ find / -type d -name “dendrite”</p>
 
 <p><br />
 46 . Check server status</p>
@@ -1362,7 +1365,7 @@ tail gives you no choice but to display the whole line no matter how long it is.
 
 <p>Find the process by name</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ps -ef | grep "name_of process" 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ps -ef | grep "name_of_process" 
 </code></pre></div></div>
 
 <p>e.g</p>
@@ -1441,7 +1444,12 @@ tail gives you no choice but to display the whole line no matter how long it is.
 
 <p>Shutdown machine after a specific period of time</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo shutdown -h 10
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo shutdown -h 10    
+
+
+# Do this to cancel
+
+$ shutdown -c
 </code></pre></div></div>
 
 <p>or:</p>
