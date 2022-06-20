@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Install Ruby On Rails on Ubuntu 18.10 Cosmic Canimal - Techietuts</title>
+ <title>Ruby Array Methods [A - C] - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Install Ruby On Rails on Ubuntu 18.10 Cosmic Canimal" />
+<meta property="og:title" content="Ruby Array Methods [A - C]" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="In this tutorial we are going to set up Ruby and Ruby on Rails development environment on Ubuntu 18.10 Cosmic Canimal." />
-<meta property="og:description" content="In this tutorial we are going to set up Ruby and Ruby on Rails development environment on Ubuntu 18.10 Cosmic Canimal." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/installations/202006/install-ruby-on-rails-on-ubuntu-18-10" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/installations/202006/install-ruby-on-rails-on-ubuntu-18-10" />
+<meta name="description" content="1 . at() Finds item at the given index and returns nil if the index does not exist in the array." />
+<meta property="og:description" content="1 . at() Finds item at the given index and returns nil if the index does not exist in the array." />
+<link rel="canonical" href="http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-06-06T14:17:06+03:00" />
+<meta property="article:published_time" content="2022-06-12T06:30:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Install Ruby On Rails on Ubuntu 18.10 Cosmic Canimal" />
+<meta property="twitter:title" content="Ruby Array Methods [A - C]" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"In this tutorial we are going to set up Ruby and Ruby on Rails development environment on Ubuntu 18.10 Cosmic Canimal.","headline":"Install Ruby On Rails on Ubuntu 18.10 Cosmic Canimal","dateModified":"2020-06-06T14:17:06+03:00","datePublished":"2020-06-06T14:17:06+03:00","url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/installations/202006/install-ruby-on-rails-on-ubuntu-18-10","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/installations/202006/install-ruby-on-rails-on-ubuntu-18-10"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"1 . at() Finds item at the given index and returns nil if the index does not exist in the array.","headline":"Ruby Array Methods [A - C]","dateModified":"2022-06-12T06:30:00+03:00","datePublished":"2022-06-12T06:30:00+03:00","url":"http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -878,134 +878,404 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Install Ruby On Rails on Ubuntu 18.10 Cosmic Canimal</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Ruby Array Methods [A - C]</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> June 2020</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> June 2022</p>
     <div>
                 <!-- Page content object inserted below -->
-        <p>In this tutorial we are going to set up Ruby and Ruby on Rails development environment on Ubuntu 18.10 Cosmic Canimal.</p>
+        <h3 id="1--at">1 . at()</h3>
+<p>Finds item at the given index and returns nil if the index does not exist in the array.</p>
 
-<p><code class="language-plaintext highlighter-rouge">Ubuntu version: 18.10</code>
-<code class="language-plaintext highlighter-rouge">Ruby version: 2.7.1</code>
-<code class="language-plaintext highlighter-rouge">Rails version: 6.0.2.2</code></p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.at(index)</span>
 
-<h4 align="center">STEP 1: <h5 align="center">Install dependencies for Ruby and Rails</h5></h4>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<span class="n">third_item</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="nf">at</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<div class="terminal-home">
+<span class="c1"># 3</span></code></pre></figure>
 
- <h5 class="hashed"># Add the Node.js and Yarn repositories to our system before installing them to make sure we have everything necessary for Webpacker support in Rails.</h5>
- <p class="console">sudo apt install curl</p>
-
- <p class="console">curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -</p>
-
- <p class="console">curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -</p>
-
- <p class="console">echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list</p>
- 
- <p class="console">sudo apt-get update</p>
-
- <p class="console">sudo apt-get install git-core zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev nodejs yarn</p> 
-</div>
-</section>
 <p><br /></p>
+<h3 id="2--append">2 . append()</h3>
+<p>Appends items to the end of the array.</p>
 
-<h4 align="center">STEP 2: <h5 align="center">Install Ruby: Using rbenv</h5></h4>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.append(index)</span>
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-<div class="terminal-home">
+<span class="n">third_item</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 
- <h5 class="hashed">#1. Install rbenv.</h5>
- <p class="console">cd</p>
+<span class="c1"># [1, 2, 3, 4, 5, 6]</span></code></pre></figure>
 
- <p class="console">git clone https://github.com/rbenv/rbenv.git ~/.rbenv</p>
-
- <p class="console">echo 'export PATH="$HOME/.rbenv/bin:$PATH"' &gt;&gt; ~/.bashrc</p>
-
- <p class="console">echo 'eval "$(rbenv init -)"' &gt;&gt; ~/.bashrc</p>
- 
- <p class="console">exec $SHELL</p>
-
- <h5 class="hashed">#2. Install ruby-build.</h5>
- <p class="console">git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</p>
-
- <p class="console">echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' &gt;&gt; ~/.bashrc</p> 
- 
- <p class="console">exec $SHELL</p>
- 
- <p class="console">rbenv install 2.7.1</p>    
- 
- <p class="console">rbenv rehash</p>    
- 
- <p class="console">rbenv global 2.7.1</p>    
-
- <h5 class="hashed"># Verify Ruby version</h5> 
- <p class="console">ruby -v</p>            
-</div>
-</section>
 <p><br /></p>
+<h3 id="3--assoc">3 . assoc()</h3>
+<p>Searches for an array within another array. The argument is compared with first 
+item of the inner array, and that array is returned if that first item matches the argument. Further matches are ignored.</p>
 
-<h4 align="center">STEP 3: <h5 align="center">Install bundler</h5></h4>
+<p><em>NB: Works only for two dimensional arrays</em></p>
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.assoc(key_word)</span>
 
-<div class="terminal-home">
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> <span class="p">]</span>
 
- <p class="console">gem install bundler</p>
+<span class="n">find_first_array_containing_8</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="nf">assoc</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 
- <p class="console">rbenv rehash</p>
+<span class="c1"># [8, 9, 10]</span></code></pre></figure>
 
-</div>
-</section>
 <p><br /></p>
+<h3 id="4--all">4 . all?</h3>
+<p>With no block given and no argument, returns true if self contains only 
+truthy elements, false otherwise.</p>
 
-<h4 align="center">STEP 4: <h5 align="center">Install Ruby on Rails</h5></h4>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.all?</span>
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">0</span><span class="p">]</span>
 
-<div class="terminal-home">
+<span class="n">arr</span><span class="p">.</span><span class="nf">all?</span>
 
- <p class="console">gem install rails -v 6.0.2.2</p>
+<span class="c1"># true</span>
 
- <p class="console">rbenv rehash</p>
 
- <h5 class="hashed"># Verify Rails version</h5> 
- <p class="console">rails -v</p> 
 
-</div>
-</section>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="kp">true</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">all?</span>
+
+<span class="c1"># true</span>
+
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="kp">nil</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">all?</span>
+
+<span class="c1"># false</span>
+
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="kp">false</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">all?</span>
+
+<span class="c1"># false</span>
+
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">all?</span><span class="p">(</span><span class="no">Integer</span><span class="p">)</span>
+
+<span class="c1"># true</span>
+
+
+<span class="sx">%w[Ruby Jekyll Rails]</span><span class="p">.</span><span class="nf">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">word</span><span class="p">.</span><span class="nf">length</span> <span class="o">&gt;=</span> <span class="mi">4</span> <span class="p">}</span> 
+
+<span class="c1"># true</span></code></pre></figure>
+
 <p><br /></p>
+<h3 id="5--any">5 . any?</h3>
+<p>With no block given and no argument, returns true if self has any truthy 
+element, false otherwise.</p>
 
-<p>That’s it!</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.any?</span>
 
-<p><em>See you in the next tuts</em></p>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
+<span class="n">arr</span><span class="p">.</span><span class="nf">any?</span>
+
+<span class="c1"># true</span>
+
+
+<span class="sx">%w[Ruby Jekyll Rails]</span><span class="p">.</span><span class="nf">any?</span> <span class="p">{</span> <span class="o">|</span><span class="n">word</span><span class="o">|</span> <span class="n">word</span><span class="p">.</span><span class="nf">length</span> <span class="o">&gt;=</span> <span class="mi">7</span> <span class="p">}</span>
+
+<span class="c1"># false</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="6--abbrev">6 . abbrev</h3>
+<p>Calculates the set of unambiguous abbreviations for the strings.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.abbrev</span>
+
+<span class="sx">%w[Ruby Jekyll Rails]</span><span class="p">.</span><span class="nf">abbrev</span>
+
+<span class="c1"># =&gt; </span>
+<span class="p">{</span><span class="s2">"Ruby"</span><span class="o">=&gt;</span><span class="s2">"Ruby"</span><span class="p">,</span>                                                                     
+ <span class="s2">"Rub"</span><span class="o">=&gt;</span><span class="s2">"Ruby"</span><span class="p">,</span>                                                                      
+ <span class="s2">"Ru"</span><span class="o">=&gt;</span><span class="s2">"Ruby"</span><span class="p">,</span>                                                                       
+ <span class="s2">"Jekyll"</span><span class="o">=&gt;</span><span class="s2">"Jekyll"</span><span class="p">,</span>                                                                 
+ <span class="s2">"Jekyl"</span><span class="o">=&gt;</span><span class="s2">"Jekyll"</span><span class="p">,</span>                                                                  
+ <span class="s2">"Jeky"</span><span class="o">=&gt;</span><span class="s2">"Jekyll"</span><span class="p">,</span>                                                                   
+ <span class="s2">"Jek"</span><span class="o">=&gt;</span><span class="s2">"Jekyll"</span><span class="p">,</span>                                                                    
+ <span class="s2">"Je"</span><span class="o">=&gt;</span><span class="s2">"Jekyll"</span><span class="p">,</span>                                                                     
+ <span class="s2">"J"</span><span class="o">=&gt;</span><span class="s2">"Jekyll"</span><span class="p">,</span>                                                                      
+ <span class="s2">"Rails"</span><span class="o">=&gt;</span><span class="s2">"Rails"</span><span class="p">,</span>                                                                   
+ <span class="s2">"Rail"</span><span class="o">=&gt;</span><span class="s2">"Rails"</span><span class="p">,</span>                                                                    
+ <span class="s2">"Rai"</span><span class="o">=&gt;</span><span class="s2">"Rails"</span><span class="p">,</span>                                                                     
+ <span class="s2">"Ra"</span><span class="o">=&gt;</span><span class="s2">"Rails"</span><span class="p">}</span>   </code></pre></figure>
+
+<p><br /></p>
+<h3 id="7--bsearch_index">7 . bsearch_index</h3>
+<p>Finds the index of the array value that meets the given condition.
+Returns a new Enumerator if no block given.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.bsearch_index</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">bsearch_index</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">a</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="c1">#  2</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="8--bsearch">8 . bsearch</h3>
+<p>Returns an element selected by a binary search.
+Returns a new Enumerator if no block given.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.bsearch</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">bsearch</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">a</span><span class="o">&gt;=</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="c1">#  3</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="9--collect">9 . collect</h3>
+<p>Returns a new array, built from the output of the block. This allows performing 
+operations on values in the original array, and storing the output of that.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.collect</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">collect</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="mi">3</span> <span class="p">?</span> <span class="n">a</span><span class="o">+</span><span class="mi">1</span> <span class="p">:</span> <span class="n">a</span><span class="p">)}</span>
+
+<span class="c1"># [1, 2, 4, 5]</span>
+
+
+<span class="c1"># You can save yourself from re-assigning it to the same variable with collect!</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">collect!</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="mi">3</span> <span class="p">?</span> <span class="n">a</span><span class="o">+</span><span class="mi">1</span> <span class="p">:</span> <span class="n">a</span><span class="p">)}</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="10--compact">10 . compact</h3>
+<p>Removes all nil elements from an array.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.compact</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kp">false</span><span class="p">,</span> <span class="kp">nil</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">compact</span>
+
+<span class="c1"># [1, 2, 3, 4, 0, false]</span>
+
+
+<span class="c1"># You can save yourself from re-assigning it to the same variable with compact!</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">compact!</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="11--count">11 . count</h3>
+<p>Returns a count of specified elements. With no argument and no block, returns 
+the count of all elements.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.count</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">count</span>
+
+<span class="c1"># 7</span>
+
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">count</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">a</span><span class="o">&lt;=</span><span class="mi">5</span><span class="p">}</span>
+
+<span class="c1"># 6</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="12--combination">12 . combination</h3>
+<p>When called with a block yields a two-dimensional array consisting of all 
+sequences of a collection of numbers. Unlike permutation, order is disregarded 
+in combinations. For instance, [1,2,3] is the same as [3,2,1].</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.combination</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">combination</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nf">to_a</span>
+
+<span class="c1"># [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]</span>
+
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">combination</span><span class="p">(</span><span class="mi">4</span><span class="p">).</span><span class="nf">to_a</span>
+
+<span class="c1"># [[1, 2, 3, 4]]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="13--cycle">13 . cycle()</h3>
+<p>Calls the given block n times for each item in the array.
+Returns nil if the loop has finished without getting interrupted.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.cycle()</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">cycle</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">a</span><span class="p">}</span>
+
+<span class="c1"># 1</span>
+<span class="c1"># 2</span>
+<span class="c1"># 3</span>
+<span class="c1"># 4</span>
+<span class="c1"># 1</span>
+<span class="c1"># 2</span>
+<span class="c1"># 3</span>
+<span class="c1"># 4</span>
+<span class="c1"># 1</span>
+<span class="c1"># 2</span>
+<span class="c1"># 3</span>
+<span class="c1"># 4</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="14--clear">14 . clear</h3>
+<p>Removes all elements from array.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.clear</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">clear</span>
+
+<span class="c1"># []</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="15--concat">15 . concat()</h3>
+<p>Adds to array all elements from each Array in other_arrays.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.concat(another_array)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">concat</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+
+<span class="c1"># [1, 2, 3, 4, 5, 6, 7, 8]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="16--chunk">16 . chunk</h3>
+<p>Enumerates over the items, chunking them together based on the return value of the block.
+Consecutive elements which return the same block value are chunked together.</p>
+
+<p>If the block value is the same but the elements are not consecutive, then a new group is created.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.chunk</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">chunk</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="n">a</span><span class="p">.</span><span class="nf">even?</span> <span class="p">}.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">even</span><span class="p">,</span> <span class="n">ary</span><span class="o">|</span> <span class="nb">p</span> <span class="p">[</span><span class="n">even</span><span class="p">,</span> <span class="n">ary</span><span class="p">]}</span>
+
+<span class="c1"># [true, [4]]</span>
+<span class="c1"># [false, [7, 1]]</span>
+<span class="c1"># [true, [2]]</span>
+<span class="c1"># [false, [3]]</span>
+<span class="c1"># [true, [4]]</span>
+<span class="c1"># [false, [5]]</span>
+<span class="c1"># [true, [6]]</span>
+<span class="c1"># [false, [7]]</span>
+<span class="c1"># [true, [8]]</span>
+<span class="c1"># [false, [9]]</span>
+<span class="c1"># =&gt; nil</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="17--chunk_while">17 . chunk_while</h3>
+<p>Returns elements organized into chunks as specified by the given block.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.chunk_while</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># For example, one-by-one increasing subsequence can be chunked as follows:</span>
+<span class="n">arr</span><span class="p">.</span><span class="nf">chunk_while</span> <span class="p">{</span><span class="o">|</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="o">|</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span> <span class="o">==</span> <span class="n">n</span> <span class="p">}.</span><span class="nf">to_a</span>
+
+<span class="c1"># [=&gt; [[4], [7], [1, 2, 3, 4, 5, 6, 7, 8, 9]]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="18--chain">18 . chain</h3>
+<p>Adds to array all elements from each Array in other_arrays.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.chain(another_array)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">chain</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]).</span><span class="nf">to_a</span>
+
+<span class="c1"># [4, 7, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="19--collect_concat">19 . collect_concat</h3>
+<p>Returns a new array with the concatenated results of running block once for 
+every element in enum. If no block is given, an enumerator is returned instead.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.collect_concat</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+  
+<span class="n">arr</span><span class="p">.</span><span class="nf">collect_concat</span> <span class="p">{</span> <span class="o">|</span><span class="n">el</span><span class="o">|</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">el</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="n">el</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="c1"># [8, 12, 20, 30]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="20--class">20 . class</h3>
+<p>Returns the class of obj.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.class</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">class</span>
+
+<span class="c1"># Array</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="21--clone">21 . clone</h3>
+<p>Produces a shallow copy of object. The instance variables of object are copied, 
+but not the objects they reference. #clone copies the frozen value state of obj, 
+unless the :freeze keyword argument is given with a false or true value.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.clone</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">].</span><span class="nf">freeze</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">frozen?</span>
+
+<span class="c1"># true</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">object_id</span>
+
+<span class="c1"># 5597800</span>
+
+
+<span class="n">clone_copy</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="nf">clone</span>
+
+<span class="n">clone_copy</span><span class="p">.</span><span class="nf">frozen?</span>
+
+<span class="c1"># true</span>
+
+
+<span class="n">clone_copy</span><span class="p">.</span><span class="nf">object_id</span>
+
+<span class="c1"># 5609580</span>
+
+
+<span class="c1"># In comparisson to dup</span>
+
+<span class="n">dup_copy</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="nf">dup</span>
+
+<span class="n">dup_copy</span><span class="p">.</span><span class="nf">frozen?</span>
+
+<span class="c1"># false</span>
+
+
+<span class="n">dup_copy</span><span class="p">.</span><span class="nf">object_id</span>
+
+<span class="c1"># 5621360</span></code></pre></figure>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
 
    </div>
 
