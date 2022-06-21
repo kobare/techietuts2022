@@ -917,9 +917,9 @@ If run on a router, sshuttle can forward traffic for your entire subnet to the V
 <p><br />
 2 .  Start connection to remote server</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo sshuttle [options...] [-r [username@]sshserver[:port]] &lt;subnets...&gt; 
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sshuttle [options...] [-r [username@]sshserver[:port]] &lt;subnets...&gt; 
 
-$ sudo sshuttle --dns -vvr techie@41.90.187.230 0/0
+$ sshuttle --dns -vvr techie@41.90.187.230 0/0
 </code></pre></div></div>
 
 <p>0/0 - all the subnets on the network</p>
