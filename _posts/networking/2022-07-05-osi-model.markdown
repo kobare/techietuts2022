@@ -1,0 +1,307 @@
+---
+layout: post
+title:  "The OSI Model"
+author: Denis Kobare
+date:   2023-07-05 13:40:00 +0300
+img: /assets/img/svg/networking.svg
+categories: more-topics
+sub_category: networking
+type: concepts
+technology: Networking
+permalink: "category/:categories/networking/concepts/:year:month/:title"
+---
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.blog-col {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: auto;
+}
+
+/* Clear floats after the columns */
+.blog-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .blog-col {
+    width: 100%;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.top-padding{
+  padding-top: 15px;
+}
+
+.grey-h {
+  background-color: #bdc3c7;
+}
+
+</style>
+
+### Definition
+
+The Open System Interconnection (OSI) model is a conceptual framework consisting of seven layers that describe the universal standard of communication functions of a telecommunication system or computing system.
+
+Even though the modern internet uses the OSI model to help visualize how networks function, the simpler TCP/IP model is used for practical application. 
+The updated TCP/IP model is similar to the OSI model, the only difference is that it has only 5 layers since it collapses layers 5, 6 and 7 onto just the Application layer.
+
+<br>
+<img srcset="/assets/img/posts/osi_model.png 2x, /assets/img/posts/osi_model.png 4x">
+
+
+<br>
+### 1. Physical Layer (Layer 1)
+
+This layer deals with physical transmission media. It essentially puts the data on the physical media as bits and receives it in the same way.
+Connectors, pinouts, cables, electrical currents are defined within this layer.
+
+Protocol Data Unit(PDU): Bits
+
+Devices: network hubs, cabling, repeaters, network adapters or modems.
+
+<br>
+#### Functions
+- Encoding and signaling.
+- Physical data transmission.
+- Hardware specifications.
+- Topology and design.
+
+
+<br>
+<div class="blog-row" style="background-color: #bdc3c7;">
+  <div class="blog-col" style="background-color:#aaa;">
+    <h3 class="text-center xtop-padding grey-h">Functions</h3>
+    <ul>Encoding and signaling.</ul>
+    <ul>Physical data transmission.</ul>
+    <ul>Hardware specifications.</ul>
+    <ul>Topology and design.</ul>
+  </div>
+  <h3 class="text-center top-padding grey-h">Protocols</h3>  
+  <div class="blog-col" style="background-color:#aaa;">
+    <ul>Bluetooth</ul>
+    <ul>Ethernet</ul>
+    <ul>DSL</ul>
+    <ul>ISDN</ul>
+    <ul>802.11</ul>
+    <ul>Wi-Fi</ul>
+  </div>
+  <div class="blog-col" style="background-color:#bbb;">
+    <ul>IEEE 802.3</ul>
+    <ul>IEEE 802.15</ul>
+    <ul>IEEE 802.16</ul>
+    <ul>IEEE 1394</ul>
+    <ul>USB</ul>
+    <ul>&nbsp;</ul>
+  </div>
+</div>
+
+
+<br>
+### 2. Data Link Layer (Layer 2)
+
+This is the second layer of the model. It handles data transfer between nodes on a network segment across the physical layer.
+
+Protocol Data Unit(PDU): Frames
+
+Devices: bridge, switch and access point.
+
+
+#### Functions
+
+- Logical Link Control(LLC).
+- Media Access Control (MAC).
+- Data framing.
+- Addressing.
+- Error detection and handling.
+- Defining requirements of physical layer.
+
+
+#### Protocols
+
+- ARP
+- ATM
+- CDP
+- FDDI
+- Frame Relay
+- HDLC
+- MPLS
+- PPP
+- STP
+- Token Ring
+- SDLC
+- IEEE 802.3
+- Frame Relay
+- ITU-T G.hn DLL
+- X.25
+
+
+<br>
+### 3. Network Layer (Layer 3)
+
+The network layer receives frames from the data link layer, and delivers them to their intended destinations among based on the addresses contained inside the frame.
+It is responsible for packet forwarding including routing through intermediate routers.
+
+Protocol Data Unit(PDU): Packets
+
+Devices: Routers
+
+
+#### Functions
+
+- Routing.
+- Logical addressing.
+- Datagram encapsulation.
+- Fragmentation and reassembly.
+- Error handling and diagnostics.
+
+
+#### Protocols
+
+- ICMP
+- IGMP
+- IPsec
+- IPv4
+- IPv6
+- IPX
+- RIP
+
+
+<br>
+### 4. Transport Layer (Layer 4)
+
+The transport layer layer provides end-to-end communication services for applications by collecting message segments from applications, and transmitting them into the network.
+
+Protocol Data Unit(PDU): Segment
+
+Devices: Gateways, Firewalls.
+
+#### Functions
+
+- Segmentation and reassembly.
+- Proccess-level addresing.
+- Connections.
+- Multiplexing/demultiplexing.
+
+
+#### Protocols
+
+- TCP
+- UDP
+- SCTP
+- DCCP
+
+
+<br>
+### 5. Session Layer (Layer 5)
+
+The session layer manages connections (sessions) between end-user application processes. Essentially, it tracks the dialogs between systems, which are also called sessions.
+
+Protocol Data Unit(PDU): Data
+
+Devices: Gateways, Firewalls, PC’s
+
+
+#### Functions
+
+- Data synchronization.
+- Management and termination.
+- Session establishment.
+
+
+#### Protocols
+
+- NetBIOS
+- NFS
+- PAP
+- SCP
+- SQL
+- ZIP
+- SAP
+- SIP
+- L2TP
+- PPTP 
+
+
+<br>
+### 6. Presentation Layer (Layer 6)
+
+The presentation layer presents the data in a readable format to the application layer.
+
+Protocol Data Unit(PDU): Data
+
+Devices: Gateways, Firewalls, PC’s
+
+
+#### Functions
+
+- Data format and translation.
+- Compression and decompression.
+- Encryption and decryption.
+
+
+#### Protocols
+
+- JPEG
+- MIDI
+- MPEG
+- PICT
+- TIFF
+- MIME
+- XDR
+- TLS
+- SSL
+
+
+<br>
+### 7. Application Layer (Layer 7)
+
+The application layer is used by end-user software such as web browsers and email clients. It provides an interface between the software application on a system and the network, hence does not include the application itself, but provides services that an application requires.
+
+Protocol Data Unit(PDU): Data
+
+Devices: Gateways, firewalls, all end devices like PC’s, phones, servers
+
+
+#### Functions
+
+- Manages user application services.
+
+
+#### Protocols
+
+ - DNS 
+ - DHCP
+ - FTP
+ - HTTPS
+ - IMAP
+ - LDAP
+ - NTP
+ - PO3
+ - RTP
+ - RTSP
+ - SSH
+ - SIP
+ - SMTP
+ - SNMP
+ - SMPP
+ - Telnet
+ - TFTP
+ - NFS
+ - Gopher
+
+*Thanks for reading, see you in the next one!*

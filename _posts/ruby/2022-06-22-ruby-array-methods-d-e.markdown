@@ -229,6 +229,23 @@ arr.each_index {|index|  puts "#{index} #{a[index]}" }
 {% endhighlight %}
 
 
+<!-- ....................................................................... -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6160810274402662"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-6160810274402662"
+     data-ad-slot="1384666378"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<!-- ....................................................................... -->
+
+
 <br>
 ### 11 . empty?
 Returns true if the count of elements in array is zero, false otherwise.
