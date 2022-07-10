@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!-- Techie Tuts website copyright 2020-->
 <html lang="en">
+
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>concepts - Techietuts</title>
+ <title>The OSI Model - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -44,17 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="concepts" />
+<meta property="og:title" content="The OSI Model" />
+<meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
 <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/programming/css/concepts/" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/programming/css/concepts/" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model" />
 <meta property="og:site_name" content="Techietuts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-05T13:40:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="concepts" />
+<meta property="twitter:title" content="The OSI Model" />
 <script type="application/ld+json">
-{"@type":"WebPage","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"concepts","url":"http://0.0.0.0:4000/category/programming/css/concepts/","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"The OSI Model","dateModified":"2022-07-05T13:40:00+03:00","datePublished":"2022-07-05T13:40:00+03:00","url":"http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -75,7 +79,8 @@
 }
 </style>
     
-  <body>
+
+  <body class="animsition">
 	  
 		<!-- Header module inserted below -->
         <!-- Mobile Phone Navigation Menu -->
@@ -872,299 +877,558 @@
 
 	  
 		<!-- Content -->
-	<!-- Content -->
-<div class="home-content">
+        <style>
 
-  <div class="content">
-    <div class="blog-post blog">
-      <!-- Page heading -->
-      <h2 style="padding-left: 15px; padding-top: 60px;">
-             
-         Concepts
-       
-      </h2>                
-      <div class="grid-container">
-      						
-        <!-- ########################## Categories Page ########################## -->      
-
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
+  max-width: 100%;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
   
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
-  
-    
-        
-  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
+
+@media(max-width: 81rem) {
+
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
+}
+</style>
+<div class="main-content reduce-size main-content-tweak">
+
+    <div class="tittle-banner">
+      <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
+      <h1 style="padding: -50px; line-height: 1.2em;">The OSI Model</h1>             
+    </div>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> July 2022</p>
+    <div>
+                <!-- Page content object inserted below -->
+        <style>
+
+@media screen and (min-width: 800px) {  
+  .grid-container-x {
+    display: grid;
+    grid-gap: 0;
+    background-color: #aaa;
+    padding: 0;
+  }
+
+  .grid-item-x {
+    background-color: rgba(255, 255, 255, 0.8);
+    xtext-align: center;
+    padding: 0 20px 0 20px;
+  }
+
+  .item1 {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+
+  .item2 {
+    grid-column: 1;
+    grid-row: 2 / span 1;
+  }
+
+  .item5 {
+    grid-column: 1;
+    grid-row: 1 / span 1;
+  }
+
+  .item6 {
+    grid-column: 1;
+    grid-row: 3 / span 1;
+  }
+
+  .item7 {
+    grid-column: 1;
+    grid-row: 4 / span 1;
+  }
+
+  .item8 {
+    grid-column: 2 / span 2;
+   grid-row: 3 / span 1;
+  }    
+}
 
 
-<!-- ########################## Sub Categories Page ########################## -->
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-          
-                    
-        
-        
-
-  
-
-  
-
-      
-        
-          
-                    
-        
-        
-
-  
+.text-center {
+  text-align: center;
+}
 
 
+.grey-h {
+  background-color: #bdc3c7;
+}
 
-<!-- ########################## Post Type Page ########################## -->
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+</style>
 
-        <div class="grid-item">
-          <div class="grid-image"><img src="/assets/img/svg/css3.svg"></div>
-          <div class="grid-title">
-            <p style="font-size: 18px; font-weight: 600; text-align: left;"><a href="/category/programming/css/concepts/202202/css-grid-layout" style="color: inherit; text-decoration: none;">CSS Grid Layout</a></p>
-            <p style="font-size: 12px; font-weight: 600; text-align: left;"><i class="fa fa-user"></i> Denis Kobare &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2022</p>
-          </div>          
-        </div>
-          
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-          
+<h3 id="definition">Definition</h3>
 
-                      
+<p>The Open System Interconnection (OSI) model is a conceptual framework consisting of seven layers that describe the universal standard of communication functions of a telecommunication system or computing system.</p>
 
+<p>Even though the modern internet uses the OSI model to help visualize how networks function, the simpler TCP/IP model is used for practical application. 
+The updated TCP/IP model is similar to the OSI model, the only difference is that it has only 5 layers since it collapses layers 5, 6 and 7 onto just the Application layer.</p>
 
+<p><br />
+<img srcset="/assets/img/posts/osi_model.png 2x, /assets/img/posts/osi_model.png 4x" /></p>
 
+<p><br /></p>
+<h3 id="1-physical-layer-layer-1">1. Physical Layer (Layer 1)</h3>
 
-        
-      </div>
-    </div>  
+<p>This layer deals with physical transmission media. It essentially puts the data on the physical media as bits and receives it in the same way.
+Connectors, pinouts, cables, electrical currents are defined within this layer.</p>
+
+<div class="grid-container-x">
+  <div class="grid-item-x item5">
+   <h4 class="text-center grey-h">Functions</h4>
   </div>
+  <div class="grid-item-x item2">
+   <ul>
+    <li>Encoding and signaling.</li>
+    <li>Physical data transmission.</li>
+    <li>Hardware specifications.</li>
+    <li>Topology and design.</li>
+   </ul>
+  </div>  
+  <div class="grid-item-x item1">
+   <h4 class="text-center grey-h">Protocols</h4>  
+  </div>
+  <div class="grid-item-x item3">
+   <ul>
+    <li>Bluetooth</li>
+    <li>Ethernet</li>
+    <li>DSL</li>
+    <li>ISDN</li>
+    <li>802.11</li>
+    <li>Wi-Fi</li>
+   </ul>   
+  </div>  
+  <div class="grid-item-x item4">
+   <ul>
+    <li>IEEE 802.3</li>
+    <li>IEEE 802.15</li>
+    <li>IEEE 802.16</li>
+    <li>IEEE 1394</li>
+    <li>USB</li>
+   </ul>  
+  </div>
+  <div class="grid-item-x item6">
+   <h4 class="text-center grey-h">Protocol Data Unit(PDU)</h4>
+  </div> 
+  <div class="grid-item-x item7">
+   <ul>  
+    <li>Bits</li>
+   </ul>     
+  </div>  
+  <div class="grid-item-x item8">
+   <h4 class="text-center grey-h">Devices</h4>
+  </div>  
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Network hubs</li>
+    <li>Cabling</li>
+   </ul>   
+  </div>
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Repeaters</li>
+    <li>Network adapters or modems</li>
+   </ul>   
+  </div>      
 </div>
 
-<br>
-<section>
-        <style>
+<p><br /></p>
+<h3 id="2-data-link-layer-layer-2">2. Data Link Layer (Layer 2)</h3>
+
+<p>This is the second layer of the model. It handles data transfer between nodes on a network segment across the physical layer.</p>
+
+<div class="grid-container-x">
+  <div class="grid-item-x item5">
+   <h4 class="text-center grey-h">Functions</h4>
+  </div>
+  <div class="grid-item-x item2">
+   <ul>
+    <li>Logical Link Control(LLC).</li>
+    <li>Media Access Control (MAC).</li>
+    <li>Data framing.</li>
+    <li>Addressing.</li>
+    <li>Error detection and handling.</li>
+    <li>Defining requirements of physical layer.</li>
+   </ul>
+  </div>  
+  <div class="grid-item-x item1">
+   <h4 class="text-center grey-h">Protocols</h4>  
+  </div>
+  <div class="grid-item-x item3">
+   <ul>
+    <li>ARP</li>
+    <li>ATM</li>
+    <li>CDP</li>
+    <li>FDDI</li>
+    <li>Frame Relay</li>
+    <li>HDLC</li>
+    <li>MPLS</li>
+    <li>PPP</li>        
+   </ul>   
+  </div>  
+  <div class="grid-item-x item4">
+   <ul>
+    <li>STP</li>
+    <li>Token Ring</li>
+    <li>SDLC</li>
+    <li>IEEE 802.3</li>
+    <li>Frame Relay</li>
+    <li>ITU-T G.hn DLL</li>
+    <li>X.25</li>      
+   </ul>  
+  </div>
+  <div class="grid-item-x item6">
+   <h4 class="text-center grey-h">Protocol Data Unit(PDU)</h4>
+  </div> 
+  <div class="grid-item-x item7">
+   <ul>  
+    <li>Frames</li>
+   </ul>     
+  </div>  
+  <div class="grid-item-x item8">
+   <h4 class="text-center grey-h">Devices</h4>
+  </div>  
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Bridge</li>
+    <li>Switch</li>
+   </ul>   
+  </div>
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Access point</li>    
+   </ul>   
+  </div>      
+</div>
+
+<p><br /></p>
+<h3 id="3-network-layer-layer-3">3. Network Layer (Layer 3)</h3>
+
+<p>The network layer receives frames from the data link layer, and delivers them to their intended destinations among based on the addresses contained inside the frame.
+It is responsible for packet forwarding including routing through intermediate routers.</p>
+
+<div class="grid-container-x">
+  <div class="grid-item-x item5">
+   <h4 class="text-center grey-h">Functions</h4>
+  </div>
+  <div class="grid-item-x item2">
+   <ul>
+    <li>Routing</li>
+    <li>Logical addressing</li>
+    <li>Datagram encapsulation</li>
+    <li>Fragmentation and reassembly</li>
+    <li>Error handling and diagnostics</li>
+   </ul>
+  </div>  
+  <div class="grid-item-x item1">
+   <h4 class="text-center grey-h">Protocols</h4>  
+  </div>
+  <div class="grid-item-x item3">
+   <ul>
+    <li>ICMP</li>
+    <li>IGMP</li>
+    <li>IPsec</li>
+    <li>IPv4</li>
+   </ul>   
+  </div>  
+  <div class="grid-item-x item4">
+   <ul>
+    <li>IPv6</li>
+    <li>IPX</li>
+    <li>RIP</li>
+   </ul>  
+  </div>
+  <div class="grid-item-x item6">
+   <h4 class="text-center grey-h">Protocol Data Unit(PDU)</h4>
+  </div> 
+  <div class="grid-item-x item7">
+   <ul>  
+    <li>Packets</li>
+   </ul>     
+  </div>  
+  <div class="grid-item-x item8">
+   <h4 class="text-center grey-h">Devices</h4>
+  </div>  
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Routers</li>
+   </ul>   
+  </div>
+  <div class="grid-item-x item9">
+   <ul>
+    &nbsp;   
+   </ul>   
+  </div>      
+</div>
+
+<p><br /></p>
+<h3 id="4-transport-layer-layer-4">4. Transport Layer (Layer 4)</h3>
+
+<p>The transport layer layer provides end-to-end communication services for applications by collecting message segments from applications, and transmitting them into the network.</p>
+
+<div class="grid-container-x">
+  <div class="grid-item-x item5">
+   <h4 class="text-center grey-h">Functions</h4>
+  </div>
+  <div class="grid-item-x item2">
+   <ul>
+    <li>Segmentation and reassembly</li>
+    <li>Proccess-level addresing</li>
+    <li>Connections</li>
+    <li>Multiplexing/demultiplexing</li>
+   </ul>
+  </div>  
+  <div class="grid-item-x item1">
+   <h4 class="text-center grey-h">Protocols</h4>  
+  </div>
+  <div class="grid-item-x item3">
+   <ul>
+    <li>TCP</li>
+    <li>UDP</li>
+   </ul>   
+  </div>  
+  <div class="grid-item-x item4">
+   <ul>
+    <li>SCTP</li>
+    <li>DCCP</li>
+   </ul>  
+  </div>
+  <div class="grid-item-x item6">
+   <h4 class="text-center grey-h">Protocol Data Unit(PDU)</h4>
+  </div> 
+  <div class="grid-item-x item7">
+   <ul>  
+    <li>Segment</li>
+   </ul>     
+  </div>  
+  <div class="grid-item-x item8">
+   <h4 class="text-center grey-h">Devices</h4>
+  </div>  
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Gateways</li>
+   </ul>   
+  </div>
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Firewalls</li>   
+   </ul>   
+  </div>      
+</div>
+
+<p><br /></p>
+<h3 id="5-session-layer-layer-5">5. Session Layer (Layer 5)</h3>
+
+<p>The session layer manages connections (sessions) between end-user application processes. Essentially, it tracks the dialogs between systems, which are also called sessions.</p>
+
+<div class="grid-container-x">
+  <div class="grid-item-x item5">
+   <h4 class="text-center grey-h">Functions</h4>
+  </div>
+  <div class="grid-item-x item2">
+   <ul>
+    <li>Data synchronization</li>
+    <li>Management and termination</li>
+    <li>Session establishment</li>
+   </ul>
+  </div>  
+  <div class="grid-item-x item1">
+   <h4 class="text-center grey-h">Protocols</h4>  
+  </div>
+  <div class="grid-item-x item3">
+   <ul>
+    <li>NetBIOS</li>
+    <li>NFS</li>
+    <li>PAP</li>
+    <li>SCP</li>
+    <li>SQL</li>
+   </ul>   
+  </div>  
+  <div class="grid-item-x item4">
+   <ul>
+    <li>ZIP</li>
+    <li>SAP</li>
+    <li>SIP</li>
+    <li>L2TP</li>
+    <li>PPTP</li>
+   </ul>  
+  </div>
+  <div class="grid-item-x item6">
+   <h4 class="text-center grey-h">Protocol Data Unit(PDU)</h4>
+  </div> 
+  <div class="grid-item-x item7">
+   <ul>  
+    <li>Data</li>
+   </ul>     
+  </div>  
+  <div class="grid-item-x item8">
+   <h4 class="text-center grey-h">Devices</h4>
+  </div>  
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Gateways</li>
+    <li>Firewalls</li>    
+   </ul>   
+  </div>
+  <div class="grid-item-x item9">
+   <ul>
+    <li>PC’s</li>   
+   </ul>   
+  </div>      
+</div>
+
+<p><br /></p>
+<h3 id="6-presentation-layer-layer-6">6. Presentation Layer (Layer 6)</h3>
+
+<p>The presentation layer presents the data in a readable format to the application layer.</p>
+
+<div class="grid-container-x">
+  <div class="grid-item-x item5">
+   <h4 class="text-center grey-h">Functions</h4>
+  </div>
+  <div class="grid-item-x item2">
+   <ul>
+    <li>Data format and translation</li>
+    <li>Compression and decompression</li>
+    <li>Encryption and decryption</li>
+   </ul>
+  </div>  
+  <div class="grid-item-x item1">
+   <h4 class="text-center grey-h">Protocols</h4>  
+  </div>
+  <div class="grid-item-x item3">
+   <ul>
+    <li>JPEG</li>
+    <li>MIDI</li>
+    <li>MPEG</li>
+    <li>PICT</li>
+    <li>TIFF</li>
+   </ul>   
+  </div>  
+  <div class="grid-item-x item4">
+   <ul>
+    <li>MIME</li>
+    <li>XDR</li>
+    <li>TLS</li>
+    <li>SSL</li>
+   </ul>  
+  </div>
+  <div class="grid-item-x item6">
+   <h4 class="text-center grey-h">Protocol Data Unit(PDU)</h4>
+  </div> 
+  <div class="grid-item-x item7">
+   <ul>  
+    <li>Data</li>
+   </ul>     
+  </div>  
+  <div class="grid-item-x item8">
+   <h4 class="text-center grey-h">Devices</h4>
+  </div>  
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Gateways</li>
+    <li>Firewalls</li>    
+   </ul>   
+  </div>
+  <div class="grid-item-x item9">
+   <ul>
+    <li>PC’s</li>   
+   </ul>   
+  </div>      
+</div>
+
+<p><br /></p>
+<h3 id="7-application-layer-layer-7">7. Application Layer (Layer 7)</h3>
+
+<p>The application layer is used by end-user software such as web browsers and email clients. It provides an interface between the software application on a system and the network, hence does not include the application itself, but provides services that an application requires.</p>
+
+<div class="grid-container-x">
+  <div class="grid-item-x item5">
+   <h4 class="text-center grey-h">Functions</h4>
+  </div>
+  <div class="grid-item-x item2">
+   <ul>
+    <li>Manages user application services</li>
+   </ul>
+  </div>  
+  <div class="grid-item-x item1">
+   <h4 class="text-center grey-h">Protocols</h4>  
+  </div>
+  <div class="grid-item-x item3">
+   <ul>
+    <li>DNS</li>
+    <li>DHCP</li>
+    <li>FTP</li>
+    <li>HTTPS</li>
+    <li>IMAP</li>
+    <li>LDAP</li>
+    <li>NTP</li>
+    <li>PO3</li>
+    <li>RTP</li>
+    <li>RTSP</li>
+   </ul>   
+  </div>  
+  <div class="grid-item-x item4">
+   <ul>
+    <li>SSH</li>
+    <li>SIP</li>
+    <li>SMTP</li>
+    <li>SNMP</li>
+    <li>SMPP</li>
+    <li>Telnet</li>
+    <li>TFTP</li>
+    <li>NFS</li>
+    <li>Gopher</li>
+   </ul>  
+  </div>
+  <div class="grid-item-x item6">
+   <h4 class="text-center grey-h">Protocol Data Unit(PDU)</h4>
+  </div> 
+  <div class="grid-item-x item7">
+   <ul>  
+    <li>Data</li>
+   </ul>     
+  </div>  
+  <div class="grid-item-x item8">
+   <h4 class="text-center grey-h">Devices</h4>
+  </div>  
+  <div class="grid-item-x item9">
+   <ul>
+    <li>Gateways</li>
+    <li>Firewalls</li>    
+   </ul>   
+  </div>
+  <div class="grid-item-x item9">
+   <ul>
+    <li>PC’s</li>
+    <li>Phones</li>
+    <li>Servers</li>        
+   </ul>   
+  </div>      
+</div>
+
+<p><em>Thanks for reading, see you in the next one!</em></p>
+
+   </div>
+
+   <div>
+     <style>
 
 .newsletter {
   text-align: center;
@@ -1277,11 +1541,10 @@
   </div>
 </div> <!-- End Newsletter -->
 
-</section>
-
-
-<section class="reduce-size bg-light">
-        <section class="comment-area" style="background: #eaecee; padding: 30px;">
+   </div>
+     
+   <div>
+     <section class="comment-area" style="background: #eaecee; padding: 30px;">
   <div class="comment-wrapper">
     
     <div id="disqus_thread" class="article-comments"></div>
@@ -1298,8 +1561,11 @@
   </div>
 </section> <!-- End Comment Area -->
 
-</section>
-                                                            
+   </div>
+   
+</div>
+
+<br>
 
 
                 <!-- footer module inserted below -->

@@ -1,4 +1,848 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-07-09T17:29:43+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Ruby Array Methods [D - E]</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods-d-e" rel="alternate" type="text/html" title="Ruby Array Methods [D - E]" /><published>2022-06-22T06:30:00+03:00</published><updated>2022-06-22T06:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods-d-e</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods-d-e">&lt;h3 id=&quot;1--difference&quot;&gt;1 . difference()&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-07-10T20:44:50+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Ruby On Rails Best Practices #2</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202207/ruby-on-rails-best-practices-2" rel="alternate" type="text/html" title="Ruby On Rails Best Practices #2" /><published>2022-07-06T16:20:00+03:00</published><updated>2022-07-06T16:20:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202207/ruby-on-rails-best-practices-2</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202207/ruby-on-rails-best-practices-2">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Good programming practices promote readability and maintainability of the code and also reduces complexity.
+These coding standards enables a team to have a better overall understanding of a project, which leads to fewer errors and a reduced need for constant fixes.&lt;/p&gt;
+
+&lt;p&gt;It is good to learn the best practices early on to make the most out of any programming language. This section describes some of the best practices for the RoR framework.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-rescue-from-standarderror-rather-than-exception&quot;&gt;1. Rescue from &lt;span class=&quot;badge&quot;&gt;StandardError&lt;/span&gt; Rather Than &lt;span class=&quot;badge&quot;&gt;Exception&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;Rescuing from Exception broadens the scope rather than narrowing it, and can have catastrophic results and make bug-hunting a pain.
+Exception is the root of Ruby’s exception hierarchy, so when you rescue Exception you rescue from everything, including subclasses such as &lt;span class=&quot;badge&quot;&gt;SyntaxError&lt;/span&gt;, &lt;span class=&quot;badge&quot;&gt;LoadError&lt;/span&gt;, and &lt;span class=&quot;badge&quot;&gt;Interrupt&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;By default Ruby will rescue from &lt;span class=&quot;badge&quot;&gt;StandardError&lt;/span&gt; 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+If you need a variable with the exception, you could do this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;# That&apos;s also equivalent to:&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;StandardError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+However, it is okay to rescue from &lt;span class=&quot;badge&quot;&gt;Exception&lt;/span&gt; for logging/reporting purposes, in which case you should immediately re-raise the exception:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# do some logging&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-dont-violate-the-law-of-demeter&quot;&gt;2. Don’t Violate The Law Of Demeter&lt;/h3&gt;
+&lt;p&gt;In programming the Law Of Demeter is not really a law but a guidline that states: an entity or object should not call methods through another entity or object.&lt;/p&gt;
+
+&lt;p&gt;For instance, say you have 3 related models: &lt;span class=&quot;badge&quot;&gt;Author&lt;/span&gt;, &lt;span class=&quot;badge&quot;&gt;Article&lt;/span&gt; and &lt;span class=&quot;badge&quot;&gt;Comment&lt;/span&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Author&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:books&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:author&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:reviews&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Review&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:book&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Suppose you want to get information about the author related to a given review? Doing the following would work:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-erb&quot; data-lang=&quot;erb&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@review&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@review&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;country&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+But using several dots is a violation of of the Law of Demeter which would have you use only one.
+To avoid the multi dot syndrome, Rails provides a &lt;span class=&quot;badge&quot;&gt;delegate&lt;/span&gt; method which helps you shorten your methods. 
+To achieve that, you need to delegate &lt;span class=&quot;badge&quot;&gt;Author&lt;/span&gt; methods in &lt;span class=&quot;badge&quot;&gt;Book&lt;/span&gt; model:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:author&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:reviews&lt;/span&gt; 
+  
+  &lt;span class=&quot;n&quot;&gt;delegate&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;to: :author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;allow_nil: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+     
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Now &lt;span class=&quot;badge&quot;&gt;Book&lt;/span&gt; can use &lt;span class=&quot;badge&quot;&gt;Author&lt;/span&gt; methods. 
+But since you’re using the methods from &lt;span class=&quot;badge&quot;&gt;Review&lt;/span&gt; instance, you also need to delegate the methods in &lt;span class=&quot;badge&quot;&gt;Review&lt;/span&gt; model:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Review&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:book&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;delegate&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;to: :book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;prefix: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;book_author&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;allow_nil: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;    
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+If &lt;span class=&quot;badge&quot;&gt;Book&lt;/span&gt; or &lt;span class=&quot;badge&quot;&gt;Author&lt;/span&gt; object is nil, you will have &lt;span class=&quot;badge&quot;&gt;NoMethodError&lt;/span&gt; raised. You avoid that by specifying &lt;span class=&quot;badge&quot;&gt;allow_nil: true&lt;/span&gt; in &lt;span class=&quot;badge&quot;&gt;delegate&lt;/span&gt; method.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Now you can easily use those methods from the &lt;span class=&quot;badge&quot;&gt;Review&lt;/span&gt; instance:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-erb&quot; data-lang=&quot;erb&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@review&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;book_author_name&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@review&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;book_author_country&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+NB: You could also use  &lt;span class=&quot;badge&quot;&gt;prefix: true&lt;/span&gt; which gets class name provided to &lt;span class=&quot;badge&quot;&gt;:to&lt;/span&gt; hash and uses it as a prefix. In this case that will result in:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-erb&quot; data-lang=&quot;erb&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@review&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;book_name&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@review&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;book_country&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Not really good for this example hence why &lt;span class=&quot;badge&quot;&gt;prefix: ‘book_author’&lt;/span&gt; is preferable.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+In other cases, you would be tempted to access information across models by chaining together methods such as &lt;span class=&quot;badge&quot;&gt;@author.book.all&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Again, 2 dots are too many.&lt;/p&gt;
+
+&lt;p&gt;You would need to create a helper method in the &lt;span class=&quot;badge&quot;&gt;Author&lt;/span&gt; class that would achieve this for you.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Author&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:books&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;all_books&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;books&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Now you would be able to adhere to the design priciple by only having to use one dot to access the same information:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= @author.all_books %&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-use--at-the-end-of-method-name-if-it-is-returning-boolean-value&quot;&gt;3. Use &lt;span class=&quot;badge&quot;&gt;?&lt;/span&gt; At the End of Method Name If It Is Returning Boolean Value&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;all_orders_processed?&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;4-declare-instance-variables-inside-the-action&quot;&gt;4. Declare Instance Variables Inside the Action&lt;/h3&gt;
+
+&lt;p&gt;Instance variables should not be placed in private methods but rather declared inside the action. 
+This increases readability and eliminates confusion.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;before_filter&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:get_book&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;get_book&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@reviews&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reviews&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+&lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_book&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+
+&lt;span class=&quot;c1&quot;&gt;###### Don&apos;t do this:&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;before_filter&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:get_project&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@reviews&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reviews&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+&lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_book&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;  
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;5-make-helper-methods-for-views&quot;&gt;5. Make Helper Methods for Views&lt;/h3&gt;
+
+&lt;p&gt;Avoid filling the views with calculations but when it’s unavoidable, do the processing with helpers.&lt;/p&gt;
+
+&lt;p&gt;Don’t do this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-erb&quot; data-lang=&quot;erb&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:genre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Literary Fiction&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Mystery&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Thriller&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Horror&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Historical&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Romance&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Western&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]})&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Do this instead:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-erb&quot; data-lang=&quot;erb&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:genre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genre_names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;genre&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]})&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+And create a helper:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt;  &lt;span class=&quot;nf&quot;&gt;genre_names&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Literary Fiction&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Mystery&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Thriller&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Horror&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Historical&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Romance&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Western&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+The same technique can be applied for conditional displays:&lt;/p&gt;
+
+&lt;p&gt;Don’t do this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-erb&quot; data-lang=&quot;erb&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@filter&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;inbox&apos;&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;inbox&apos;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;sent&apos;&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;sent&apos;&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;draft&apos;&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;draft&apos;&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;trash&apos;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;trash&apos;&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Do this instead:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-erb&quot; data-lang=&quot;erb&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filter_templates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+And create a helper:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;filter_templates&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;inbox&apos;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;inbox&apos;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;sent&apos;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;sent&apos;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;draft&apos;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;draft&apos;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;trash&apos;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt;  &lt;span class=&quot;s1&quot;&gt;&apos;trash&apos;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;6-keep-it-simple-stupid-kiss&quot;&gt;6. Keep it simple, stupid (KISS)&lt;/h3&gt;
+
+&lt;p&gt;Keep it simple, stupid (KISS) is a design principle which states that designs and/or systems should be as simple as possible.
+In modern era the principle has evolved to have less derogatory implications and if you so wish you may also refer to is as: Keep It Short and Simple or Keep It Short and Sweet.&lt;/p&gt;
+
+&lt;p&gt;The easier something is to understand and use, the more likely it is to be adopted and engaged with.
+Simplicity should be a primary design goal to reduce complexity. It can be achieved by following the “Single Responsibility Principle” among other techniques.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;7-continuous-refactoring&quot;&gt;7. Continuous Refactoring&lt;/h3&gt;
+&lt;p&gt;Continuous improvement of a programs internal structure ensures that the product is being done according to best practice and does not degenerate to a patch work.
+The process should be a constant and gradual improvement to your codebase.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;8-prevent-sql-injection&quot;&gt;8. Prevent SQL Injection&lt;/h3&gt;
+&lt;p&gt;Do not supply user input as a database query without escaping quotes.
+If the user passes a single quote in an input text then the text after the single quote character is considered to be SQL statement. This means that the text would have direct access to the database, putting the entire database at risk as the user might have entered malicious content.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Dont do this&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name = &apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  
+  &lt;span class=&quot;no&quot;&gt;Author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;id = &apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:author_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;)
+
+
+# Instead, pass it as a parameter: 
+  Book.where(&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;, params[:name])
+  
+  Author.find_by(id: params[:author_id])
+  &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;9-write-tests&quot;&gt;9. Write Tests&lt;/h3&gt;
+
+&lt;p&gt;Testing is an absolute best practice in software development.
+Running your Rails tests you can ensure your code adheres to the desired functionality even after some major code refactoring.&lt;/p&gt;
+
+&lt;p&gt;Rails tests can also simulate browser requests and thus you can test your application’s response without having to test it through your browser.
+Tests also acts as detailed specifications of a feature or application and as documentation for other engineers, which helps them understand your intent in an implementation.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;10-make-use-of-enums&quot;&gt;10. Make Use of Enums&lt;/h3&gt;
+
+&lt;p&gt;An enum is an attribute where the values map to integers in the database and can be queried by name.&lt;/p&gt;
+
+&lt;p&gt;Say you wanted to store the &lt;span class=&quot;badge&quot;&gt;status&lt;/span&gt; attribute of the book object as either completed, draft or published. You may do something like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;draft&quot;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;completed&quot;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;published&quot;&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# or you could do&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#draft&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#completed&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#published&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Which is not very elegant.&lt;/p&gt;
+
+&lt;p&gt;A better approach would be to define an enum for the &lt;span class=&quot;badge&quot;&gt;status&lt;/span&gt; attribute of &lt;span class=&quot;badge&quot;&gt;Book&lt;/span&gt; object, where the possible values are draft, completed, or published. After refactoring the code, it would look like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;draft: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;completed: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;published: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;draft?&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;completed?&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;elsif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;published?&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Ruby on Rails also provides a helper for updating the enum value. Instead of Book.update(status: :published), we can use:
+&lt;span class=&quot;badge&quot;&gt;Book.published!&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also generate a scope like so: &lt;span class=&quot;badge&quot;&gt;Book.draft&lt;/span&gt; instead of doing &lt;span class=&quot;badge&quot;&gt;Book.where(status: ‘draft’)&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;Lastly, you could make the scope more intuitive by adding the &lt;span class=&quot;badge&quot;&gt;_prefix: true&lt;/span&gt; or &lt;span class=&quot;badge&quot;&gt;_suffix: true&lt;/span&gt; option:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;  &lt;span class=&quot;n&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;draft: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;completed: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;published: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;_prefix: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+
+  &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status_completed?&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# status == &apos;completed&apos;&lt;/span&gt;
+  
+  &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status_published!&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# update(status: :published)&lt;/span&gt;
+  
+  &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status_draft&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Book.where(status: :draft)&lt;/span&gt;
+  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">The OSI Model</title><link href="http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model" rel="alternate" type="text/html" title="The OSI Model" /><published>2022-07-05T13:40:00+03:00</published><updated>2022-07-05T13:40:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model">&lt;style&gt;
+
+@media screen and (min-width: 800px) {  
+  .grid-container-x {
+    display: grid;
+    grid-gap: 0;
+    background-color: #aaa;
+    padding: 0;
+  }
+
+  .grid-item-x {
+    background-color: rgba(255, 255, 255, 0.8);
+    xtext-align: center;
+    padding: 0 20px 0 20px;
+  }
+
+  .item1 {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+  }
+
+  .item2 {
+    grid-column: 1;
+    grid-row: 2 / span 1;
+  }
+
+  .item5 {
+    grid-column: 1;
+    grid-row: 1 / span 1;
+  }
+
+  .item6 {
+    grid-column: 1;
+    grid-row: 3 / span 1;
+  }
+
+  .item7 {
+    grid-column: 1;
+    grid-row: 4 / span 1;
+  }
+
+  .item8 {
+    grid-column: 2 / span 2;
+   grid-row: 3 / span 1;
+  }    
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+
+.grey-h {
+  background-color: #bdc3c7;
+}
+
+&lt;/style&gt;
+
+&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;The Open System Interconnection (OSI) model is a conceptual framework consisting of seven layers that describe the universal standard of communication functions of a telecommunication system or computing system.&lt;/p&gt;
+
+&lt;p&gt;Even though the modern internet uses the OSI model to help visualize how networks function, the simpler TCP/IP model is used for practical application. 
+The updated TCP/IP model is similar to the OSI model, the only difference is that it has only 5 layers since it collapses layers 5, 6 and 7 onto just the Application layer.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img srcset=&quot;/assets/img/posts/osi_model.png 2x, /assets/img/posts/osi_model.png 4x&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-physical-layer-layer-1&quot;&gt;1. Physical Layer (Layer 1)&lt;/h3&gt;
+
+&lt;p&gt;This layer deals with physical transmission media. It essentially puts the data on the physical media as bits and receives it in the same way.
+Connectors, pinouts, cables, electrical currents are defined within this layer.&lt;/p&gt;
+
+&lt;div class=&quot;grid-container-x&quot;&gt;
+  &lt;div class=&quot;grid-item-x item5&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item2&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Encoding and signaling.&lt;/li&gt;
+    &lt;li&gt;Physical data transmission.&lt;/li&gt;
+    &lt;li&gt;Hardware specifications.&lt;/li&gt;
+    &lt;li&gt;Topology and design.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item1&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item3&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Bluetooth&lt;/li&gt;
+    &lt;li&gt;Ethernet&lt;/li&gt;
+    &lt;li&gt;DSL&lt;/li&gt;
+    &lt;li&gt;ISDN&lt;/li&gt;
+    &lt;li&gt;802.11&lt;/li&gt;
+    &lt;li&gt;Wi-Fi&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item4&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;IEEE 802.3&lt;/li&gt;
+    &lt;li&gt;IEEE 802.15&lt;/li&gt;
+    &lt;li&gt;IEEE 802.16&lt;/li&gt;
+    &lt;li&gt;IEEE 1394&lt;/li&gt;
+    &lt;li&gt;USB&lt;/li&gt;
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item6&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
+  &lt;/div&gt; 
+  &lt;div class=&quot;grid-item-x item7&quot;&gt;
+   &lt;ul&gt;  
+    &lt;li&gt;Bits&lt;/li&gt;
+   &lt;/ul&gt;     
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item8&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Network hubs&lt;/li&gt;
+    &lt;li&gt;Cabling&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Repeaters&lt;/li&gt;
+    &lt;li&gt;Network adapters or modems&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;      
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-data-link-layer-layer-2&quot;&gt;2. Data Link Layer (Layer 2)&lt;/h3&gt;
+
+&lt;p&gt;This is the second layer of the model. It handles data transfer between nodes on a network segment across the physical layer.&lt;/p&gt;
+
+&lt;div class=&quot;grid-container-x&quot;&gt;
+  &lt;div class=&quot;grid-item-x item5&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item2&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Logical Link Control(LLC).&lt;/li&gt;
+    &lt;li&gt;Media Access Control (MAC).&lt;/li&gt;
+    &lt;li&gt;Data framing.&lt;/li&gt;
+    &lt;li&gt;Addressing.&lt;/li&gt;
+    &lt;li&gt;Error detection and handling.&lt;/li&gt;
+    &lt;li&gt;Defining requirements of physical layer.&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item1&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item3&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;ARP&lt;/li&gt;
+    &lt;li&gt;ATM&lt;/li&gt;
+    &lt;li&gt;CDP&lt;/li&gt;
+    &lt;li&gt;FDDI&lt;/li&gt;
+    &lt;li&gt;Frame Relay&lt;/li&gt;
+    &lt;li&gt;HDLC&lt;/li&gt;
+    &lt;li&gt;MPLS&lt;/li&gt;
+    &lt;li&gt;PPP&lt;/li&gt;        
+   &lt;/ul&gt;   
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item4&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;STP&lt;/li&gt;
+    &lt;li&gt;Token Ring&lt;/li&gt;
+    &lt;li&gt;SDLC&lt;/li&gt;
+    &lt;li&gt;IEEE 802.3&lt;/li&gt;
+    &lt;li&gt;Frame Relay&lt;/li&gt;
+    &lt;li&gt;ITU-T G.hn DLL&lt;/li&gt;
+    &lt;li&gt;X.25&lt;/li&gt;      
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item6&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
+  &lt;/div&gt; 
+  &lt;div class=&quot;grid-item-x item7&quot;&gt;
+   &lt;ul&gt;  
+    &lt;li&gt;Frames&lt;/li&gt;
+   &lt;/ul&gt;     
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item8&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Bridge&lt;/li&gt;
+    &lt;li&gt;Switch&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Access point&lt;/li&gt;    
+   &lt;/ul&gt;   
+  &lt;/div&gt;      
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-network-layer-layer-3&quot;&gt;3. Network Layer (Layer 3)&lt;/h3&gt;
+
+&lt;p&gt;The network layer receives frames from the data link layer, and delivers them to their intended destinations among based on the addresses contained inside the frame.
+It is responsible for packet forwarding including routing through intermediate routers.&lt;/p&gt;
+
+&lt;div class=&quot;grid-container-x&quot;&gt;
+  &lt;div class=&quot;grid-item-x item5&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item2&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Routing&lt;/li&gt;
+    &lt;li&gt;Logical addressing&lt;/li&gt;
+    &lt;li&gt;Datagram encapsulation&lt;/li&gt;
+    &lt;li&gt;Fragmentation and reassembly&lt;/li&gt;
+    &lt;li&gt;Error handling and diagnostics&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item1&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item3&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;ICMP&lt;/li&gt;
+    &lt;li&gt;IGMP&lt;/li&gt;
+    &lt;li&gt;IPsec&lt;/li&gt;
+    &lt;li&gt;IPv4&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item4&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;IPv6&lt;/li&gt;
+    &lt;li&gt;IPX&lt;/li&gt;
+    &lt;li&gt;RIP&lt;/li&gt;
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item6&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
+  &lt;/div&gt; 
+  &lt;div class=&quot;grid-item-x item7&quot;&gt;
+   &lt;ul&gt;  
+    &lt;li&gt;Packets&lt;/li&gt;
+   &lt;/ul&gt;     
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item8&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Routers&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &amp;nbsp;   
+   &lt;/ul&gt;   
+  &lt;/div&gt;      
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;4-transport-layer-layer-4&quot;&gt;4. Transport Layer (Layer 4)&lt;/h3&gt;
+
+&lt;p&gt;The transport layer layer provides end-to-end communication services for applications by collecting message segments from applications, and transmitting them into the network.&lt;/p&gt;
+
+&lt;div class=&quot;grid-container-x&quot;&gt;
+  &lt;div class=&quot;grid-item-x item5&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item2&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Segmentation and reassembly&lt;/li&gt;
+    &lt;li&gt;Proccess-level addresing&lt;/li&gt;
+    &lt;li&gt;Connections&lt;/li&gt;
+    &lt;li&gt;Multiplexing/demultiplexing&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item1&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item3&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;TCP&lt;/li&gt;
+    &lt;li&gt;UDP&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item4&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;SCTP&lt;/li&gt;
+    &lt;li&gt;DCCP&lt;/li&gt;
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item6&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
+  &lt;/div&gt; 
+  &lt;div class=&quot;grid-item-x item7&quot;&gt;
+   &lt;ul&gt;  
+    &lt;li&gt;Segment&lt;/li&gt;
+   &lt;/ul&gt;     
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item8&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Gateways&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Firewalls&lt;/li&gt;   
+   &lt;/ul&gt;   
+  &lt;/div&gt;      
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;5-session-layer-layer-5&quot;&gt;5. Session Layer (Layer 5)&lt;/h3&gt;
+
+&lt;p&gt;The session layer manages connections (sessions) between end-user application processes. Essentially, it tracks the dialogs between systems, which are also called sessions.&lt;/p&gt;
+
+&lt;div class=&quot;grid-container-x&quot;&gt;
+  &lt;div class=&quot;grid-item-x item5&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item2&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Data synchronization&lt;/li&gt;
+    &lt;li&gt;Management and termination&lt;/li&gt;
+    &lt;li&gt;Session establishment&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item1&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item3&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;NetBIOS&lt;/li&gt;
+    &lt;li&gt;NFS&lt;/li&gt;
+    &lt;li&gt;PAP&lt;/li&gt;
+    &lt;li&gt;SCP&lt;/li&gt;
+    &lt;li&gt;SQL&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item4&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;ZIP&lt;/li&gt;
+    &lt;li&gt;SAP&lt;/li&gt;
+    &lt;li&gt;SIP&lt;/li&gt;
+    &lt;li&gt;L2TP&lt;/li&gt;
+    &lt;li&gt;PPTP&lt;/li&gt;
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item6&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
+  &lt;/div&gt; 
+  &lt;div class=&quot;grid-item-x item7&quot;&gt;
+   &lt;ul&gt;  
+    &lt;li&gt;Data&lt;/li&gt;
+   &lt;/ul&gt;     
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item8&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Gateways&lt;/li&gt;
+    &lt;li&gt;Firewalls&lt;/li&gt;    
+   &lt;/ul&gt;   
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;PC’s&lt;/li&gt;   
+   &lt;/ul&gt;   
+  &lt;/div&gt;      
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;6-presentation-layer-layer-6&quot;&gt;6. Presentation Layer (Layer 6)&lt;/h3&gt;
+
+&lt;p&gt;The presentation layer presents the data in a readable format to the application layer.&lt;/p&gt;
+
+&lt;div class=&quot;grid-container-x&quot;&gt;
+  &lt;div class=&quot;grid-item-x item5&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item2&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Data format and translation&lt;/li&gt;
+    &lt;li&gt;Compression and decompression&lt;/li&gt;
+    &lt;li&gt;Encryption and decryption&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item1&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item3&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;JPEG&lt;/li&gt;
+    &lt;li&gt;MIDI&lt;/li&gt;
+    &lt;li&gt;MPEG&lt;/li&gt;
+    &lt;li&gt;PICT&lt;/li&gt;
+    &lt;li&gt;TIFF&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item4&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;MIME&lt;/li&gt;
+    &lt;li&gt;XDR&lt;/li&gt;
+    &lt;li&gt;TLS&lt;/li&gt;
+    &lt;li&gt;SSL&lt;/li&gt;
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item6&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
+  &lt;/div&gt; 
+  &lt;div class=&quot;grid-item-x item7&quot;&gt;
+   &lt;ul&gt;  
+    &lt;li&gt;Data&lt;/li&gt;
+   &lt;/ul&gt;     
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item8&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Gateways&lt;/li&gt;
+    &lt;li&gt;Firewalls&lt;/li&gt;    
+   &lt;/ul&gt;   
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;PC’s&lt;/li&gt;   
+   &lt;/ul&gt;   
+  &lt;/div&gt;      
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;7-application-layer-layer-7&quot;&gt;7. Application Layer (Layer 7)&lt;/h3&gt;
+
+&lt;p&gt;The application layer is used by end-user software such as web browsers and email clients. It provides an interface between the software application on a system and the network, hence does not include the application itself, but provides services that an application requires.&lt;/p&gt;
+
+&lt;div class=&quot;grid-container-x&quot;&gt;
+  &lt;div class=&quot;grid-item-x item5&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item2&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Manages user application services&lt;/li&gt;
+   &lt;/ul&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item1&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item3&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;DNS&lt;/li&gt;
+    &lt;li&gt;DHCP&lt;/li&gt;
+    &lt;li&gt;FTP&lt;/li&gt;
+    &lt;li&gt;HTTPS&lt;/li&gt;
+    &lt;li&gt;IMAP&lt;/li&gt;
+    &lt;li&gt;LDAP&lt;/li&gt;
+    &lt;li&gt;NTP&lt;/li&gt;
+    &lt;li&gt;PO3&lt;/li&gt;
+    &lt;li&gt;RTP&lt;/li&gt;
+    &lt;li&gt;RTSP&lt;/li&gt;
+   &lt;/ul&gt;   
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item4&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;SSH&lt;/li&gt;
+    &lt;li&gt;SIP&lt;/li&gt;
+    &lt;li&gt;SMTP&lt;/li&gt;
+    &lt;li&gt;SNMP&lt;/li&gt;
+    &lt;li&gt;SMPP&lt;/li&gt;
+    &lt;li&gt;Telnet&lt;/li&gt;
+    &lt;li&gt;TFTP&lt;/li&gt;
+    &lt;li&gt;NFS&lt;/li&gt;
+    &lt;li&gt;Gopher&lt;/li&gt;
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item6&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
+  &lt;/div&gt; 
+  &lt;div class=&quot;grid-item-x item7&quot;&gt;
+   &lt;ul&gt;  
+    &lt;li&gt;Data&lt;/li&gt;
+   &lt;/ul&gt;     
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item8&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
+  &lt;/div&gt;  
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;Gateways&lt;/li&gt;
+    &lt;li&gt;Firewalls&lt;/li&gt;    
+   &lt;/ul&gt;   
+  &lt;/div&gt;
+  &lt;div class=&quot;grid-item-x item9&quot;&gt;
+   &lt;ul&gt;
+    &lt;li&gt;PC’s&lt;/li&gt;
+    &lt;li&gt;Phones&lt;/li&gt;
+    &lt;li&gt;Servers&lt;/li&gt;        
+   &lt;/ul&gt;   
+  &lt;/div&gt;      
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html"></summary></entry><entry><title type="html">Ruby Array Methods [D - E]</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods-d-e" rel="alternate" type="text/html" title="Ruby Array Methods [D - E]" /><published>2022-06-22T06:30:00+03:00</published><updated>2022-06-22T06:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods-d-e</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202206/ruby-array-methods-d-e">&lt;h3 id=&quot;1--difference&quot;&gt;1 . difference()&lt;/h3&gt;
 &lt;p&gt;Returns a new Array containing only those elements that are not found in the 
 arrays passed in the argument.&lt;/p&gt;
 
@@ -2022,431 +2866,4 @@ TZ=your_time_zone
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction In Linux, each user has their own crontab that can be used to schedule jobs that will be run as that user. Though crontabs are files in /var/spool/cron/crontabs, they are not intended to be edited directly. You’re therefore required to view, update and delete a user crontab file using the crontab command.</summary></entry><entry><title type="html">Automate File Backups to Gmail with Bash and Crontab</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202205/automate-file-backups-to-gmail-with-crontab-and-bash" rel="alternate" type="text/html" title="Automate File Backups to Gmail with Bash and Crontab" /><published>2022-05-16T06:20:00+03:00</published><updated>2022-05-16T06:20:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202205/automate-file-backups-to-gmail-with-crontab-and-bash</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202205/automate-file-backups-to-gmail-with-crontab-and-bash">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Data backup is the practice of copying data from a primary to a secondary location that you use for recovery in case your original data is lost or corrupted.&lt;/p&gt;
-
-&lt;p&gt;This document will describe how to set up an automated mysql database backup system that not only stores the backup file on the local machine, but also sends the zipped file to an email address at a given time on a daily basis.&lt;/p&gt;
-
-&lt;p&gt;You will need a gmail account that’ll be used to automatically send backup files to recipients.&lt;/p&gt;
-
-&lt;p&gt;This will work on linux distros, both server and desktop. The steps on here were tested on an ubuntu 18.04 server and desktop.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;a-install-mailutils&quot;&gt;a) Install mailutils&lt;/h3&gt;
-
-&lt;p&gt;1 . Install mailutils from apt:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install mailutils
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . In the “General type of mail configuration:” prompt, choose “Internet Site” and press enter.&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&quot;zoom-on-hover&quot; srcset=&quot;   /assets/img/posts/postfix_configuration_1.png 1.1x,   /assets/img/posts/postfix_configuration_1.png 2x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . A postfix configuration prompt will open. On the “System mail name:” prompt, enter gmail.com&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&quot;zoom-on-hover&quot; srcset=&quot;   /assets/img/posts/postfix_configuration_2.png.png 2.3x,   /assets/img/posts/postfix_configuration_2.png.png 3x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;b-setup-gmail-app-passwords&quot;&gt;b) Setup Gmail App Passwords&lt;/h3&gt;
-&lt;p&gt;ssmtp will use your gmail account to send mail, but you can not use your normal gmail password with external applications. Gmail has a nifty feature called &lt;a href=&quot;https://myaccount.google.com/apppasswords&quot; target=&quot;_blank&quot;&gt;App passwords&lt;/a&gt; that lets you sign in to your Google Account from apps on devices that don’t support 2-Step Verification. Click &lt;a href=&quot;https://myaccount.google.com/apppasswords&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; to set up App passwords. On the page, select ‘Mail’ under the ‘select app’ tab, then enter a custom name under the ‘select device’ tab.&lt;/p&gt;
-
-&lt;p&gt;Click on the ‘Generate’ button to generate the password. Just like your normal password, this app password grants complete access to your Google Account. Copy 16-character password shown, you will need it for the next step.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;c-install-ssmtp&quot;&gt;c) Install ssmtp&lt;/h3&gt;
-
-&lt;p&gt;1 . Install ssmtp:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install ssmtp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Edit ssmtp.conf file:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/ssmtp/ssmtp.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Replace the placeholders (google_apps_password_here and your_account) with your details. 
-Your file should resemble this (your hostname will be different):&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-conf&quot; data-lang=&quot;conf&quot;&gt;&lt;span class=&quot;c&quot;&gt;#
-# Config file for sSMTP sendmail
-#
-# The person who gets all mail for userids &amp;lt; 1000
-# Make this empty to disable rewriting.
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;your_account&lt;/span&gt;@&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;:&lt;span class=&quot;n&quot;&gt;smtp&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;587&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# The place where the mail goes. The actual machine name is required no 
-# MX records are consulted. Commonly mailhosts are named mail.domain.com
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mailhub&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;smtp&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;587&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Where will the mail seem to come from?
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rewriteDomain&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# The full hostname
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hostname&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;Techietuts&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;HP&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;Compaq&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;PC&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Are users allowed to set their own From: address?
-# YES - Allow the user to specify their own From: address
-# NO - Use the system generated From: address
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FromLineOverride&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;YES&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Authuser&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;your_account&lt;/span&gt;@&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Authpass&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;google_apps_password_here&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;UseTLS&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;YES&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;UseSTARTTLS&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;YES&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Edit revaliases file:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/ssmtp/revaliases
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Add this (remember to replace the place holder):&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# sSMTP aliases
-# 
-# Format:	local_account:outgoing_address:mailhub
-#
-# Example: root:your_login@your.domain:mailhub.your.domain[:port]
-# where [:port] is an optional port number that defaults to 25.
-root:your_account@gmail.com:smtp.gmail.com:587&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;d-create-the-bash-script-responsible-for-creating-mysql-dumps&quot;&gt;d) Create the bash script responsible for creating mysql dumps&lt;/h3&gt;
-
-&lt;p&gt;Typically, you’d put it in:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/local/sbin/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;1 . cd into /usr/local/sbin/ and create a bash file. Name it backup_mysql.sh&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano backup_mysql.sh  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;2 . Add this backup script to backup_mysql.sh then save and close it:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;c&quot;&gt;#! /bin/bash&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Backup storage directory &lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#backupfolder=/var/backups&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; /var/backups/databases
-&lt;span class=&quot;nv&quot;&gt;local_backupfolder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/backups/databases
-
-
-&lt;span class=&quot;c&quot;&gt;# The email address where the zipped file will be sent to &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;recipient_email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;some_account@gmail.com
-
-&lt;span class=&quot;c&quot;&gt;# MySQL user&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;root
-
-&lt;span class=&quot;c&quot;&gt;# MySQL password&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your_mysql_password
-
-&lt;span class=&quot;c&quot;&gt;# Number of days to store the backup &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;keep_day&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2 
-
-&lt;span class=&quot;nv&quot;&gt;sqlfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$local_backupfolder&lt;/span&gt;/your_file_name_&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt; +%d_%m_%Y_%H_%M_%S&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;.sql
-&lt;span class=&quot;nv&quot;&gt;zipfile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$local_backupfolder&lt;/span&gt;/your_file_name_&lt;span class=&quot;si&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;date&lt;/span&gt; +%d_%m_%Y_%H_%M_%S&lt;span class=&quot;si&quot;&gt;)&lt;/span&gt;.zip 
-
-&lt;span class=&quot;c&quot;&gt;# Create a backup &lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# sudo mysqldump -u $user -p$password --all-databases &amp;gt; $sqlfile &lt;/span&gt;
-mysqldump &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$user&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$password&lt;/span&gt; your_database_name &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$sqlfile&lt;/span&gt; 
-
-&lt;span class=&quot;c&quot;&gt;# Compress backup &lt;/span&gt;
-zip &lt;span class=&quot;nv&quot;&gt;$zipfile&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$sqlfile&lt;/span&gt; 
-
-&lt;span class=&quot;c&quot;&gt;# Delete the uncompresed file&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$sqlfile&lt;/span&gt; 
-
-&lt;span class=&quot;c&quot;&gt;# Mail compressed backup file&lt;/span&gt;
-mailx &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;DB Backup&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$recipient_email&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-A&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$zipfile&lt;/span&gt; 
-
-&lt;span class=&quot;c&quot;&gt;# Delete old backups &lt;/span&gt;
-find &lt;span class=&quot;nv&quot;&gt;$local_backupfolder&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-mtime&lt;/span&gt; +&lt;span class=&quot;nv&quot;&gt;$keep_day&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-delete&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;e-create-the-cron-job&quot;&gt;e) Create the cron job&lt;/h3&gt;
-
-&lt;p&gt;1 . Open crontab as root&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo crontab -e
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Add this at the end of the file:&lt;/p&gt;
-
-&lt;p&gt;This cron job will run the backup script created in the previous step, everyday at 4:30 PM.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-crontab&quot; data-lang=&quot;crontab&quot;&gt;30 16 * * * /bin/sh /usr/local/sbin/backup_mysql.sh &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;With this, the zipped backup file will be sent to the recipient email you set in the bash file, every day at 4:30 PM. Feel free to change cron job time to your current time to test it.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Dockerize A Rails App</title><link href="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app" rel="alternate" type="text/html" title="Dockerize A Rails App" /><published>2022-04-19T12:40:00+03:00</published><updated>2022-04-19T12:40:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-
-&lt;p&gt;Dockerizing an application, packages it in a docker image that can be run in a container and easily scaled by generating more instances. These containers can also be run in different machines without requiring extra configurations since environment configurations are encapsulated and reporduced.&lt;/p&gt;
-
-&lt;p&gt;During the process, we specify everything needed to run the application and the instructions for creating the docker image in a special file called Dockerfile (with no extension).&lt;/p&gt;
-
-&lt;p&gt;Since we can only have one application or service per container, the database has to be encapsulated in a separate container. Another file called docker-compose (a yaml file) is used to provide the instructions for spinning up a docker container with the database inter-linked with the app.&lt;/p&gt;
-
-&lt;p&gt;NB: Every docker container has it’s own networking interface i.e like Operating Systems running in different networks with different IP addresses. If you open the terminal and run the ifconfig command, you will see the docker containers’ network interfaces in addition to your local machine’s network interface.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;&lt;u&gt;This document assumes that you already have Docker installed on your operating system.&lt;/u&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;create-the-dockerfile&quot;&gt;Create the Dockerfile&lt;/h3&gt;
-&lt;p&gt;At the root of the rails project, create a file called Dockerfile, with no extension. Let’s add the following in a stepwise fashion:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-1 . Add an operating system containing the project’s version of ruby using the “from” primitive.&lt;/p&gt;
-
-&lt;p&gt;Alpine Linux is a lightweight operating system and therefore a great fit for docker containers or any system that is network-based and dedicated for a single purpose only, like in the case of routers.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span class=&quot;k&quot;&gt;From&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ruby:3.1.0-alpine&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;    &lt;br /&gt;
-2 . Add database dependencies and other project dependencies.&lt;/p&gt;
-
-&lt;p&gt;This example uses a postgres database. Project dependencies may vary depending on the rails project.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;apk add &lt;span class=&quot;nt&quot;&gt;--update&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--virtual&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; runtime-deps &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; postgresql-client &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; build-base &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; libxml2-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; libxslt-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; nodejs &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; yarn &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; libffi-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; readline &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; postgresql-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; libc-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; linux-headers &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; readline-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; file &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; imagemagick &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; git &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; tzdata &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; /var/cache/apk/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Remove the package manager cache: The “ &amp;amp;&amp;amp; rm -rf /var/cache/apk/* “ removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-3 .  Create a directory called “app” to put our project in the root of the docker image.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; WORKDIR /app&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;     &lt;br /&gt;
-4 . Copy the contents of the current directory (rails project) to the app directory created in step 3 above. The period stands for the current directory path.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; COPY . /app/       &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-5 . Set gems location.&lt;/p&gt;
-
-&lt;p&gt;We want to save our project’s gems in a directory called gems at the root of the docker image. This overrides the default location.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; ENV BUNDLE_PATH /gems&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-6 . Install yarn and then bundle.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; RUN yarn install
- RUN bundle install&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;    &lt;br /&gt;
-7 . Define the entry point.&lt;/p&gt;
-
-&lt;p&gt;This defines the command to be run when the docker image is started.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; ENTRYPOINT [&quot;bin/rails&quot;]  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-8 . Bind the server to 0.0.0.0&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; CMD [&quot;s&quot;, &quot;-b&quot;, &quot;0.0.0.0&quot;]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;    &lt;br /&gt;
-9 . Expose the port for the project.&lt;/p&gt;
-
-&lt;p&gt;Normally, rails apps run on port 3000&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt; EXPOSE 3000&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;    &lt;br /&gt;
-10 . Final Dockerfile.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-dockerfile&quot; data-lang=&quot;dockerfile&quot;&gt;&lt;span class=&quot;k&quot;&gt;From&lt;/span&gt;&lt;span class=&quot;s&quot;&gt; ruby:3.1.0-alpine&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;RUN &lt;/span&gt;apk add &lt;span class=&quot;nt&quot;&gt;--update&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--virtual&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; runtime-deps &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; postgresql-client &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; build-base &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; libxml2-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; libxslt-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; nodejs &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; yarn &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; libffi-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; readline &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; postgresql-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; libc-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; linux-headers &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; readline-dev &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; file &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; imagemagick &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; git &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; tzdata &lt;span class=&quot;se&quot;&gt;\
-&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; /var/cache/apk/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
-
-
- WORKDIR /app
- COPY . /app/
- 
- ENV BUNDLE_PATH /gems
- RUN yarn install 
- RUN bundle install
- 
- ENTRYPOINT [&quot;bin/rails&quot;]
- CMD [&quot;s&quot;, &quot;-b&quot;, &quot;0.0.0.0&quot;]
- 
- EXPOSE 3000  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-11 . Build the Dockerfile.&lt;/p&gt;
-
-&lt;p&gt;cd to the root of your project and run this command.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker build &lt;span class=&quot;nt&quot;&gt;--tag&lt;/span&gt; app_name path_to_the_docker_file&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;e.g&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker build &lt;span class=&quot;nt&quot;&gt;--tag&lt;/span&gt; myapp .&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-If you have an account on docker, you can you can specify your account name like so:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker build &lt;span class=&quot;nt&quot;&gt;--tag&lt;/span&gt; techietuts/myapp .&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-You can also specify the version number like so:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker build &lt;span class=&quot;nt&quot;&gt;--tag&lt;/span&gt; techietuts/myapp:1.0 .&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-12 . Run the docker app&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 3005:3000 myapp&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;em&gt;NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can allow an attacker to escalate privileges on the host. Always specify a user with least privileges in the Dockerfile.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;The first (local’s) port is beeing mapped to the second (container’s )port. Open the browser and navigate to the localhost on port 3005.&lt;/p&gt;
-
-&lt;p&gt;You’ll get an error because the containerized app has a different networking interface and cannot connect to the database on the local machine. To fix that, we have to spin up other containers that will contain the database servers. Before that, shutdown the server and follow the next step.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;create-database-servers-with-docker-compose&quot;&gt;Create Database Servers with docker-compose&lt;/h3&gt;
-
-&lt;p&gt;1 . Create a docker-compose File&lt;/p&gt;
-
-&lt;p&gt;Create a docker-compose.yml file at the root of the project and add the following:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Define docker-compose file version&lt;/p&gt;
-
-&lt;p&gt;It’s important to provide the supported version.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3.8&apos;&lt;/span&gt;    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Define the services&lt;/p&gt;
-
-&lt;p&gt;Services can include postgres server, redis server, rails app created in Dockerfile (then referenced using volumes key) etc&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
- &lt;span class=&quot;na&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-   &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;postgres:latest&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;POSTGRES_PASSWORD=password&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;5432:5432&quot;&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dbdata:/var/lib/postgresql/data&quot;&lt;/span&gt;  
-              
- &lt;span class=&quot;na&quot;&gt;redis&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis:latest&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;6379:6379&quot;&lt;/span&gt;
-
- &lt;span class=&quot;na&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.&lt;/span&gt; 
-   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3005:3000&quot;&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;depends_on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;db&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis&lt;/span&gt;  
-   &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DATABASE_URL=postgres://postgres:password@db:5432/postgres&lt;/span&gt;  
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;REDIS_URL=redis://redis:6379&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.:/app&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;dbdata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;     &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;NB: Notice how we used volumes key to persist the postgres data so that we dont lose it when the app restarts.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-The final docker-compose.yml file should resemble this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;na&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3.8&apos;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
- &lt;span class=&quot;na&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
-   &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;postgres:latest&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;POSTGRES_PASSWORD=password&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;5433:5432&quot;&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;dbdata:/var/lib/postgresql/data&quot;&lt;/span&gt;  
-              
- &lt;span class=&quot;na&quot;&gt;redis&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis:latest&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;6379:6379&quot;&lt;/span&gt;
-
- &lt;span class=&quot;na&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.&lt;/span&gt; 
-   &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;3005:3000&quot;&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;depends_on&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;db&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;redis&lt;/span&gt;  
-   &lt;span class=&quot;na&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;DATABASE_URL=postgres://postgres:password@db:5432/postgres&lt;/span&gt;  
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;REDIS_URL=redis://redis:6379&lt;/span&gt;
-   &lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-     &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;.:/app&lt;/span&gt;
-
-&lt;span class=&quot;na&quot;&gt;volumes&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;dbdata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;     &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-4 . Finally, run docker-compose&lt;/p&gt;
-
-&lt;p&gt;Run this command at the root of the project. This will boot up the app. Open the browser and navigate to localhost on port 3005.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker-compose up&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;em&gt;NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can allow an attacker to escalate privileges on the host. Always specify a user with least privileges in the Dockerfile.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;You now have the database containers and the app container up and running and mapped together.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Definition</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction In Linux, each user has their own crontab that can be used to schedule jobs that will be run as that user. Though crontabs are files in /var/spool/cron/crontabs, they are not intended to be edited directly. You’re therefore required to view, update and delete a user crontab file using the crontab command.</summary></entry></feed>
