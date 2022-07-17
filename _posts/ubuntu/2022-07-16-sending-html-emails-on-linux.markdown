@@ -152,9 +152,7 @@ Here's an example of HTML email template. Notice that inline css was used, and t
       
       <small class="body__meta" style="display: inline-block; margin-bottom: 0.728rem; font-size: 0.8125rem; font-weight: 600; letter-spacing: 1px; color: rgba(20, 20, 20, 0.4);">Published on March 2022, Reading time: 6 minutes</small>
       <h3>Definition</h3>
-      <p class="body__text" style="margin-top: 0; margin-bottom: 1.2rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.015625rem; color: rgba(20, 20, 20, 0.85);">Definition
-
-Code refactoring is the process of restructuring existing code without changing its functionality, in order to improve the design, structure and implementation of the program.
+      <p class="body__text" style="margin-top: 0; margin-bottom: 1.2rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.015625rem; color: rgba(20, 20, 20, 0.85);">Code refactoring is the process of restructuring existing code without changing its functionality, in order to improve the design, structure and implementation of the program.
 </p>
       
       <p class="body__text" style="margin-top: 0; margin-bottom: 1.2rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.015625rem; color: rgba(20, 20, 20, 0.85);">Refactoring ultimately makes software easier to understand, improves performance and helps us find bugs faster.</p>
@@ -190,7 +188,7 @@ mailx -a 'Content-Type: text/html' -s "HTML Template Test" user_name@gmail.com <
 <br>
 The recepient should receive this mail:
 
-<img class="zoom-on-hover mobile-image" srcset="{{site.baseurl}}/assets/img/posts/html_email_gmail.png 2.3x, {{site.baseurl}}/assets/img/posts/html_email_gmail.png 2.3x">
+<img class="zoom-on-hover mobile-image" srcset="{{site.baseurl}}/assets/img/posts/html_email_gmail.png 2.5x, {{site.baseurl}}/assets/img/posts/html_email_gmail.png 2.5x">
 
 
 <br>
