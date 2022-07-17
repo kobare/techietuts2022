@@ -181,7 +181,7 @@ Replace <span class="badge">user_name</span> with your gmail account id.
  
 {% highlight terminal %}
 
-mailx -a 'Content-Type: text/html' -s "HTML Template Test" user_name@gmail.com < html_email_example.html
+mailx -a 'Content-Type: text/html' -s "Test HTML Template" user_name@gmail.com < html_email_example.html
 
 {% endhighlight %}
 
