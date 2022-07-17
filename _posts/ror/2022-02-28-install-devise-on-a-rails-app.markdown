@@ -128,7 +128,7 @@ Finally, force the user to redirect to the login page if the user was not logged
 
 {% highlight ruby %}
 
-/controllers/application_controller.rb
+ # /controllers/application_controller.rb
  
  # protect_from_forgery with: :exception
 

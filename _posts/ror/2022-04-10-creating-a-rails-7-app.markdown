@@ -20,7 +20,8 @@ We will use esbuild for JavaScript bundling, bootstrap for CSS and JQuery for Ja
 <br>
 ### Dependencies
 - rails 7.0.0 or higher (Rails 7.0.2.3 was used at the time of writing this document)
-- npm version 8.6.0 (or higher, nmp 8.6.0 was used at the time of writing this document)
+- npm version 8.6.0 (or higher, nmp 8.6.0 was used at the time of writing this document).
+You can update npm by running: <span class="badge">sudo npm install -g npm@latest</span> or <span class="badge">sudo npm install -g npm</span>
 - yarn
 
 
@@ -90,6 +91,11 @@ import "jquery-ui"
 
 {% endhighlight %} 
 
+
+<br>
+ iii). In app/views/layouts/application.html.erb, set <span class="badge">defer: false</span> in the javascript_include_tag.
+ 
+ 
 <br>
 ### Run the app
 To run the app, do this:
