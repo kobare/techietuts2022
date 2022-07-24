@@ -186,7 +186,7 @@ mailx -a 'Content-Type: text/html' -s "Test HTML Template" user_name@gmail.com <
 {% endhighlight %}
 
 <br>
-The recepient should receive this mail:
+The recepient should receive this email:
 
 <img class="zoom-on-hover mobile-image" srcset="{{site.baseurl}}/assets/img/posts/html_email_gmail.png 2.5x, {{site.baseurl}}/assets/img/posts/html_email_gmail.png 2.5x">
 
