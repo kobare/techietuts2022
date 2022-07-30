@@ -251,7 +251,7 @@ psql -V
 
 {% highlight terminal %}
 
-psql -W mydb
+psql -W db_name
 
 {% endhighlight %}
 
@@ -261,7 +261,7 @@ psql -W mydb
 
 {% highlight terminal %}
 
-psql -h localhost -p 5432 mydb
+psql -h localhost -p 5432 db_name
 
 {% endhighlight %}
 
