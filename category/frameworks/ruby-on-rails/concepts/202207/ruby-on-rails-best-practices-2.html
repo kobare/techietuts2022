@@ -1082,7 +1082,7 @@ This increases readability and eliminates confusion.</p>
 
 <span class="c1">###### Don't do this:</span>
 
-<span class="n">before_filter</span> <span class="ss">:get_project</span>
+<span class="n">before_filter</span> <span class="ss">:get_book</span>
 
   <span class="k">def</span> <span class="nf">show</span>
     <span class="vi">@reviews</span> <span class="o">=</span> <span class="vi">@book</span><span class="p">.</span><span class="nf">reviews</span>
@@ -1169,7 +1169,7 @@ The process should be a constant and gradual improvement to your codebase.</p>
 <p><br /></p>
 <h3 id="8-prevent-sql-injection">8. Prevent SQL Injection</h3>
 <p>Do not supply user input as a database query without escaping quotes.
-If the user passes a single quote in an input text then the text after the single quote character is considered to be SQL statement. This means that the text would have direct access to the database, putting the entire database at risk as the user might have entered malicious content.</p>
+If the user passes a single quote in an input text, then the text after the single quote character is considered to be an SQL statement. This means that the text would have direct access to the database, putting the entire database at risk as the user might have entered malicious content.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Dont do this</span>
   <span class="no">Book</span><span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="s2">"name = '</span><span class="si">#{</span><span class="n">params</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
@@ -1232,7 +1232,7 @@ Tests also acts as detailed specifications of a feature or application and as do
   <span class="k">end</span>
   </code></pre></figure>
 
-<p>Ruby on Rails also provides a helper for updating the enum value. Instead of Book.update(status: :published), we can use:
+<p>Ruby on Rails also provides a helper for updating the enum value. Instead of <span class="badge">Book.update(status: :published)</span>, we can use:
 <span class="badge">Book.published!</span></p>
 
 <p>You can also generate a scope like so: <span class="badge">Book.draft</span> instead of doing <span class="badge">Book.where(status: ‘draft’)</span></p>

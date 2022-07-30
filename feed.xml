@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-07-30T17:59:28+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Ruby Array Methods [F - I]</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202207/ruby-array-methods-f-i" rel="alternate" type="text/html" title="Ruby Array Methods [F - I]" /><published>2022-07-26T14:05:00+03:00</published><updated>2022-07-26T14:05:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202207/ruby-array-methods-f-i</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202207/ruby-array-methods-f-i">&lt;h3 id=&quot;1--fetch&quot;&gt;1 . fetch()&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-07-30T18:17:22+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Ruby Array Methods [F - I]</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202207/ruby-array-methods-f-i" rel="alternate" type="text/html" title="Ruby Array Methods [F - I]" /><published>2022-07-26T14:05:00+03:00</published><updated>2022-07-26T14:05:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202207/ruby-array-methods-f-i</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202207/ruby-array-methods-f-i">&lt;h3 id=&quot;1--fetch&quot;&gt;1 . fetch()&lt;/h3&gt;
 &lt;p&gt;Returns the element at offset index.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -1032,7 +1032,7 @@ This increases readability and eliminates confusion.&lt;/p&gt;
 
 &lt;span class=&quot;c1&quot;&gt;###### Don&apos;t do this:&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;before_filter&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:get_project&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;before_filter&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:get_book&lt;/span&gt;
 
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
     &lt;span class=&quot;vi&quot;&gt;@reviews&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reviews&lt;/span&gt;
@@ -1119,7 +1119,7 @@ The process should be a constant and gradual improvement to your codebase.&lt;/p
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;8-prevent-sql-injection&quot;&gt;8. Prevent SQL Injection&lt;/h3&gt;
 &lt;p&gt;Do not supply user input as a database query without escaping quotes.
-If the user passes a single quote in an input text then the text after the single quote character is considered to be SQL statement. This means that the text would have direct access to the database, putting the entire database at risk as the user might have entered malicious content.&lt;/p&gt;
+If the user passes a single quote in an input text, then the text after the single quote character is considered to be an SQL statement. This means that the text would have direct access to the database, putting the entire database at risk as the user might have entered malicious content.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Dont do this&lt;/span&gt;
   &lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name = &apos;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1182,7 +1182,7 @@ Tests also acts as detailed specifications of a feature or application and as do
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
   &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Ruby on Rails also provides a helper for updating the enum value. Instead of Book.update(status: :published), we can use:
+&lt;p&gt;Ruby on Rails also provides a helper for updating the enum value. Instead of &lt;span class=&quot;badge&quot;&gt;Book.update(status: :published)&lt;/span&gt;, we can use:
 &lt;span class=&quot;badge&quot;&gt;Book.published!&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;You can also generate a scope like so: &lt;span class=&quot;badge&quot;&gt;Book.draft&lt;/span&gt; instead of doing &lt;span class=&quot;badge&quot;&gt;Book.where(status: ‘draft’)&lt;/span&gt;&lt;/p&gt;
