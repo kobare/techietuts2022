@@ -236,7 +236,7 @@ private
 
 ###### Don't do this:
 
-before_filter :get_project
+before_filter :get_book
 
   def show
     @reviews = @book.reviews
@@ -355,7 +355,7 @@ The process should be a constant and gradual improvement to your codebase.
 <br>
 ### 8. Prevent SQL Injection
 Do not supply user input as a database query without escaping quotes.
-If the user passes a single quote in an input text then the text after the single quote character is considered to be SQL statement. This means that the text would have direct access to the database, putting the entire database at risk as the user might have entered malicious content.
+If the user passes a single quote in an input text, then the text after the single quote character is considered to be an SQL statement. This means that the text would have direct access to the database, putting the entire database at risk as the user might have entered malicious content.
 
 {% highlight ruby %}
 
@@ -431,7 +431,7 @@ A better approach would be to define an enum for the <span class="badge">status<
   
 {% endhighlight %}
 
-Ruby on Rails also provides a helper for updating the enum value. Instead of Book.update(status: :published), we can use:
+Ruby on Rails also provides a helper for updating the enum value. Instead of <span class="badge">Book.update(status: :published)</span>, we can use:
 <span class="badge">Book.published!</span> 
 
 You can also generate a scope like so: <span class="badge">Book.draft</span> instead of doing <span class="badge">Book.where(status: 'draft')</span>
