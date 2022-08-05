@@ -48,8 +48,8 @@
 <meta property="og:title" content="Creating A Rails 7 App: With esbuild, bootstrap and jquery" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Definition" />
-<meta property="og:description" content="Definition" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
 <link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app" />
 <meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app" />
 <meta property="og:site_name" content="Techietuts" />
@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Creating A Rails 7 App: With esbuild, bootstrap and jquery" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Definition","headline":"Creating A Rails 7 App: With esbuild, bootstrap and jquery","dateModified":"2022-04-10T14:27:00+03:00","datePublished":"2022-04-10T14:27:00+03:00","url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Creating A Rails 7 App: With esbuild, bootstrap and jquery","description":"Introduction","datePublished":"2022-04-10T14:27:00+03:00","dateModified":"2022-04-10T14:27:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -914,38 +914,52 @@
     <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2022</p>
     <div>
                 <!-- Page content object inserted below -->
-        <h3 id="definition">Definition</h3>
+        <h3 id="introduction">Introduction</h3>
 
 <p>Creating a Rails project is as simple as running one line of command on the terminal. While it’s easy to do so, it’s imperative to configure the basic tools for the project. This section outlines the necessary steps for creating and configuring a new Rails 7 project.
 We will use esbuild for JavaScript bundling, bootstrap for CSS and JQuery for JavaScript and SQLite as the database.</p>
 
 <p><br /></p>
-<h3 id="dependencies">Dependencies</h3>
+<h3 id="prerequisites">Prerequisites</h3>
 <ul>
-  <li>rails 7.0.0 or higher (Rails 7.0.2.3 was used at the time of writing this document)</li>
-  <li>npm version 8.6.0 (or higher, nmp 8.6.0 was used at the time of writing this document).
+  <li>Ruby 3.2.0</li>
+  <li>Rails 7.0.0 or higher (Rails 7.0.2.3 was used at the time of writing this document)</li>
+  <li>NPM version 8.6.0 (or higher, nmp 8.6.0 was used at the time of writing this document).
 You can update npm by running: <span class="badge">sudo npm install -g npm@latest</span> or <span class="badge">sudo npm install -g npm</span></li>
-  <li>yarn</li>
+  <li>Yarn</li>
 </ul>
 
 <p><br /></p>
-<h3 id="create-the-project">Create the project</h3>
+<h3 id="creating-the-project">Creating the project</h3>
 <p>1 . Open the terminal, cd into your projects directory and run this  command:</p>
 
 <figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails new my_app <span class="nt">-j</span> esbuild <span class="nt">--css</span> bootstrap</code></pre></figure>
 
-<p>The -j directive is used to define the JavaScript bundler while the - -css directive defines the CSS library.
-<br />NB: The bootstrap version installed will be the latest version.</p>
+<p>The <span class="badge">-j</span> directive is used to define the JavaScript 
+bundler while the <span class="badge">- -css</span> directive defines the CSS library.</p>
+
+<p>If you don’t want to use the default <span class="badge">SQLite</span> database, 
+you can specify a different database with the <span class="badge">-d</span> directive like so:</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails new my_app <span class="nt">-j</span> esbuild <span class="nt">--css</span> bootstrap <span class="nt">-d</span> mysql</code></pre></figure>
 
 <p><br />
-2 . cd into my_app and add jquery and jquery-ui</p>
+Even after the command has created the project, it is possible to switch 
+databases like so, in root of the project:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">yarn</span> <span class="n">add</span> <span class="n">jquery</span> <span class="n">jquery</span><span class="o">-</span><span class="n">ui</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails db:system:change <span class="nt">--to</span><span class="o">=</span>postgresql </code></pre></figure>
+
+<p><br /><em>NB: The bootstrap version installed will be the latest version.</em></p>
 
 <p><br />
-3 . Import jquery and jquery-ui in app/javascript/application.js</p>
+2 . cd into <span class="badge">my_app</span> and add <span class="badge">jquery</span>, <span class="badge">jquery-ujs</span> and <span class="badge">jquery-ui</span></p>
 
-<p>Normally, this is how we would import jquery and jquery-ui in application.js.</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">yarn</span> <span class="n">add</span> <span class="n">jquery</span> <span class="n">jquery</span><span class="o">-</span><span class="n">ujs</span> <span class="n">jquery</span><span class="o">-</span><span class="n">ui</span></code></pre></figure>
+
+<p><br />
+3 . Import <span class="badge">jquery</span>, <span class="badge">jquery-ujs</span> and <span class="badge">jquery-ui</span> in <span class="badge">app/javascript/application.js</span></p>
+
+<p>Normally, this is how we would import them.</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/javascript/application.js</span>
 <span class="c1">// ...</span>
@@ -955,9 +969,12 @@ You can update npm by running: <span class="badge">sudo npm install -g npm@lates
 <span class="nb">window</span><span class="p">.</span><span class="nx">$</span> <span class="o">=</span> <span class="nx">jquery</span><span class="p">;</span>
 <span class="k">import</span> <span class="dl">"</span><span class="s2">jquery-ui</span><span class="dl">"</span></code></pre></figure>
 
-<p>But since JavaScript imports are hoisted; i.e. all imports are loaded before any other code regardless of the order. This creates a problem because JavaScript will try to load jquery-ui before jquery is made available to the window. No problem, here’s the fix:</p>
+<p>But since JavaScript imports are hoisted; i.e. all imports are loaded before any 
+other code regardless of the order, it causes a problem because JavaScript will 
+try to load <span class="badge">jquery-ui</span> before <span class="badge">jquery</span> is made available to the window. Let’s fix that:</p>
 
-<p>i). In app/javascript, create src sub-directory and a jquery.js file and add this to it:</p>
+<p>i). In <span class="badge">app/javascript</span>, create <span class="badge">src</span> 
+sub-directory and in it create <span class="badge">jquery.js</span> file and add this to it:</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/javascript/src/jquery.js</span>
 
@@ -966,24 +983,135 @@ You can update npm by running: <span class="badge">sudo npm install -g npm@lates
 <span class="nb">window</span><span class="p">.</span><span class="nx">$</span> <span class="o">=</span> <span class="nx">jquery</span><span class="p">;</span></code></pre></figure>
 
 <p><br />
- ii). In app/javascript/application.js add this:</p>
+ ii). In <span class="badge">app/javascript/application.js</span> add this:</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/javascript/application.js</span>
 <span class="c1">// ...</span>
 
 <span class="k">import</span> <span class="dl">"</span><span class="s2">./src/jquery</span><span class="dl">"</span>
-<span class="k">import</span> <span class="dl">"</span><span class="s2">jquery-ui</span><span class="dl">"</span></code></pre></figure>
+<span class="k">import</span> <span class="dl">"</span><span class="s2">jquery-ui</span><span class="dl">"</span>
+<span class="k">import</span> <span class="dl">"</span><span class="s2">jquery-ujs</span><span class="dl">"</span></code></pre></figure>
 
 <p><br />
- iii). In app/views/layouts/application.html.erb, set <span class="badge">defer: false</span> in the javascript_include_tag.</p>
+4 . Set up notifications</p>
+
+<p>i). Add notifications in <span class="badge">app/views/layouts/application.html.erb</span></p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/layouts/application.html.erb --&gt;</span>
+<span class="c">&lt;!-- .... --&gt;</span>  
+  <span class="nt">&lt;body&gt;</span>
+   <span class="nt">&lt;</span><span class="err">%</span> <span class="na">flash.each</span> <span class="na">do</span> <span class="err">|</span><span class="na">key</span><span class="err">,</span> <span class="na">value</span><span class="err">|</span> <span class="err">%</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"&lt;%= flash_class(key) %&gt;"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">value</span> <span class="err">%</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">yield</span> <span class="err">%</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/body&gt;</span></code></pre></figure>
+
+<p><br />
+ ii). Create the <span class="badge">flash_class</span> method in <span class="badge">app/helpers/application_helper.rb</span></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/helpers/application_helper.rb</span>
+<span class="c1"># ...</span>
+
+  <span class="k">def</span> <span class="nf">flash_class</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">level</span>
+      <span class="k">when</span> <span class="ss">:notice</span> <span class="k">then</span> <span class="s2">"alert alert-info"</span>
+      <span class="k">when</span> <span class="ss">:success</span> <span class="k">then</span> <span class="s2">"alert alert-success"</span>
+      <span class="k">when</span> <span class="ss">:error</span> <span class="k">then</span> <span class="s2">"alert alert-danger"</span>
+      <span class="k">when</span> <span class="ss">:alert</span> <span class="k">then</span> <span class="s2">"alert alert-danger"</span>
+    <span class="k">end</span>
+  <span class="k">end</span></code></pre></figure>
+
+<p><br />
+5 . Create a navbar in <span class="badge">app/views/layouts/application.html.erb</span></p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/layouts/application.html.erb --&gt;</span>
+<span class="c">&lt;!-- .... --&gt;</span>  
+
+  <span class="nt">&lt;body&gt;</span>
+
+   <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-expand-sm bg-dark navbar-dark fixed-top"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Rails 7 Bootstrap<span class="nt">&lt;/a&gt;</span>
+     <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Jquery<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;/nav&gt;</span>
+  
+   <span class="nt">&lt;</span><span class="err">%</span> <span class="na">flash.each</span> <span class="na">do</span> <span class="err">|</span><span class="na">key</span><span class="err">,</span> <span class="na">value</span><span class="err">|</span> <span class="err">%</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"&lt;%= flash_class(key) %&gt;"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">value</span> <span class="err">%</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+   <span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">yield</span> <span class="err">%</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/body&gt;</span></code></pre></figure>
+
+<p><br />
+6 . Create The Home Page</p>
+
+<p>i) Generate the controller and view</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails g controller home index</code></pre></figure>
+
+<p><br />
+ ii) Open the home page in <span class="badge">app/views/home/index.html.erb</span> and add this code</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- app/views/home/index.html.erb --&gt;</span> 
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container mt-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>See if bootstrap is working<span class="nt">&lt;/h3&gt;</span>
+  
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">data-bs-toggle=</span><span class="s">"tooltip"</span> <span class="na">title=</span><span class="s">"Yay! Its' working."</span><span class="nt">&gt;</span>
+    Hover over me!
+  <span class="nt">&lt;/button&gt;</span>  
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container mt-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>See if jquery is working<span class="nt">&lt;/h3&gt;</span>
+  
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span> <span class="na">id=</span><span class="s">"jq-test"</span><span class="nt">&gt;</span>
+    Click me!
+  <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+   </code></pre></figure>
+
+<p><br />
+ ii) Create <span class="badge">home.js</span> file in <span class="badge">app/javascript/src</span> and add this jquery code.</p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"> 
+<span class="c1">// javascript/src/home.js</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#jq-test</span><span class="dl">"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Jquery is working!</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">});</span>
+ </code></pre></figure>
+
+<p><br />
+ iii) Import <span class="badge">home.js</span> in <span class="badge">app/javascript/application.js</span></p>
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"> 
+<span class="c1">// app/javascript/src/application.js</span>
+<span class="c1">// ...</span>
+
+<span class="k">import</span> <span class="dl">"</span><span class="s2">./src/home</span><span class="dl">"</span>
+ </code></pre></figure>
+
+<p><br />
+ iv) Set home page as the default route in <span class="badge">config/routes.rb</span></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/routes.rb</span>
+ 
+  <span class="n">root</span> <span class="s2">"home#index"</span></code></pre></figure>
 
 <p><br /></p>
-<h3 id="run-the-app">Run the app</h3>
-<p>To run the app, do this:</p>
+<h3 id="testing-the-app">Testing the app</h3>
+
+<p>To run the app, cd into the root of the project and issue this command:</p>
 
 <figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>bin/dev</code></pre></figure>
 
-<p>If you wish to change the default port, open the Procfile.dev file located in the root of the project and change the port number.</p>
+<p>Now navigate to <span class="badge">localhost:3000</span>. The two buttons should be working if you’ve made the configurations described here.
+If you wish to change the default port, open the <span class="badge">Procfile.dev</span> file located in the root of the project and change the port number.</p>
 
 <figure class="highlight"><pre><code class="language-text" data-lang="text">// /Procfile.dev
 // ...
@@ -991,6 +1119,20 @@ You can update npm by running: <span class="badge">sudo npm install -g npm@lates
 web: bin/rails server -p 3000
 js: yarn build --watch
 css: yarn build:css --watch</code></pre></figure>
+
+<p><br /></p>
+<h3 id="something-to-remember">Something to remember</h3>
+<p>If you are going to use inline or embedded javascript in your app pages, jquery will not work.</p>
+
+<p>For jquery to work, in <span class="badge">app/views/layouts/application.html.erb</span>, set 
+ <span class="badge">defer: false</span> in the javascript_include_tag.
+ If the option is set to <span class="badge">true</span>, the browser will throw
+ this error <span class="badge">Uncaught ReferenceError: $ is not defined</span>.</p>
+
+<p><em>NB: Defer loads javascript last to prevent it from blocking app content from
+ loading. Therefore, <span class="badge">defer: false</span> can prevent the app from 
+ loading smoothly i.e makes the page appear to freeze halfway through the rendering.
+ You’re better off using external scripts.</em></p>
 
 <p><br />
 We have covered the necessary configurations for the project. If you run the app, you should now be able to use jquery and bootstrap to build the project.</p>
@@ -1157,6 +1299,14 @@ We have covered the necessary configurations for the project. If you run the app
    <div class="white-text" style="text-align: justify; text-decoration: underline #999"><span>Other Posts</span></a></p></div>
     
    
+    <div class="center-icon grid-image"><img src="/assets/img/svg/ruby.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/programming/ruby/concepts/202206/ruby-array-methods-d-e">Ruby Array Methods [D - E]</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> June 2022</p>
+    </div>          
+    
+     
+   
     <div class="center-icon grid-image"><img src="/assets/img/svg/ubuntu.svg"></div>
     <div class="white-text grid-title" style="text-align: left;">
      <p class="footer-post-title"><a href="/category/more-topics/operating-systems/ubuntu/202206/creating-a-custom-vpn-with-sshuttle-and-aws-ec2-server">Creating a Custom VPN With sshuttle and AWS EC2 Server</a></p>
@@ -1168,14 +1318,6 @@ We have covered the necessary configurations for the project. If you run the app
     <div class="center-icon grid-image"><img src="/assets/img/svg/ruby.svg"></div>
     <div class="white-text grid-title" style="text-align: left;">
      <p class="footer-post-title"><a href="/category/programming/ruby/concepts/202206/ruby-array-methods-a-c">Ruby Array Methods [A - C]</a></p>
-     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> June 2022</p>
-    </div>          
-    
-     
-   
-    <div class="center-icon grid-image"><img src="/assets/img/svg/ubuntu.svg"></div>
-    <div class="white-text grid-title" style="text-align: left;">
-     <p class="footer-post-title"><a href="/category/more-topics/operating-systems/ubuntu/202206/linux-terminal-cheat-sheet">Ubuntu Terminal Cheat Sheet</a></p>
      <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> June 2022</p>
     </div>          
     
