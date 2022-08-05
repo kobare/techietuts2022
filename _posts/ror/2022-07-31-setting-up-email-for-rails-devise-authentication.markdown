@@ -350,7 +350,7 @@ You will also get reset password emails whenever you reset your password by clic
 
 #### - Redirecting users
 
-1. Redirecting After The User Signs Up (Confirmation Pending)
+1 . Redirecting After The User Signs Up (Confirmation Pending)
 
 If you want to redirect the user to a specific url after signing up, override the 
 <span class="badge">after_inactive_sign_up_path_for</span> in the <span class="badge">registrations_controller</span>.
@@ -391,7 +391,7 @@ end
 
 
 <br>
-2. Redirecting From The Confirmation Email
+2 . Redirecting From The Confirmation Email
 
 You may want to redirect the user to a specific url after they clicked the link 
 in the confirmation email. To do that, just override the 
