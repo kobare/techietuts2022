@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-08-05T12:01:13+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Setting Up Email For Rails Devise Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication" rel="alternate" type="text/html" title="Setting Up Email For Rails Devise Authentication" /><published>2022-08-01T05:55:00+03:00</published><updated>2022-08-01T05:55:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-08-05T14:04:53+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Setting Up Email For Rails Devise Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication" rel="alternate" type="text/html" title="Setting Up Email For Rails Devise Authentication" /><published>2022-08-01T05:55:00+03:00</published><updated>2022-08-01T05:55:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;There are several ways to authenticate users on a Rails app and the easiest approach is to use existing tools such as the &lt;span class=&quot;badge&quot;&gt;Devise&lt;/span&gt; gem, since it’s a mature solution that has thousands of hours of code review, design, testing, and time in production.&lt;/p&gt;
 
@@ -264,9 +264,7 @@ You will also get reset password emails whenever you reset your password by clic
 
 &lt;h4 id=&quot;--redirecting-users&quot;&gt;- Redirecting users&lt;/h4&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Redirecting After The User Signs Up (Confirmation Pending)&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;1 . Redirecting After The User Signs Up (Confirmation Pending)&lt;/p&gt;
 
 &lt;p&gt;If you want to redirect the user to a specific url after signing up, override the 
 &lt;span class=&quot;badge&quot;&gt;after_inactive_sign_up_path_for&lt;/span&gt; in the &lt;span class=&quot;badge&quot;&gt;registrations_controller&lt;/span&gt;.&lt;/p&gt;
@@ -301,10 +299,8 @@ You will also get reset password emails whenever you reset your password by clic
  &lt;span class=&quot;n&quot;&gt;devise_for&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;controllers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;registrations: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;registrations&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Redirecting From The Confirmation Email&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;br /&gt;
+2 . Redirecting From The Confirmation Email&lt;/p&gt;
 
 &lt;p&gt;You may want to redirect the user to a specific url after they clicked the link 
 in the confirmation email. To do that, just override the 
