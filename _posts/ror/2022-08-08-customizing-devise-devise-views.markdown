@@ -17,13 +17,14 @@ Devise works really great right out of the box but doesn't look good. The pages 
 plain so you'd definitely want to replace them with your custom views. It's pretty straight
 forward as there's not that much of tinkering needed to get them working. Let's see!
 
+Click [here](https://devise-email-example.herokuapp.com){:target="_blank"} to see the final app.
+
+
 <br>
 ### Prerequisites
 
 1. Ruby 3.2.0
 2. Rails 7.0.3
-
-
 
 
 <br>
