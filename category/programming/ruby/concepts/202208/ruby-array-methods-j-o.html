@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Download A File Over SSH With Net::SCP In Ruby - Techietuts</title>
+ <title>Ruby Array Methods [J - O] - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Download A File Over SSH With Net::SCP In Ruby" />
+<meta property="og:title" content="Ruby Array Methods [J - O]" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Definition" />
-<meta property="og:description" content="Definition" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby" />
+<meta name="description" content="1 . join() Converts each element of the array to a string, separated by the given separator." />
+<meta property="og:description" content="1 . join() Converts each element of the array to a string, separated by the given separator." />
+<link rel="canonical" href="http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-04-19T10:30:00+03:00" />
+<meta property="article:published_time" content="2022-08-16T07:35:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Download A File Over SSH With Net::SCP In Ruby" />
+<meta property="twitter:title" content="Ruby Array Methods [J - O]" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Download A File Over SSH With Net::SCP In Ruby","description":"Definition","datePublished":"2022-04-19T10:30:00+03:00","dateModified":"2022-04-19T10:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby"},"url":"http://0.0.0.0:4000/category/programming/ruby/tutorials/202204/download-file-over-ssh-with-net-scp-in-ruby","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Ruby Array Methods [J - O]","description":"1 . join() Converts each element of the array to a string, separated by the given separator.","datePublished":"2022-08-16T07:35:00+03:00","dateModified":"2022-08-16T07:35:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o"},"url":"http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,53 +909,332 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Download A File Over SSH With Net::SCP In Ruby</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Ruby Array Methods [J - O]</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> August 2022</p>
     <div>
                 <!-- Page content object inserted below -->
-        <h3 id="definition">Definition</h3>
+        <h3 id="1--join">1 . join()</h3>
+<p>Converts each element of the array to a string, separated by the given separator.</p>
 
-<p>Downloading files from a remote server is part of the frequent tasks for a database admin. A DB admin would write scripts to dump backup files and download them to a backup storage.</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.join(separator)</span>
 
-<p>While this document only demonstrates a basic implementation of NET::SCP to download a file over SSH, the concept can be used to build useful tools (with decent user interfaces) that automate backup processes.</p>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span>
+<span class="c1"># "1-2-3-4-5"</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"9"</span><span class="p">)</span>
+<span class="c1"># "192939495"</span></code></pre></figure>
 
 <p><br /></p>
-<h3 id="the-ruby-file">The Ruby File</h3>
+<h3 id="2--keep_if">2 . keep_if()</h3>
+<p>Retains those elements for which the block returns a truthy value then deletes all 
+other elements and returns the array.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s2">"net/scp"</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.keep_if {...}</span>
 
-<span class="k">def</span> <span class="nf">downloadFileOverSCP</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">remoteFile</span><span class="p">,</span> <span class="n">localFile</span><span class="p">,</span> <span class="n">sshKey</span><span class="p">,</span> <span class="n">recursive</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-  <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="ss">:ssh</span> <span class="o">=&gt;</span> <span class="p">{</span>
-          <span class="ss">:keys</span> <span class="o">=&gt;</span> <span class="n">sshKey</span><span class="p">,</span>
-          <span class="ss">:port</span> <span class="o">=&gt;</span> <span class="n">port</span>
-      <span class="p">},</span>
-      <span class="ss">:recursive</span> <span class="o">=&gt;</span> <span class="n">recursive</span>
-  <span class="p">}</span>
+<span class="n">arr</span><span class="p">.</span><span class="nf">keep_if</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span><span class="p">.</span><span class="nf">odd?</span> <span class="p">}</span>
+<span class="c1"># [1, 3, 5]</span></code></pre></figure>
 
-  <span class="no">Net</span><span class="o">::</span><span class="no">SCP</span><span class="p">.</span><span class="nf">download!</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">remoteFile</span><span class="p">,</span> <span class="n">localFile</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">ch</span><span class="p">,</span> <span class="nb">name</span><span class="p">,</span> <span class="n">received</span><span class="p">,</span> <span class="n">total</span><span class="o">|</span>
+<p><br /></p>
+<h3 id="3--last">3 . last()</h3>
+<p>Returns the last n elements in a new Array. When no argument is given, it returns the last element.</p>
 
-    <span class="n">percentage</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="s1">'%.2f'</span><span class="p">,</span> <span class="n">received</span><span class="p">.</span><span class="nf">to_f</span> <span class="o">/</span> <span class="n">total</span><span class="p">.</span><span class="nf">to_f</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'%'</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.last(n)</span>
 
-    <span class="nb">print</span> <span class="s2">"Saving to </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">: Received </span><span class="si">#{</span><span class="n">received</span><span class="si">}</span><span class="s2"> of </span><span class="si">#{</span><span class="n">total</span><span class="si">}</span><span class="s2"> bytes"</span> <span class="o">+</span> <span class="s2">" (</span><span class="si">#{</span><span class="n">percentage</span><span class="si">}</span><span class="s2">)</span><span class="se">\r</span><span class="s2">"</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-    <span class="no">STDOUT</span><span class="p">.</span><span class="nf">flush</span>
-  <span class="k">end</span>
-  <span class="nb">puts</span> <span class="s2">"Download completed! "</span>
-<span class="k">end</span>
+<span class="n">arr</span><span class="p">.</span><span class="nf">last</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># [4, 5]</span>
 
-<span class="c1"># e.g</span>
 
-<span class="n">downloadFileOverSCP</span><span class="p">(</span>
-    <span class="s1">'41.35.26.17'</span><span class="p">,</span>
-    <span class="mi">22</span><span class="p">,</span>
-    <span class="s1">'ubuntu'</span><span class="p">,</span>
-    <span class="s1">'/home/ubuntu/databases/backup_data.sql'</span><span class="p">,</span>
-    <span class="s1">'/home/techietuts/Databases/backup_data.sql'</span><span class="p">,</span> <span class="c1"># You can specify a different file name</span>
-    <span class="s1">'/home/techietuts/key_pair.pem'</span>
-<span class="p">)</span></code></pre></figure>
+<span class="n">arr</span><span class="p">.</span><span class="nf">last</span>
+<span class="c1"># 5</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="4--length">4 . length</h3>
+<p>Returns the count of elements in the array.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.length</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">length</span>
+<span class="c1"># 5</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="5--map">5 . map!</h3>
+<p>Calls the block with each element and replaces the element with the block’s return value.
+This method is an alias for <span class="badge">collect!</span> method.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.map!</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">map!</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="p">}</span>
+<span class="c1"># [1, 4, 9, 16, 25]</span>
+
+
+<span class="n">arr</span>
+<span class="c1"># [1, 4, 9, 16, 25]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="6--map">6 . map</h3>
+<p>Calls the block with each element and returns a new array whose elements are the return values from the block.
+This method is an alias for <span class="badge">collect</span> method.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.map</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="p">}</span>
+<span class="c1"># [1, 4, 9, 16, 25]</span>
+
+<span class="n">arr</span>
+<span class="c1"># [1, 2, 3, 4, 5]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="7--minmax">7 . minmax</h3>
+<p>Returns a new 2-element Array containing the minimum and maximum values from the array.
+When a block is given, the block must return an Integer. When no block is given, 
+each element must respond to Comparable method.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.minmax {...}</span>
+<span class="c1"># Array.minmax</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">minmax</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
+<span class="c1"># [1, 5]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">minmax</span>
+<span class="c1"># [1, 5]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="8--max">8 . max</h3>
+<p>Returns one of the maximum-valued element from array. When a block is given, the 
+block must return an Integer. When no block is given, each element must respond to Comparable method.</p>
+
+<p>With an argument Integer n and no block, it returns a new array with at most n elements.
+With an argument n and a block, it returns a new array with at most n elements, in 
+descending order per the block.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.max(n) {...}</span>
+<span class="c1"># Array.max(n)</span>
+<span class="c1"># Array.max {...}</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">max</span>
+<span class="c1"># 5</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">max</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># [5, 4]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">max</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
+<span class="c1"># =&gt; 5</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">max</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
+<span class="c1"># [5, 4]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="9--min">9 . min</h3>
+<p>Returns one of the minimum-valued element from array. When a block is given, the 
+block must return an Integer. When no block is given, each element must respond to Comparable method.</p>
+
+<p>With an argument Integer n and no block, it returns a new array with at most n elements.
+With an argument n and a block, it returns a new array with at most n elements, in 
+ascending order per the block.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.min(n) {...}</span>
+<span class="c1"># Array.min(n)</span>
+<span class="c1"># Array.min {...}</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">min</span>
+<span class="c1"># 1</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">min</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># [1, 2]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">min</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
+<span class="c1"># =&gt; 1</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">min</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
+<span class="c1"># [1, 2]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="10--min_by">10 . min_by</h3>
+<p>Returns the elements for which the block returns the minimum values. With a block 
+given and no argument, returns the element for which the block returns the minimum value.</p>
+
+<p>With a block given and positive integer argument n given, returns an array 
+containing the n elements for which the block returns minimum values.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.min_by {...}</span>
+<span class="c1"># Array.min_by(n) {...}</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">min_by</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
+<span class="c1"># 1</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">min_by</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
+<span class="c1"># [1, 2]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="11--max_by">11 . max_by</h3>
+<p>Returns the elements for which the block returns the maximum values. With a block 
+given and no argument, returns the element for which the block returns the maximum value.</p>
+
+<p>With a block given and positive integer argument n given, returns an array 
+containing the n elements for which the block returns maximum values.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.max_by {...}</span>
+<span class="c1"># Array.max_by(n) {...}</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">max_by</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
+<span class="c1"># 5</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">max_by</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
+<span class="c1"># [5, 4]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="12--minmax_by">12 . minmax_by</h3>
+<p>Returns a 2-element array containing the elements for which the block returns 
+minimum and maximum values.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.minmax_by {...}</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">minmax_by</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
+<span class="c1"># [1, 5]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="13--member">13 . member?</h3>
+<p>Returns true if for some index i in array, obj == array[i]; otherwise false.
+This is an alias for <span class="badge">include?<span> method.</span></span></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.member?(obj)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">member?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># true</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="14--methods">14 . methods</h3>
+<p>Returns a list of the names of public and protected methods of obj. This will include
+all the methods accessible in obj’s ancestors. If the optional parameter is false, 
+it returns an array of obj’s public and protected singleton methods, the array 
+will not include methods in modules included in obj.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.methods(regular=true) </span>
+<span class="c1"># Array.methods</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">methods</span>
+<span class="c1"># [:hash, :abbrev, :to_h, :include?, :&amp;]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="15--none">15 . none?</h3>
+<p>Returns true if no element of the array meet a given criterion.</p>
+
+<p>With no block given and no argument, returns true if the array has no truthy elements, false otherwise.</p>
+
+<p>With a block given and no argument, calls the block with each element in the 
+array and returns true if the block returns no truthy value, false otherwise.</p>
+
+<p>If argument obj is given, returns true if obj.=== no element, false otherwise.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.none? {...}</span>
+<span class="c1"># Array.none?</span>
+<span class="c1"># Array.none?(obj)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">none?</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="c1"># false</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">none?</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="c1"># true</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">none?</span>
+<span class="c1"># false</span>
+
+<span class="p">[].</span><span class="nf">none?</span>
+
+<span class="c1"># true</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="16--nil">16 . nil?</h3>
+<p>Returns true if the array is empty. Only the object nil responds true to nil?.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.nil?</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">nil?</span> 
+<span class="c1"># false</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="17--one">17 . one?</h3>
+<p>Returns true if exactly one element of the array meets a given criterion.</p>
+
+<p>With no block given and no argument, returns true if the array has exactly one 
+truthy element, false otherwise.</p>
+
+<p>With a block given and no argument, calls the block with each element in
+the array and returns true if the block yields a truthy value for exactly one element, false otherwise.</p>
+
+<p>If argument obj is given, returns true if obj.=== exactly one element, false otherwise.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.one?</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">one?</span> 
+<span class="c1"># false</span>
+
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="kp">nil</span><span class="p">]</span>
+
+<span class="n">arr2</span><span class="p">.</span><span class="nf">one?</span> 
+<span class="c1"># true</span>
+
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">one?</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">}</span>
+<span class="c1"># false</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">one?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> 
+<span class="c1"># true</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">one?</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">}</span>
+<span class="c1"># true</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="18--object_id">18 . object_id</h3>
+<p>Returns an integer identifier for obj.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.object_id</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">object_id</span> 
+<span class="c1"># 739080</span>
+
+
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="n">arr2</span><span class="p">.</span><span class="nf">object_id</span> 
+<span class="c1"># 783540</span></code></pre></figure>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>
