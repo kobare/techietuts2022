@@ -1,4 +1,127 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-08-16T10:13:33+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Ruby Array Methods [J - O]</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o" rel="alternate" type="text/html" title="Ruby Array Methods [J - O]" /><published>2022-08-16T07:35:00+03:00</published><updated>2022-08-16T07:35:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o">&lt;h3 id=&quot;1--join&quot;&gt;1 . join()&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-08-21T10:08:53+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Devise Cheatsheet</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet" rel="alternate" type="text/html" title="Devise Cheatsheet" /><published>2022-08-21T08:30:00+03:00</published><updated>2022-08-21T08:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet">&lt;p&gt;1 . Redirecting User After Sign Up (Confirmation Pending)&lt;/p&gt;
+
+&lt;p&gt;If you want to redirect the user to a specific url after signing up, override the 
+&lt;span class=&quot;badge&quot;&gt;after_inactive_sign_up_path_for&lt;/span&gt; in the &lt;span class=&quot;badge&quot;&gt;registrations_controller&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+ i). Create a new &lt;span class=&quot;badge&quot;&gt;registrations_controller.rb&lt;/span&gt; in &lt;span class=&quot;badge&quot;&gt;app/controllers&lt;/span&gt; directory.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/controllers/registrations_controller.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RegistrationsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Devise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RegistrationsController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;layout&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# the rest is inherited, so it should work&lt;/span&gt;
+  
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;after_inactive_sign_up_path_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resource_or_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resource_or_scope&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resource_or_scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resource_or_scope&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;your_pending_registrations_path&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#elsif resource_or_scope == :admin || resource_or_scope.class == AdminUser  || resource_or_scope == AdminUser&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;#  admin_root_path&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+ ii). Override Devise default behaviour in the routes in &lt;span class=&quot;badge&quot;&gt;config/routes.rb&lt;/span&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
+&lt;span class=&quot;c1&quot;&gt;# config/routes.rb&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;devise_for&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;controllers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;registrations: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;registrations&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . Redirecting User From The Confirmation Email&lt;/p&gt;
+
+&lt;p&gt;You may want to redirect the user to a specific url after they clicked the link 
+in the confirmation email. To do that, just override the 
+&lt;span class=&quot;badge&quot;&gt;after_confirmation_path_for&lt;/span&gt; in the &lt;span class=&quot;badge&quot;&gt;confirmations_controller&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+ i). Create a new &lt;span class=&quot;badge&quot;&gt;confirmations_controller.rb&lt;/span&gt; in &lt;span class=&quot;badge&quot;&gt;app/controllers&lt;/span&gt; directory.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/controllers/confirmations_controller.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ConfirmationsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Devise&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;ConfirmationsController&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;after_confirmation_path_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resource_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sign_in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# In case you want to sign in the user&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# some_other_new_after_confirmation_path&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+ ii). Override Devise default behaviour in the routes in &lt;span class=&quot;badge&quot;&gt;config/routes.rb&lt;/span&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
+&lt;span class=&quot;c1&quot;&gt;# config/routes.rb&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;devise_for&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;controllers: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;confirmations: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;confirmations&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Update User email without Sending a Confirmation Email
+If you are using the &lt;span class=&quot;badge&quot;&gt;:reconfirmable&lt;/span&gt; attribute and want 
+to update a user’s email without needing a confirmation email to be sent, you can
+use the &lt;span class=&quot;badge&quot;&gt;skip_reconfirmation!&lt;/span&gt; like so:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-rub&quot; data-lang=&quot;rub&quot;&gt;user = User.where(name: &quot;techietuts&quot;)
+user.email = &apos;techie@techietuts.com&apos;
+user.skip_reconfirmation!
+user.save!&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+4 . Allowing Unconfirmed Users For A Given Period&lt;/p&gt;
+
+&lt;p&gt;You can give unconfirmed users some time to confirm their emails by setting the 
+period for &lt;span class=&quot;badge&quot;&gt;allow_unconfirmed_access_for&lt;/span&gt; in the &lt;span class=&quot;badge&quot;&gt;config/initializers/devise.rb&lt;/span&gt; file.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/initializers/devise.rb&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;allow_unconfirmed_access_for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;days&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+5 . Skip Required Confirmation&lt;/p&gt;
+
+&lt;p&gt;You can skip required confirmation even if you’ve already added &lt;span class=&quot;badge&quot;&gt;confirmable&lt;/span&gt; for devise.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# in User.rb&lt;/span&gt;
+&lt;span class=&quot;kp&quot;&gt;protected&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;confirmation_required?&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+6 . Allow Users to Login and Confirm their Emails Later&lt;/p&gt;
+
+&lt;p&gt;i). Enable &lt;span class=&quot;badge&quot;&gt;reconfirmable&lt;/span&gt; and set &lt;span class=&quot;badge&quot;&gt;allow_unconfirmed_access_for&lt;/span&gt; in &lt;span class=&quot;badge&quot;&gt;config/initializers/devise.rb&lt;/span&gt; file.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/initializers/devise.rb&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reconfirmable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;allow_unconfirmed_access_for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;days&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+ ii). Create the column in the users table.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# migrations/[...]devise_create_users&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt;   &lt;span class=&quot;ss&quot;&gt;:unconfirmed_email&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Only if using reconfirmable&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+ iii). Send users confirmation email like so:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
+ &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;send_confirmation_instructions&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+       &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">1 . Redirecting User After Sign Up (Confirmation Pending)</summary></entry><entry><title type="html">Ruby Array Methods [J - O]</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o" rel="alternate" type="text/html" title="Ruby Array Methods [J - O]" /><published>2022-08-16T07:35:00+03:00</published><updated>2022-08-16T07:35:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o">&lt;h3 id=&quot;1--join&quot;&gt;1 . join()&lt;/h3&gt;
 &lt;p&gt;Converts each element of the array to a string, separated by the given separator.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Array.join(separator)&lt;/span&gt;
@@ -3065,59 +3188,4 @@ another array are the same object.&lt;/p&gt;
 &lt;span class=&quot;c1&quot;&gt;# true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">1 . difference() Returns a new Array containing only those elements that are not found in the arrays passed in the argument.</summary></entry><entry><title type="html">Creating a Custom VPN With sshuttle and AWS EC2 Server</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202206/creating-a-custom-vpn-with-sshuttle-and-aws-ec2-server" rel="alternate" type="text/html" title="Creating a Custom VPN With sshuttle and AWS EC2 Server" /><published>2022-06-19T07:00:00+03:00</published><updated>2022-06-19T07:00:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202206/creating-a-custom-vpn-with-sshuttle-and-aws-ec2-server</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202206/creating-a-custom-vpn-with-sshuttle-and-aws-ec2-server">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;A virtual private network establishes a secure and encrypted connection between your computer and the internet, providing a private tunnel for your data in public networks.&lt;/p&gt;
-
-&lt;p&gt;While your ISP can’t read your VPN traffic, your VPN can still read everything that leaves your device that isn’t already encrypted. You then need to trust your VPN provider at least as well as you do your ISP. And your web browser even more unless you’re using ToR browser. Even though your ISP will know you’re using a VPN the good news is that you’ll be shielded from those who want to know your information.&lt;/p&gt;
-
-&lt;p&gt;You can build your own VPN by installing and configuring a software on a local machine that tunnels into a cloud server.
-sshuttle allows you to create a VPN connection from your machine to any remote server that you can connect to via ssh, as long as that server has python 2.3 or higher.
-You must have root access on the local machine, but you dont need a root account on the server.&lt;/p&gt;
-
-&lt;p&gt;You can run sshuttle more than once simultaneously on a single client machine, connecting to a different server every time, so you can be on more than one VPN at once.
-If run on a router, sshuttle can forward traffic for your entire subnet to the VPN.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;AWS EC2 instance running an Ubuntu server.&lt;/li&gt;
-  &lt;li&gt;Python &amp;gt;=2.3 on the server.&lt;/li&gt;
-  &lt;li&gt;ssh installed on the server and the local machine, and you must be able to ssh to the server.&lt;/li&gt;
-  &lt;li&gt;Ubuntu desktop on a local machine, with root access.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;install-and-start-connection&quot;&gt;Install and Start Connection&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;
-1 .  Install sshuttle on your local machine&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo apt-get install sshuttle
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 .  Start connection to remote server&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sshuttle [options...] [-r [username@]sshserver[:port]] &amp;lt;subnets...&amp;gt; 
-
-$ sshuttle --dns -vvr techie@41.90.187.230 0/0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;0/0 - all the subnets on the network&lt;/p&gt;
-
-&lt;p&gt;-vv - very verbose&lt;/p&gt;
-
-&lt;p&gt;-r - remote&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 .  Check your IP address&lt;/p&gt;
-
-&lt;p&gt;If you visit &lt;a href=&quot;https://ipchicken.com/&quot; target=&quot;_blank&quot;&gt;ipchicken.com&lt;/a&gt;, you will see that the remote server IP is now your public IP. And just like that, you have your VPN!&lt;/p&gt;
-
-&lt;p&gt;Visit the &lt;a href=&quot;https://linux.die.net/man/8/sshuttle&quot;&gt;sshuttle&lt;/a&gt; manual page for more options.&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;NB: Enable your dynamic ip if you’re trying to prevent being ddosd. By default AWS EC2 changes public IP whenever you restart the server and that’s great!&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction A virtual private network establishes a secure and encrypted connection between your computer and the internet, providing a private tunnel for your data in public networks.</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">1 . difference() Returns a new Array containing only those elements that are not found in the arrays passed in the argument.</summary></entry></feed>
