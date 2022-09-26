@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>What is Artificial Intelligence? - Techietuts</title>
+ <title>Creating a Rails API With Jason Web Token (JWT) Authentication - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="What is Artificial Intelligence?" />
+<meta property="og:title" content="Creating a Rails API With Jason Web Token (JWT) Authentication" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Have you ever wondered how how Artificial Intelligence works? Do you use this technology in your daily life without even realizing it?" />
-<meta property="og:description" content="Have you ever wondered how how Artificial Intelligence works? Do you use this technology in your daily life without even realizing it?" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/blog/technology/ai/202005/what-is-artificial-intelligence" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/blog/technology/ai/202005/what-is-artificial-intelligence" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-05-20T14:00:06+03:00" />
+<meta property="article:published_time" content="2022-09-22T05:45:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="What is Artificial Intelligence?" />
+<meta property="twitter:title" content="Creating a Rails API With Jason Web Token (JWT) Authentication" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Have you ever wondered how how Artificial Intelligence works? Do you use this technology in your daily life without even realizing it?","headline":"What is Artificial Intelligence?","dateModified":"2020-05-20T14:00:06+03:00","datePublished":"2020-05-20T14:00:06+03:00","url":"http://0.0.0.0:4000/category/blog/technology/ai/202005/what-is-artificial-intelligence","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/blog/technology/ai/202005/what-is-artificial-intelligence"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction","headline":"Creating a Rails API With Jason Web Token (JWT) Authentication","dateModified":"2022-09-22T05:45:00+03:00","datePublished":"2022-09-22T05:45:00+03:00","url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,139 +909,240 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">What is Artificial Intelligence?</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Creating a Rails API With Jason Web Token (JWT) Authentication</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> May 2020</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> September 2022</p>
     <div>
                 <!-- Page content object inserted below -->
-        <p>Have you ever wondered how how Artificial Intelligence works? Do you use this technology in your daily life without even realizing it?</p>
+        <h3 id="introduction">Introduction</h3>
 
-<p>You’re probably part of Artificial Intelligence and you are playing a big role in the rise of this powerful technology. And you are doing it right now. How? You may ask.</p>
+<p>Token based authentication is an alternative method to session-based authentication. 
+The server creates a web token (JWT), encodes, serializes and signs it with 
+its own secret key so that when it’s tampered with, the server will know and reject it.</p>
 
-<p>The moment you searched Google’s engines and landed on this article, you contributed to the evolution of Artificial Intelligence. Congratulations! You are now officially involved. So please read on…</p>
+<p>Because the JWT created contains all the information about the user, it is sent to the browser,
+and so the server does not need to store information about the user.</p>
 
-<p><br /></p>
-<ul>
-  <li>
-    <h4 id="artificial-intelligence-what-is-it"><strong>ARTIFICIAL INTELLIGENCE, WHAT IS IT?</strong></h4>
-  </li>
-</ul>
-
-<p>Artificial Intelligence is a type of technology that simulates intelligent human behaviour in computers.
-How can computers exhibit human-like intelligence? What is human intelligence? Well, let’s dig in:</p>
-
-<p><br /><br /></p>
-<ul>
-  <li>
-    <h4 id="human-intelligence"><strong>HUMAN INTELLIGENCE</strong><br /><br /></h4>
-  </li>
-</ul>
-
-<div class="wrap-pic-max-w p-b-30">
-     <img srcset="
-  https://drive.google.com/uc?id=11qlBDv2pEcKNXGudIAPRFecrTj0UzHeP 1x,
-  https://drive.google.com/uc?id=11qlBDv2pEcKNXGudIAPRFecrTj0UzHeP 3.5x
-" alt="missing image" />
-</div>
-
-<p>Human intelligence is a mental quality that consists of the abilities to learn from experience, adapt to new situations, understand and handle abstract concepts, and use knowledge to manipulate one’s environment.</p>
-
-<p>When a child is born, it has no clue about how the world operates. It then begins to learn from it’s environment, accumulates the knowledge through the experience that it happens to go through. It’s guardians give it a name, teach it what is accepted as correct and wrong.</p>
-
-<p>Through repetition and a feedback system, it’s beliefs are reinforced and it gains the confidence to not be dependent anymore, but rather to be interdependent and go out into the world, learn to play the game of life.</p>
-
-<p><br /><br /></p>
-<ul>
-  <li>
-    <h4 id="modeling-human-intelligence-in-computers"><strong>MODELING HUMAN INTELLIGENCE IN COMPUTERS</strong><br /><br /></h4>
-  </li>
-</ul>
-
-<div class="wrap-pic-max-w p-b-30">
-     <img srcset="
-  https://drive.google.com/uc?id=1xnrq1wO3PFcQ8d0huDGP7Dtwj6gsMW-A 1x,
-  https://drive.google.com/uc?id=1xnrq1wO3PFcQ8d0huDGP7Dtwj6gsMW-A 3x
-" alt="missing image" />
-</div>
-
-<p><br /><br />
-An artificially intelligent computer system uses what is called machine learning algorithm to learn.</p>
-
-<p>An algorithm is a computer program that contains a set of instructions that the computer is supposed to execute in the order written.</p>
-
-<blockquote>
-  <p>Think of  an algorithm as your great grandma’s food recipe that has been passed down to you. You have to follow those steps without skipping anything if you want to prepare the perfect meal.</p>
-</blockquote>
-
-<p>So then what is machine learning?
-Machine learning is a programming technique that provides systems the ability to automatically learn and improve from experience without being explicitly programmed. This means that computer programs can access data and use it learn for themselves. How so?</p>
+<p>Let’s create a Rails API that authenticates users with JWT.</p>
 
 <p><br /></p>
+<h3 id="prerequisites">Prerequisites</h3>
+
 <ul>
-  <li>
-    <h4 id="simple-example-of-intelligence-modeling"><strong>SIMPLE EXAMPLE OF INTELLIGENCE MODELING</strong></h4>
-  </li>
+  <li>postman (desktop version)</li>
 </ul>
-
-<p>Just as a child learns through examples, the same is true of computers. The computer’s machine learning algorithm is fed tons of information for example images of traffic. It is taught that, for example, images that have a certain shape and attributes are called vans and others with a certain shape and attributes are called motorbikes.</p>
-
-<p>Having been taught a little, the algorithm has a bit of understanding about what’s in the traffic images. It is then fed more images and allowed to do the labeling by it’s self. Surprisingly, after the arduous process, it can identify vans and motorbikes from the information with astounding accuracy!
-How was it able to do that?</p>
 
 <p><br /></p>
-<ul>
-  <li>
-    <h4 id="how-the-ai-algorithm-works"><strong>HOW THE AI ALGORITHM WORKS</strong></h4>
-  </li>
-</ul>
+<h3 id="create-the-project">Create the Project</h3>
 
-<p>When it was shown what shape and attributes represented a van and a motorbike, it stored that information in it’s memory and used the same information to group the subsequent images.</p>
+<p>1 . Create a rails API only project.</p>
 
-<p>For the model to learn and be able to apply the knowledge with high accuracy, it has to be fed a staggering amount of information. Just like you had to go through a lot of experiences in life to posses the wisdom you have today, the AI model has to consume a lot of information to become intelligent.</p>
-
-<p><br /><br /><br /></p>
-
-<ul>
-  <li>
-    <h4 id="is-artificial-intelligence-here-with-us"><strong>IS ARTIFICIAL INTELLIGENCE HERE WITH US?</strong><br /><br /></h4>
-  </li>
-</ul>
-
-<div class="wrap-pic-max-w p-b-30">
-     <img srcset="
-  https://drive.google.com/uc?id=1JxkR1_WSa3bItDkTRdrtlKy4-3l0Cj2B 1x,
-  https://drive.google.com/uc?id=1JxkR1_WSa3bItDkTRdrtlKy4-3l0Cj2B 3.5x
-" alt="missing image" />
-</div>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails new jwt_api <span class="nt">--api</span> <span class="nt">-d</span> mysql</code></pre></figure>
 
 <p><br />
-Yes! These technologies already show up in everyday life: helping to organize photos on our smartphones or the car’s navigation system that reroutes you. These are the very basic examples. They take tasks that have historically required considerable human intellect and work through them using computer programming.</p>
+2 . Add JSON Web Token (JWT) and bcrypt gem in <span class="badge">Gemfile</span>.</p>
 
-<p><br /></p>
-<h4 id="conclusion"><strong>CONCLUSION</strong></h4>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># ...</span>
 
-<div class="wrap-pic-max-w p-b-30">
-     <img srcset="
-  https://drive.google.com/uc?id=1IDT0i-N733fQXNLL2gs0YmqYxJHjT8Su 1x,
-  https://drive.google.com/uc?id=1IDT0i-N733fQXNLL2gs0YmqYxJHjT8Su 3.5x
-" alt="missing image" />
-   </div>
-<p><br /></p>
+<span class="c1"># Use JSON Web Token (JWT) for token based authentication</span>
+<span class="n">gem</span> <span class="s2">"jwt"</span>
 
-<p>We are living in the information age. Now more than ever, we have access to more information than we know what to do with thanks to the internet. Every second you spend using a piece of computer powered technology that’s connected to the internet, you’re essentially producing more information. More information means more fuel for Artificial Intelligence.</p>
-
-<p>This is the beginning of a new era. Artificial Intelligence is already opening doors to infinite possibilities. Some people say that Artificial Intelligence is probably humans final invention.</p>
-
-<p>What does it mean? Is reality going to become like what we’ve seen in sci-fi movies? 
-Is this technology going to reprogram itself to the point it functions by it’s own rules and ignores it’s creators just like we humans have done with our own lives?</p>
-
-<p>You don’t have to be scared. Basically, Artificial Intelligence is us. AI at the core is mimicking who we are as humans. It’s mirroring us back to us. And this is good news because eventually we will see who we are, learn and evolve past our limitations as humans on this living organism called earth.</p>
+<span class="c1"># Use ActiveModel has_secure_password</span>
+<span class="n">gem</span> <span class="s2">"bcrypt"</span><span class="p">,</span> <span class="s2">"~&gt; 3.1.7"</span></code></pre></figure>
 
 <p><br />
-<em><strong>In the next article, we will talk about the types of machine learning algorithms and where each is applied in our world.</strong></em></p>
+3 . Bundle up</p>
 
-<p><em>See you on the next tuts</em></p>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span></code></pre></figure>
 
+<p><br />
+4 . Create the database</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails db:create</code></pre></figure>
+
+<p><br />
+5 . Create the user model</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails g model user name:string username:string email:string password_digest:string
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>rails db:migrate</code></pre></figure>
+
+<p><br />
+6 . Require <span class="badge">securerandom</span> for generating session keys.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/user.rb</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="nb">require</span> <span class="s2">"securerandom"</span>
+ 
+  <span class="n">has_secure_password</span>
+ 
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span>
+  <span class="n">validates</span> <span class="ss">:username</span><span class="p">,</span> <span class="ss">presence: </span><span class="kp">true</span><span class="p">,</span> <span class="ss">uniqueness: </span><span class="kp">true</span>
+ 
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+7 . Generate users controller.</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails g controller <span class="nb">users</span></code></pre></figure>
+
+<p><br />
+8 . Add actions in users controller.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">skip_before_action</span> <span class="ss">:authenticate_request</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
+  <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:show</span><span class="p">,</span> <span class="ss">:destroy</span><span class="p">]</span>
+  
+  <span class="c1"># GET /users</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@users</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">all</span>
+    <span class="n">render</span> <span class="ss">json: </span><span class="vi">@users</span><span class="p">,</span> <span class="ss">status: :ok</span>
+  <span class="k">end</span>
+
+  
+  <span class="c1"># GET /users/{username}</span>
+  <span class="k">def</span> <span class="nf">show</span>
+    <span class="n">render</span> <span class="ss">json: </span><span class="vi">@user</span><span class="p">,</span> <span class="ss">status: :ok</span>
+  <span class="k">end</span>
+  
+ 
+  <span class="c1"># POST /users</span>
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">user_params</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">save</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="vi">@user</span><span class="p">,</span> <span class="ss">status: :created</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">errors: </span><span class="vi">@user</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">full_messages</span> <span class="p">},</span> 
+             <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  
+  
+  <span class="c1"># PUT /users/{username}</span>
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="k">unless</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="n">user_params</span><span class="p">)</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">errors: </span><span class="vi">@user</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">full_messages</span> <span class="p">},</span>
+             <span class="ss">status: :unprocessable_entity</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  
+  
+  <span class="c1"># DELETE /users/{username}</span>
+  <span class="k">def</span> <span class="nf">destroy</span>
+    <span class="vi">@user</span><span class="p">.</span><span class="nf">destroy</span>
+  <span class="k">end</span>
+  
+  
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">user_params</span>
+      <span class="n">params</span><span class="p">.</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:username</span><span class="p">,</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
+    <span class="k">end</span>
+  
+  
+    <span class="k">def</span> <span class="nf">set_user</span>
+      <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+    <span class="k">end</span>
+    
+<span class="k">end</span></code></pre></figure>
+
+<p><br /></p>
+
+<p><br />
+9 . Create JsonWebToken concerns in <span class="badge">app/controllers/concerns</span>.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/concerns/json_web_token.rb</span>
+
+<span class="nb">require</span> <span class="s2">"jwt"</span>
+<span class="k">module</span> <span class="nn">JsonWebToken</span>
+  <span class="kp">extend</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Concern</span>
+  <span class="no">SECRET_KEY</span> <span class="o">=</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">secret_key_base</span>
+  
+  
+  <span class="k">def</span> <span class="nf">jwt_encode</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">exp</span> <span class="o">=</span> <span class="mi">7</span><span class="p">.</span><span class="nf">days</span><span class="p">.</span><span class="nf">from_now</span><span class="p">)</span>
+    <span class="n">payload</span><span class="p">[</span><span class="ss">:exp</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp</span><span class="p">.</span><span class="nf">to_i</span>
+    <span class="no">JWT</span><span class="p">.</span><span class="nf">encode</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="no">SECRET_KEY</span><span class="p">)</span>
+  <span class="k">end</span>
+
+
+  <span class="k">def</span> <span class="nf">jwt_decode</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="n">decoded</span> <span class="o">=</span> <span class="no">JWT</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="no">SECRET_KEY</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="no">HashWithIndifferentAccess</span><span class="p">.</span><span class="nf">new</span> <span class="n">decoded</span>
+  <span class="k">end</span>
+  
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+10 . Create authenticate_request method in <span class="badge">app/controllers/application_controller.rb</span>.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">API</span>
+  <span class="kp">include</span> <span class="no">JsonWebToken</span>
+  
+  <span class="n">before_action</span> <span class="ss">:authenticate_request</span>
+  
+  <span class="kp">private</span>
+    <span class="k">def</span> <span class="nf">authenticate_request</span>
+      <span class="n">header</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span>
+      <span class="n">header</span> <span class="o">=</span> <span class="n">header</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">).</span><span class="nf">last</span> <span class="k">if</span> <span class="n">header</span>
+      <span class="n">decoded</span> <span class="o">=</span> <span class="n">jwt_decode</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+      <span class="vi">@current_user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">decoded</span><span class="p">[</span><span class="ss">:user_id</span><span class="p">])</span>
+    <span class="k">end</span>
+
+<span class="k">end</span></code></pre></figure>
+
+<p><br /> 
+11 . Create authentication controller and add the login method.</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails g controller authentication</code></pre></figure>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/concerns/authentication_controller.rb</span>
+
+<span class="k">class</span> <span class="nc">AuthenticationController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">skip_before_action</span> <span class="ss">:authenticate_request</span>
+  
+  
+  <span class="c1"># POST /auth/login</span>
+  <span class="k">def</span> <span class="nf">login</span>
+    <span class="vi">@user</span> <span class="o">=</span><span class="no">User</span><span class="p">.</span><span class="nf">find_by_email</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:email</span><span class="p">])</span>
+    <span class="k">if</span> <span class="vi">@user</span><span class="o">&amp;</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
+      <span class="n">token</span> <span class="o">=</span> <span class="n">jwt_encode</span><span class="p">(</span><span class="ss">user_id: </span><span class="vi">@user</span><span class="p">.</span><span class="nf">id</span><span class="p">)</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">token: </span><span class="n">token</span> <span class="p">},</span> <span class="ss">status: :ok</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">error: </span><span class="s1">'unauthorized'</span> <span class="p">},</span> <span class="ss">status: :unauthorized</span>
+    <span class="k">end</span> 
+  <span class="k">end</span>
+
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+12 . Update routes</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>  
+  <span class="n">resources</span> <span class="ss">:users</span>
+  <span class="n">post</span> <span class="s2">"/auth/login"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"authentication#login"</span> 
+<span class="k">end</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="test-the-application-via-postman">Test the application via postman</h3>
+
+<p>1 . Create a user</p>
+
+<p>Notice the response containing the created user data at the bottom.</p>
+
+<p><img class="zoom-on-hover" srcset="   /assets/img/posts/postman_1.png 1.3x,   /assets/img/posts/postman_1.png 2.8x " alt="missing image" /></p>
+
+<p><br />
+2 . Login</p>
+
+<p>Notice the response containing the authorization token at the bottom.</p>
+
+<p><img class="zoom-on-hover" srcset="   /assets/img/posts/postman_2.png 1.3x,   /assets/img/posts/postman_2.png 2.8x " alt="missing image" /></p>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
 
    </div>
 

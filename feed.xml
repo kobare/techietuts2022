@@ -1,4 +1,232 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-09-04T09:15:53+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Ruby Array Methods [P - S]</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202209/ruby-array-methods-p-s" rel="alternate" type="text/html" title="Ruby Array Methods [P - S]" /><published>2022-09-01T04:00:00+03:00</published><updated>2022-09-01T04:00:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202209/ruby-array-methods-p-s</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202209/ruby-array-methods-p-s">&lt;h3 id=&quot;1--push&quot;&gt;1 . push()&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-09-26T09:00:42+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Creating a Rails API With Jason Web Token (JWT) Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication" rel="alternate" type="text/html" title="Creating a Rails API With Jason Web Token (JWT) Authentication" /><published>2022-09-22T05:45:00+03:00</published><updated>2022-09-22T05:45:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Token based authentication is an alternative method to session-based authentication. 
+The server creates a web token (JWT), encodes, serializes and signs it with 
+its own secret key so that when it’s tampered with, the server will know and reject it.&lt;/p&gt;
+
+&lt;p&gt;Because the JWT created contains all the information about the user, it is sent to the browser,
+and so the server does not need to store information about the user.&lt;/p&gt;
+
+&lt;p&gt;Let’s create a Rails API that authenticates users with JWT.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;postman (desktop version)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;create-the-project&quot;&gt;Create the Project&lt;/h3&gt;
+
+&lt;p&gt;1 . Create a rails API only project.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails new jwt_api &lt;span class=&quot;nt&quot;&gt;--api&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; mysql&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . Add JSON Web Token (JWT) and bcrypt gem in &lt;span class=&quot;badge&quot;&gt;Gemfile&lt;/span&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Use JSON Web Token (JWT) for token based authentication&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;jwt&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Use ActiveModel has_secure_password&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bcrypt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;~&amp;gt; 3.1.7&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Bundle up&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+4 . Create the database&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:create&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+5 . Create the user model&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g model user name:string username:string email:string password_digest:string
+&lt;span class=&quot;go&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:migrate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+6 . Require &lt;span class=&quot;badge&quot;&gt;securerandom&lt;/span&gt; for generating session keys.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/user.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;securerandom&quot;&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;has_secure_password&lt;/span&gt;
+ 
+  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;presence: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;presence: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;presence: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;uniqueness: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+ 
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+7 . Generate users controller.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g controller &lt;span class=&quot;nb&quot;&gt;users&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+8 . Add actions in users controller.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UsersController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;skip_before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:authenticate_request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;only: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:set_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;only: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;# GET /users&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :ok&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  
+  &lt;span class=&quot;c1&quot;&gt;# GET /users/{username}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :ok&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+ 
+  &lt;span class=&quot;c1&quot;&gt;# POST /users&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :created&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;errors: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;full_messages&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
+             &lt;span class=&quot;ss&quot;&gt;status: :unprocessable_entity&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  
+  &lt;span class=&quot;c1&quot;&gt;# PUT /users/{username}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;errors: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;full_messages&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+             &lt;span class=&quot;ss&quot;&gt;status: :unprocessable_entity&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  
+  &lt;span class=&quot;c1&quot;&gt;# DELETE /users/{username}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;destroy&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;destroy&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;user_params&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;permit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;set_user&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+9 . Create JsonWebToken concerns in &lt;span class=&quot;badge&quot;&gt;app/controllers/concerns&lt;/span&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/controllers/concerns/json_web_token.rb&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;jwt&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;JsonWebToken&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Concern&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;SECRET_KEY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;secret_key_base&lt;/span&gt;
+  
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;jwt_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;from_now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_i&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;JWT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SECRET_KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;jwt_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;decoded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JWT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SECRET_KEY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;HashWithIndifferentAccess&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;decoded&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+10 . Create authenticate_request method in &lt;span class=&quot;badge&quot;&gt;app/controllers/application_controller.rb&lt;/span&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;API&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JsonWebToken&lt;/span&gt;
+  
+  &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:authenticate_request&lt;/span&gt;
+  
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;authenticate_request&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;header&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Authorization&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;header&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;last&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;decoded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jwt_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@current_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;decoded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt; 
+11 . Create authentication controller and add the login method.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g controller authentication&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/controllers/concerns/authentication_controller.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AuthenticationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;skip_before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:authenticate_request&lt;/span&gt;
+  
+  
+  &lt;span class=&quot;c1&quot;&gt;# POST /auth/login&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;login&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_by_email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jwt_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;user_id: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;token: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :ok&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;error: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;unauthorized&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :unauthorized&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; 
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+12 . Update routes&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;draw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;  
+  &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/auth/login&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;to: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;authentication#login&quot;&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;test-the-application-via-postman&quot;&gt;Test the application via postman&lt;/h3&gt;
+
+&lt;p&gt;1 . Create a user&lt;/p&gt;
+
+&lt;p&gt;Notice the response containing the created user data at the bottom.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;zoom-on-hover&quot; srcset=&quot;   /assets/img/posts/postman_1.png 1.3x,   /assets/img/posts/postman_1.png 2.8x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . Login&lt;/p&gt;
+
+&lt;p&gt;Notice the response containing the authorization token at the bottom.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;zoom-on-hover&quot; srcset=&quot;   /assets/img/posts/postman_2.png 1.3x,   /assets/img/posts/postman_2.png 2.8x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Ruby Array Methods [P - S]</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202209/ruby-array-methods-p-s" rel="alternate" type="text/html" title="Ruby Array Methods [P - S]" /><published>2022-09-01T04:00:00+03:00</published><updated>2022-09-01T04:00:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202209/ruby-array-methods-p-s</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202209/ruby-array-methods-p-s">&lt;h3 id=&quot;1--push&quot;&gt;1 . push()&lt;/h3&gt;
 &lt;p&gt;Appends each argument in objects to the array and returns the array.
 This method is an alias for &lt;span class=&quot;badge&quot;&gt;append&lt;/span&gt; method.&lt;/p&gt;
 
@@ -2984,513 +3212,4 @@ Tests also acts as detailed specifications of a feature or application and as do
   &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">The OSI Model</title><link href="http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model" rel="alternate" type="text/html" title="The OSI Model" /><published>2022-07-05T13:40:00+03:00</published><updated>2022-07-05T13:40:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/networking/concepts/202207/osi-model">&lt;style&gt;
-
-@media screen and (min-width: 800px) {  
-  .grid-container-x {
-    display: grid;
-    grid-gap: 0;
-    background-color: #aaa;
-    padding: 0;
-  }
-
-  .grid-item-x {
-    background-color: rgba(255, 255, 255, 0.8);
-    xtext-align: center;
-    padding: 0 20px 0 20px;
-  }
-
-  .item1 {
-    grid-column: 2 / span 2;
-    grid-row: 1;
-  }
-
-  .item2 {
-    grid-column: 1;
-    grid-row: 2 / span 1;
-  }
-
-  .item5 {
-    grid-column: 1;
-    grid-row: 1 / span 1;
-  }
-
-  .item6 {
-    grid-column: 1;
-    grid-row: 3 / span 1;
-  }
-
-  .item7 {
-    grid-column: 1;
-    grid-row: 4 / span 1;
-  }
-
-  .item8 {
-    grid-column: 2 / span 2;
-   grid-row: 3 / span 1;
-  }    
-}
-
-
-.text-center {
-  text-align: center;
-}
-
-
-.grey-h {
-  background-color: #bdc3c7;
-}
-
-&lt;/style&gt;
-
-&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-
-&lt;p&gt;The Open System Interconnection (OSI) model is a conceptual framework consisting of seven layers that describe the universal standard of communication functions of a telecommunication system or computing system.&lt;/p&gt;
-
-&lt;p&gt;Even though the modern internet uses the OSI model to help visualize how networks function, the simpler TCP/IP model is used for practical application. 
-The updated TCP/IP model is similar to the OSI model, the only difference is that it has only 5 layers since it collapses layers 5, 6 and 7 onto just the Application layer.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img srcset=&quot;/assets/img/posts/osi_model.png 2x, /assets/img/posts/osi_model.png 4x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1-physical-layer-layer-1&quot;&gt;1. Physical Layer (Layer 1)&lt;/h3&gt;
-
-&lt;p&gt;This layer deals with physical transmission media. It essentially puts the data on the physical media as bits and receives it in the same way.
-Connectors, pinouts, cables, electrical currents are defined within this layer.&lt;/p&gt;
-
-&lt;div class=&quot;grid-container-x&quot;&gt;
-  &lt;div class=&quot;grid-item-x item5&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item2&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Encoding and signaling.&lt;/li&gt;
-    &lt;li&gt;Physical data transmission.&lt;/li&gt;
-    &lt;li&gt;Hardware specifications.&lt;/li&gt;
-    &lt;li&gt;Topology and design.&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item1&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item3&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Bluetooth&lt;/li&gt;
-    &lt;li&gt;Ethernet&lt;/li&gt;
-    &lt;li&gt;DSL&lt;/li&gt;
-    &lt;li&gt;ISDN&lt;/li&gt;
-    &lt;li&gt;802.11&lt;/li&gt;
-    &lt;li&gt;Wi-Fi&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item4&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;IEEE 802.3&lt;/li&gt;
-    &lt;li&gt;IEEE 802.15&lt;/li&gt;
-    &lt;li&gt;IEEE 802.16&lt;/li&gt;
-    &lt;li&gt;IEEE 1394&lt;/li&gt;
-    &lt;li&gt;USB&lt;/li&gt;
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item6&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
-  &lt;/div&gt; 
-  &lt;div class=&quot;grid-item-x item7&quot;&gt;
-   &lt;ul&gt;  
-    &lt;li&gt;Bits&lt;/li&gt;
-   &lt;/ul&gt;     
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item8&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Network hubs&lt;/li&gt;
-    &lt;li&gt;Cabling&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Repeaters&lt;/li&gt;
-    &lt;li&gt;Network adapters or modems&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;      
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2-data-link-layer-layer-2&quot;&gt;2. Data Link Layer (Layer 2)&lt;/h3&gt;
-
-&lt;p&gt;This is the second layer of the model. It handles data transfer between nodes on a network segment across the physical layer.&lt;/p&gt;
-
-&lt;div class=&quot;grid-container-x&quot;&gt;
-  &lt;div class=&quot;grid-item-x item5&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item2&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Logical Link Control(LLC).&lt;/li&gt;
-    &lt;li&gt;Media Access Control (MAC).&lt;/li&gt;
-    &lt;li&gt;Data framing.&lt;/li&gt;
-    &lt;li&gt;Addressing.&lt;/li&gt;
-    &lt;li&gt;Error detection and handling.&lt;/li&gt;
-    &lt;li&gt;Defining requirements of physical layer.&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item1&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item3&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;ARP&lt;/li&gt;
-    &lt;li&gt;ATM&lt;/li&gt;
-    &lt;li&gt;CDP&lt;/li&gt;
-    &lt;li&gt;FDDI&lt;/li&gt;
-    &lt;li&gt;Frame Relay&lt;/li&gt;
-    &lt;li&gt;HDLC&lt;/li&gt;
-    &lt;li&gt;MPLS&lt;/li&gt;
-    &lt;li&gt;PPP&lt;/li&gt;        
-   &lt;/ul&gt;   
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item4&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;STP&lt;/li&gt;
-    &lt;li&gt;Token Ring&lt;/li&gt;
-    &lt;li&gt;SDLC&lt;/li&gt;
-    &lt;li&gt;IEEE 802.3&lt;/li&gt;
-    &lt;li&gt;Frame Relay&lt;/li&gt;
-    &lt;li&gt;ITU-T G.hn DLL&lt;/li&gt;
-    &lt;li&gt;X.25&lt;/li&gt;      
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item6&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
-  &lt;/div&gt; 
-  &lt;div class=&quot;grid-item-x item7&quot;&gt;
-   &lt;ul&gt;  
-    &lt;li&gt;Frames&lt;/li&gt;
-   &lt;/ul&gt;     
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item8&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Bridge&lt;/li&gt;
-    &lt;li&gt;Switch&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Access point&lt;/li&gt;    
-   &lt;/ul&gt;   
-  &lt;/div&gt;      
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3-network-layer-layer-3&quot;&gt;3. Network Layer (Layer 3)&lt;/h3&gt;
-
-&lt;p&gt;The network layer receives frames from the data link layer, and delivers them to their intended destinations among based on the addresses contained inside the frame.
-It is responsible for packet forwarding including routing through intermediate routers.&lt;/p&gt;
-
-&lt;div class=&quot;grid-container-x&quot;&gt;
-  &lt;div class=&quot;grid-item-x item5&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item2&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Routing&lt;/li&gt;
-    &lt;li&gt;Logical addressing&lt;/li&gt;
-    &lt;li&gt;Datagram encapsulation&lt;/li&gt;
-    &lt;li&gt;Fragmentation and reassembly&lt;/li&gt;
-    &lt;li&gt;Error handling and diagnostics&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item1&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item3&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;ICMP&lt;/li&gt;
-    &lt;li&gt;IGMP&lt;/li&gt;
-    &lt;li&gt;IPsec&lt;/li&gt;
-    &lt;li&gt;IPv4&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item4&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;IPv6&lt;/li&gt;
-    &lt;li&gt;IPX&lt;/li&gt;
-    &lt;li&gt;RIP&lt;/li&gt;
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item6&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
-  &lt;/div&gt; 
-  &lt;div class=&quot;grid-item-x item7&quot;&gt;
-   &lt;ul&gt;  
-    &lt;li&gt;Packets&lt;/li&gt;
-   &lt;/ul&gt;     
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item8&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Routers&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &amp;nbsp;   
-   &lt;/ul&gt;   
-  &lt;/div&gt;      
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;4-transport-layer-layer-4&quot;&gt;4. Transport Layer (Layer 4)&lt;/h3&gt;
-
-&lt;p&gt;The transport layer layer provides end-to-end communication services for applications by collecting message segments from applications, and transmitting them into the network.&lt;/p&gt;
-
-&lt;div class=&quot;grid-container-x&quot;&gt;
-  &lt;div class=&quot;grid-item-x item5&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item2&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Segmentation and reassembly&lt;/li&gt;
-    &lt;li&gt;Proccess-level addresing&lt;/li&gt;
-    &lt;li&gt;Connections&lt;/li&gt;
-    &lt;li&gt;Multiplexing/demultiplexing&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item1&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item3&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;TCP&lt;/li&gt;
-    &lt;li&gt;UDP&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item4&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;SCTP&lt;/li&gt;
-    &lt;li&gt;DCCP&lt;/li&gt;
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item6&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
-  &lt;/div&gt; 
-  &lt;div class=&quot;grid-item-x item7&quot;&gt;
-   &lt;ul&gt;  
-    &lt;li&gt;Segment&lt;/li&gt;
-   &lt;/ul&gt;     
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item8&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Gateways&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Firewalls&lt;/li&gt;   
-   &lt;/ul&gt;   
-  &lt;/div&gt;      
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;5-session-layer-layer-5&quot;&gt;5. Session Layer (Layer 5)&lt;/h3&gt;
-
-&lt;p&gt;The session layer manages connections (sessions) between end-user application processes. Essentially, it tracks the dialogs between systems, which are also called sessions.&lt;/p&gt;
-
-&lt;div class=&quot;grid-container-x&quot;&gt;
-  &lt;div class=&quot;grid-item-x item5&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item2&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Data synchronization&lt;/li&gt;
-    &lt;li&gt;Management and termination&lt;/li&gt;
-    &lt;li&gt;Session establishment&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item1&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item3&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;NetBIOS&lt;/li&gt;
-    &lt;li&gt;NFS&lt;/li&gt;
-    &lt;li&gt;PAP&lt;/li&gt;
-    &lt;li&gt;SCP&lt;/li&gt;
-    &lt;li&gt;SQL&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item4&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;ZIP&lt;/li&gt;
-    &lt;li&gt;SAP&lt;/li&gt;
-    &lt;li&gt;SIP&lt;/li&gt;
-    &lt;li&gt;L2TP&lt;/li&gt;
-    &lt;li&gt;PPTP&lt;/li&gt;
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item6&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
-  &lt;/div&gt; 
-  &lt;div class=&quot;grid-item-x item7&quot;&gt;
-   &lt;ul&gt;  
-    &lt;li&gt;Data&lt;/li&gt;
-   &lt;/ul&gt;     
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item8&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Gateways&lt;/li&gt;
-    &lt;li&gt;Firewalls&lt;/li&gt;    
-   &lt;/ul&gt;   
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;PC’s&lt;/li&gt;   
-   &lt;/ul&gt;   
-  &lt;/div&gt;      
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;6-presentation-layer-layer-6&quot;&gt;6. Presentation Layer (Layer 6)&lt;/h3&gt;
-
-&lt;p&gt;The presentation layer presents the data in a readable format to the application layer.&lt;/p&gt;
-
-&lt;div class=&quot;grid-container-x&quot;&gt;
-  &lt;div class=&quot;grid-item-x item5&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item2&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Data format and translation&lt;/li&gt;
-    &lt;li&gt;Compression and decompression&lt;/li&gt;
-    &lt;li&gt;Encryption and decryption&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item1&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item3&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;JPEG&lt;/li&gt;
-    &lt;li&gt;MIDI&lt;/li&gt;
-    &lt;li&gt;MPEG&lt;/li&gt;
-    &lt;li&gt;PICT&lt;/li&gt;
-    &lt;li&gt;TIFF&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item4&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;MIME&lt;/li&gt;
-    &lt;li&gt;XDR&lt;/li&gt;
-    &lt;li&gt;TLS&lt;/li&gt;
-    &lt;li&gt;SSL&lt;/li&gt;
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item6&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
-  &lt;/div&gt; 
-  &lt;div class=&quot;grid-item-x item7&quot;&gt;
-   &lt;ul&gt;  
-    &lt;li&gt;Data&lt;/li&gt;
-   &lt;/ul&gt;     
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item8&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Gateways&lt;/li&gt;
-    &lt;li&gt;Firewalls&lt;/li&gt;    
-   &lt;/ul&gt;   
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;PC’s&lt;/li&gt;   
-   &lt;/ul&gt;   
-  &lt;/div&gt;      
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;7-application-layer-layer-7&quot;&gt;7. Application Layer (Layer 7)&lt;/h3&gt;
-
-&lt;p&gt;The application layer is used by end-user software such as web browsers and email clients. It provides an interface between the software application on a system and the network, hence does not include the application itself, but provides services that an application requires.&lt;/p&gt;
-
-&lt;div class=&quot;grid-container-x&quot;&gt;
-  &lt;div class=&quot;grid-item-x item5&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Functions&lt;/h4&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item2&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Manages user application services&lt;/li&gt;
-   &lt;/ul&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item1&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocols&lt;/h4&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item3&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;DNS&lt;/li&gt;
-    &lt;li&gt;DHCP&lt;/li&gt;
-    &lt;li&gt;FTP&lt;/li&gt;
-    &lt;li&gt;HTTPS&lt;/li&gt;
-    &lt;li&gt;IMAP&lt;/li&gt;
-    &lt;li&gt;LDAP&lt;/li&gt;
-    &lt;li&gt;NTP&lt;/li&gt;
-    &lt;li&gt;PO3&lt;/li&gt;
-    &lt;li&gt;RTP&lt;/li&gt;
-    &lt;li&gt;RTSP&lt;/li&gt;
-   &lt;/ul&gt;   
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item4&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;SSH&lt;/li&gt;
-    &lt;li&gt;SIP&lt;/li&gt;
-    &lt;li&gt;SMTP&lt;/li&gt;
-    &lt;li&gt;SNMP&lt;/li&gt;
-    &lt;li&gt;SMPP&lt;/li&gt;
-    &lt;li&gt;Telnet&lt;/li&gt;
-    &lt;li&gt;TFTP&lt;/li&gt;
-    &lt;li&gt;NFS&lt;/li&gt;
-    &lt;li&gt;Gopher&lt;/li&gt;
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item6&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Protocol Data Unit(PDU)&lt;/h4&gt;
-  &lt;/div&gt; 
-  &lt;div class=&quot;grid-item-x item7&quot;&gt;
-   &lt;ul&gt;  
-    &lt;li&gt;Data&lt;/li&gt;
-   &lt;/ul&gt;     
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item8&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Devices&lt;/h4&gt;
-  &lt;/div&gt;  
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;Gateways&lt;/li&gt;
-    &lt;li&gt;Firewalls&lt;/li&gt;    
-   &lt;/ul&gt;   
-  &lt;/div&gt;
-  &lt;div class=&quot;grid-item-x item9&quot;&gt;
-   &lt;ul&gt;
-    &lt;li&gt;PC’s&lt;/li&gt;
-    &lt;li&gt;Phones&lt;/li&gt;
-    &lt;li&gt;Servers&lt;/li&gt;        
-   &lt;/ul&gt;   
-  &lt;/div&gt;      
-&lt;/div&gt;
-
-&lt;p&gt;&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html"></summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry></feed>
