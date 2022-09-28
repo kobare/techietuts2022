@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Dockerize A Rails App - Techietuts</title>
+ <title>Token-Based Authentication - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Dockerize A Rails App" />
+<meta property="og:title" content="Token-Based Authentication" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Definition" />
-<meta property="og:description" content="Definition" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app" />
+<meta name="description" content="Definition A token is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications." />
+<meta property="og:description" content="Definition A token is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications." />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/token-based-authentication" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/token-based-authentication" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-04-19T12:40:00+03:00" />
+<meta property="article:published_time" content="2022-09-27T06:00:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Dockerize A Rails App" />
+<meta property="twitter:title" content="Token-Based Authentication" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Definition","headline":"Dockerize A Rails App","dateModified":"2022-04-19T12:40:00+03:00","datePublished":"2022-04-19T12:40:00+03:00","url":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/ruby-on-rails/concepts/202204/dockerize-a-rails-app"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Definition A token is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications.","headline":"Token-Based Authentication","dateModified":"2022-09-27T06:00:00+03:00","datePublished":"2022-09-27T06:00:00+03:00","url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/token-based-authentication","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/token-based-authentication"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,270 +909,75 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Dockerize A Rails App</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Token-Based Authentication</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> September 2022</p>
     <div>
                 <!-- Page content object inserted below -->
         <h3 id="definition">Definition</h3>
+<p>A token is a string that the server generates for the client that can be passed along 
+inside an http request, effectively transferring authentication-related data between a client 
+and a server or between applications.</p>
 
-<p>Dockerizing an application, packages it in a docker image that can be run in a container and easily scaled by generating more instances. These containers can also be run in different machines without requiring extra configurations since environment configurations are encapsulated and reporduced.</p>
-
-<p>During the process, we specify everything needed to run the application and the instructions for creating the docker image in a special file called Dockerfile (with no extension).</p>
-
-<p>Since we can only have one application or service per container, the database has to be encapsulated in a separate container. Another file called docker-compose (a yaml file) is used to provide the instructions for spinning up a docker container with the database inter-linked with the app.</p>
-
-<p>NB: Every docker container has it’s own networking interface i.e like Operating Systems running in different networks with different IP addresses. If you open the terminal and run the ifconfig command, you will see the docker containers’ network interfaces in addition to your local machine’s network interface.</p>
-
-<p><br />
-<em><u>This document assumes that you already have Docker installed on your operating system.</u></em></p>
+<p>The token stores user credentials and data in a secure manner and is able to 
+verify that the data is correct and was not tampered with. It therefore simplifies the 
+authentication process for known users.</p>
 
 <p><br /></p>
-<h3 id="create-the-dockerfile">Create the Dockerfile</h3>
-<p>At the root of the rails project, create a file called Dockerfile, with no extension. Let’s add the following in a stepwise fashion:</p>
+<h3 id="components-of-an-authentication-token">Components of an Authentication Token</h3>
+
+<p>An authentication token consists of three parts:</p>
+
+<p>1 . The header: defines the token type being used, as well as the signing algorithm involved.</p>
+
+<p>2 . The payload: defines the token issuer and the token’s 
+expiration details and provides information about the user or other metadata.</p>
+
+<p>3 . The signature: Guarantees the integrity and authenticity of the claims in the payload.</p>
+
+<p><br /></p>
+<h3 id="token-based-authentication-process">Token-Based Authentication Process</h3>
+
+<p><img class="zoom-on-hover" srcset="   /assets/img/posts/token_authentication.png 1.3x,   /assets/img/posts/token_authentication.png 2.8x " alt="missing image" /></p>
+
+<p>The idea is that the client application exchanges authentication credentials for 
+an authentication token and in subsequent requests, just sends the token. When 
+the server receives the token, it can then look up the credentials of the user 
+and determine whether or not it is authorized to the information it is requesting.</p>
+
+<p>Tokens are usually given out with an expiration time, after which they become 
+invalid and a new token needs to be obtained. The potential damage that can be 
+done if a token is leaked is much smaller due to their short life span. A server 
+can easily determine if a token is too old and decide to reject it if it doesnt view it as valid.</p>
+
+<p><br /></p>
+<h3 id="types-of-token-based-authentication">Types of Token-Based Authentication</h3>
+
+<p>1 . Connected Tokens</p>
+
+<p>Connected tokens are physical devices that users must plug in to their computer or system for authentication. Examples include smart cards and Universal Serial Bus (USB) devices, as well as discs, drives, and keys.</p>
 
 <p><br />
-1 . Add an operating system containing the project’s version of ruby using the “from” primitive.</p>
+2 . Contactless Tokens</p>
 
-<p>Alpine Linux is a lightweight operating system and therefore a great fit for docker containers or any system that is network-based and dedicated for a single purpose only, like in the case of routers.</p>
+<p>Contactless tokens uses a wireless connection to access the system. An example of this is Microsoft’s ring device Token, which is a wearable ring that enables users to quickly and seamlessly log in to their Windows 10 device without entering a password.</p>
 
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"><span class="k">From</span><span class="s"> ruby:3.1.0-alpine</span></code></pre></figure>
+<p><br />
+3 . Disconnected Tokens</p>
 
-<p><br />    <br />
-2 . Add database dependencies and other project dependencies.</p>
-
-<p>This example uses a postgres database. Project dependencies may vary depending on the rails project.</p>
-
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"><span class="k">RUN </span>apk add <span class="nt">--update</span> <span class="nt">--virtual</span> <span class="se">\
-</span> runtime-deps <span class="se">\
-</span> postgresql-client <span class="se">\
-</span> build-base <span class="se">\
-</span> libxml2-dev <span class="se">\
-</span> libxslt-dev <span class="se">\
-</span> nodejs <span class="se">\
-</span> yarn <span class="se">\
-</span> libffi-dev <span class="se">\
-</span> readline <span class="se">\
-</span> postgresql-dev <span class="se">\
-</span> libc-dev <span class="se">\
-</span> linux-headers <span class="se">\
-</span> readline-dev <span class="se">\
-</span> file <span class="se">\
-</span> imagemagick <span class="se">\
-</span> git <span class="se">\
-</span> tzdata <span class="se">\
-</span> <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <span class="nt">-rf</span> /var/cache/apk/<span class="k">*</span></code></pre></figure>
-
-<p>Remove the package manager cache: The “ &amp;&amp; rm -rf /var/cache/apk/* “ removes all the installation files that were downloaded for the project dependencies, to free up space for the docker image.</p>
+<p>Disconnected tokens work by setting up a device to generate one-time access codes, which serve as part of 2FA or MFA. A good example of this is entering a code on a mobile phone for two-factor authentication (2FA).</p>
 
 <p><br /> 
-3 .  Create a directory called “app” to put our project in the root of the docker image.</p>
+4 . JSON Web Token (JWT)</p>
 
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> WORKDIR /app</code></pre></figure>
+<p>JSON Web Tokens (JWTs) enable secure communication between two parties through 
+an open industry standard, Request For Comments 7519 (RFC 7519). This defines a 
+simple, self-contained method for transmitting information between parties securely.</p>
 
-<p><br />     <br />
-4 . Copy the contents of the current directory (rails project) to the app directory created in step 3 above. The period stands for the current directory path.</p>
-
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> COPY . /app/       </code></pre></figure>
-
-<p><br />
-5 . Set gems location.</p>
-
-<p>We want to save our project’s gems in a directory called gems at the root of the docker image. This overrides the default location.</p>
-
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> ENV BUNDLE_PATH /gems</code></pre></figure>
-
-<p><br />
-6 . Install yarn and then bundle.</p>
-
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> RUN yarn install
- RUN bundle install</code></pre></figure>
-
-<p><br />    <br />
-7 . Define the entry point.</p>
-
-<p>This defines the command to be run when the docker image is started.</p>
-
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> ENTRYPOINT ["bin/rails"]  </code></pre></figure>
-
-<p><br />
-8 . Bind the server to 0.0.0.0</p>
-
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> CMD ["s", "-b", "0.0.0.0"]</code></pre></figure>
-
-<p><br />    <br />
-9 . Expose the port for the project.</p>
-
-<p>Normally, rails apps run on port 3000</p>
-
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"> EXPOSE 3000</code></pre></figure>
-
-<p><br />    <br />
-10 . Final Dockerfile.</p>
-
-<figure class="highlight"><pre><code class="language-dockerfile" data-lang="dockerfile"><span class="k">From</span><span class="s"> ruby:3.1.0-alpine</span>
-<span class="k">RUN </span>apk add <span class="nt">--update</span> <span class="nt">--virtual</span> <span class="se">\
-</span> runtime-deps <span class="se">\
-</span> postgresql-client <span class="se">\
-</span> build-base <span class="se">\
-</span> libxml2-dev <span class="se">\
-</span> libxslt-dev <span class="se">\
-</span> nodejs <span class="se">\
-</span> yarn <span class="se">\
-</span> libffi-dev <span class="se">\
-</span> readline <span class="se">\
-</span> postgresql-dev <span class="se">\
-</span> libc-dev <span class="se">\
-</span> linux-headers <span class="se">\
-</span> readline-dev <span class="se">\
-</span> file <span class="se">\
-</span> imagemagick <span class="se">\
-</span> git <span class="se">\
-</span> tzdata <span class="se">\
-</span> <span class="o">&amp;&amp;</span> <span class="nb">rm</span> <span class="nt">-rf</span> /var/cache/apk/<span class="k">*</span>
-
-
- WORKDIR /app
- COPY . /app/
- 
- ENV BUNDLE_PATH /gems
- RUN yarn install 
- RUN bundle install
- 
- ENTRYPOINT ["bin/rails"]
- CMD ["s", "-b", "0.0.0.0"]
- 
- EXPOSE 3000  </code></pre></figure>
-
-<p><br />
-11 . Build the Dockerfile.</p>
-
-<p>cd to the root of your project and run this command.</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">--tag</span> app_name path_to_the_docker_file</code></pre></figure>
-
-<p>e.g</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">--tag</span> myapp .</code></pre></figure>
-
-<p><br />
-If you have an account on docker, you can you can specify your account name like so:</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">--tag</span> techietuts/myapp .</code></pre></figure>
-
-<p><br />
-You can also specify the version number like so:</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">--tag</span> techietuts/myapp:1.0 .</code></pre></figure>
-
-<p><br />
-12 . Run the docker app</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker run <span class="nt">-p</span> 3005:3000 myapp</code></pre></figure>
-
-<p><em>NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can allow an attacker to escalate privileges on the host. Always specify a user with least privileges in the Dockerfile.</em></p>
-
-<p>The first (local’s) port is beeing mapped to the second (container’s )port. Open the browser and navigate to the localhost on port 3005.</p>
-
-<p>You’ll get an error because the containerized app has a different networking interface and cannot connect to the database on the local machine. To fix that, we have to spin up other containers that will contain the database servers. Before that, shutdown the server and follow the next step.</p>
-
-<p><br /><br /></p>
-<h3 id="create-database-servers-with-docker-compose">Create Database Servers with docker-compose</h3>
-
-<p>1 . Create a docker-compose File</p>
-
-<p>Create a docker-compose.yml file at the root of the project and add the following:</p>
-
-<p><br />
-2 . Define docker-compose file version</p>
-
-<p>It’s important to provide the supported version.</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.8'</span>    </code></pre></figure>
-
-<p><br />
-3 . Define the services</p>
-
-<p>Services can include postgres server, redis server, rails app created in Dockerfile (then referenced using volumes key) etc</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">services</span><span class="pi">:</span>
- <span class="na">db</span><span class="pi">:</span> 
-   <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:latest</span>
-   <span class="na">environment</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">POSTGRES_PASSWORD=password</span>
-   <span class="na">ports</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s2">"</span><span class="s">5432:5432"</span>
-   <span class="na">volumes</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s2">"</span><span class="s">dbdata:/var/lib/postgresql/data"</span>  
-              
- <span class="na">redis</span><span class="pi">:</span>
-   <span class="na">image</span><span class="pi">:</span> <span class="s">redis:latest</span>
-   <span class="na">ports</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s2">"</span><span class="s">6379:6379"</span>
-
- <span class="na">web</span><span class="pi">:</span>
-   <span class="na">build</span><span class="pi">:</span> <span class="s">.</span> 
-   <span class="na">ports</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s2">"</span><span class="s">3005:3000"</span>
-   <span class="na">depends_on</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">db</span>
-     <span class="pi">-</span> <span class="s">redis</span>  
-   <span class="na">environment</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">DATABASE_URL=postgres://postgres:password@db:5432/postgres</span>  
-     <span class="pi">-</span> <span class="s">REDIS_URL=redis://redis:6379</span>
-   <span class="na">volumes</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">.:/app</span>
-
-<span class="na">volumes</span><span class="pi">:</span>
-  <span class="na">dbdata</span><span class="pi">:</span>     </code></pre></figure>
-
-<p>NB: Notice how we used volumes key to persist the postgres data so that we dont lose it when the app restarts.</p>
-
-<p><br />
-The final docker-compose.yml file should resemble this:</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.8'</span>
-<span class="na">services</span><span class="pi">:</span>
- <span class="na">db</span><span class="pi">:</span> 
-   <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:latest</span>
-   <span class="na">environment</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">POSTGRES_PASSWORD=password</span>
-   <span class="na">ports</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s2">"</span><span class="s">5433:5432"</span>
-   <span class="na">volumes</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s2">"</span><span class="s">dbdata:/var/lib/postgresql/data"</span>  
-              
- <span class="na">redis</span><span class="pi">:</span>
-   <span class="na">image</span><span class="pi">:</span> <span class="s">redis:latest</span>
-   <span class="na">ports</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s2">"</span><span class="s">6379:6379"</span>
-
- <span class="na">web</span><span class="pi">:</span>
-   <span class="na">build</span><span class="pi">:</span> <span class="s">.</span> 
-   <span class="na">ports</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s2">"</span><span class="s">3005:3000"</span>
-   <span class="na">depends_on</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">db</span>
-     <span class="pi">-</span> <span class="s">redis</span>  
-   <span class="na">environment</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">DATABASE_URL=postgres://postgres:password@db:5432/postgres</span>  
-     <span class="pi">-</span> <span class="s">REDIS_URL=redis://redis:6379</span>
-   <span class="na">volumes</span><span class="pi">:</span>
-     <span class="pi">-</span> <span class="s">.:/app</span>
-
-<span class="na">volumes</span><span class="pi">:</span>
-  <span class="na">dbdata</span><span class="pi">:</span>     </code></pre></figure>
-
-<p><br />
-4 . Finally, run docker-compose</p>
-
-<p>Run this command at the root of the project. This will boot up the app. Open the browser and navigate to localhost on port 3005.</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>docker-compose up</code></pre></figure>
-
-<p><em>NB: You may need to prepend “sudo” for it work if you have not specified a user in your Dockerfile, but remember that it is bad practice to use privileged permissions as it can allow an attacker to escalate privileges on the host. Always specify a user with least privileges in the Dockerfile.</em></p>
-
-<p>You now have the database containers and the app container up and running and mapped together.</p>
+<p>JWT standard uses JavaScript Object Notation (JSON) objects to transmit tokens 
+between parties and the data shared is verified by a digital signature using an 
+algorithm and public and private key pairing, which ensures optimal security. 
+Data sent via Hypertext Transfer Protocol (HTTP) is kept secure by encryption.</p>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>
