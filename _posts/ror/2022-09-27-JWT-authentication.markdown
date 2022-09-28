@@ -3,7 +3,7 @@ layout: post
 title:  "JWT Authentication"
 author: Denis Kobare
 date:   2022-09-27 06:00:00 +0300
-img: /assets/img/svg/ruby.svg
+img: /assets/img/svg/ror.svg
 categories: frameworks
 sub_category: ruby-on-rails
 type: concepts
