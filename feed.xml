@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-09-28T08:58:19+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Token-Based Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/token-based-authentication" rel="alternate" type="text/html" title="Token-Based Authentication" /><published>2022-09-27T06:00:00+03:00</published><updated>2022-09-27T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/token-based-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/token-based-authentication">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-&lt;p&gt;A token is a string that the server generates for the client that can be passed along 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-09-28T09:28:56+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">JWT Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication" rel="alternate" type="text/html" title="JWT Authentication" /><published>2022-09-27T06:00:00+03:00</published><updated>2022-09-27T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along 
 inside an http request, effectively transferring authentication-related data between a client 
 and a server or between applications.&lt;/p&gt;
 
-&lt;p&gt;The token stores user credentials and data in a secure manner and is able to 
+&lt;p&gt;The JWT stores user credentials and data in a secure manner and is able to 
 verify that the data is correct and was not tampered with. It therefore simplifies the 
 authentication process for known users.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;components-of-an-authentication-token&quot;&gt;Components of an Authentication Token&lt;/h3&gt;
+&lt;h3 id=&quot;components-of-an-jwt&quot;&gt;Components of an JWT&lt;/h3&gt;
 
-&lt;p&gt;An authentication token consists of three parts:&lt;/p&gt;
+&lt;p&gt;A JSON Web Token consists of three parts:&lt;/p&gt;
 
 &lt;p&gt;1 . The header: defines the token type being used, as well as the signing algorithm involved.&lt;/p&gt;
 
@@ -20,7 +20,7 @@ expiration details and provides information about the user or other metadata.&lt
 &lt;p&gt;3 . The signature: Guarantees the integrity and authenticity of the claims in the payload.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;token-based-authentication-process&quot;&gt;Token-Based Authentication Process&lt;/h3&gt;
+&lt;h3 id=&quot;jwt-authentication-process&quot;&gt;JWT Authentication Process&lt;/h3&gt;
 
 &lt;p&gt;&lt;img class=&quot;zoom-on-hover&quot; srcset=&quot;   /assets/img/posts/token_authentication.png 1.3x,   /assets/img/posts/token_authentication.png 2.8x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
 
@@ -33,6 +33,11 @@ and determine whether or not it is authorized to the information it is requestin
 invalid and a new token needs to be obtained. The potential damage that can be 
 done if a token is leaked is much smaller due to their short life span. A server 
 can easily determine if a token is too old and decide to reject it if it doesnt view it as valid.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications.</summary></entry><entry><title type="html">Types of Token-Based Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/types-of-token-based-authentication" rel="alternate" type="text/html" title="Types of Token-Based Authentication" /><published>2022-09-27T06:00:00+03:00</published><updated>2022-09-27T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/types-of-token-based-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/types-of-token-based-authentication">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+&lt;p&gt;Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token
+to an electronically restricted resource, usually an application.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;types-of-token-based-authentication&quot;&gt;Types of Token-Based Authentication&lt;/h3&gt;
@@ -64,7 +69,7 @@ algorithm and public and private key pairing, which ensures optimal security.
 Data sent via Hypertext Transfer Protocol (HTTP) is kept secure by encryption.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition A token is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications.</summary></entry><entry><title type="html">Creating a Rails API With Jason Web Token (JWT) Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication" rel="alternate" type="text/html" title="Creating a Rails API With Jason Web Token (JWT) Authentication" /><published>2022-09-22T05:45:00+03:00</published><updated>2022-09-22T05:45:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token to an electronically restricted resource, usually an application.</summary></entry><entry><title type="html">Creating a Rails API With Jason Web Token (JWT) Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication" rel="alternate" type="text/html" title="Creating a Rails API With Jason Web Token (JWT) Authentication" /><published>2022-09-22T05:45:00+03:00</published><updated>2022-09-22T05:45:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202209/creating-a-rails-api-with-jwt-authentication">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Token based authentication is an alternative method to session-based authentication. 
 The server creates a web token (JWT), encodes, serializes and signs it with 
@@ -2789,158 +2794,4 @@ sudo -u user_name psql db_name
 &lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;ALTER USER user_name WITH PASSWORD &apos;new_password&apos;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="databases" /><summary type="html">1 . Connect to postgresql</summary></entry><entry><title type="html">Sending HTML Emails on Linux</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202207/sending-html-emails-on-linux" rel="alternate" type="text/html" title="Sending HTML Emails on Linux" /><published>2022-07-16T14:00:00+03:00</published><updated>2022-07-16T14:00:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202207/sending-html-emails-on-linux</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202207/sending-html-emails-on-linux">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;HTML emails are a engaging and generally work well for marketing emails. 
-They allow you to design emails that match your brand and give your readers a more visually engaging experience.&lt;/p&gt;
-
-&lt;p&gt;Majority of mail clients do not support HTML in emails and as such, it can be a pain designing HTML emails that render
-properly on the recipients view.&lt;/p&gt;
-
-&lt;p&gt;While there are multiple services that can handle this task for you, you may want to do it your self if you value control and flexibility.
-This section will guide you on how to achieve that.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Linux distro e.g Ubuntu&lt;/li&gt;
-  &lt;li&gt;Gmail (You may try other options)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;a-install-mailutils&quot;&gt;a) Install mailutils&lt;/h3&gt;
-
-&lt;p&gt;1 . Install mailutils from apt:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install mailutils
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . In the “General type of mail configuration:” prompt, choose “Internet Site” and press enter.&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&quot;zoom-on-hover mobile-image&quot; srcset=&quot;   /assets/img/posts/postfix_configuration_1.png 1.1x,   /assets/img/posts/postfix_configuration_1.png 2x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . A postfix configuration prompt will open. On the “System mail name:” prompt, enter gmail.com&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&quot;zoom-on-hover mobile-image&quot; srcset=&quot;   /assets/img/posts/postfix_configuration_2.png.png 2.3x,   /assets/img/posts/postfix_configuration_2.png.png 3x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;b-setup-gmail-app-passwords&quot;&gt;b) Setup Gmail App Passwords&lt;/h3&gt;
-&lt;p&gt;ssmtp will use your gmail account to send mail, but you can not use your normal gmail password with external applications. Gmail has a nifty feature called &lt;a href=&quot;https://myaccount.google.com/apppasswords&quot; target=&quot;_blank&quot;&gt;App passwords&lt;/a&gt; that lets you sign in to your Google Account from apps on devices that don’t support 2-Step Verification. Click &lt;a href=&quot;https://myaccount.google.com/apppasswords&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt; to set up App passwords. On the page, select ‘Mail’ under the ‘select app’ tab, then enter a custom name under the ‘select device’ tab.&lt;/p&gt;
-
-&lt;p&gt;Click on the ‘Generate’ button to generate the password. Just like your normal password, this app password grants complete access to your Google Account. Copy 16-character password shown, you will need it for the next step.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;c-install-ssmtp&quot;&gt;c) Install ssmtp&lt;/h3&gt;
-
-&lt;p&gt;1 . Install ssmtp:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install ssmtp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Edit ssmtp.conf file:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/ssmtp/ssmtp.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Replace the placeholders (google_apps_password_here and your_account) with your details. 
-Your file should resemble this (your hostname will be different):&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-conf&quot; data-lang=&quot;conf&quot;&gt;&lt;span class=&quot;c&quot;&gt;#
-# Config file for sSMTP sendmail
-#
-# The person who gets all mail for userids &amp;lt; 1000
-# Make this empty to disable rewriting.
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;your_account&lt;/span&gt;@&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;:&lt;span class=&quot;n&quot;&gt;smtp&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;587&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# The place where the mail goes. The actual machine name is required no 
-# MX records are consulted. Commonly mailhosts are named mail.domain.com
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mailhub&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;smtp&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;:&lt;span class=&quot;m&quot;&gt;587&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Where will the mail seem to come from?
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rewriteDomain&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# The full hostname
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hostname&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;Techietuts&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;HP&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;Compaq&lt;/span&gt;-&lt;span class=&quot;n&quot;&gt;PC&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;# Are users allowed to set their own From: address?
-# YES - Allow the user to specify their own From: address
-# NO - Use the system generated From: address
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;FromLineOverride&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;YES&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;Authuser&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;your_account&lt;/span&gt;@&lt;span class=&quot;n&quot;&gt;gmail&lt;/span&gt;.&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Authpass&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;google_apps_password_here&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;UseTLS&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;YES&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;UseSTARTTLS&lt;/span&gt;=&lt;span class=&quot;n&quot;&gt;YES&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Edit revaliases file:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/ssmtp/revaliases
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Add this (remember to replace the place holder):&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;# sSMTP aliases
-# 
-# Format:	local_account:outgoing_address:mailhub
-#
-# Example: root:your_login@your.domain:mailhub.your.domain[:port]
-# where [:port] is an optional port number that defaults to 25.
-root:your_account@gmail.com:smtp.gmail.com:587&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;d-create-the-html-template&quot;&gt;d) Create the HTML Template&lt;/h3&gt;
-
-&lt;p&gt;Here’s an example of HTML email template. Notice that inline css was used, and that’s because mail clients will strip out all stylesheets except for inline styles.&lt;/p&gt;
-
-&lt;p&gt;1 . Copy this code and save it in a file called html_email_example.html:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email-container&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;margin-top: 2rem; margin-right: auto; margin-left: auto; overflow: hidden; max-width: 37.5rem; background: #fff; border-radius: 0.125rem; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); transition: box-shadow 0.25s cubic-bezier(0.4, 0, 1, 1); border: 1px #999 solid;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email__header&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;header__thumbnail&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://www.techietuts.com/assets/img/footer-image-4.jpg&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;missing image&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;max-width: 100%; -o-object-fit: fill; object-fit: fill;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;centered&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;position: absolute; top: 15%; left: 50%; transform: translate(-50%, -50%); color: #fff; font-weight: 800;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Ruby, JS, CSS, Python and More...&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-  
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email__body&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;padding-top: 1rem; padding-right: 3rem; padding-bottom: 1rem; padding-left: 3rem;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;body__heading&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;margin-bottom: 0.5rem; font-size: 1.3125rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #141414;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Refactoring Ruby Code: Example 1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-      
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;small&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;body__meta&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display: inline-block; margin-bottom: 0.728rem; font-size: 0.8125rem; font-weight: 600; letter-spacing: 1px; color: rgba(20, 20, 20, 0.4);&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Published on March 2022, Reading time: 6 minutes&lt;span class=&quot;nt&quot;&gt;&amp;lt;/small&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h3&amp;gt;&lt;/span&gt;Definition&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;body__text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;margin-top: 0; margin-bottom: 1.2rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.015625rem; color: rgba(20, 20, 20, 0.85);&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Code refactoring is the process of restructuring existing code without changing its functionality, in order to improve the design, structure and implementation of the program.
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-      
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;body__text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;margin-top: 0; margin-bottom: 1.2rem; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.015625rem; color: rgba(20, 20, 20, 0.85);&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Refactoring ultimately makes software easier to understand, improves performance and helps us find bugs faster.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-  
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;email__footer&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;padding-right: 3rem; padding-bottom: 2rem; padding-left: 3rem; text-align: center;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;www.techietuts.com&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;target=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_blank&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;footer__button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Read more&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;display: inline-block; padding: 1rem 3rem; text-transform: uppercase; font-weight: 700; color: #fff; background: #04a257; border: 0; border-radius: 0.125rem; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); white-space: nowrap; transition: all 0.25s cubic-bezier(0.4, 0, 1, 1);&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Read more&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;You may save the file in home/Desktop.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;e-send-the-html-email&quot;&gt;e) Send the HTML Email&lt;/h3&gt;
-
-&lt;p&gt;1 . Open the terminal and cd to the location of the html file. Send the file with the following command:&lt;/p&gt;
-
-&lt;p&gt;Replace &lt;span class=&quot;badge&quot;&gt;user_name&lt;/span&gt; with your gmail account id.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;mailx -a &apos;Content-Type: text/html&apos; -s &quot;Test HTML Template&quot; user_name@gmail.com &amp;lt; html_email_example.html&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-The recepient should receive this email:&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&quot;zoom-on-hover mobile-image&quot; srcset=&quot;/assets/img/posts/html_email_gmail.png 2.5x, /assets/img/posts/html_email_gmail.png 2.5x&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-You could set this up on your server and have your apps automatically send info like news letters, welcome messages when users sign up etc.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-It is worth notting that plain text may be better for personal contact and also remember to give people an option to use plain text when receiving your HTML emails.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="databases" /><summary type="html">1 . Connect to postgresql</summary></entry></feed>

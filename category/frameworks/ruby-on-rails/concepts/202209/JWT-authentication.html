@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Customizing Devise Views - Techietuts</title>
+ <title>JWT Authentication - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Customizing Devise Views" />
+<meta property="og:title" content="JWT Authentication" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Introduction" />
-<meta property="og:description" content="Introduction" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/customizing-devise-devise-views" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/customizing-devise-devise-views" />
+<meta name="description" content="Definition A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications." />
+<meta property="og:description" content="Definition A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications." />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-08-01T11:45:00+03:00" />
+<meta property="article:published_time" content="2022-09-27T06:00:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Customizing Devise Views" />
+<meta property="twitter:title" content="JWT Authentication" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Introduction","headline":"Customizing Devise Views","dateModified":"2022-08-01T11:45:00+03:00","datePublished":"2022-08-01T11:45:00+03:00","url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/customizing-devise-devise-views","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/customizing-devise-devise-views"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Definition A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications.","headline":"JWT Authentication","dateModified":"2022-09-27T06:00:00+03:00","datePublished":"2022-09-27T06:00:00+03:00","url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,364 +909,46 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Customizing Devise Views</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">JWT Authentication</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> August 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> September 2022</p>
     <div>
                 <!-- Page content object inserted below -->
-        <h3 id="introduction">Introduction</h3>
+        <h3 id="definition">Definition</h3>
+<p>A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along 
+inside an http request, effectively transferring authentication-related data between a client 
+and a server or between applications.</p>
 
-<p>Devise works really great right out of the box but doesn’t look good. The pages are
-plain so you’d definitely want to replace them with your custom views. It’s pretty straight
-forward as there’s not that much of tinkering needed to get them working. Let’s see!</p>
-
-<p>Click <a href="https://devise-email-example.herokuapp.com" target="_blank">here</a> to see the final app.</p>
-
-<p><br /></p>
-<h3 id="prerequisites">Prerequisites</h3>
-
-<ol>
-  <li>Ruby 3.2.0</li>
-  <li>Rails 7.0.3</li>
-</ol>
+<p>The JWT stores user credentials and data in a secure manner and is able to 
+verify that the data is correct and was not tampered with. It therefore simplifies the 
+authentication process for known users.</p>
 
 <p><br /></p>
-<h3 id="part-a-creating-a-rails-7-project">Part A: Creating a Rails 7 Project</h3>
+<h3 id="components-of-an-jwt">Components of an JWT</h3>
 
-<p>Create a new rails project called <span class="badge">devise_email</span> by following this document: <a href="/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app" target="_blank">Creating A Rails 7 App: With esbuild, bootstrap and jquery</a>.</p>
+<p>A JSON Web Token consists of three parts:</p>
 
-<p><br /></p>
-<h3 id="part-b-installing-devise">Part B: Installing Devise</h3>
+<p>1 . The header: defines the token type being used, as well as the signing algorithm involved.</p>
 
-<p>1 . Add <span class="badge">devise</span> gem in the <span class="badge">Gemfile</span> file.</p>
+<p>2 . The payload: defines the token issuer and the token’s 
+expiration details and provides information about the user or other metadata.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Gemfile</span>
-
-<span class="n">gem</span> <span class="s1">'devise'</span>
-  </code></pre></figure>
-
-<p><br />
-2 . Bundle install</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
-<span class="go">  </span></code></pre></figure>
-
-<p><br />
-3 . Setup devise</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails g devise:install</code></pre></figure>
-
-<p><br />
-4 . Generate <span class="badge">user</span> model</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails g devise user</code></pre></figure>
+<p>3 . The signature: Guarantees the integrity and authenticity of the claims in the payload.</p>
 
 <p><br /></p>
-<h3 id="part-c-creating-custom-views">Part C: Creating Custom Views</h3>
+<h3 id="jwt-authentication-process">JWT Authentication Process</h3>
 
-<p>1 . Generate devise views</p>
+<p><img class="zoom-on-hover" srcset="   /assets/img/posts/token_authentication.png 1.3x,   /assets/img/posts/token_authentication.png 2.8x " alt="missing image" /></p>
 
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails generate devise:views</code></pre></figure>
+<p>The idea is that the client application exchanges authentication credentials for 
+an authentication token and in subsequent requests, just sends the token. When 
+the server receives the token, it can then look up the credentials of the user 
+and determine whether or not it is authorized to the information it is requesting.</p>
 
-<p><br />
-2 . Rename <span class="badge">devise</span> folder to <span class="badge">users</span> in <span class="badge">app/views</span>.</p>
-
-<p><br />
-3 . Turn scoped views on in <span class="badge">config/initializers/devise.rb</span></p>
-
-<p>Devise will automatically check whether the custom view exists and if so, serve that up.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/initializers/devise.rb</span>
-<span class="c1">#...</span>
-
-  <span class="n">config</span><span class="p">.</span><span class="nf">scoped_views</span> <span class="o">=</span> <span class="kp">true</span></code></pre></figure>
-
-<p><br />
-4 . Include these external stylesheets in the head tag in <span class="badge">views/layouts/application.html.erb</span></p>
-
-<p>These contain styling and icons for the custom pages that we will be creating in the next step.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/layouts/application.html.erb --&gt;</span>
-
-<span class="nt">&lt;head&gt;</span>
-<span class="c">&lt;!-- ... --&gt;</span>
-
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://kobare.github.io/custom_devise_styles/style.css"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"</span><span class="nt">&gt;</span>    
-<span class="nt">&lt;/head&gt;</span></code></pre></figure>
-
-<p><br />
-5 . Style up the <span class="badge">Sign In</span> page.
-<img class="zoom-on-hover" srcset="   /assets/img/posts/devise_sign_in.png 2.5x,   /assets/img/posts/devise_sign_in.png 5.5x " alt="missing image" /></p>
-
-<p>Open <span class="badge">views/users/sessions/new.html.erb</span> and replace the code with this code.</p>
-
-<p><b>Important:</b> We are using a raw form rather than the form helper. Its easier to style the form this way. A form helper
-generates the attributes: <span class="badge">id=”new_user” action=”/users/sign_in” 
-accept-charset=”UTF-8” method=”post”</span>, <span class="badge">input tag names &amp; id</span>, <span class="badge">link urls</span>
-and <span class="badge">form authenticity token</span>. Hence we need to add those manually for all the custom pages.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/users/sessions/new.html.erb --&gt;</span>
-
-<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"ftco-section"</span><span class="nt">&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-center"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 text-center mb-5"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"heading-section"</span><span class="nt">&gt;</span><span class="c">&lt;!-- LOGO --&gt;</span><span class="nt">&lt;/h2&gt;</span>
-   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-center"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 col-lg-10"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap d-md-flex"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text w-100"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">render</span> <span class="err">"</span><span class="na">devise</span><span class="err">/</span><span class="na">shared</span><span class="err">/</span><span class="na">error_messages</span><span class="err">",</span> <span class="na">resource:</span> <span class="na">resource</span> <span class="err">%</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;h2&gt;</span>Welcome!<span class="nt">&lt;/h2&gt;</span>
-       <span class="nt">&lt;p&gt;</span>Don't have an account?<span class="nt">&lt;/p&gt;</span>
-       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/sign_up"</span> <span class="na">class=</span><span class="s">"btn btn-white btn-outline-white"</span><span class="nt">&gt;</span>Sign Up<span class="nt">&lt;/a&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"login-wrap p-4 p-lg-5"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"mb-4"</span><span class="nt">&gt;</span>Sign In<span class="nt">&lt;/h3&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"social-media d-flex justify-content-end"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"social-icon d-flex align-items-center justify-content-center"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-facebook"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"social-icon d-flex align-items-center justify-content-center"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-twitter"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
-        <span class="nt">&lt;/p&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"new_user"</span> <span class="na">action=</span><span class="s">"/users/sign_in"</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">class=</span><span class="s">"signin-form"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group mb-3"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"label"</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Email"</span> <span class="na">name=</span><span class="s">"user[email]"</span> <span class="na">id=</span><span class="s">"user_email"</span> <span class="na">required</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group mb-3"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"label"</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Password"</span> <span class="na">name=</span><span class="s">"user[password]"</span> <span class="na">id=</span><span class="s">"user_password"</span> <span class="na">required</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"form-control btn btn-primary submit px-3"</span><span class="nt">&gt;</span>Sign In<span class="nt">&lt;/button&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group d-md-flex"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-50 text-left"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"checkbox-wrap checkbox-primary mb-0"</span><span class="nt">&gt;</span>Remember Me
-          <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">checked</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"checkmark"</span><span class="nt">&gt;&lt;/span&gt;</span>
-         <span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-50 text-md-right"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/password/new"</span><span class="nt">&gt;</span>Forgot Password<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">hidden_field_tag</span> <span class="na">:authenticity_token</span><span class="err">,</span> <span class="na">form_authenticity_token</span> <span class="err">%</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/form&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
- <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/section&gt;</span></code></pre></figure>
-
-<p><br />
-6 . Style up the <span class="badge">Sign Up</span> page.</p>
-
-<p><img class="zoom-on-hover" srcset="   /assets/img/posts/devise_sign_up.png 2.5x,   /assets/img/posts/devise_sign_up.png 5.5x " alt="missing image" /></p>
-
-<p>Open <span class="badge">views/users/registrations/new.html.erb</span> and replace the code with this code.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/users/registrations/new.html.erb --&gt;</span>
-
-<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"ftco-section"</span><span class="nt">&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-center"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 text-center mb-5"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"heading-section"</span><span class="nt">&gt;</span><span class="c">&lt;!-- LOGO --&gt;</span><span class="nt">&lt;/h2&gt;</span>
-   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-center"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 col-lg-10"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap d-md-flex"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text w-100"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">render</span> <span class="err">"</span><span class="na">devise</span><span class="err">/</span><span class="na">shared</span><span class="err">/</span><span class="na">error_messages</span><span class="err">",</span> <span class="na">resource:</span> <span class="na">resource</span> <span class="err">%</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;h2&gt;</span>Welcome!<span class="nt">&lt;/h2&gt;</span>
-       <span class="nt">&lt;p&gt;</span>Already a member?<span class="nt">&lt;/p&gt;</span>
-       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/sign_in"</span> <span class="na">class=</span><span class="s">"btn btn-white btn-outline-white"</span><span class="nt">&gt;</span>Sign In<span class="nt">&lt;/a&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"login-wrap p-4 p-lg-5"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"mb-4"</span><span class="nt">&gt;</span>Sign Up<span class="nt">&lt;/h3&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"social-media d-flex justify-content-end"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"social-icon d-flex align-items-center justify-content-center"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-facebook"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"social-icon d-flex align-items-center justify-content-center"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-twitter"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
-        <span class="nt">&lt;/p&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"new_user"</span> <span class="na">action=</span><span class="s">"/users"</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">class=</span><span class="s">"signin-form"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group mb-3"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"label"</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Email"</span> <span class="na">name=</span><span class="s">"user[email]"</span> <span class="na">id=</span><span class="s">"user_email"</span> <span class="na">required</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group mb-3"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"label"</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
-         <span class="nt">&lt;</span><span class="err">%</span> <span class="na">if</span> <span class="err">@</span><span class="na">minimum_password_length</span> <span class="err">%</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;em&gt;</span>(<span class="nt">&lt;</span><span class="err">%=</span> <span class="err">@</span><span class="na">minimum_password_length</span> <span class="err">%</span><span class="nt">&gt;</span> characters minimum)<span class="nt">&lt;/em&gt;</span>
-         <span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;&lt;br&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Password"</span> <span class="na">name=</span><span class="s">"user[password]"</span> <span class="na">id=</span><span class="s">"user_password"</span> <span class="na">required</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"label"</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password confirmation<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Password"</span> <span class="na">name=</span><span class="s">"user[password_confirmation]"</span> <span class="na">id=</span><span class="s">"user_password_confirmation"</span> <span class="na">required</span><span class="nt">&gt;</span>        
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"form-control btn btn-primary submit px-3"</span><span class="nt">&gt;</span>Sign Up<span class="nt">&lt;/button&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group d-md-flex"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-50 text-left"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"checkbox-wrap checkbox-primary mb-0"</span><span class="nt">&gt;</span>Remember Me
-          <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">checked</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"checkmark"</span><span class="nt">&gt;&lt;/span&gt;</span>
-         <span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-50 text-md-right"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/confirmation/new"</span><span class="nt">&gt;</span>Resend confirmation link?<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">hidden_field_tag</span> <span class="na">:authenticity_token</span><span class="err">,</span> <span class="na">form_authenticity_token</span> <span class="err">%</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/form&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
- <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/section&gt;</span></code></pre></figure>
-
-<p><br />
-7 . Style up the <span class="badge">Forgot Password</span> page.</p>
-
-<p><img class="zoom-on-hover" srcset="   /assets/img/posts/devise_forgot_password.png 2.5x,   /assets/img/posts/devise_forgot_password.png 5.5x " alt="missing image" /></p>
-
-<p>Open <span class="badge">views/users/password/new.html.erb</span> and replace the code with this code.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/users/password/new.html.erb --&gt;</span>
-
-<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"ftco-section"</span><span class="nt">&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-center"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 text-center mb-5"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"heading-section"</span><span class="nt">&gt;</span><span class="c">&lt;!-- LOGO --&gt;</span><span class="nt">&lt;/h2&gt;</span>
-   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-center"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 col-lg-10"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap d-md-flex"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text w-100"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">render</span> <span class="err">"</span><span class="na">devise</span><span class="err">/</span><span class="na">shared</span><span class="err">/</span><span class="na">error_messages</span><span class="err">",</span> <span class="na">resource:</span> <span class="na">resource</span> <span class="err">%</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;h2&gt;</span>Welcome!<span class="nt">&lt;/h2&gt;</span>
-       <span class="nt">&lt;p&gt;</span> Didn't receive confirmation link?<span class="nt">&lt;/p&gt;</span>
-       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/confirmation/new"</span> <span class="na">class=</span><span class="s">"btn btn-white btn-outline-white"</span><span class="nt">&gt;</span>Resend Link<span class="nt">&lt;/a&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"login-wrap p-4 p-lg-5"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"mb-4"</span><span class="nt">&gt;</span>Forgot<span class="ni">&amp;nbsp;</span>password?<span class="nt">&lt;/h3&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"social-media d-flex justify-content-end"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"social-icon d-flex align-items-center justify-content-center"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-facebook"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"social-icon d-flex align-items-center justify-content-center"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"fa fa-twitter"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
-        <span class="nt">&lt;/p&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"new_user"</span> <span class="na">action=</span><span class="s">"/users/password"</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">class=</span><span class="s">"signin-form"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group mb-3"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"label"</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Email"</span> <span class="na">name=</span><span class="s">"user[email]"</span> <span class="na">id=</span><span class="s">"user_email"</span> <span class="na">required</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"form-control btn btn-primary submit px-3"</span><span class="nt">&gt;</span>Send Password Reset Link<span class="nt">&lt;/button&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group d-md-flex"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-50 text-left"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/sign_in"</span><span class="nt">&gt;</span>Sign In<span class="nt">&lt;/a&gt;</span>        
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-50 text-md-right"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/sign_up"</span><span class="nt">&gt;</span>Sign Up<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">hidden_field_tag</span> <span class="na">:authenticity_token</span><span class="err">,</span> <span class="na">form_authenticity_token</span> <span class="err">%</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/form&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
- <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/section&gt;</span></code></pre></figure>
-
-<p><br />
-8 . Finally, Style up the <span class="badge">Email Confirmation</span> page.</p>
-
-<p><img class="zoom-on-hover" srcset="   /assets/img/posts/devise_confirmation.png 2.5x,   /assets/img/posts/devise_confirmation.png 5.5x " alt="missing image" /></p>
-
-<p>Open <span class="badge">views/users/confirmation/new.html.erb</span> and replace the code with this code.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/users/confirmation/new.html.erb --&gt;</span>
-
-<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"ftco-section"</span><span class="nt">&gt;</span>
- <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-center"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 text-center mb-5"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"heading-section"</span><span class="nt">&gt;</span><span class="c">&lt;!-- LOGO --&gt;</span><span class="nt">&lt;/h2&gt;</span>
-   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row justify-content-center"</span><span class="nt">&gt;</span>
-   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 col-lg-10"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrap d-md-flex"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"text w-100"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">render</span> <span class="err">"</span><span class="na">devise</span><span class="err">/</span><span class="na">shared</span><span class="err">/</span><span class="na">error_messages</span><span class="err">",</span> <span class="na">resource:</span> <span class="na">resource</span> <span class="err">%</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;h2&gt;</span>Welcome!<span class="nt">&lt;/h2&gt;</span>
-       <span class="nt">&lt;p&gt;</span>Forgot your password?<span class="nt">&lt;/p&gt;</span>
-       <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/password/new"</span> <span class="na">class=</span><span class="s">"btn btn-white btn-outline-white"</span><span class="nt">&gt;</span>Send Password Reset Link<span class="nt">&lt;/a&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
-     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"login-wrap p-4 p-lg-5"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"d-flex"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-100"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"mb-4"</span><span class="nt">&gt;</span>Resend Confirmation Link<span class="nt">&lt;/h3&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">"new_user"</span> <span class="na">action=</span><span class="s">"/users/confirmation"</span> <span class="na">accept-charset=</span><span class="s">"UTF-8"</span> <span class="na">method=</span><span class="s">"post"</span> <span class="na">class=</span><span class="s">"signin-form"</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group mb-3"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"label"</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Email"</span> <span class="na">name=</span><span class="s">"user[email]"</span> <span class="na">id=</span><span class="s">"user_email"</span> <span class="na">required</span><span class="nt">&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"form-control btn btn-primary submit px-3"</span><span class="nt">&gt;</span>Resend Confirmation Link<span class="nt">&lt;/button&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group d-md-flex"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-50 text-left"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/sign_in"</span><span class="nt">&gt;</span>Sign In<span class="nt">&lt;/a&gt;</span>        
-        <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"w-50 text-md-right"</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/users/sign_up"</span><span class="nt">&gt;</span>Sign Up<span class="nt">&lt;/a&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;/div&gt;</span>
-       <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">hidden_field_tag</span> <span class="na">:authenticity_token</span><span class="err">,</span> <span class="na">form_authenticity_token</span> <span class="err">%</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;/form&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-   <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
- <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/section&gt;</span></code></pre></figure>
+<p>Tokens are usually given out with an expiration time, after which they become 
+invalid and a new token needs to be obtained. The potential damage that can be 
+done if a token is leaked is much smaller due to their short life span. A server 
+can easily determine if a token is too old and decide to reject it if it doesnt view it as valid.</p>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>
