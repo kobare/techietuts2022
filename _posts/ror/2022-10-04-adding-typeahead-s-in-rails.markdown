@@ -2,7 +2,7 @@
 layout: post
 title:  "Adding Typeahead in Rails"
 author: Denis Kobare
-date:   2022-10-02 06:00:00 +0300
+date:   2023-10-02 06:00:00 +0300
 img: /assets/img/svg/ror.svg
 categories: frameworks
 sub_category: ruby-on-rails
