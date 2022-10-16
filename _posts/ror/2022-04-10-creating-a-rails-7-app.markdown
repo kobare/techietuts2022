@@ -91,7 +91,16 @@ try to load <span class="badge">jquery-ui</span> before <span class="badge">jque
 
 
 i). In <span class="badge">app/javascript</span>, create <span class="badge">src</span> 
-sub-directory and in it create <span class="badge">jquery.js</span> file and add this to it:
+sub-directory and in it create <span class="badge">jquery.js</span> file:
+
+{% highlight terminal %}
+
+$ mkdir -p app/javascript/src; touch app/javascript/src/jquery.js
+
+{% endhighlight %}
+
+<br>
+Add this to it:
 
 {% highlight javascript %}
 // app/javascript/src/jquery.js

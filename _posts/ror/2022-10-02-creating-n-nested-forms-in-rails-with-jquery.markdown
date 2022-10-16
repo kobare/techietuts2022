@@ -33,7 +33,7 @@ Create a new rails project called <span class="badge">devise_email</span> by fol
 <br>
 ### Part B: Creating the models
 
-1 . Create the <span class="badge">todo_list.rb</span> model
+1 . Create the <span class="badge">todo_list.rb</span> and <span class="badge">task.rb</span> models
 
  i). Generate the models
  
@@ -502,7 +502,7 @@ directory and add this code
 
 
 <br>
-2 . Import the <span class="badge">todo_list.js</span> in <span class="badge">javascript/application.js</span>
+2 . Import the <span class="badge">todo_lists.js</span> in <span class="badge">javascript/application.js</span>
 
 {% highlight javascript %} 
 // javascript/application.js
