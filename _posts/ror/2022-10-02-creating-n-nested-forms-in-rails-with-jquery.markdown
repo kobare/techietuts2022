@@ -519,15 +519,13 @@ import "./src/todo_lists"
 ### Final Results
 Navigate to http://localhost:3000/todo_lists/new and test it.
 
-<img class="zoom-on-hover" srcset="
-  {{site.baseurl}}/assets/img/posts/jquery_nested_forms_2.png 2.3x,
-  {{site.baseurl}}/assets/img/posts/jquery_nested_forms_2.png 2.5x
+<img class="zoom-on-hover mobile-image" srcset="
+  {{site.baseurl}}/assets/img/posts/jquery_nested_forms_2.png 1.4x
 " alt="missing image">
 
 <br>
-<img class="zoom-on-hover" srcset="
-  {{site.baseurl}}/assets/img/posts/jquery_nested_forms_1.gif 2.4x,
-  {{site.baseurl}}/assets/img/posts/jquery_nested_forms_1.gif 3x
+<img class="zoom-on-hover mobile-image" srcset="
+  {{site.baseurl}}/assets/img/posts/jquery_nested_forms_1.gif 1.4x
 " alt="missing image">
 
 <br>

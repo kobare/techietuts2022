@@ -554,7 +554,7 @@ v). Create the <span class="badge">index.html.erb</span> template and add this c
 directory and add this code
 
 {% highlight javascript %} 
-// javascript/persons.js
+// javascript/src/persons.js
 
 jQuery(function() {
 
@@ -728,15 +728,13 @@ input.tt-hint {
 ### Final Results
 Navigate to http://localhost:3000/persons/new and test it.
 
-<img class="zoom-on-hover" srcset="
-  {{site.baseurl}}/assets/img/posts/typeahead.png 2.3x,
-  {{site.baseurl}}/assets/img/posts/typeahead.png 2.5x
+<img class="zoom-on-hover mobile-image" srcset="
+  {{site.baseurl}}/assets/img/posts/typeahead.png 1.1x
 " alt="missing image">
 
 <br>
-<img class="zoom-on-hover" srcset="
-  {{site.baseurl}}/assets/img/posts/typeahead.gif 2.4x,
-  {{site.baseurl}}/assets/img/posts/typeahead.gif 3x
+<img class="zoom-on-hover mobile-image" srcset="
+  {{site.baseurl}}/assets/img/posts/typeahead.gif 1.2x
 " alt="missing image">
 
 
