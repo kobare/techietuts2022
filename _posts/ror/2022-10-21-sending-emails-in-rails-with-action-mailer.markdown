@@ -11,7 +11,7 @@ technology: Ruby
 permalink: "category/:categories/ruby-on-rails/tutorials/:year:month/:title"
 ---
 
-### Definition
+### Introduction
 Sending emails from a Ruby on Rails app is really easy. You won't even need a gem to do it!
 Unless you are too lazy. 
 
