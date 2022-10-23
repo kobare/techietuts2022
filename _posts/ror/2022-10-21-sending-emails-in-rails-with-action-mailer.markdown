@@ -520,11 +520,11 @@ $ rails g simple_form:install
 <br>
 ### Part F: Creating the JavaScript File 
 
-1 . Create the <span class="badge">prospects.js</span> file in <span class="badge">javascript/src</span>
+1 . Create the <span class="badge">email_list.js</span> file in <span class="badge">javascript/src</span>
 directory and add this code
 
 {% highlight javascript %} 
-// javascript/src/prospects.js
+// javascript/src/email_list.js
 
   toggleSelectAllProspects();
   
@@ -594,7 +594,7 @@ and save them in the javascript/src/vendor and assets/stylesheets/vendor directo
 
 <br>
 3 . Import the <span class="badge">sweetalert.min.js</span> and 
-<span class="badge">prospects.js</span> files in <span class="badge">
+<span class="badge">email_list.js</span> files in <span class="badge">
 javascript/application.js</span>
 
 {% highlight javascript %} 
@@ -603,7 +603,7 @@ javascript/application.js</span>
 // ...
 
 import "./src/vendor/sweetalert.min"
-import "./src/prospects"
+import "./src/email_list"
 
 {% endhighlight %} 
 
