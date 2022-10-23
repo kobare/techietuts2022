@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-10-23T16:04:00+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Configuring ActionMailer and Gmail</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202210/configuring-action-mailer-and-gmail" rel="alternate" type="text/html" title="Configuring ActionMailer and Gmail" /><published>2022-10-23T07:30:00+03:00</published><updated>2022-10-23T07:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202210/configuring-action-mailer-and%20gmail</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202210/configuring-action-mailer-and-gmail">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-10-23T16:22:42+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Configuring ActionMailer and Gmail</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202210/configuring-action-mailer-and-gmail" rel="alternate" type="text/html" title="Configuring ActionMailer and Gmail" /><published>2022-10-23T07:30:00+03:00</published><updated>2022-10-23T07:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202210/configuring-action-mailer-and%20gmail</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202210/configuring-action-mailer-and-gmail">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;When ActionMailer and Gmail settings are properly configured, we can easily send emails from 
 controller actions by generating and setting up mailers.&lt;/p&gt;
@@ -528,11 +528,11 @@ iii). Generate simple_form helpers&lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;part-f-creating-the-javascript-file&quot;&gt;Part F: Creating the JavaScript File&lt;/h3&gt;
 
-&lt;p&gt;1 . Create the &lt;span class=&quot;badge&quot;&gt;prospects.js&lt;/span&gt; file in &lt;span class=&quot;badge&quot;&gt;javascript/src&lt;/span&gt;
+&lt;p&gt;1 . Create the &lt;span class=&quot;badge&quot;&gt;email_list.js&lt;/span&gt; file in &lt;span class=&quot;badge&quot;&gt;javascript/src&lt;/span&gt;
 directory and add this code&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt; 
-&lt;span class=&quot;c1&quot;&gt;// javascript/src/prospects.js&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// javascript/src/email_list.js&lt;/span&gt;
 
   &lt;span class=&quot;nx&quot;&gt;toggleSelectAllProspects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
   
@@ -598,7 +598,7 @@ and save them in the javascript/src/vendor and assets/stylesheets/vendor directo
 
 &lt;p&gt;&lt;br /&gt;
 3 . Import the &lt;span class=&quot;badge&quot;&gt;sweetalert.min.js&lt;/span&gt; and 
-&lt;span class=&quot;badge&quot;&gt;prospects.js&lt;/span&gt; files in &lt;span class=&quot;badge&quot;&gt;
+&lt;span class=&quot;badge&quot;&gt;email_list.js&lt;/span&gt; files in &lt;span class=&quot;badge&quot;&gt;
 javascript/application.js&lt;/span&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt; 
@@ -607,7 +607,7 @@ javascript/application.js&lt;/span&gt;&lt;/p&gt;
 &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./src/vendor/sweetalert.min&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./src/prospects&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./src/email_list&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
 4 . Import the &lt;span class=&quot;badge&quot;&gt;sweetalert.css&lt;/span&gt; file in &lt;span class=&quot;badge&quot;&gt;
