@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Install Rails Admin on a Rails App - Techietuts</title>
+ <title>Ruby Array Methods [T - Z] - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Install Rails Admin on a Rails App" />
+<meta property="og:title" content="Ruby Array Methods [T - Z]" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Definition" />
-<meta property="og:description" content="Definition" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-rails-admin-on-a-rails-app" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-rails-admin-on-a-rails-app" />
+<meta name="description" content="1 . to_h Returns a new hash formed from the array." />
+<meta property="og:description" content="1 . to_h Returns a new hash formed from the array." />
+<link rel="canonical" href="http://0.0.0.0:4000/category/programming/ruby/concepts/202210/ruby-array-methods-t-z" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/programming/ruby/concepts/202210/ruby-array-methods-t-z" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-02-28T17:28:00+03:00" />
+<meta property="article:published_time" content="2022-10-24T04:00:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Install Rails Admin on a Rails App" />
+<meta property="twitter:title" content="Ruby Array Methods [T - Z]" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Definition","headline":"Install Rails Admin on a Rails App","dateModified":"2022-02-28T17:28:00+03:00","datePublished":"2022-02-28T17:28:00+03:00","url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-rails-admin-on-a-rails-app","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202202/install-rails-admin-on-a-rails-app"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"1 . to_h Returns a new hash formed from the array.","headline":"Ruby Array Methods [T - Z]","dateModified":"2022-10-24T04:00:00+03:00","datePublished":"2022-10-24T04:00:00+03:00","url":"http://0.0.0.0:4000/category/programming/ruby/concepts/202210/ruby-array-methods-t-z","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/ruby/concepts/202210/ruby-array-methods-t-z"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,140 +909,265 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Install Rails Admin on a Rails App</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Ruby Array Methods [T - Z]</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> October 2022</p>
     <div>
                 <!-- Page content object inserted below -->
-        <h3 id="definition">Definition</h3>
+        <h3 id="1--to_h">1 . to_h</h3>
+<p>Returns a new hash formed from the array.</p>
 
-<p>Rails Admin is a Rails engine that provides an easy-to-use interface for managing your data. It is used to generate administration interfaces just like Active Admin, although Rails Admin automatically generates admin views for your models. Most developers prefer to be more hands-on and therefore lean more towards <a href="/category/frameworks/ruby-on-rails/concepts/202202/install-active-admin-on-a-rails-app">Active Admin</a>.</p>
+<p>When a block is given, it calls the 
+block with each array element and the block must return a 2-element Array whose 
+two elements form a key-value pair in the returned Hash.</p>
 
-<p><br />
-Make sure <a href="/category/frameworks/ruby-on-rails/concepts/202202/install-devise-on-a-rails-app">Devise</a> is installed and properly configured.</p>
-<h3 id="1-add-the-gem">1. Add the gem</h3>
+<p>When no block is given, the array must be an array of 2-element sub-arrays, each 
+sub-array is formed into a key-value pair in the new Hash.</p>
 
-<p>Open up your Gemfile and add these lines.</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.to_h { |item| [item, item] }</span>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># /Gemfile</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-<span class="c1">### NOTE: If you are using Rails 4, you do not need to add the first Gem (remotipart).</span>
-<span class="n">gem</span> <span class="s1">'remotipart'</span><span class="p">,</span> <span class="ss">github: </span><span class="s1">'mshibuya/remotipart'</span>
-<span class="n">gem</span> <span class="s1">'rails_admin'</span><span class="p">,</span> <span class="ss">github: </span><span class="s1">'sferik/rails_admin'</span>
-<span class="n">gem</span> <span class="s1">'rails_admin_rollincode'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
-<span class="n">gem</span> <span class="s2">"devise"</span>
-	</code></pre></figure>
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"first"</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">"second"</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s2">"third"</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
 
-<p>and run:</p>
+<span class="n">arr</span><span class="p">.</span><span class="nf">to_h</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="p">[</span><span class="n">item</span><span class="p">,</span> <span class="n">item</span><span class="p">]</span> <span class="p">}</span>
+<span class="c1"># {1=&gt;1, 2=&gt;2, 3=&gt;3, 4=&gt;4, 5=&gt;5}</span>
 
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
-<span class="go">	</span></code></pre></figure>
 
-<p><br /></p>
-<h3 id="2-set-up-rails-admin-in-your-app">2. Set up Rails Admin in your app</h3>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="go">	
-</span><span class="gp">$</span><span class="w"> </span>rails g rails_admin:install
-<span class="go">
-</span><span class="gp">$</span><span class="w"> </span>rails db:migrate</code></pre></figure>
-
-<p>Rails Admin will ask on which route you would like to install, leave /admin as the default, but you can choose another route.</p>
+<span class="n">arr2</span><span class="p">.</span><span class="nf">to_h</span>
+<span class="c1"># {"first"=&gt;1, "second"=&gt;2, "third"=&gt;3}</span></code></pre></figure>
 
 <p><br /></p>
-<h3 id="3-administer-your-data">3. Administer Your Data</h3>
-<p>Fire up the rails server and visit http://localhost:3000/admin to administer your data</p>
+<h3 id="2--transpose">2 . transpose</h3>
+<p>Transposes the rows and columns in an array of arrays. The nested arrays must all 
+be the same size.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.transpose</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"first"</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">"second"</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s2">"third"</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">transpose</span>
+<span class="c1"># [["first", "second", "third"], [1, 2, 3]]</span></code></pre></figure>
 
 <p><br /></p>
-<h3 id="4-install-rails-admin-theme">4. Install Rails Admin Theme</h3>
-<p>The rails admin theme provides news colors, adjustments and a brand new tree view menu.</p>
+<h3 id="3--take">3 . take()</h3>
+<p>Returns a new array containing the first n element of the given array, where n is a
+non-negative Integer. It does not modify the original array.</p>
 
-<p>i). Open Gemfile and add the following gems:</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.take(n)</span>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># /Gemfile</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-<span class="n">gem</span> <span class="s1">'rails_admin_rollincode'</span><span class="p">,</span> <span class="s1">'~&gt; 1.0'</span>
-<span class="n">gem</span> <span class="s1">'rails_admin'</span><span class="p">,</span> <span class="ss">git: </span><span class="s1">'https://github.com/sferik/rails_admin.git'</span>
-	</code></pre></figure>
+<span class="n">arr</span><span class="p">.</span><span class="nf">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># [1, 2, 3]</span></code></pre></figure>
 
-<p><br />
-ii). Inside config/application.rb, just after Bundler.require:</p>
+<p><br /></p>
+<h3 id="4--take_while">4 . take_while</h3>
+<p>Returns a new array containing zero or more leading elements of the array. It does 
+not modify the original array.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/application.rb</span>
+<p>With a block given, calls the block with each successive element of the array and
+stops if the block returns false or nil. It then returns a new array containing 
+those elements for which the block returned a truthy value.</p>
 
-<span class="c1"># Bundler.require</span>
-<span class="no">ENV</span><span class="p">[</span><span class="s1">'RAILS_ADMIN_THEME'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'rollincode'</span>	
-	</code></pre></figure>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.take_while {...}</span>
 
-<p><br />
-iii). You’ll have to run theses commands for changes to take effect:</p>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="go">rake assets:clean &amp;&amp; rake assets:precompile	                
-                OR	                
-rm -rf tmp/cache/assets/development/
-	                </span></code></pre></figure>
+<span class="n">arr</span><span class="p">.</span><span class="nf">take_while</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">}</span>
+<span class="c1"># []</span>
 
-<p><br />
-iv). Add JavaScript<br />
-We can’t include custom js in a bundled theme with rails_admin for now, you have to add in your app/assets/javascripts/rails_admin/custom/ui.js the following code : for the javascript menu to work:</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// app/assets/javascripts/rails_admin/custom/ui.js</span>
+<span class="n">arr</span><span class="p">.</span><span class="nf">take_while</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">}</span>
+<span class="c1"># [1, 2, 3]</span></code></pre></figure>
 
-	<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">ready pjax:success</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-	  <span class="nx">handleActiveBase</span><span class="p">();</span>
-	  <span class="kd">function</span> <span class="nx">handleActiveBase</span><span class="p">()</span> <span class="p">{</span>
-	    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.sub-menu</span><span class="dl">'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-	      <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">active</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
-		<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">prev</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">active</span><span class="dl">'</span><span class="p">);</span>
-		<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">prev</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">open</span><span class="dl">'</span><span class="p">);</span>
-		<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">slideDown</span><span class="p">();</span>
-	      <span class="p">}</span>
-	    <span class="p">});</span>
-	  <span class="p">}</span>
-	<span class="p">});</span>
+<p><br /></p>
+<h3 id="5--to_s">5 . to_s</h3>
+<p>This method is an alias for <span class="badge">inspect</span> method.</p>
 
-	<span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-	  <span class="kd">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.nav-stacked</span><span class="dl">'</span><span class="p">).</span><span class="nx">width</span><span class="p">();</span>
-	  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.navbar-header</span><span class="dl">'</span><span class="p">).</span><span class="nx">width</span><span class="p">(</span><span class="nx">width</span><span class="p">);</span>
+<p>Returns the new String formed from each array element.</p>
 
-	  <span class="kd">var</span> <span class="nx">array_menu</span> <span class="o">=</span> <span class="p">[];</span>
-	  <span class="kd">var</span> <span class="nx">lvl_1</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-	  <span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.to_s</span>
 
-	  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.sidebar-nav li</span><span class="dl">'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
-	    <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nx">item</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">dropdown-header</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
-	      <span class="nx">lvl_1</span> <span class="o">=</span> <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
-	      <span class="nx">array_menu</span><span class="p">[</span><span class="nx">lvl_1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-	    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-	      <span class="nx">$</span><span class="p">(</span><span class="nx">item</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">sub-menu sub-menu-</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">lvl_1</span><span class="p">);</span>
-	    <span class="p">}</span>
-	  <span class="p">});</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
-	  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">array_menu</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-	    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.sub-menu-</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">i</span><span class="p">).</span><span class="nx">wrapAll</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;div class='sub-menu-container' /&gt;</span><span class="dl">"</span><span class="p">);</span>
-	  <span class="p">}</span>
+<span class="n">arr</span><span class="p">.</span><span class="nf">to_s</span>
 
-	  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.sub-menu-container</span><span class="dl">'</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+<span class="c1"># "[1, 2, 3, 4, 5]"</span></code></pre></figure>
 
-	  <span class="nx">handleActiveBase</span><span class="p">();</span>
-	  <span class="kd">function</span> <span class="nx">handleActiveBase</span><span class="p">()</span> <span class="p">{</span>
-	    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.sub-menu</span><span class="dl">'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-	      <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">active</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
-		<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">prev</span><span class="p">().</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">active</span><span class="dl">'</span><span class="p">);</span>
-		<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">slideDown</span><span class="p">();</span>
-	      <span class="p">}</span>
-	    <span class="p">});</span>
-	  <span class="p">}</span>
+<p><br /></p>
+<h3 id="6--to_set">6 . to_set</h3>
+<p>Converts the array to a set.</p>
 
-	  <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.dropdown-header</span><span class="dl">'</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-	    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.dropdown-header</span><span class="dl">'</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">open</span><span class="dl">'</span><span class="p">);</span>
-	    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">open</span><span class="dl">'</span><span class="p">);</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.to_set</span>
 
-	    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.dropdown-header</span><span class="dl">'</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">active</span><span class="dl">'</span><span class="p">);</span>
-	    <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">.sub-menu-container</span><span class="dl">'</span><span class="p">).</span><span class="nx">stop</span><span class="p">().</span><span class="nx">slideUp</span><span class="p">();</span>
-	    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">toggleClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">active</span><span class="dl">'</span><span class="p">);</span>
-	    <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">next</span><span class="p">(</span><span class="dl">'</span><span class="s1">.sub-menu-container</span><span class="dl">'</span><span class="p">).</span><span class="nx">stop</span><span class="p">().</span><span class="nx">slideDown</span><span class="p">();</span>
-	  <span class="p">});</span>
-	<span class="p">});</span>	</code></pre></figure>
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">]</span>
+
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">to_set</span>
+
+<span class="c1">#&lt;Set: {"a", "b", "c"}&gt;</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="7--tally">7 . tally</h3>
+<p>Counts element occurences in the array.</p>
+
+<p>With a hash argument, that hash is used for the tally (instead of a new hash), 
+and is returned. This may be useful for accumulating tallies across multiple enumerables.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.tally</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">tally</span>
+<span class="c1"># =&gt; {"a"=&gt;2, "b"=&gt;3, "c"=&gt;1}</span>
+
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ruby"</span><span class="p">,</span> <span class="s2">"RoR"</span><span class="p">,</span> <span class="s2">"React"</span><span class="p">,</span> <span class="s2">"Ruby"</span><span class="p">,</span> <span class="s2">"CSS"</span><span class="p">]</span>
+<span class="n">arr3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"JS"</span><span class="p">,</span> <span class="s2">"CSS"</span><span class="p">,</span> <span class="s2">"Python"</span><span class="p">,</span> <span class="s2">"Ruby"</span><span class="p">]</span>
+
+
+<span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">tally</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span>
+<span class="c1"># {"a"=&gt;2, "b"=&gt;3, "c"=&gt;1}</span>
+
+<span class="n">arr2</span><span class="p">.</span><span class="nf">tally</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span>
+<span class="c1"># {"a"=&gt;2, "b"=&gt;3, "c"=&gt;1, "Ruby"=&gt;2, "RoR"=&gt;1, "React"=&gt;1, "CSS"=&gt;1}</span>
+
+
+<span class="n">arr3</span><span class="p">.</span><span class="nf">tally</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span>
+<span class="c1"># {"a"=&gt;2, "b"=&gt;3, "c"=&gt;1, "Ruby"=&gt;3, "RoR"=&gt;1, "React"=&gt;1, "CSS"=&gt;2, "JS"=&gt;1, "Python"=&gt;1}</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="8--tap">8 . tap</h3>
+<p>Taps into a method chain, in order to perform operations on intermediate results
+within the chain.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.tap</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">arr</span>                      <span class="p">.</span><span class="nf">tap</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"original: </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+  <span class="p">.</span><span class="nf">to_a</span>                  <span class="p">.</span><span class="nf">tap</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"array:    </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+  <span class="p">.</span><span class="nf">select</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">.</span><span class="nf">even?</span> <span class="p">}</span> <span class="p">.</span><span class="nf">tap</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"evens:    </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+  <span class="p">.</span><span class="nf">map</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span>        <span class="p">.</span><span class="nf">tap</span> <span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="nb">puts</span> <span class="s2">"squares:  </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+
+<span class="c1"># original: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="c1"># array:    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="c1"># evens:    [2, 4, 6, 8, 10]</span>
+<span class="c1"># squares:  [4, 16, 36, 64, 100]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="9--then">9 . then</h3>
+<p>Yields the array to the block and returns the result of the block.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.then {...}</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ruby"</span><span class="p">,</span> <span class="s2">"RoR"</span><span class="p">,</span> <span class="s2">"React"</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">then</span> <span class="p">{</span><span class="o">|</span><span class="n">lang</span><span class="o">|</span> <span class="s2">"I like </span><span class="si">#{</span><span class="n">lang</span><span class="p">.</span><span class="nf">first</span><span class="si">}</span><span class="s2">"</span><span class="p">}</span>
+
+<span class="c1"># "I like Ruby"</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="10--to_enum">10 . to_enum</h3>
+<p>Protects an array from being modified by some_method.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># some_method(Array.to_enum)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">some_method</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="nf">to_enum</span><span class="p">)</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="11--union">11 . union</h3>
+<p>Returns a new array that is the union of the given and all other arrays. 
+Duplicates are removed, the order is preserved and items are compared using 
+<span class="badge">eql?</span></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.union(other_array)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">union</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+<span class="c1"># [1, 2, 3, 4, 5, 6]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="12--unshift">12 . unshift</h3>
+<p>Prepends the given objects to the array. Alias for <span class="badge">prepend</span>
+method.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.unshift(obj)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[{</span><span class="ss">name: </span><span class="s2">"Ruby"</span><span class="p">},</span> <span class="p">{</span><span class="ss">name: </span><span class="s2">"Python"</span><span class="p">}]</span> 
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">prepend</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+<span class="c1"># [[1, 2, 3, 4, 5], {:name=&gt;"Ruby"}, {:name=&gt;"Python"}]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="13--uniq">13 . uniq</h3>
+<p>Returns a new array containing those elements from the array that are not
+duplicates, the first occurrence always being retained.</p>
+
+<p>With a block given, it calls the block for each element and identifies (using
+method eql?) and omits duplicate values, that is, those elements for which the 
+block returns the same value.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.uniq</span>
+<span class="c1"># Array.uniq {...}</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">uniq</span>
+<span class="c1"># [1, 2, 3, 4]</span>
+
+
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'a'</span><span class="p">,</span> <span class="s1">'aa'</span><span class="p">,</span> <span class="s1">'aaa'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'bb'</span><span class="p">,</span> <span class="s1">'bbb'</span><span class="p">]</span>
+<span class="n">arr2</span><span class="p">.</span><span class="nf">uniq</span> <span class="p">{</span><span class="o">|</span><span class="n">element</span><span class="o">|</span> <span class="n">element</span><span class="p">.</span><span class="nf">size</span> <span class="p">}</span> 
+<span class="c1"># ["a", "aa", "aaa"]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="14--values_at">14 . values_at</h3>
+<p>Returns a new array whose elements are the elements of the array at the given
+Integer or Range indexes.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.values_at(*indexes)</span>
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ruby"</span><span class="p">,</span> <span class="s2">"RoR"</span><span class="p">,</span> <span class="s2">"React"</span><span class="p">,</span> <span class="s2">"JS"</span><span class="p">,</span> <span class="s2">"CSS"</span><span class="p">,</span> <span class="s2">"Python"</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">values_at</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> 
+<span class="c1"># ["Python"]</span>
+
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">values_at</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="c1"># ["React", "JS"]</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="15--yield_self">15 . yield_self</h3>
+<p>Yields the array to the block and returns the result of the block.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.yield_self {...} </span>
+
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">yield_self</span> <span class="p">{</span><span class="o">|</span><span class="n">s</span><span class="o">|</span> <span class="n">s</span><span class="p">.</span><span class="nf">last</span><span class="p">.</span><span class="nf">to_s?</span> <span class="p">}</span> 
+<span class="c1"># 5</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="16--zip">16 . zip</h3>
+<p>Merges elements of the array with corresponding elements from each argument.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.zip(other_array)</span>
+
+
+<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Ruby"</span><span class="p">,</span> <span class="s2">"Ruby on Rails"</span> <span class="s2">"CSS"</span><span class="p">,</span> <span class="s2">"Python"</span><span class="p">,</span> <span class="s2">"React"</span><span class="p">]</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+
+<span class="n">arr</span><span class="p">.</span><span class="nf">zip</span><span class="p">(</span><span class="n">arr2</span><span class="p">)</span>
+<span class="c1"># [["Ruby", 1], ["Ruby on RailsCSS", 2], ["Python", 3], ["React", 4]]</span></code></pre></figure>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>
