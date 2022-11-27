@@ -31,7 +31,7 @@ At the root of the rails project, create a file called Dockerfile, with no exten
 
 
 <br>
-1 . Add an operating system containing the project's version of ruby using the "from" primitive. 
+1 . Add an operating system containing the project's version of ruby using the "from" directive. 
 
 Alpine Linux is a lightweight operating system and therefore a great fit for docker containers or any system that is network-based and dedicated for a single purpose only, like in the case of routers.
 
