@@ -1,4 +1,246 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-11-27T08:50:38+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Rails Simple Form Gem Installation &amp;amp; Usage</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202211/rails-simple-form-gem-installation-and-usage" rel="alternate" type="text/html" title="Rails Simple Form Gem Installation &amp;amp; Usage" /><published>2022-11-13T06:55:00+03:00</published><updated>2022-11-13T06:55:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202211/rails-simple-form-gem-installation%20and%20usage</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202211/rails-simple-form-gem-installation-and-usage">&lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/table.css&quot; /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-11-28T17:57:43+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Rails Mapping of Datatypes to Database Types</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types" rel="alternate" type="text/html" title="Rails Mapping of Datatypes to Database Types" /><published>2022-11-28T15:00:00+03:00</published><updated>2022-11-28T15:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails%20mapping-of-datatypes-to-database-types</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types">&lt;style&gt;
+
+@media(min-width: 81em) {
+
+  .mobile {
+    display: none !important;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px;
+  }
+
+  .grid-container &gt; div {
+    background-color: #C5C6D0;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 18px;
+  }
+
+  li {
+    list-style: none;
+    text-align: left;
+    padding-right: 10px;
+  }
+
+}
+
+
+@media(max-width: 81em) {
+
+  .desktop {
+    display: none !important;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    background-color: #fff;
+    padding: 10px;
+  }
+
+  .grid-container &gt; div {
+    background-color: #C5C6D0;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 18px;
+  }
+
+  li {
+    list-style: none;
+    text-align: left;
+    padding-right: 10px;
+  }
+
+}
+
+&lt;/style&gt;
+
+&lt;div class=&quot;grid-container desktop&quot;&gt;
+  &lt;div class=&quot;col-one&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;&amp;nbsp;&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;:binary&lt;/li&gt;   
+    &lt;li&gt;:boolean&lt;/li&gt;
+    &lt;li&gt;:date&lt;/li&gt;
+    &lt;li&gt;:datetime&lt;/li&gt;
+    &lt;li&gt;:decimal&lt;/li&gt;
+    &lt;li&gt;:float&lt;/li&gt;
+    &lt;li&gt;:integer&lt;/li&gt;
+    &lt;li&gt;:string&lt;/li&gt;
+    &lt;li&gt;:text&lt;/li&gt;
+    &lt;li&gt;:time&lt;/li&gt;
+    &lt;li&gt;:timestamp&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+  
+  &lt;div&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;MySQL&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;blob&lt;/li&gt;   
+    &lt;li&gt;tinyint(1)&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;
+    &lt;li&gt;decimal&lt;/li&gt;
+    &lt;li&gt;float&lt;/li&gt;
+    &lt;li&gt;int(11)&lt;/li&gt;
+    &lt;li&gt;varchar(255)&lt;/li&gt;
+    &lt;li&gt;text&lt;/li&gt;
+    &lt;li&gt;time&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+
+  &lt;div&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Postgresql&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;bytea&lt;/li&gt;   
+    &lt;li&gt;boolean&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;timestamp&lt;/li&gt;
+    &lt;li&gt;decimal&lt;/li&gt;
+    &lt;li&gt;float&lt;/li&gt;
+    &lt;li&gt;integer&lt;/li&gt;
+    &lt;li&gt;note 1&lt;/li&gt;
+    &lt;li&gt;text&lt;/li&gt;
+    &lt;li&gt;time&lt;/li&gt;
+    &lt;li&gt;timestamp&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+
+  &lt;div&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;SQLite&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;blob&lt;/li&gt;   
+    &lt;li&gt;boolean&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;
+    &lt;li&gt;decimal&lt;/li&gt;
+    &lt;li&gt;float&lt;/li&gt;
+    &lt;li&gt;integer&lt;/li&gt;
+    &lt;li&gt;varchar(255)&lt;/li&gt;
+    &lt;li&gt;text&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+
+  &lt;div&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Oracle&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;blob&lt;/li&gt;   
+    &lt;li&gt;number(1)&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;decimal&lt;/li&gt;
+    &lt;li&gt;number&lt;/li&gt;
+    &lt;li&gt;number(38)&lt;/li&gt;
+    &lt;li&gt;varchar2(255)&lt;/li&gt;
+    &lt;li&gt;clob&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;!-- Mobile view --&gt;
+
+&lt;div class=&quot;grid-container mobile&quot;&gt;
+  &lt;div class=&quot;col-one&quot;&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;&amp;nbsp;&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;:binary&lt;/li&gt;   
+    &lt;li&gt;:boolean&lt;/li&gt;
+    &lt;li&gt;:date&lt;/li&gt;
+    &lt;li&gt;:datetime&lt;/li&gt;
+    &lt;li&gt;:decimal&lt;/li&gt;
+    &lt;li&gt;:float&lt;/li&gt;
+    &lt;li&gt;:integer&lt;/li&gt;
+    &lt;li&gt;:string&lt;/li&gt;
+    &lt;li&gt;:text&lt;/li&gt;
+    &lt;li&gt;:time&lt;/li&gt;
+    &lt;li&gt;:timestamp&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+  
+  &lt;div&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;MySQL&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;blob&lt;/li&gt;   
+    &lt;li&gt;tinyint(1)&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;
+    &lt;li&gt;decimal&lt;/li&gt;
+    &lt;li&gt;float&lt;/li&gt;
+    &lt;li&gt;int(11)&lt;/li&gt;
+    &lt;li&gt;varchar(255)&lt;/li&gt;
+    &lt;li&gt;text&lt;/li&gt;
+    &lt;li&gt;time&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+
+  &lt;div&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Postgresql&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;bytea&lt;/li&gt;   
+    &lt;li&gt;boolean&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;timestamp&lt;/li&gt;
+    &lt;li&gt;decimal&lt;/li&gt;
+    &lt;li&gt;float&lt;/li&gt;
+    &lt;li&gt;integer&lt;/li&gt;
+    &lt;li&gt;note 1&lt;/li&gt;
+    &lt;li&gt;text&lt;/li&gt;
+    &lt;li&gt;time&lt;/li&gt;
+    &lt;li&gt;timestamp&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+
+  &lt;div&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;SQLite&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;blob&lt;/li&gt;   
+    &lt;li&gt;boolean&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;
+    &lt;li&gt;decimal&lt;/li&gt;
+    &lt;li&gt;float&lt;/li&gt;
+    &lt;li&gt;integer&lt;/li&gt;
+    &lt;li&gt;varchar(255)&lt;/li&gt;
+    &lt;li&gt;text&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;
+    &lt;li&gt;datetime&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+
+  &lt;div&gt;
+   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Oracle&lt;/h4&gt;
+     &lt;ul&gt;
+    &lt;li&gt;blob&lt;/li&gt;   
+    &lt;li&gt;number(1)&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;decimal&lt;/li&gt;
+    &lt;li&gt;number&lt;/li&gt;
+    &lt;li&gt;number(38)&lt;/li&gt;
+    &lt;li&gt;varchar2(255)&lt;/li&gt;
+    &lt;li&gt;clob&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;
+    &lt;li&gt;date&lt;/li&gt;    
+   &lt;/ul&gt;  
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html"></summary></entry><entry><title type="html">Rails Simple Form Gem Installation &amp;amp; Usage</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202211/rails-simple-form-gem-installation-and-usage" rel="alternate" type="text/html" title="Rails Simple Form Gem Installation &amp;amp; Usage" /><published>2022-11-13T06:55:00+03:00</published><updated>2022-11-13T06:55:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202211/rails-simple-form-gem-installation%20and%20usage</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202211/rails-simple-form-gem-installation-and-usage">&lt;link rel=&quot;stylesheet&quot; href=&quot;/assets/css/table.css&quot; /&gt;
 
 &lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 &lt;p&gt;Simple Form is a custom Rails form builder that consistently structures forms 
@@ -2659,38 +2901,4 @@ done if a token is leaked is much smaller due to their short life span. A server
 can easily determine if a token is too old and decide to reject it if it doesnt view it as valid.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications.</summary></entry><entry><title type="html">Types of Token-Based Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/types-of-token-based-authentication" rel="alternate" type="text/html" title="Types of Token-Based Authentication" /><published>2022-09-27T06:00:00+03:00</published><updated>2022-09-27T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/types-of-token-based-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/types-of-token-based-authentication">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-&lt;p&gt;Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token
-to an electronically restricted resource, usually an application.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;types-of-token-based-authentication&quot;&gt;Types of Token-Based Authentication&lt;/h3&gt;
-
-&lt;p&gt;1 . Connected Tokens&lt;/p&gt;
-
-&lt;p&gt;Connected tokens are physical devices that users must plug in to their computer or system for authentication. Examples include smart cards and Universal Serial Bus (USB) devices, as well as discs, drives, and keys.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Contactless Tokens&lt;/p&gt;
-
-&lt;p&gt;Contactless tokens uses a wireless connection to access the system. An example of this is Microsoft’s ring device Token, which is a wearable ring that enables users to quickly and seamlessly log in to their Windows 10 device without entering a password.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Disconnected Tokens&lt;/p&gt;
-
-&lt;p&gt;Disconnected tokens work by setting up a device to generate one-time access codes, which serve as part of 2FA or MFA. A good example of this is entering a code on a mobile phone for two-factor authentication (2FA).&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; 
-4 . JSON Web Token (JWT)&lt;/p&gt;
-
-&lt;p&gt;JSON Web Tokens (JWTs) enable secure communication between two parties through 
-an open industry standard, Request For Comments 7519 (RFC 7519). This defines a 
-simple, self-contained method for transmitting information between parties securely.&lt;/p&gt;
-
-&lt;p&gt;JWT standard uses JavaScript Object Notation (JSON) objects to transmit tokens 
-between parties and the data shared is verified by a digital signature using an 
-algorithm and public and private key pairing, which ensures optimal security. 
-Data sent via Hypertext Transfer Protocol (HTTP) is kept secure by encryption.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition Token-based authentication is a protocol which allows users to verify their identity, and in return receive a unique access token to an electronically restricted resource, usually an application.</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications.</summary></entry></feed>
