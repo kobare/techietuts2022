@@ -1,4 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-11-28T17:57:43+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Rails Mapping of Datatypes to Database Types</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types" rel="alternate" type="text/html" title="Rails Mapping of Datatypes to Database Types" /><published>2022-11-28T15:00:00+03:00</published><updated>2022-11-28T15:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails%20mapping-of-datatypes-to-database-types</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types">&lt;style&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T18:12:28+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Rails Generator Cheatsheet</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/cheatsheet/202212/rails-generator-cheatsheet" rel="alternate" type="text/html" title="Rails Generator Cheatsheet" /><published>2022-12-01T06:00:00+03:00</published><updated>2022-12-01T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/cheatsheet/202212/rails-generator-cheatsheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/cheatsheet/202212/rails-generator-cheatsheet">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;Rails generator takes so much of the work out of the developer’s hands which 
+makes it a great tool for a more experienced developer but not the best one for a beginner.&lt;/p&gt;
+
+&lt;p&gt;Here are some of the most useful generators to help speed up development time.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-scaffold&quot;&gt;1. Scaffold&lt;/h3&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;scaffold&lt;/span&gt; creates all the necessary components with 
+the attributes supplied. It creates the migration, model, controller, view, css, route and tests files.&lt;/p&gt;
+
+&lt;p&gt;It is worth noting that the &lt;span class=&quot;badge&quot;&gt;resource&lt;/span&gt; generator is similar 
+to scaffolding. The only difference is that it does not generate the view template 
+files and controller actions. It creates an empty view folder and a controller without actions.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g scaffold &amp;lt;name of model&amp;gt; &amp;lt;model attributes&amp;gt;
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g scaffold Person name age:integer address
+&lt;span class=&quot;go&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;To generate a namespaced resource &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;API &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;this &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;:
+&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;NB: skips the model and migration
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g scaffold_controller api/v1/persons name:string age:integer address:string  &lt;span class=&quot;nt&quot;&gt;--api&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--model-name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;Person&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-controller&quot;&gt;2. Controller&lt;/h3&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;controller&lt;/span&gt; generator generates both the controller and the view templates.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g controller &amp;lt;name of controller&amp;gt; &amp;lt;controller actions&amp;gt;
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g controller person index show create destroy
+&lt;span class=&quot;go&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;To generate the controller only &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;:
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate controller person index show create destroy &lt;span class=&quot;nt&quot;&gt;--skip-template-engine&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-model&quot;&gt;2. Model&lt;/h3&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;model&lt;/span&gt; generators create a model file as well as the database migration file.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g model &amp;lt;name of model&amp;gt; &amp;lt;model attributes&amp;gt;
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g model Person name age:integer address
+&lt;span class=&quot;go&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;To generate the model only &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;skip migration&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;:
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g model Person name age:integer address &lt;span class=&quot;nt&quot;&gt;--skip-migration&lt;/span&gt; 
+&lt;span class=&quot;go&quot;&gt;
+or:
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g model Person name age:integer address &lt;span class=&quot;nt&quot;&gt;--migration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;To create a new model with a reference to another model &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g model Citizenship name person:references country:references
+&lt;span class=&quot;go&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;To generate a model that has a polymorphic reference &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;:
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g model Comment body:text commentable:references&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;polymorphic&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;:index  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-migration&quot;&gt;3. Migration&lt;/h3&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;migration&lt;/span&gt; generator generates the migration file.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g migration &amp;lt;name of migration&amp;gt; &amp;lt;model attributes&amp;gt;
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g migration create_table_person name age:integer address&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">Rails Mapping of Datatypes to Database Types</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types" rel="alternate" type="text/html" title="Rails Mapping of Datatypes to Database Types" /><published>2022-11-28T15:00:00+03:00</published><updated>2022-11-28T15:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails%20mapping-of-datatypes-to-database-types</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types">&lt;style&gt;
 
 @media(min-width: 81em) {
 
@@ -2864,41 +2934,4 @@ directory and add this code&lt;/p&gt;
 &lt;img class=&quot;zoom-on-hover mobile-image&quot; srcset=&quot;   /assets/img/posts/typeahead.gif 1.2x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition Typeahead is JavaScript library that provides a list of suggestions for users as they search or fill a form, improving the user experienc as a result.</summary></entry><entry><title type="html">JWT Authentication</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication" rel="alternate" type="text/html" title="JWT Authentication" /><published>2022-09-27T06:00:00+03:00</published><updated>2022-09-27T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202209/JWT-authentication">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-&lt;p&gt;A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along 
-inside an http request, effectively transferring authentication-related data between a client 
-and a server or between applications.&lt;/p&gt;
-
-&lt;p&gt;The JWT stores user credentials and data in a secure manner and is able to 
-verify that the data is correct and was not tampered with. It therefore simplifies the 
-authentication process for known users.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;components-of-an-jwt&quot;&gt;Components of an JWT&lt;/h3&gt;
-
-&lt;p&gt;A JSON Web Token consists of three parts:&lt;/p&gt;
-
-&lt;p&gt;1 . The header: defines the token type being used, as well as the signing algorithm involved.&lt;/p&gt;
-
-&lt;p&gt;2 . The payload: defines the token issuer and the token’s 
-expiration details and provides information about the user or other metadata.&lt;/p&gt;
-
-&lt;p&gt;3 . The signature: Guarantees the integrity and authenticity of the claims in the payload.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;jwt-authentication-process&quot;&gt;JWT Authentication Process&lt;/h3&gt;
-
-&lt;p&gt;&lt;img class=&quot;zoom-on-hover&quot; srcset=&quot;   /assets/img/posts/token_authentication.png 1.3x,   /assets/img/posts/token_authentication.png 2.8x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The idea is that the client application exchanges authentication credentials for 
-an authentication token and in subsequent requests, just sends the token. When 
-the server receives the token, it can then look up the credentials of the user 
-and determine whether or not it is authorized to the information it is requesting.&lt;/p&gt;
-
-&lt;p&gt;Tokens are usually given out with an expiration time, after which they become 
-invalid and a new token needs to be obtained. The potential damage that can be 
-done if a token is leaked is much smaller due to their short life span. A server 
-can easily determine if a token is too old and decide to reject it if it doesnt view it as valid.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition A JSON Web Token (JWT) is a string that the server generates for the client that can be passed along inside an http request, effectively transferring authentication-related data between a client and a server or between applications.</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition Typeahead is JavaScript library that provides a list of suggestions for users as they search or fill a form, improving the user experienc as a result.</summary></entry></feed>
