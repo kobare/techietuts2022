@@ -17,7 +17,7 @@ permalink: "category/:categories/ruby-on-rails/cheatsheet/:year:month/:title"
 Rails generator takes so much of the work out of the developer’s hands which 
 makes it a great tool for a more experienced developer but not the best one for a beginner.
 
-Here are some of the most useful generators to help speed up development time.
+Here are some of the most useful generators to help speed up development process.
 
 <br>
 ### 1. Scaffold
