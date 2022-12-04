@@ -11,124 +11,98 @@ technology: Ruby
 permalink: "category/:categories/ruby-on-rails/cheatsheet/:year:month/:title"
 ---
 
-<link rel="stylesheet" href="/assets/css/table.css">
 
 ### Definition
-Simple Form is a custom Rails form builder that consistently structures forms 
-with a rich set of features. It is rather flexible and consequently easy to 
-override layout options in a particular form or field.
 
+Rails generator takes so much of the work out of the developer’s hands which 
+makes it a great tool for a more experienced developer but not the best one for a beginner.
 
-<br>
-### Installation
-
-1 . Add gem to Gemfile
-
-{% highlight ruby %}
-
-#...
-
-  gem simple_form
-
-{% endhighlight  %}
-
+Here are some of the most useful generators to help speed up development time.
 
 <br>
-2 . Bundle up
+### 1. Scaffold
+
+The <span class="badge">scaffold</span> creates all the necessary components with 
+the attributes supplied. It creates the migration, model, controller, view, css, route and tests files.
+
+It is worth noting that the <span class="badge">resource</span> generator is similar 
+to scaffolding. The only difference is that it does not generate the view template 
+files and controller actions. It creates an empty view folder and a controller without actions. 
 
 {% highlight terminal %}
 
-$ bundle install
+# rails g scaffold <name of model> <model attributes>
+$ rails g scaffold Person name age:integer address
+
+
+# To generate a namespaced resource (API in this case) do:
+# NB: skips the model and migration
+$ rails g scaffold_controller api/v1/persons name:string age:integer address:string  --api --model-name=Person
 
 {% endhighlight  %}
 
 
+
 <br>
-3 . Generate helpers
+### 2. Controller
+
+The <span class="badge">controller</span> generator generates both the controller and the view templates.
 
 {% highlight terminal %}
 
-$ rails g simple_form:install
+# rails g controller <name of controller> <controller actions>
+$ rails g controller person index show create destroy
+
+
+# To generate the controller only do:
+$ rails generate controller person index show create destroy --skip-template-engine
 
 {% endhighlight  %}
 
 
-<br>
-### Usage Example
-
-See this controller for context:
 
 <br>
-{% highlight ruby %}
+### 2. Model
 
-class Lecturer::QuestionsController < Lecturer::ApplicationController
-  
-  
-  def create
-    @question = Question.new(question_params)
+The <span class="badge">model</span> generators create a model file as well as the database migration file. 
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to [:lecturer, @question], notice: 'Question was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @question }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-  
-  
-  private
-     
-   def question_params
-     params.require(:question).permit(:question_statement, :body, :image, pictures: [])
-   end
-  
-end
+{% highlight terminal %}
+
+# rails g model <name of model> <model attributes>
+$ rails g model Person name age:integer address
+
+
+# To generate the model only (skip migration) do:
+$ rails g model Person name age:integer address --skip-migration 
+
+or:
+
+$ rails g model Person name age:integer address --migration=false
+
+
+# To create a new model with a reference to another model do;
+$ rails g model Citizenship name person:references country:references
+
+
+# To generate a model that has a polymorphic reference do:
+$ rails g model Comment body:text commentable:references{polymorphic}:index  
 
 {% endhighlight  %}
 
 
-<br> 
-{% highlight ruby %}
 
-<%= simple_form_for([:lecturer, @question]) do |f| %>
- <%= f.error_notification %>
- 
-  <div>
-   <%= f.label :question_statement, style: "display: block" %>
-   <%= f.text_field :question_statement %>
-  </div>
-  
-  <br>
-  <div>
-   <%= f.rich_text_area :body %>
-  </div>
+<br>
+### 3. Migration
 
-  <div>
-   <%= f.label :image %>
-   <%= f.file_field :image %>
-  </div>
+The <span class="badge">migration</span> generator generates the migration file.
 
-  <div>
-   <%= f.label :pictures %>
-   <%= f.file_field :pictures, multiple: true %>
-  </div>
+{% highlight terminal %}
 
-  <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-success" %>
-  </div>
+# rails g migration <name of migration> <model attributes>
+$ rails g migration create_table_person name age:integer address
 
+{% endhighlight  %}
 
-<!-- Note that a single line of code can define all of the form input field and its label. e.g: -->
-
-   <%= f.input :question_statement, style: "display: block" %>
-
-<% end %>
-
-{% endhighlight %}
- 
 
 <br>
 *Thanks for reading, see you in the next one!*
