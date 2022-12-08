@@ -62,7 +62,7 @@ separate the reviews from the main database. Here's how we'd do it:
 
 
 <br>
-### Configuring The Databases
+#### Configuring The Databases
 
 {% highlight yml %}
 
@@ -89,7 +89,7 @@ development:
 
 
 <br>
-### Configuring ActiveRecord
+#### Configuring ActiveRecord
 
 We need to let Rails know which database to connect to.
 
@@ -125,7 +125,7 @@ end
 
 
 <br>
-### Writting the Models
+#### Writting the Models
 
 The models will inherit from their respective <span class="badge">Activerecord</span> files as configured previously.
 
@@ -163,7 +163,7 @@ end
 
 
 <br>
-### NOTE:
+#### NOTE:
 For <span class="badge">has_many :through</span> or <span class="badge">has_one :through</span> 
 associations, we specify the <span class="badge">disable_joins: true</span> option 
 for it to work. We disable joins because Rails lazy loads the associations by 
