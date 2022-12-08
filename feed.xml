@@ -1,4 +1,130 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-12-04T18:15:54+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Rails Generator Cheatsheet</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/cheatsheet/202212/rails-generator-cheatsheet" rel="alternate" type="text/html" title="Rails Generator Cheatsheet" /><published>2022-12-01T06:00:00+03:00</published><updated>2022-12-01T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/cheatsheet/202212/rails-generator-cheatsheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/cheatsheet/202212/rails-generator-cheatsheet">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2022-12-08T10:49:21+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Configuring Multiple Databases in Rails 7</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202212/configuring-multiple-databases-in-rails-7" rel="alternate" type="text/html" title="Configuring Multiple Databases in Rails 7" /><published>2022-12-08T06:00:00+03:00</published><updated>2022-12-08T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202212/configuring-multiple-databases-in-rails-7</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202212/configuring-multiple-databases-in-rails-7">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;Rails 7 natively supports attaching multiple databases to the application. But why 
+would you want to have more than one database? Well, there are several reasons. 
+For example in the case where your app is growing, and database concurrency issues 
+arise. You may need to scale on a database level. As it becomes apparent that 
+decoupling the data would prevent overload on one database.&lt;/p&gt;
+
+&lt;p&gt;Multiple databases are also useful for backups and readonly replicas.&lt;/p&gt;
+
+&lt;p&gt;This section takes a look at how the &lt;span class=&quot;badge&quot;&gt;disable_joins: true&lt;/span&gt; option can be used to fetch data belonging to different databases using associations.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;setting-up-the-databases&quot;&gt;Setting Up the Databases&lt;/h3&gt;
+
+&lt;p&gt;1 . Edit the &lt;span class=&quot;badge&quot;&gt;database.yml&lt;/span&gt; file to resemble this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;na&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;&amp;amp;default&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql2&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;utf8mb4&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;pool&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV.fetch(&quot;RAILS_MAX_THREADS&quot;) { 5 } %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&quot;MYSQL_USERNAME&quot;] %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&quot;MYSQL_PASSWORD&quot;] %&amp;gt;&lt;/span&gt; 
+  &lt;span class=&quot;na&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/var/run/mysqld/mysqld.sock&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;some_name_1&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*default&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;example_1&lt;/span&gt;
+    
+  &lt;span class=&quot;na&quot;&gt;some_name_2&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# NB: To migrate this specific db do: rake db:migrate some_name_2&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*default&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;example_2&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;migrations_paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;db/example_2_migration_folder&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;execution-example&quot;&gt;Execution Example&lt;/h3&gt;
+&lt;p&gt;Suppose we have an ecommerce app that has a database that’s massively growing 
+because customers are leaving tons reviews like nobody’s business. Consequently, We want to 
+separate the reviews from the main database. Here’s how we’d do it:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;configuring-the-databases&quot;&gt;Configuring The Databases&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;&lt;span class=&quot;na&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;&amp;amp;default&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql2&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;utf8mb4&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;pool&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV.fetch(&quot;RAILS_MAX_THREADS&quot;) { 5 } %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&quot;MYSQL_USERNAME&quot;] %&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;lt;%= ENV[&quot;MYSQL_PASSWORD&quot;] %&amp;gt;&lt;/span&gt; 
+  &lt;span class=&quot;na&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/var/run/mysqld/mysqld.sock&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;development&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;ecommerce&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*default&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ecommerce_development&lt;/span&gt;
+    
+  &lt;span class=&quot;na&quot;&gt;customer_reviews&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;   
+    &lt;span class=&quot;na&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;*default&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;customer_reviews_development&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;migrations_paths&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;db/customer_reviews_migrate&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;configuring-activerecord&quot;&gt;Configuring ActiveRecord&lt;/h4&gt;
+
+&lt;p&gt;We need to let Rails know which database to connect to.&lt;/p&gt;
+
+&lt;p&gt;We can use the &lt;span class=&quot;badge&quot;&gt;application_record.rb&lt;/span&gt; file for one of the 
+databases and create other new files that inherit from &lt;span class=&quot;badge&quot;&gt;ActiveRecord&lt;/span&gt; 
+for the subsequent databases.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/application_record.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationRecord&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;abstract_class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;connects_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;database: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;writing: :ecommerce_development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;reading: :ecommerce_development&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+For the customer_reviews_development database, create new file that inherits from &lt;span class=&quot;badge&quot;&gt;Activerecord&lt;/span&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/review_record.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ReviewRecord&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;abstract_class&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;connects_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;database: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;writing: :customer_reviews_development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;reading: :customer_reviews_development&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;writting-the-models&quot;&gt;Writting the Models&lt;/h4&gt;
+
+&lt;p&gt;The models will inherit from their respective &lt;span class=&quot;badge&quot;&gt;Activerecord&lt;/span&gt; files as configured previously.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/user.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_one&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:customer&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:reviews&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;through: :customer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;disable_joins: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/customer.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Customer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:reviews&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/review.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Review&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ReviewRecord&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:customer&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;note&quot;&gt;NOTE:&lt;/h4&gt;
+&lt;p&gt;For &lt;span class=&quot;badge&quot;&gt;has_many :through&lt;/span&gt; or &lt;span class=&quot;badge&quot;&gt;has_one :through&lt;/span&gt; 
+associations, we specify the &lt;span class=&quot;badge&quot;&gt;disable_joins: true&lt;/span&gt; option 
+for it to work. We disable joins because Rails lazy loads the associations by 
+default and tries to perform a join on them. This throws an error because you can’t 
+join across different databases.&lt;/p&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;disable_joins: true&lt;/span&gt; option allows us to avoid that problem. Instead of performing a join, it executes 
+two separate queries to fetch the customer_id/s first and then the review/s data using the customer_id/s from the first query.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">Rails Generator Cheatsheet</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/cheatsheet/202212/rails-generator-cheatsheet" rel="alternate" type="text/html" title="Rails Generator Cheatsheet" /><published>2022-12-01T06:00:00+03:00</published><updated>2022-12-01T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/cheatsheet/202212/rails-generator-cheatsheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/cheatsheet/202212/rails-generator-cheatsheet">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;Rails generator takes so much of the work out of the developer’s hands which 
 makes it a great tool for a more experienced developer but not the best one for a beginner.&lt;/p&gt;
@@ -2295,643 +2421,4 @@ directory and add this code&lt;/p&gt;
 &lt;img class=&quot;zoom-on-hover mobile-image&quot; srcset=&quot;   /assets/img/posts/jquery_nested_forms_1.gif 1.4x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition A nested form is a form within a form. We use it to handle multiple models in a single form. In this example, we have a todo_list that contains many tasks. A nested form will allow us to perform CRUD operations on the todo_list &amp;amp; tasks models within a single form.</summary></entry><entry><title type="html">Intergrating Typeahead in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202210/adding-typeahead-s-in-rails" rel="alternate" type="text/html" title="Intergrating Typeahead in Rails" /><published>2022-10-02T06:00:00+03:00</published><updated>2022-10-02T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202210/adding-typeahead-s-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202210/adding-typeahead-s-in-rails">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-&lt;p&gt;Typeahead is JavaScript library that provides a list of suggestions for users as 
-they search or fill a form, improving the user experienc as a result.&lt;/p&gt;
-
-&lt;p&gt;In this example, we will create a form for capturing names of people and their nationality.
-The auto complete feature will be applied on the input for selecting a country.&lt;/p&gt;
-
-&lt;p&gt;We will have two tables(models): &lt;span class=&quot;badge&quot;&gt;persons&lt;/span&gt; and &lt;span class=&quot;badge&quot;&gt;countries&lt;/span&gt;. Let’s get started!&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-a-creating-a-rails-7-project&quot;&gt;Part A: Creating a Rails 7 Project&lt;/h3&gt;
-
-&lt;p&gt;Create a new rails project called &lt;span class=&quot;badge&quot;&gt;typeahead_example&lt;/span&gt; by following this document: &lt;a href=&quot;/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app&quot; target=&quot;_blank&quot;&gt;Creating A Rails 7 App: With esbuild, bootstrap and jquery&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-b-creating-the-models&quot;&gt;Part B: Creating the models&lt;/h3&gt;
-
-&lt;p&gt;1 . Create the &lt;span class=&quot;badge&quot;&gt;person.rb&lt;/span&gt; and &lt;span class=&quot;badge&quot;&gt;country.rb&lt;/span&gt; models&lt;/p&gt;
-
-&lt;p&gt;i). Generate the models&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt; $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g model person
-&lt;span class=&quot;go&quot;&gt; 
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt; $&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g model country&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
- ii). Edit the files&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# models/country.rb&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Country&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;has_many&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:persons&lt;/span&gt;
-  
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# models/person.rb&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;belongs_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:country&lt;/span&gt;
-  
-  &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;persons&quot;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# override rails naming convention&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Create migrations&lt;/p&gt;
-
-&lt;p&gt;i). Edit the migrations&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# db/migrate/20221002112836_create_countries.rb&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CreateCountries&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;create_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:countries&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;
-
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;timestamps&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# db/migrate/20221002114011_create_persons.rb&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CreatePersons&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;create_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:persons&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:male&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;date&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:dob&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:country_name&lt;/span&gt;            
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:country_id&lt;/span&gt;      
-
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;timestamps&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;add_index&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:persons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:country_id&lt;/span&gt;    
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
- ii) Run migrations&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:migrate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Create Database Seed Data&lt;/p&gt;
-
-&lt;p&gt;i) Open the &lt;span class=&quot;badge&quot;&gt;seeds.rb&lt;/span&gt; file in the db directory and add this data:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# db/seeds.rb&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;Country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Afghanistan&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Åland Islands&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Albania&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Algeria&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;American Samoa&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;AndorrA&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Angola&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Anguilla&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Antarctica&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Antigua and Barbuda&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Argentina&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Armenia&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Aruba&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Australia&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Austria&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Azerbaijan&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Bahamas&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Bahrain&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Bangladesh&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Barbados&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Belarus&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Belgium&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Belize&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Benin&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Bermuda&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Bhutan&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Bolivia&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Bosnia and Herzegovina&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Botswana&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Bouvet Island&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Brazil&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}])&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
- ii) Seed the database&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:seed&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-c-creating-the-controllers&quot;&gt;Part C: Creating the Controllers&lt;/h3&gt;
-
-&lt;p&gt;1 . Create the persons controller&lt;/p&gt;
-
-&lt;p&gt;i). Generate the persons controller&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt; 
-
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g controller persons&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-ii). Replace the code in the file with this code&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
-&lt;span class=&quot;c1&quot;&gt;# controllers/persons_controller.rb&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PersonsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:set_person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;only: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:edit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:destroy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@persons&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  
-  
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;edit&lt;/span&gt; 
-    &lt;span class=&quot;vi&quot;&gt;@person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
- 
- 
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;person_params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;notice: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Person was successfully updated.&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:no_content&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;action: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;edit&apos;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :unprocessable_entity&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  
-  
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
-  
-    &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;transaction&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; 
-      
-      &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:person_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;new&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:person_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:person_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;male&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;      
-      &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;dob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:dob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
-      &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;country_id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:country_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;country_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:country_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  
-    
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;save!&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:notice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Person successfully saved.&quot;&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-              
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;    
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;destroy&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;destroy&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;redirect_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;persons_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;notice: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Deleted Successfully.&quot;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-   
-  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt; 
-      &lt;span class=&quot;c1&quot;&gt;# Use callbacks to share common setup or constraints between actions.&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;set_person&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-
-   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;person_params&lt;/span&gt;
-     &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;permit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:male&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:dob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:country_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Create the countries controller&lt;/p&gt;
-
-&lt;p&gt;i). Generate the countries controller&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt; 
-
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g controller countries&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-ii). Replace the code in the file with this code&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
-&lt;span class=&quot;c1&quot;&gt;# controllers/countries_controller.rb&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CountriesController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
-
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@countries&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;name like ?&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;%&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;%&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@countries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@country&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Edit the &lt;span class=&quot;badge&quot;&gt;routes.rb&lt;/span&gt; file to ook like this&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/routes.rb&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;draw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;home#index&quot;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:persons&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:countries&lt;/span&gt;  
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-d-creating-the-views&quot;&gt;Part D: Creating the Views&lt;/h3&gt;
-
-&lt;p&gt;1 . Edit the persons view templates&lt;/p&gt;
-
-&lt;p&gt;i). Create the &lt;span class=&quot;badge&quot;&gt;new.html.erb&lt;/span&gt; template and add this code&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; 
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- views/persons/new.html.erb --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container mt-3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class =&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;row&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;New Person&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class =&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Back&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;persons_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;btn&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-primary&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-sm&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-info&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pull-right&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-ii). Create the &lt;span class=&quot;badge&quot;&gt;_form.html.erb&lt;/span&gt; partial template and add this code&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; 
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- views/persons/_form.html.erb --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-md-6&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;padding-top: 70px; margin: auto&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;table&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;table&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;thead&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;Name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;Gender&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;DoB&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;  
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;Country&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;                      
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/thead&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tbody&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fields&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;line-item&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person.persisted&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hidden&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;person_id&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;%= @person.id %&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;person_name&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;%= @person.name %&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-control&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;select&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gender&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-control&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;option&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;%= @person.male %&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person.male&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Male&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Female&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/option&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;option&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;%= @person.male? ? 0 : 1 %&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person.male&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Female&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Male&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/option&amp;gt;&lt;/span&gt;        
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;/select&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;          
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;date&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dob&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;%= @person.dob %&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-control&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hidden&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;country_id&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;%= @person.country_id %&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;         
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;country_name&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;autocomplete=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;off&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;%= @person.country_name %&amp;gt;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-control&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;     
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hidden&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;person_id&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;new&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;person_name&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-control&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;select&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;gender&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-control&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;option&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Male&lt;span class=&quot;nt&quot;&gt;&amp;lt;/option&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;option&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Female&lt;span class=&quot;nt&quot;&gt;&amp;lt;/option&amp;gt;&lt;/span&gt;        
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;/select&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;          
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;date&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dob&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-control&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt;      
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&lt;/span&gt;
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;hidden&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;country_id&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;         
-       &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;country_name&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-control&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;autocomplete=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;off&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;   
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/td&amp;gt;&lt;/span&gt; 
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tbody&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
-
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-success btn-sm person float-right&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;save_person&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Save&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt; 
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-iii). Create the &lt;span class=&quot;badge&quot;&gt;edit.html.erb&lt;/span&gt; template and add this code&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; 
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- views/persons/edit.html.erb --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container mt-3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;br&amp;gt;&amp;lt;br&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;row&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;btn&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-primary&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-sm&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-info&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;pull-right&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-align: center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Editing Person&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-    
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;person:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-iv). Create the &lt;span class=&quot;badge&quot;&gt;show.html.erb&lt;/span&gt; template and add this code&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; 
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- views/persons/show.html.erb --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-md-4&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;padding-top: 70px; margin: auto&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;table&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;table&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;thead&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;Name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;Gender&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;DoB&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;Country&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;                        
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/thead&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tbody&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fields&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person.name&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person.male&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Male&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Female&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person.dob.strftime&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&apos;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;b-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person.country_name&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;      
-     &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tbody&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
-  
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class =&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-   &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;pull-right&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-primary person add-row pull-left&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/persons/&amp;lt;%=@person.id%&amp;gt;/edit&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;icon&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;i&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fa fa-pen&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&amp;gt;&lt;/span&gt;Edit&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mt-4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;btn btn-success btn-sm person float-right&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;save_person&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Save&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt; 
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
- &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-v). Create the &lt;span class=&quot;badge&quot;&gt;index.html.erb&lt;/span&gt; template and add this code&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; 
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- views/persons/index.html.erb --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-md-4&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;padding-top: 70px; margin: auto&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;table&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;table&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;thead&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;Name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;Gender&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;DoB&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&lt;/span&gt;Country&lt;span class=&quot;nt&quot;&gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;th&amp;gt;&amp;lt;/th&amp;gt;&lt;/span&gt;                                                                                                                        
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tr&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/thead&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tbody&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fields&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;persons.each&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;p.name&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;p.male&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Male&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Female&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;p.dob.strftime&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&apos;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;d-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;b-&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&apos;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;p.country_name&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;View&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;btn&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-primary&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-xs&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;background:&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;#2c3e50&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Edit&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;edit_person_path&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;btn&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-default&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-xs&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;td&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;link_to&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Delete&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;btn&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-danger&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;btn-xs&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;style:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;background:&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;#c0392b&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;;&quot;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;method:&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;:delete&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;data:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;confirm:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Are&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;sure&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;?&apos;&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/td&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;nt&quot;&gt;&amp;lt;tr&amp;gt;&lt;/span&gt;
-     &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tbody&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/table&amp;gt;&lt;/span&gt;
-  
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Add fontawesome in the head tag of &lt;span class=&quot;badge&quot;&gt;application.html.erb&lt;/span&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- views/application.html.erb --&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;integrity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;crossorigin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;anonymous&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;referrerpolicy=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;no-referrer&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;    
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-e-creating-the-javascript-file&quot;&gt;Part E: Creating the JavaScript File&lt;/h3&gt;
-
-&lt;p&gt;1 . Create the &lt;span class=&quot;badge&quot;&gt;persons.js&lt;/span&gt; file in &lt;span class=&quot;badge&quot;&gt;javascript/src&lt;/span&gt;
-directory and add this code&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt; 
-&lt;span class=&quot;c1&quot;&gt;// javascript/src/persons.js&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;auto_complete_country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;button#save_person&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
-
-  &lt;span class=&quot;nx&quot;&gt;personID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#person_id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;personName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#person_name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;gender&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#gender&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;dob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#dob&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;countryID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#country_id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;countryName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#country_name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-  
-
-      &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/persons&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;person_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;personID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;na&quot;&gt;person_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;personName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;na&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;gender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;na&quot;&gt;dob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;na&quot;&gt;country_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;countryName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;na&quot;&gt;country_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;countryID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;                 
-               &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; 
-             &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-               &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Server Result: &lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-             
-               &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-                 &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/persons/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; 
-               &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-               &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-               &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;href&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/persons/&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/edit&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-               &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-            
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-
-    &lt;span class=&quot;nx&quot;&gt;auto_complete_country&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#country_name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;typeahead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;countries&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;remote&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/countries.json?search=%QUERY&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;valueKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;engine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hogan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;limit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-      
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#country_name&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;typeahead:selected&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#country_id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;     
-      
-    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-
-   &lt;span class=&quot;nx&quot;&gt;auto_complete_country&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;.fields&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt; 
-   
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Download these files: &lt;a href=&quot;https://github.com/kobare/typeahead&quot; target=&quot;_blank&quot;&gt;Typeahead &amp;amp; Hogan&lt;/a&gt; and save them in the javascript/src/vendor directory.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Import the &lt;span class=&quot;badge&quot;&gt;persons.js&lt;/span&gt;, &lt;span class=&quot;badge&quot;&gt;hogan.js&lt;/span&gt; and &lt;span class=&quot;badge&quot;&gt;typeahead.min.js&lt;/span&gt; in &lt;span class=&quot;badge&quot;&gt;javascript/application.js&lt;/span&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt; 
-&lt;span class=&quot;c1&quot;&gt;// javascript/application.js&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;typeahead&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./src/vendor/typeahead.min&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;typeahead&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;typeahead&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hogan&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./src/vendor/hogan.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Hogan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Hogan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;./src/persons&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-e-add-styling-for-typeahead&quot;&gt;Part E: Add Styling For Typeahead&lt;/h3&gt;
-
-&lt;p&gt;1 . Create the &lt;span class=&quot;badge&quot;&gt;typeahead.css&lt;/span&gt; file in &lt;span class=&quot;badge&quot;&gt;app/assets/stylesheets&lt;/span&gt;
-directory and add this code&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt; 
-
-&lt;span class=&quot;c&quot;&gt;/* app/assets/stylesheets/typeahead.css */&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;.twitter-typeahead&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;.twitter-typeahead&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.tt-query&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.twitter-typeahead&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.tt-hint&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;margin-bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nc&quot;&gt;.tt-dropdown-menu&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;min-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;160px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#ccc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;solid&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;border-right-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;border-bottom-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;-webkit-border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-     &lt;span class=&quot;nl&quot;&gt;-moz-border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-          &lt;span class=&quot;nl&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;-webkit-box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-     &lt;span class=&quot;nl&quot;&gt;-moz-box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-          &lt;span class=&quot;nl&quot;&gt;box-shadow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10px&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rgba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;-webkit-background-clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;padding-box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-     &lt;span class=&quot;nl&quot;&gt;-moz-background-clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-          &lt;span class=&quot;nl&quot;&gt;background-clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;padding-box&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;        
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;.tt-suggestion&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3px&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;20px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;.tt-suggestion.tt-is-under-cursor&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0081c2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-moz-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0088cc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0077b3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;#0088cc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;#0077b3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-webkit-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0088cc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0077b3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;-o-linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0088cc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0077b3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background-image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;linear-gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bottom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0088cc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#0077b3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;background-repeat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;repeat-x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;progid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DXImageTransform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Microsoft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gradient&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;startColorstr&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;#ff0088cc&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;endColorstr&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;#ff0077b3&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GradientType&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;.tt-suggestion.tt-is-under-cursor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#fff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nc&quot;&gt;.tt-suggestion&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-
-&lt;span class=&quot;nt&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.tt-hint&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;115px&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Import the &lt;span class=&quot;badge&quot;&gt;typeahead.css&lt;/span&gt; file in &lt;span class=&quot;badge&quot;&gt;app/assets/application.bootstrap.scss&lt;/span&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt; 
-&lt;span class=&quot;cm&quot;&gt;/* app/assets/stylesheets/application.bootstrap.scss */&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;typeahead&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;final-results&quot;&gt;Final Results&lt;/h3&gt;
-&lt;p&gt;Navigate to http://localhost:3000/persons/new and test it.&lt;/p&gt;
-
-&lt;p&gt;&lt;img class=&quot;zoom-on-hover mobile-image&quot; srcset=&quot;   /assets/img/posts/typeahead.png 1.1x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;img class=&quot;zoom-on-hover mobile-image&quot; srcset=&quot;   /assets/img/posts/typeahead.gif 1.2x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition Typeahead is JavaScript library that provides a list of suggestions for users as they search or fill a form, improving the user experienc as a result.</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition A nested form is a form within a form. We use it to handle multiple models in a single form. In this example, we have a todo_list that contains many tasks. A nested form will allow us to perform CRUD operations on the todo_list &amp;amp; tasks models within a single form.</summary></entry></feed>
