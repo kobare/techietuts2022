@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <!-- Techie Tuts website copyright 2020-->
 <html lang="en">
+
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>About - Techietuts</title>
+ <title>Polymorphic Associations in Rails - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -44,17 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="About" />
+<meta property="og:title" content="Polymorphic Associations in Rails" />
+<meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://0.0.0.0:4000/about/" />
-<meta property="og:url" content="http://0.0.0.0:4000/about/" />
+<meta name="description" content="Definition" />
+<meta property="og:description" content="Definition" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/polymorphic-associations-in-rails" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/polymorphic-associations-in-rails" />
 <meta property="og:site_name" content="Techietuts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-12-08T06:00:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="About" />
+<meta property="twitter:title" content="Polymorphic Associations in Rails" />
 <script type="application/ld+json">
-{"@type":"WebSite","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"About","url":"http://0.0.0.0:4000/about/","name":"Techietuts","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Definition","headline":"Polymorphic Associations in Rails","dateModified":"2022-12-08T06:00:00+03:00","datePublished":"2022-12-08T06:00:00+03:00","url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/polymorphic-associations-in-rails","author":{"@type":"Person","name":"Denis Kobare"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/polymorphic-associations-in-rails"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -75,7 +79,8 @@
 }
 </style>
     
-  <body>
+
+  <body class="animsition">
 	  
 		<!-- Header module inserted below -->
         <!-- Mobile Phone Navigation Menu -->
@@ -872,70 +877,167 @@
 
 	  
 		<!-- Content -->
-	<!-- Content -->
-<div class="home-content">
+        <style>
 
-  <div class="content">
-    <div class="blog-post blog">
-      <!-- Page heading -->
-      <h2 style="padding-left: 15px; padding-top: 60px;">
-             
-         
-       
-      </h2>                
-      <div class="grid-container">
-      						
-        	<!-- Content -->
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
+  max-width: 100%;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
+  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
 
-	<!-- Page heading -->
-<div class="container p-t-4 p-b-35">
-<h2 class="f1-l-1 cl2">
-About Us
-</h2>
-</div>
+@media(max-width: 81rem) {
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-4">
-      <img srcset="
-  https://drive.google.com/uc?id=1iTR0wzyTrU6aTTGeaGlMkkxZBtRg8hyX 4x,
-  https://drive.google.com/uc?id=1iTR0wzyTrU6aTTGeaGlMkkxZBtRg8hyX 5x
-" alt="missing image">
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
+}
+</style>
+<div class="main-content reduce-size main-content-tweak">
+
+    <div class="tittle-banner">
+      <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
+      <h1 style="padding: -50px; line-height: 1.2em;">Polymorphic Associations in Rails</h1>             
+    </div>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> December 2022</p>
+    <div>
+                <!-- Page content object inserted below -->
+        <h3 id="definition">Definition</h3>
+
+<p>In Rails, a polymorphic association is an Active Record association that can 
+connect a model to multiple other models and therefore eliminating the need to add
+multiple index columns for the respective associations.</p>
+
+<p><br /></p>
+<h3 id="application-example">Application Example</h3>
+
+<p>There are three models: 
+<span class="badge">review.rb</span>,
+<span class="badge">movie.rb</span>,
+<span class="badge">actor.rb</span></p>
+
+<p>A review belongs to both a movie and an actor. There are two ways to create these associations:</p>
+
+<p><br /></p>
+<h4 id="1-by-adding-movie_id-and-actor_id-columns-in-reviews-table">1. By Adding movie_id and actor_id columns in reviews table</h4>
+
+<p>With this approach, you create the movie_id and actor_id columns in reviews 
+table and then edit the associations in the models like so:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/review.rb</span>
+<span class="k">class</span> <span class="nc">Review</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:movie</span>
+  <span class="n">belongs_to</span> <span class="ss">:actor</span>
+<span class="k">end</span>
+
+
+<span class="c1"># app/models/Movie.rb</span>
+<span class="k">class</span> <span class="nc">Movie</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:reviews</span>
+<span class="k">end</span>
+
+
+<span class="c1"># app/models/actor.rb</span>
+<span class="k">class</span> <span class="nc">Actor</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:reviews</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>There’s no problem with this, it works just fine. But wait, what if you start having additional 
+other tables that have a similar association with reviews? That will quickly become 
+redundant and that’s where polymorphic associations come to our rescue.</p>
+
+<p><br /></p>
+<h4 id="2-using-a-polymorphic-association">2. Using a polymorphic association</h4>
+
+<p>The first approach works well but as we have seen, it can become unnecessarily messy. 
+A polymorphic association can help us avoid that. Essentially, since both the 
+movies and the actors table have a similar association with the reviews table,
+then we can definitely use shared generic columns to map these associations.</p>
+
+<p>When using the polymorphic approach, rails creates a virtual table to represent 
+the the table that has associations with multiple other tables. In this case, 
+the <span class="badge">reviews</span> table.</p>
+
+<p>i). Configure a virtual table for <span class="badge">reviews</span> and call it something like <span class="badge">reviewable</span>.</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/review.rb</span>
+<span class="k">class</span> <span class="nc">Review</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:reviewable</span><span class="p">,</span> <span class="ss">polymorphic: </span><span class="kp">true</span>
+  
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_review</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="n">reviewable</span><span class="p">)</span>
+    <span class="no">Review</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">description: </span><span class="n">description</span><span class="p">,</span> <span class="ss">reviewable_id: </span><span class="n">reviewable</span><span class="p">.</span><span class="nf">id</span><span class="p">,</span> <span class="ss">reviewable_type: </span><span class="n">reviewable</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">name</span><span class="p">)</span>
+  <span class="k">end</span>
+  
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+  ii). Map the virtual table to the other tables like so:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/movie.rb</span>
+<span class="k">class</span> <span class="nc">Movie</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:reviews</span><span class="p">,</span> <span class="ss">as: :reviewable</span>  
+<span class="k">end</span>
+
+
+<span class="c1"># app/models/actor.rb</span>
+<span class="k">class</span> <span class="nc">Actor</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_many</span> <span class="ss">:reviews</span><span class="p">,</span> <span class="ss">as: :reviewable</span>
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+  iii). Add the generic columns for the virtual table on the table in focus (reviews table)</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">#</span><span class="w"> </span>alter table table_name add column <span class="o">[</span>virtual_table_name]_id int<span class="o">(</span>11<span class="o">)</span><span class="p">;</span>
+<span class="gp">#</span><span class="w"> </span>alter table table_name add column <span class="o">[</span>virtual_table_name]_type varchar<span class="o">(</span>255<span class="o">)</span><span class="p">;</span>
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>alter table reviews add column reviewable_id int<span class="o">(</span>11<span class="o">)</span><span class="p">;</span>
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>alter table reviews add column reviewable_type varchar<span class="o">(</span>255<span class="o">)</span><span class="p">;</span></code></pre></figure>
+
+<p><br />
+The name of the class is stored in the <span class="badge">reviewable_type</span> column so that rails can 
+use that in combination with the <span class="badge">reviewable_id</span> to determine the records associated with them.</p>
+
+<p><br />
+  iv). Test it</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="go">movie = Movie.find(22)
+customer = Customer.find(155)
+description = "Awesome!"
+
+review.create_review(description, movie)
+review.create_review(description, customer)</span></code></pre></figure>
+
+<p><br />
+Rails can automatically query the database using the polymorphic association:</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="go">Movie.first.reviewable
+
+SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`reviewable_id` = 1 AND `reviews`.`reviewable_type` = 'Movie'</span></code></pre></figure>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
+
    </div>
 
-  <div class="col-sm-8">
-    <p class="f1-s-11 cl6 p-b-25">
-      Hi, I’m Denis Kobare, a fullstack software engineer.
-      On this site, I share my programming experience.
-    </p>
-
-    <p class="f1-s-11 cl6 p-b-25">
-      As I prepare a proper "About" page, let me briefly introduce myself.
-      Well, I'm a programmer by profession. 80% self-taught, I would say.
-      The purpose of this site is to share what I learn and to also serve as a documentation for my projects.
-      I hope you find value on here.
-    </p>
-
-    <p class="f1-s-11 cl6 p-b-25">
-      For business arrangements, contact me via email: dkobare@gmail.com
-    </p>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-        
-      </div>
-    </div>  
-  </div>
-</div>
-
-<br>
-<section>
-        <style>
+   <div>
+     <style>
 
 .newsletter {
   text-align: center;
@@ -1048,11 +1150,10 @@ About Us
   </div>
 </div> <!-- End Newsletter -->
 
-</section>
-
-
-<section class="reduce-size bg-light">
-        <section class="comment-area" style="background: #eaecee; padding: 30px;">
+   </div>
+     
+   <div>
+     <section class="comment-area" style="background: #eaecee; padding: 30px;">
   <div class="comment-wrapper">
     
     <div id="disqus_thread" class="article-comments"></div>
@@ -1069,8 +1170,11 @@ About Us
   </div>
 </section> <!-- End Comment Area -->
 
-</section>
-                                                            
+   </div>
+   
+</div>
+
+<br>
 
 
                 <!-- footer module inserted below -->
