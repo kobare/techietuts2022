@@ -2,7 +2,7 @@
 layout: post
 title:  "Polymorphic Associations in Rails"
 author: Denis Kobare
-date:   2022-12-08 06:00:00 +0300
+date:   2022-12-11 06:00:00 +0300
 img: /assets/img/svg/ror.svg
 categories: frameworks
 sub_category: ruby-on-rails
@@ -46,7 +46,7 @@ class Review < ApplicationRecord
 end
 
 
-# app/models/Movie.rb
+# app/models/movie.rb
 class Movie < ApplicationRecord
   has_many :reviews
 end
