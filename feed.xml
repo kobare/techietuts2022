@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-01-26T16:12:59+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Nginx Commands Cheat Sheet</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202301/nginx-commands-cheat-sheet" rel="alternate" type="text/html" title="Nginx Commands Cheat Sheet" /><published>2023-01-26T15:45:00+03:00</published><updated>2023-01-26T15:45:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202301/nginx-commands-cheat-sheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202301/nginx-commands-cheat-sheet">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-02-11T14:52:49+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Message Queue (MQ)</title><link href="http://0.0.0.0:4000/category/more-topics/cloud-services/microservice-architecture/202302/message-queues" rel="alternate" type="text/html" title="Message Queue (MQ)" /><published>2023-02-01T06:00:00+03:00</published><updated>2023-02-01T06:00:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/cloud-services/microservice-architecture/202302/message-queues</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/cloud-services/microservice-architecture/202302/message-queues">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;In the world of modern software development, where applications are designed to handle massive amounts of data and serve millions of users, message queues have become an indispensable tool. A message queue is a system that facilitates the exchange of messages between applications and services in a reliable, scalable, and asynchronous manner. This section will explore what message queues are, how they work, and why they are critical to the success of many software projects.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;A message queue is a form of asynchronous service-to-service communication that allows a service to continue handling tasks assigned to it without needing to wait for the other services to respond. Instead, each service can complete its tasks and push a message/result into the queue for execution, allowing the service to continue with its next task.&lt;/p&gt;
+
+&lt;p&gt;It is a software component that acts as a buffer between the producers and consumers of messages. Producers send messages to the queue, and consumers retrieve messages from the queue. The queue serves as a mediator, ensuring that messages are delivered in the order they were sent and ensuring that messages are not lost in the process. The messages are typically organized into queues or topics, and the consumers subscribe to specific queues or topics to receive messages.&lt;/p&gt;
+
+&lt;p&gt;A message queue centralizes the connections between services. Messages are stored on the queue until they are processed and deleted. Each message is processed only once, by a single consumer.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;how-do-message-queues-work&quot;&gt;How do message queues work?&lt;/h3&gt;
+
+&lt;p&gt;Message queues operate on a publish/subscribe model, where the producer publishes a message to the queue, and the consumers subscribe to the queue and receive messages from it. When a producer publishes a message to the queue, the message is added to the end of the queue, and when a consumer retrieves a message, it is removed from the front of the queue. This ensures that messages are delivered in the order they were sent, and no messages are lost in the process.&lt;/p&gt;
+
+&lt;p&gt;The key to the reliability and scalability of message queues is the asynchronous nature of their operation. The producers and consumers do not have to be running at the same time, and they do not have to communicate directly with each other. This means that the producer can send messages to the queue at any time, and the consumer can retrieve messages from the queue at any time, regardless of whether the producer or consumer is online or offline.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;img class=&quot;zoom-on-hover mobile-image&quot; srcset=&quot;   /assets/img/posts/message_queue.png 1.3x &quot; alt=&quot;missing image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;why-are-message-queues-important&quot;&gt;Why are message queues important?&lt;/h3&gt;
+
+&lt;p&gt;Message queues are an essential component of many modern software systems because they provide a reliable and scalable way to exchange data between applications and services. They allow applications to operate independently, reducing the risk of downtime and increasing overall system reliability. They also allow applications to scale horizontally, by adding more consumers to handle increased loads, and vertically, by adding more resources to the message queue to handle increased message volume.&lt;/p&gt;
+
+&lt;p&gt;In addition, message queues provide a flexible and extensible architecture for integrating different applications and services. By using message queues, applications can exchange messages in a loosely coupled manner, reducing the risk of tightly coupled dependencies and allowing for greater flexibility in changing or updating the applications.&lt;/p&gt;
+
+&lt;p&gt;Finally, message queues are an essential component of many microservices-based software systems. Microservices are a software architecture pattern that involves breaking down a monolithic application into smaller, independently deployable services. Message queues provide a scalable and reliable way for these services to communicate with each other, allowing the overall system to scale and evolve as needed.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;MQ is used in serverless and microservices architectures.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;In today’s fast-paced software development world, message queues have become a critical component of many software systems. They provide a reliable and scalable way to exchange data between applications and services, allowing systems to operate independently, scale, and evolve as needed. With their flexible and extensible architecture, message queues provide a solid foundation for building and integrating modern software systems. Whether you are building a new software system or integrating existing systems, message queues are an essential tool for ensuring the success of your project.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Nginx Commands Cheat Sheet</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202301/nginx-commands-cheat-sheet" rel="alternate" type="text/html" title="Nginx Commands Cheat Sheet" /><published>2023-01-26T15:45:00+03:00</published><updated>2023-01-26T15:45:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202301/nginx-commands-cheat-sheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202301/nginx-commands-cheat-sheet">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 &lt;p&gt;The following are usefull commands for nginx on linux.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -893,246 +933,4 @@ or:
 &lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails g migration create_table_person name age:integer address&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry><entry><title type="html">Rails Mapping of Datatypes to Database Types</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types" rel="alternate" type="text/html" title="Rails Mapping of Datatypes to Database Types" /><published>2022-11-28T15:00:00+03:00</published><updated>2022-11-28T15:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails%20mapping-of-datatypes-to-database-types</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types">&lt;style&gt;
-
-@media(min-width: 81em) {
-
-  .mobile {
-    display: none !important;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    gap: 10px;
-    background-color: #fff;
-    padding: 10px;
-  }
-
-  .grid-container &gt; div {
-    background-color: #C5C6D0;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 18px;
-  }
-
-  li {
-    list-style: none;
-    text-align: left;
-    padding-right: 10px;
-  }
-
-}
-
-
-@media(max-width: 81em) {
-
-  .desktop {
-    display: none !important;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px;
-    background-color: #fff;
-    padding: 10px;
-  }
-
-  .grid-container &gt; div {
-    background-color: #C5C6D0;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 18px;
-  }
-
-  li {
-    list-style: none;
-    text-align: left;
-    padding-right: 10px;
-  }
-
-}
-
-&lt;/style&gt;
-
-&lt;div class=&quot;grid-container desktop&quot;&gt;
-  &lt;div class=&quot;col-one&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;&amp;nbsp;&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;:binary&lt;/li&gt;   
-    &lt;li&gt;:boolean&lt;/li&gt;
-    &lt;li&gt;:date&lt;/li&gt;
-    &lt;li&gt;:datetime&lt;/li&gt;
-    &lt;li&gt;:decimal&lt;/li&gt;
-    &lt;li&gt;:float&lt;/li&gt;
-    &lt;li&gt;:integer&lt;/li&gt;
-    &lt;li&gt;:string&lt;/li&gt;
-    &lt;li&gt;:text&lt;/li&gt;
-    &lt;li&gt;:time&lt;/li&gt;
-    &lt;li&gt;:timestamp&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-  
-  &lt;div&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;MySQL&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;blob&lt;/li&gt;   
-    &lt;li&gt;tinyint(1)&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;
-    &lt;li&gt;decimal&lt;/li&gt;
-    &lt;li&gt;float&lt;/li&gt;
-    &lt;li&gt;int(11)&lt;/li&gt;
-    &lt;li&gt;varchar(255)&lt;/li&gt;
-    &lt;li&gt;text&lt;/li&gt;
-    &lt;li&gt;time&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-
-  &lt;div&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Postgresql&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;bytea&lt;/li&gt;   
-    &lt;li&gt;boolean&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;timestamp&lt;/li&gt;
-    &lt;li&gt;decimal&lt;/li&gt;
-    &lt;li&gt;float&lt;/li&gt;
-    &lt;li&gt;integer&lt;/li&gt;
-    &lt;li&gt;note 1&lt;/li&gt;
-    &lt;li&gt;text&lt;/li&gt;
-    &lt;li&gt;time&lt;/li&gt;
-    &lt;li&gt;timestamp&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-
-  &lt;div&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;SQLite&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;blob&lt;/li&gt;   
-    &lt;li&gt;boolean&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;
-    &lt;li&gt;decimal&lt;/li&gt;
-    &lt;li&gt;float&lt;/li&gt;
-    &lt;li&gt;integer&lt;/li&gt;
-    &lt;li&gt;varchar(255)&lt;/li&gt;
-    &lt;li&gt;text&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-
-  &lt;div&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Oracle&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;blob&lt;/li&gt;   
-    &lt;li&gt;number(1)&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;decimal&lt;/li&gt;
-    &lt;li&gt;number&lt;/li&gt;
-    &lt;li&gt;number(38)&lt;/li&gt;
-    &lt;li&gt;varchar2(255)&lt;/li&gt;
-    &lt;li&gt;clob&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;!-- Mobile view --&gt;
-
-&lt;div class=&quot;grid-container mobile&quot;&gt;
-  &lt;div class=&quot;col-one&quot;&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;&amp;nbsp;&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;:binary&lt;/li&gt;   
-    &lt;li&gt;:boolean&lt;/li&gt;
-    &lt;li&gt;:date&lt;/li&gt;
-    &lt;li&gt;:datetime&lt;/li&gt;
-    &lt;li&gt;:decimal&lt;/li&gt;
-    &lt;li&gt;:float&lt;/li&gt;
-    &lt;li&gt;:integer&lt;/li&gt;
-    &lt;li&gt;:string&lt;/li&gt;
-    &lt;li&gt;:text&lt;/li&gt;
-    &lt;li&gt;:time&lt;/li&gt;
-    &lt;li&gt;:timestamp&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-  
-  &lt;div&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;MySQL&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;blob&lt;/li&gt;   
-    &lt;li&gt;tinyint(1)&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;
-    &lt;li&gt;decimal&lt;/li&gt;
-    &lt;li&gt;float&lt;/li&gt;
-    &lt;li&gt;int(11)&lt;/li&gt;
-    &lt;li&gt;varchar(255)&lt;/li&gt;
-    &lt;li&gt;text&lt;/li&gt;
-    &lt;li&gt;time&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-
-  &lt;div&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Postgresql&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;bytea&lt;/li&gt;   
-    &lt;li&gt;boolean&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;timestamp&lt;/li&gt;
-    &lt;li&gt;decimal&lt;/li&gt;
-    &lt;li&gt;float&lt;/li&gt;
-    &lt;li&gt;integer&lt;/li&gt;
-    &lt;li&gt;note 1&lt;/li&gt;
-    &lt;li&gt;text&lt;/li&gt;
-    &lt;li&gt;time&lt;/li&gt;
-    &lt;li&gt;timestamp&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-
-  &lt;div&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;SQLite&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;blob&lt;/li&gt;   
-    &lt;li&gt;boolean&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;
-    &lt;li&gt;decimal&lt;/li&gt;
-    &lt;li&gt;float&lt;/li&gt;
-    &lt;li&gt;integer&lt;/li&gt;
-    &lt;li&gt;varchar(255)&lt;/li&gt;
-    &lt;li&gt;text&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;
-    &lt;li&gt;datetime&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-
-  &lt;div&gt;
-   &lt;h4 class=&quot;text-center grey-h&quot;&gt;Oracle&lt;/h4&gt;
-     &lt;ul&gt;
-    &lt;li&gt;blob&lt;/li&gt;   
-    &lt;li&gt;number(1)&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;decimal&lt;/li&gt;
-    &lt;li&gt;number&lt;/li&gt;
-    &lt;li&gt;number(38)&lt;/li&gt;
-    &lt;li&gt;varchar2(255)&lt;/li&gt;
-    &lt;li&gt;clob&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;
-    &lt;li&gt;date&lt;/li&gt;    
-   &lt;/ul&gt;  
-  &lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html"></summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry></feed>
