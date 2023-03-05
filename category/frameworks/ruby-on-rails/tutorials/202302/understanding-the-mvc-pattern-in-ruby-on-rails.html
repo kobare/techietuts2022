@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Devise Cheatsheet - Techietuts</title>
+ <title>Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Devise Cheatsheet" />
+<meta property="og:title" content="Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="1 . Redirecting User After Sign Up (Confirmation Pending)" />
-<meta property="og:description" content="1 . Redirecting User After Sign Up (Confirmation Pending)" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-08-21T08:30:00+03:00" />
+<meta property="article:published_time" content="2023-02-19T09:30:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Devise Cheatsheet" />
+<meta property="twitter:title" content="Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"1 . Redirecting User After Sign Up (Confirmation Pending)","headline":"Devise Cheatsheet","dateModified":"2022-08-21T08:30:00+03:00","datePublished":"2022-08-21T08:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction","headline":"Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails","dateModified":"2023-02-19T09:30:00+03:00","datePublished":"2023-02-19T09:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,132 +909,93 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Devise Cheatsheet</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> August 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2023</p>
     <div>
                 <!-- Page content object inserted below -->
-        <p>1 . Redirecting User After Sign Up (Confirmation Pending)</p>
+        <h3 id="introduction">Introduction</h3>
 
-<p>If you want to redirect the user to a specific url after signing up, override the 
-<span class="badge">after_inactive_sign_up_path_for</span> in the <span class="badge">registrations_controller</span>.</p>
+<p>Ruby on Rails is a popular web application framework that follows the MVC 
+(Model-View-Controller) architectural pattern. This pattern is used to separate 
+an application into three main components: the model, the view, and the controller. 
+In this article, we’ll dive into what each of these components does and how they 
+work together in a Rails application.</p>
 
-<p><br />
- i). Create a new <span class="badge">registrations_controller.rb</span> in <span class="badge">app/controllers</span> directory.</p>
+<p><br /></p>
+<h3 id="the-model">The Model</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/registrations_controller.rb</span>
+<p>The model is responsible for representing the data in the application and for 
+performing any necessary operations on that data. In Rails, the model is represented 
+by an Active Record class. This class is used to interact with the database, 
+retrieve data, and perform any necessary operations. For example, let’s consider 
+a model for a blog post:</p>
 
-<span class="k">class</span> <span class="nc">RegistrationsController</span> <span class="o">&lt;</span> <span class="o">::</span><span class="no">Devise</span><span class="o">::</span><span class="no">RegistrationsController</span>
-  <span class="n">layout</span> <span class="kp">false</span>
-  <span class="c1"># the rest is inherited, so it should work</span>
-  
-  <span class="kp">private</span>
-  <span class="k">def</span> <span class="nf">after_inactive_sign_up_path_for</span><span class="p">(</span><span class="n">resource_or_scope</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">resource_or_scope</span> <span class="o">==</span> <span class="ss">:user</span> <span class="o">||</span> <span class="n">resource_or_scope</span><span class="p">.</span><span class="nf">class</span> <span class="o">==</span> <span class="no">User</span> <span class="o">||</span> <span class="n">resource_or_scope</span> <span class="o">==</span> <span class="no">User</span>
-      <span class="n">your_pending_registrations_path</span>
-    <span class="c1">#elsif resource_or_scope == :admin || resource_or_scope.class == AdminUser  || resource_or_scope == AdminUser</span>
-    <span class="c1">#  admin_root_path</span>
-    <span class="k">else</span>
-      <span class="k">super</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-  
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">Post</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
 <span class="k">end</span></code></pre></figure>
 
 <p><br />
- ii). Override Devise default behaviour in the routes in <span class="badge">config/routes.rb</span></p>
+With this simple model, we can perform operations like creating a new post, 
+retrieving all posts, finding a single post by its ID, and more.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
-<span class="c1"># config/routes.rb</span>
- <span class="n">devise_for</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">controllers: </span><span class="p">{</span> <span class="ss">registrations: </span><span class="s1">'registrations'</span> <span class="p">}</span>
- </code></pre></figure>
+<p><br /></p>
+<h3 id="the-view">The View</h3>
 
-<p><br />
-2 . Redirecting User From The Confirmation Email</p>
+<p>The view is responsible for presenting the data to the user. In Rails, views are 
+typically written in HTML, with some embedded Ruby code to dynamically display data. 
+For example, let’s consider a view for displaying a list of posts:</p>
 
-<p>You may want to redirect the user to a specific url after they clicked the link 
-in the confirmation email. To do that, just override the 
-<span class="badge">after_confirmation_path_for</span> in the <span class="badge">confirmations_controller</span>.</p>
+<p><br /></p>
 
-<p><br />
- i). Create a new <span class="badge">confirmations_controller.rb</span> in <span class="badge">app/controllers</span> directory.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/confirmations_controller.rb</span>
-
-<span class="k">class</span> <span class="nc">ConfirmationsController</span> <span class="o">&lt;</span> <span class="no">Devise</span><span class="o">::</span><span class="no">ConfirmationsController</span>
-  <span class="kp">private</span>
-  <span class="k">def</span> <span class="nf">after_confirmation_path_for</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span>
-    <span class="n">sign_in</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="c1"># In case you want to sign in the user</span>
-    <span class="c1"># some_other_new_after_confirmation_path</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;</span><span class="err">%</span> <span class="err">@</span><span class="na">posts.each</span> <span class="na">do</span> <span class="err">|</span><span class="na">post</span><span class="err">|</span> <span class="err">%</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h2&gt;&lt;</span><span class="err">%=</span> <span class="na">post.title</span> <span class="err">%</span><span class="nt">&gt;&lt;/h2&gt;</span>
+  <span class="nt">&lt;p&gt;&lt;</span><span class="err">%=</span> <span class="na">post.body</span> <span class="err">%</span><span class="nt">&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;</span></code></pre></figure>
 
 <p><br />
- ii). Override Devise default behaviour in the routes in <span class="badge">config/routes.rb</span></p>
+In this view, we use embedded Ruby code to loop through all of the posts and 
+display their title and body.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
-<span class="c1"># config/routes.rb</span>
- <span class="n">devise_for</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">controllers: </span><span class="p">{</span> <span class="ss">confirmations: </span><span class="s1">'confirmations'</span> <span class="p">}</span></code></pre></figure>
+<p><br /></p>
+<h3 id="the-controller">The Controller</h3>
 
-<p><br />
-3 . Update User email without Sending a Confirmation Email
-If you are using the <span class="badge">:reconfirmable</span> attribute and want 
-to update a user’s email without needing a confirmation email to be sent, you can
-use the <span class="badge">skip_reconfirmation!</span> like so:</p>
+<p>The controller is responsible for receiving user requests, handling any necessary 
+data processing, and communicating with the model and the view. In Rails, the 
+controller is represented by a class that inherits from <span class="badge">ActionController::Base</span>. 
+For example, let’s consider a controller for managing posts:</p>
 
-<figure class="highlight"><pre><code class="language-rub" data-lang="rub">user = User.where(name: "techietuts")
-user.email = 'techie@techietuts.com'
-user.skip_reconfirmation!
-user.save!</code></pre></figure>
+<p><br /></p>
 
-<p><br />
-4 . Allowing Unconfirmed Users For A Given Period</p>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">class PostsController <span class="nt">&lt;</span> <span class="nt">ApplicationController</span>
+  <span class="na">def</span> <span class="na">index</span>
+    <span class="err">@</span><span class="na">posts = </span><span class="s">Post.all</span>
+  <span class="na">end</span>
 
-<p>You can give unconfirmed users some time to confirm their emails by setting the 
-period for <span class="badge">allow_unconfirmed_access_for</span> in the <span class="badge">config/initializers/devise.rb</span> file.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/initializers/devise.rb</span>
-
-<span class="n">config</span><span class="p">.</span><span class="nf">allow_unconfirmed_access_for</span> <span class="o">=</span> <span class="mi">30</span><span class="p">.</span><span class="nf">days</span></code></pre></figure>
+  <span class="na">def</span> <span class="na">show</span>
+    <span class="err">@</span><span class="na">post = </span><span class="s">Post.find(params[:id])</span>
+  <span class="na">end</span>
+<span class="na">end</span></code></pre></figure>
 
 <p><br />
-5 . Skip Required Confirmation</p>
+In this controller, we have two actions, index and show. The index action retrieves all of the posts and stores them in an instance variable, while the show action retrieves a single post by its ID and stores it in an instance variable.</p>
 
-<p>You can skip required confirmation even if you’ve already added <span class="badge">confirmable</span> for devise.</p>
+<p><br /></p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># in User.rb</span>
-<span class="kp">protected</span>
+<h3 id="putting-it-all-together">Putting it all together</h3>
 
-<span class="k">def</span> <span class="nf">confirmation_required?</span>
-  <span class="kp">false</span>
-<span class="k">end</span></code></pre></figure>
+<p>Now that we’ve seen what each component of the MVC pattern does, let’s see how 
+they all work together in a Rails application. When a user makes a request to 
+the application, the request is routed to the appropriate controller action. 
+The controller action then performs any necessary data processing and communicates 
+with the model to retrieve the necessary data. Finally, the controller renders 
+the appropriate view and returns the response to the user.</p>
 
-<p><br />
-6 . Allow Users to Login and Confirm their Emails Later</p>
+<p><br /></p>
+<h3 id="conclusion">Conclusion</h3>
 
-<p>i). Enable <span class="badge">reconfirmable</span> and set <span class="badge">allow_unconfirmed_access_for</span> in <span class="badge">config/initializers/devise.rb</span> file.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/initializers/devise.rb</span>
-
-<span class="n">config</span><span class="p">.</span><span class="nf">reconfirmable</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">config</span><span class="p">.</span><span class="nf">allow_unconfirmed_access_for</span> <span class="o">=</span> <span class="mi">30</span><span class="p">.</span><span class="nf">days</span></code></pre></figure>
-
-<p><br />
- ii). Create the column in the users table.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># migrations/[...]devise_create_users</span>
-<span class="c1"># ...</span>
-
-<span class="n">t</span><span class="p">.</span><span class="nf">string</span>   <span class="ss">:unconfirmed_email</span> <span class="c1"># Only if using reconfirmable</span>
-
-<span class="c1"># ...</span></code></pre></figure>
-
-<p><br />
- iii). Send users confirmation email like so:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
- <span class="no">User</span><span class="p">.</span><span class="nf">find_each</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span> <span class="n">user</span><span class="p">.</span><span class="nf">send_confirmation_instructions</span> <span class="p">}</span> 
-       </code></pre></figure>
+<p>In conclusion, the MVC pattern is a powerful way to organize a Rails application and make it easier to understand and maintain. By separating the application into distinct components, you can write clean and maintainable code that is easier to test and modify.</p>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>

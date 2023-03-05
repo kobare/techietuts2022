@@ -1,4 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-02-19T10:05:09+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">How ChatGPT can Improve Productivity for Web Developers</title><link href="http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers" rel="alternate" type="text/html" title="How ChatGPT can Improve Productivity for Web Developers" /><published>2023-02-19T09:30:00+03:00</published><updated>2023-02-19T09:30:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-03-05T13:51:45+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Debugging Rails applications with Pry or Byebug</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug" rel="alternate" type="text/html" title="Debugging Rails applications with Pry or Byebug" /><published>2023-03-05T13:15:00+03:00</published><updated>2023-03-05T13:15:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Debugging is an essential part of developing a Ruby on Rails application. 
+It involves finding and fixing errors or bugs in the code. There are different 
+techniques and tools for debugging Rails applications, but in this tutorial, 
+we’ll focus on two popular Ruby debugging tools: Pry and Byebug.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;what-is-pry&quot;&gt;What is Pry?&lt;/h3&gt;
+
+&lt;p&gt;Pry is a powerful Ruby REPL (Read-Eval-Print Loop) that allows us to interact 
+with our code in real-time. We can use Pry to debug our Ruby code, inspect objects, 
+and test code snippets. Pry provides several advanced features, including syntax 
+highlighting, code introspection, and method discovery.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;what-is-byebug&quot;&gt;What is Byebug?&lt;/h3&gt;
+
+&lt;p&gt;Byebug is a fast and efficient Ruby debugger that allows us to debug our code 
+interactively. Byebug provides a range of powerful features, including step-by-step 
+execution, breakpoint management, and stack trace inspection.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;installation&quot;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;Before we can start using Pry or Byebug, we need to install them. To install 
+them, add the following lines to your Gemfile:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;pry-rails&apos;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;byebug&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;using-pry&quot;&gt;Using Pry&lt;/h3&gt;
+
+&lt;p&gt;Once Pry is installed, we can start using it to debug our Rails application. 
+To use Pry, we need to add the following line to the code where we want to start debugging:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pry&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This line will pause the execution of the code and open a Pry console, where we 
+can inspect variables, call methods, and execute arbitrary Ruby code.&lt;/p&gt;
+
+&lt;p&gt;For example, let’s say we have a controller action that’s not behaving as expected:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@posts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@categories&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Category&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+To debug this action with Pry, we can add the &lt;span class=&quot;badge&quot;&gt;binding.pry&lt;/span&gt; 
+line after the first line:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;binding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pry&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@posts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@categories&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Category&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+When we load the page that triggers this action, the execution will pause at the 
+binding.pry line, and we’ll be dropped into a Pry console where we can inspect 
+the &lt;span class=&quot;badge&quot;&gt;@posts&lt;/span&gt; and &lt;span class=&quot;badge&quot;&gt;@categories&lt;/span&gt; 
+variables, call methods on them, and execute arbitrary 
+Ruby code to help us debug the issue.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;pry-commands&quot;&gt;Pry Commands&lt;/h3&gt;
+
+&lt;p&gt;Pry provides several commands that we can use to interact with our code during debugging. Some of the most commonly used commands are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ls: List the methods available on an object.&lt;/li&gt;
+  &lt;li&gt;cd: Change the current context to a different object.&lt;/li&gt;
+  &lt;li&gt;whereami: Show the current execution context.&lt;/li&gt;
+  &lt;li&gt;exit: Exit the Pry console.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;using-byebug&quot;&gt;Using Byebug&lt;/h3&gt;
+
+&lt;p&gt;Byebug works similarly to Pry, but instead of adding a 
+&lt;span class=&quot;badge&quot;&gt;binding.pry&lt;/span&gt; line to the code, we add a byebug line:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;def index
+  byebug
+  @posts = Post.all
+  @categories = Category.all
+end&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+When we load the page that triggers this action, the execution will pause at the 
+byebug line, and we’ll be dropped into a Byebug console where we can inspect 
+variables, call methods, and execute arbitrary Ruby code to help us debug the issue.&lt;/p&gt;
+
+&lt;p&gt;Byebug also includes a number of commands that can help us navigate the code and 
+inspect variables. Some of the most commonly used commands are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;step: Step into the next line of code.&lt;/li&gt;
+  &lt;li&gt;next: Step over the next line of code.&lt;/li&gt;
+  &lt;li&gt;finish: Continue executing until the current method returns.&lt;/li&gt;
+  &lt;li&gt;continue: Continue executing until the next breakpoint or exception.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Additionally, there are a few tips and best practices to keep in mind when 
+debugging with Pry or Byebug:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use breakpoints sparingly: Breakpoints can be a powerful tool, but using them 
+too frequently can slow down your debugging process. Use them strategically to 
+focus on the parts of the code that you suspect are causing the issue.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Understand the stack trace: When an error occurs, it can be helpful to examine 
+the stack trace to see where the error originated. This can help you narrow down 
+the source of the problem and guide your debugging efforts.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use Pry or Byebug commands: Pry and Byebug both come with a set of useful commands 
+that can help you navigate and inspect your code. Familiarize yourself with these 
+commands to make debugging faster and more efficient.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Keep your code organized: Writing clean, organized code can make debugging easier 
+by making it easier to follow the flow of your application. Use descriptive variable 
+names and break your code up into smaller, more manageable pieces to make it 
+easier to debug.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Debugging Rails applications can be a challenging and time-consuming task, but 
+with the help of tools like Pry and Byebug, we can make the process easier and 
+more efficient. By adding &lt;span class=&quot;badge&quot;&gt;binding.pry&lt;/span&gt; or 
+&lt;span class=&quot;badge&quot;&gt;byebug&lt;/span&gt; lines to our code, we can pause the execution 
+of the code and inspect variables, call methods, and execute arbitrary Ruby code 
+to help us diagnose and fix issues.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">How ChatGPT can Improve Productivity for Web Developers</title><link href="http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers" rel="alternate" type="text/html" title="How ChatGPT can Improve Productivity for Web Developers" /><published>2023-02-19T09:30:00+03:00</published><updated>2023-02-19T09:30:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;As a web developer, staying productive and on top of your tasks is critical to 
 the success of your projects and the satisfaction of your clients. With the ever-evolving 
@@ -63,7 +216,7 @@ is a valuable resource, it’s always important to verify the information it pro
 before using it in your work.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails</title><link href="http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/understanding-the-mvc-pattern-in-ruby-on-rails" rel="alternate" type="text/html" title="Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails" /><published>2023-02-19T09:30:00+03:00</published><updated>2023-02-19T09:30:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/understanding-the-mvc-pattern-in-ruby-on-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/understanding-the-mvc-pattern-in-ruby-on-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails" rel="alternate" type="text/html" title="Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails" /><published>2023-02-19T09:30:00+03:00</published><updated>2023-02-19T09:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Ruby on Rails is a popular web application framework that follows the MVC 
 (Model-View-Controller) architectural pattern. This pattern is used to separate 
@@ -147,7 +300,7 @@ the appropriate view and returns the response to the user.&lt;/p&gt;
 &lt;p&gt;In conclusion, the MVC pattern is a powerful way to organize a Rails application and make it easier to understand and maintain. By separating the application into distinct components, you can write clean and maintainable code that is easier to test and modify.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Ruby on Rails 7 Action Cable: A Complete Guide with a Practical Example</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable" rel="alternate" type="text/html" title="Ruby on Rails 7 Action Cable: A Complete Guide with a Practical Example" /><published>2023-02-11T17:30:00+03:00</published><updated>2023-02-11T17:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Ruby on Rails 7 Action Cable: A Complete Guide with a Practical Example</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable" rel="alternate" type="text/html" title="Ruby on Rails 7 Action Cable: A Complete Guide with a Practical Example" /><published>2023-02-11T17:30:00+03:00</published><updated>2023-02-11T17:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Ruby on Rails Action Cable is a feature of the Ruby on Rails web framework that 
 allows you to add real-time communication to your web applications. With Action 
@@ -849,94 +1002,4 @@ $ exec $SHELL&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;span class=&quot;c1&quot;&gt;# Bundler version 2.3.26&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction rbenv is a ruby version management tool designed to manage multiple versions of Ruby on the same device and lets you easily switch between them.</summary></entry><entry><title type="html">Rails 7 Enum</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/rails-7-enum" rel="alternate" type="text/html" title="Rails 7 Enum" /><published>2022-12-12T05:45:00+03:00</published><updated>2022-12-12T05:45:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/rails-7-enum</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/rails-7-enum">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
-
-&lt;p&gt;In Rails, an enum is an attribute where the values map to integers in the database and can be queried by name.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;application-example&quot;&gt;Application Example&lt;/h3&gt;
-
-&lt;p&gt;Suppose we have the orders table and we want to store the status attribute of an 
-order object as either completed, pending or cancelled. Assuming there’s a status 
-column of type integer in the table, having values 0, 1 and 2:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;defining-an-enum-for-the-status-attribute&quot;&gt;Defining an enum for the status attribute&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/order.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Order&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;completed: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;pending: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;cancelled: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;working-with-scopes&quot;&gt;Working with scopes&lt;/h4&gt;
-
-&lt;p&gt;We can filter a query the regular way or by using the enum helper:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@orders&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
-
-&lt;span class=&quot;vi&quot;&gt;@orders&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;status: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pending&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# or&lt;/span&gt;
-
-&lt;span class=&quot;vi&quot;&gt;@orders&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pending&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;checking-for-equality&quot;&gt;Checking for equality&lt;/h4&gt;
-
-&lt;p&gt;We can check if an order is “completed” by using &lt;span class=&quot;badge&quot;&gt;@order.status == “completed”&lt;/span&gt; or the enum helper:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@order&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;vi&quot;&gt;@order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;completed?&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Returns true if @order.status == &quot;completed&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;updating-the-enum&quot;&gt;Updating the enum&lt;/h4&gt;
-
-&lt;p&gt;We can update the enum using the enum names or Rails helpers:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@order&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;vi&quot;&gt;@order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;status: :cancelled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
- &lt;span class=&quot;c1&quot;&gt;# or&lt;/span&gt;
- 
-&lt;span class=&quot;vi&quot;&gt;@order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cancelled!&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;enum-options&quot;&gt;Enum options&lt;/h4&gt;
-
-&lt;p&gt;1 . Using the &lt;span class=&quot;badge&quot;&gt;prefix&lt;/span&gt; or &lt;span class=&quot;badge&quot;&gt;suffix&lt;/span&gt; options to make it more intuitive:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Order&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;completed: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;pending: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;cancelled: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;prefix: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-
-&lt;span class=&quot;vi&quot;&gt;@orders&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
-
-&lt;span class=&quot;vi&quot;&gt;@orders&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;status_pending&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Disabling scope helper:&lt;/p&gt;
-
-&lt;p&gt;The scopes for status won’t be created as we have provided &lt;span class=&quot;badge&quot;&gt;scopes: false&lt;/span&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/order.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Order&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;completed: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;pending: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;cancelled: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;prefix: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;scopes: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Opting for array instead of hash:&lt;/p&gt;
-
-&lt;p&gt;You can also use an array to define the enum but it’s not a good idea, 
-because changing the order of the enum values will break the mapping.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/models/order.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Order&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;enum&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:completed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:pending&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:cancelled&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;prefix: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Definition</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction rbenv is a ruby version management tool designed to manage multiple versions of Ruby on the same device and lets you easily switch between them.</summary></entry></feed>

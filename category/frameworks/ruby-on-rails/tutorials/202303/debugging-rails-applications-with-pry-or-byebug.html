@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Devise Cheatsheet - Techietuts</title>
+ <title>Debugging Rails applications with Pry or Byebug - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Devise Cheatsheet" />
+<meta property="og:title" content="Debugging Rails applications with Pry or Byebug" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="1 . Redirecting User After Sign Up (Confirmation Pending)" />
-<meta property="og:description" content="1 . Redirecting User After Sign Up (Confirmation Pending)" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-08-21T08:30:00+03:00" />
+<meta property="article:published_time" content="2023-03-05T13:15:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Devise Cheatsheet" />
+<meta property="twitter:title" content="Debugging Rails applications with Pry or Byebug" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"1 . Redirecting User After Sign Up (Confirmation Pending)","headline":"Devise Cheatsheet","dateModified":"2022-08-21T08:30:00+03:00","datePublished":"2022-08-21T08:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/devise-cheatsheet","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction","headline":"Debugging Rails applications with Pry or Byebug","dateModified":"2023-03-05T13:15:00+03:00","datePublished":"2023-03-05T13:15:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,132 +909,162 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Devise Cheatsheet</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Debugging Rails applications with Pry or Byebug</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> August 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> March 2023</p>
     <div>
                 <!-- Page content object inserted below -->
-        <p>1 . Redirecting User After Sign Up (Confirmation Pending)</p>
+        <h3 id="introduction">Introduction</h3>
 
-<p>If you want to redirect the user to a specific url after signing up, override the 
-<span class="badge">after_inactive_sign_up_path_for</span> in the <span class="badge">registrations_controller</span>.</p>
+<p>Debugging is an essential part of developing a Ruby on Rails application. 
+It involves finding and fixing errors or bugs in the code. There are different 
+techniques and tools for debugging Rails applications, but in this tutorial, 
+we’ll focus on two popular Ruby debugging tools: Pry and Byebug.</p>
+
+<p><br /></p>
+<h3 id="what-is-pry">What is Pry?</h3>
+
+<p>Pry is a powerful Ruby REPL (Read-Eval-Print Loop) that allows us to interact 
+with our code in real-time. We can use Pry to debug our Ruby code, inspect objects, 
+and test code snippets. Pry provides several advanced features, including syntax 
+highlighting, code introspection, and method discovery.</p>
+
+<p><br /></p>
+<h3 id="what-is-byebug">What is Byebug?</h3>
+
+<p>Byebug is a fast and efficient Ruby debugger that allows us to debug our code 
+interactively. Byebug provides a range of powerful features, including step-by-step 
+execution, breakpoint management, and stack trace inspection.</p>
+
+<p><br /></p>
+<h3 id="installation">Installation</h3>
+
+<p>Before we can start using Pry or Byebug, we need to install them. To install 
+them, add the following lines to your Gemfile:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="s1">'pry-rails'</span>
+<span class="n">gem</span> <span class="s1">'byebug'</span></code></pre></figure>
+
+<p><br /></p>
+<h3 id="using-pry">Using Pry</h3>
+
+<p>Once Pry is installed, we can start using it to debug our Rails application. 
+To use Pry, we need to add the following line to the code where we want to start debugging:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">binding</span><span class="p">.</span><span class="nf">pry</span></code></pre></figure>
 
 <p><br />
- i). Create a new <span class="badge">registrations_controller.rb</span> in <span class="badge">app/controllers</span> directory.</p>
+This line will pause the execution of the code and open a Pry console, where we 
+can inspect variables, call methods, and execute arbitrary Ruby code.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/registrations_controller.rb</span>
+<p>For example, let’s say we have a controller action that’s not behaving as expected:</p>
 
-<span class="k">class</span> <span class="nc">RegistrationsController</span> <span class="o">&lt;</span> <span class="o">::</span><span class="no">Devise</span><span class="o">::</span><span class="no">RegistrationsController</span>
-  <span class="n">layout</span> <span class="kp">false</span>
-  <span class="c1"># the rest is inherited, so it should work</span>
-  
-  <span class="kp">private</span>
-  <span class="k">def</span> <span class="nf">after_inactive_sign_up_path_for</span><span class="p">(</span><span class="n">resource_or_scope</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">resource_or_scope</span> <span class="o">==</span> <span class="ss">:user</span> <span class="o">||</span> <span class="n">resource_or_scope</span><span class="p">.</span><span class="nf">class</span> <span class="o">==</span> <span class="no">User</span> <span class="o">||</span> <span class="n">resource_or_scope</span> <span class="o">==</span> <span class="no">User</span>
-      <span class="n">your_pending_registrations_path</span>
-    <span class="c1">#elsif resource_or_scope == :admin || resource_or_scope.class == AdminUser  || resource_or_scope == AdminUser</span>
-    <span class="c1">#  admin_root_path</span>
-    <span class="k">else</span>
-      <span class="k">super</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-  
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">index</span>
+  <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">all</span>
+  <span class="vi">@categories</span> <span class="o">=</span> <span class="no">Category</span><span class="p">.</span><span class="nf">all</span>
 <span class="k">end</span></code></pre></figure>
 
 <p><br />
- ii). Override Devise default behaviour in the routes in <span class="badge">config/routes.rb</span></p>
+To debug this action with Pry, we can add the <span class="badge">binding.pry</span> 
+line after the first line:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
-<span class="c1"># config/routes.rb</span>
- <span class="n">devise_for</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">controllers: </span><span class="p">{</span> <span class="ss">registrations: </span><span class="s1">'registrations'</span> <span class="p">}</span>
- </code></pre></figure>
-
-<p><br />
-2 . Redirecting User From The Confirmation Email</p>
-
-<p>You may want to redirect the user to a specific url after they clicked the link 
-in the confirmation email. To do that, just override the 
-<span class="badge">after_confirmation_path_for</span> in the <span class="badge">confirmations_controller</span>.</p>
-
-<p><br />
- i). Create a new <span class="badge">confirmations_controller.rb</span> in <span class="badge">app/controllers</span> directory.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/confirmations_controller.rb</span>
-
-<span class="k">class</span> <span class="nc">ConfirmationsController</span> <span class="o">&lt;</span> <span class="no">Devise</span><span class="o">::</span><span class="no">ConfirmationsController</span>
-  <span class="kp">private</span>
-  <span class="k">def</span> <span class="nf">after_confirmation_path_for</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span>
-    <span class="n">sign_in</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="c1"># In case you want to sign in the user</span>
-    <span class="c1"># some_other_new_after_confirmation_path</span>
-  <span class="k">end</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">index</span>
+  <span class="nb">binding</span><span class="p">.</span><span class="nf">pry</span>
+  <span class="vi">@posts</span> <span class="o">=</span> <span class="no">Post</span><span class="p">.</span><span class="nf">all</span>
+  <span class="vi">@categories</span> <span class="o">=</span> <span class="no">Category</span><span class="p">.</span><span class="nf">all</span>
 <span class="k">end</span></code></pre></figure>
 
 <p><br />
- ii). Override Devise default behaviour in the routes in <span class="badge">config/routes.rb</span></p>
+When we load the page that triggers this action, the execution will pause at the 
+binding.pry line, and we’ll be dropped into a Pry console where we can inspect 
+the <span class="badge">@posts</span> and <span class="badge">@categories</span> 
+variables, call methods on them, and execute arbitrary 
+Ruby code to help us debug the issue.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
-<span class="c1"># config/routes.rb</span>
- <span class="n">devise_for</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">controllers: </span><span class="p">{</span> <span class="ss">confirmations: </span><span class="s1">'confirmations'</span> <span class="p">}</span></code></pre></figure>
+<p><br /></p>
+<h3 id="pry-commands">Pry Commands</h3>
 
-<p><br />
-3 . Update User email without Sending a Confirmation Email
-If you are using the <span class="badge">:reconfirmable</span> attribute and want 
-to update a user’s email without needing a confirmation email to be sent, you can
-use the <span class="badge">skip_reconfirmation!</span> like so:</p>
+<p>Pry provides several commands that we can use to interact with our code during debugging. Some of the most commonly used commands are:</p>
 
-<figure class="highlight"><pre><code class="language-rub" data-lang="rub">user = User.where(name: "techietuts")
-user.email = 'techie@techietuts.com'
-user.skip_reconfirmation!
-user.save!</code></pre></figure>
+<ul>
+  <li>ls: List the methods available on an object.</li>
+  <li>cd: Change the current context to a different object.</li>
+  <li>whereami: Show the current execution context.</li>
+  <li>exit: Exit the Pry console.</li>
+</ul>
 
-<p><br />
-4 . Allowing Unconfirmed Users For A Given Period</p>
+<p><br /></p>
+<h3 id="using-byebug">Using Byebug</h3>
 
-<p>You can give unconfirmed users some time to confirm their emails by setting the 
-period for <span class="badge">allow_unconfirmed_access_for</span> in the <span class="badge">config/initializers/devise.rb</span> file.</p>
+<p>Byebug works similarly to Pry, but instead of adding a 
+<span class="badge">binding.pry</span> line to the code, we add a byebug line:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/initializers/devise.rb</span>
+<p><br /></p>
 
-<span class="n">config</span><span class="p">.</span><span class="nf">allow_unconfirmed_access_for</span> <span class="o">=</span> <span class="mi">30</span><span class="p">.</span><span class="nf">days</span></code></pre></figure>
-
-<p><br />
-5 . Skip Required Confirmation</p>
-
-<p>You can skip required confirmation even if you’ve already added <span class="badge">confirmable</span> for devise.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># in User.rb</span>
-<span class="kp">protected</span>
-
-<span class="k">def</span> <span class="nf">confirmation_required?</span>
-  <span class="kp">false</span>
-<span class="k">end</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html">def index
+  byebug
+  @posts = Post.all
+  @categories = Category.all
+end</code></pre></figure>
 
 <p><br />
-6 . Allow Users to Login and Confirm their Emails Later</p>
+When we load the page that triggers this action, the execution will pause at the 
+byebug line, and we’ll be dropped into a Byebug console where we can inspect 
+variables, call methods, and execute arbitrary Ruby code to help us debug the issue.</p>
 
-<p>i). Enable <span class="badge">reconfirmable</span> and set <span class="badge">allow_unconfirmed_access_for</span> in <span class="badge">config/initializers/devise.rb</span> file.</p>
+<p>Byebug also includes a number of commands that can help us navigate the code and 
+inspect variables. Some of the most commonly used commands are:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/initializers/devise.rb</span>
-
-<span class="n">config</span><span class="p">.</span><span class="nf">reconfirmable</span> <span class="o">=</span> <span class="kp">true</span>
-<span class="n">config</span><span class="p">.</span><span class="nf">allow_unconfirmed_access_for</span> <span class="o">=</span> <span class="mi">30</span><span class="p">.</span><span class="nf">days</span></code></pre></figure>
-
-<p><br />
- ii). Create the column in the users table.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># migrations/[...]devise_create_users</span>
-<span class="c1"># ...</span>
-
-<span class="n">t</span><span class="p">.</span><span class="nf">string</span>   <span class="ss">:unconfirmed_email</span> <span class="c1"># Only if using reconfirmable</span>
-
-<span class="c1"># ...</span></code></pre></figure>
+<ul>
+  <li>step: Step into the next line of code.</li>
+  <li>next: Step over the next line of code.</li>
+  <li>finish: Continue executing until the current method returns.</li>
+  <li>continue: Continue executing until the next breakpoint or exception.</li>
+</ul>
 
 <p><br />
- iii). Send users confirmation email like so:</p>
+Additionally, there are a few tips and best practices to keep in mind when 
+debugging with Pry or Byebug:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
- <span class="no">User</span><span class="p">.</span><span class="nf">find_each</span> <span class="p">{</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span> <span class="n">user</span><span class="p">.</span><span class="nf">send_confirmation_instructions</span> <span class="p">}</span> 
-       </code></pre></figure>
+<ul>
+  <li>
+    <p>Use breakpoints sparingly: Breakpoints can be a powerful tool, but using them 
+too frequently can slow down your debugging process. Use them strategically to 
+focus on the parts of the code that you suspect are causing the issue.</p>
+  </li>
+  <li>
+    <p>Understand the stack trace: When an error occurs, it can be helpful to examine 
+the stack trace to see where the error originated. This can help you narrow down 
+the source of the problem and guide your debugging efforts.</p>
+  </li>
+  <li>
+    <p>Use Pry or Byebug commands: Pry and Byebug both come with a set of useful commands 
+that can help you navigate and inspect your code. Familiarize yourself with these 
+commands to make debugging faster and more efficient.</p>
+  </li>
+  <li>
+    <p>Keep your code organized: Writing clean, organized code can make debugging easier 
+by making it easier to follow the flow of your application. Use descriptive variable 
+names and break your code up into smaller, more manageable pieces to make it 
+easier to debug.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Debugging Rails applications can be a challenging and time-consuming task, but 
+with the help of tools like Pry and Byebug, we can make the process easier and 
+more efficient. By adding <span class="badge">binding.pry</span> or 
+<span class="badge">byebug</span> lines to our code, we can pause the execution 
+of the code and inspect variables, call methods, and execute arbitrary Ruby code 
+to help us diagnose and fix issues.</p>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>
