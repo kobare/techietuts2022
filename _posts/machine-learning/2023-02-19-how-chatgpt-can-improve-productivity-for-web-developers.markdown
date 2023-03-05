@@ -6,8 +6,8 @@ date:   2023-02-19 09:30:00 +0300
 img: /assets/img/svg/ai.svg
 categories: more-topics
 sub_category: machine-learning
-type: chat-gpt
-technology: Ruby
+type: artificial-intelligence
+technology: GPT
 permalink: "category/:categories/machine-learning/articles/:year:month/:title"
 ---
 

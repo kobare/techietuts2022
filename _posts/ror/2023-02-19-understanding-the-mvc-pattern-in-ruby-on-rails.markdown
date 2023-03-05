@@ -4,11 +4,11 @@ title:  "Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails"
 author: Denis Kobare
 date:   2023-02-19 09:30:00 +0300
 img: /assets/img/svg/ror.svg
-categories: more-topics
-sub_category: machine-learning
-type: chat-gpt
+categories: frameworks
+sub_category: ruby-on-rails
+type: tutorials
 technology: Ruby
-permalink: "category/:categories/machine-learning/articles/:year:month/:title"
+permalink: "category/:categories/ruby-on-rails/tutorials/:year:month/:title"
 ---
 
 
