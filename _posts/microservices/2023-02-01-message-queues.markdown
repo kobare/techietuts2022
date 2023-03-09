@@ -3,7 +3,7 @@ layout: post
 title:  "Message Queue (MQ)"
 author: Denis Kobare
 date:   2023-02-01 06:00:00 +0300
-img: /assets/img/svg/ror.svg
+img: /assets/img/svg/microservices.svg
 categories: more-topics
 sub_category: cloud-services
 type: microservice-architecture
