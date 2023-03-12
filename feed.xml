@@ -1,4 +1,174 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-03-09T09:48:42+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Debugging Rails applications with Pry or Byebug</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug" rel="alternate" type="text/html" title="Debugging Rails applications with Pry or Byebug" /><published>2023-03-05T13:15:00+03:00</published><updated>2023-03-05T13:15:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-03-12T10:05:00+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Rails Migrations Basics</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics" rel="alternate" type="text/html" title="Rails Migrations Basics" /><published>2023-03-12T09:35:00+03:00</published><updated>2023-03-12T09:35:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Rails Migrations are a powerful tool that allows developers to manage database 
+changes and schema updates in a version-controlled and consistent way. Migrations 
+help developers to easily modify the structure of their application’s database, 
+and they are a key component of the Ruby on Rails framework.&lt;/p&gt;
+
+&lt;p&gt;In this section, we’ll cover the basics of how to create, modify, and manage 
+migrations in a Rails application.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;creating-a-migration&quot;&gt;Creating a Migration&lt;/h3&gt;
+
+&lt;p&gt;To create a new migration in a Rails application, you can use the 
+&lt;span class=&quot;badge&quot;&gt;rails generate&lt;/span&gt; command followed by the migration name 
+and the list of attributes that you want to add to the database table. For example, 
+to create a migration that adds a new column to the users table, you can run the 
+following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate migration add_email_to_users email:string&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will create a new migration file in the &lt;span class=&quot;badge&quot;&gt;db/migrate&lt;/span&gt; 
+directory with a name that looks something like 
+&lt;span class=&quot;badge&quot;&gt;20210312132235_add_email_to_users.rb&lt;/span&gt;. The name of the 
+migration file includes a timestamp to ensure that each migration is executed in 
+the correct order.&lt;/p&gt;
+
+&lt;p&gt;The migration file will contain two methods: &lt;span class=&quot;badge&quot;&gt;up&lt;/span&gt; and 
+&lt;span class=&quot;badge&quot;&gt;down&lt;/span&gt;. The &lt;span class=&quot;badge&quot;&gt;up&lt;/span&gt; method is used 
+to define the changes that need to be made to the database, and the 
+&lt;span class=&quot;badge&quot;&gt;down&lt;/span&gt; method is used to define how to revert those changes.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of what the up method might look like for the 
+&lt;span class=&quot;badge&quot;&gt;add_email_to_users&lt;/span&gt; migration:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;up&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;add_column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This code will add a new column named email to the users table with a data type 
+of string.&lt;/p&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;down&lt;/span&gt; method is used to undo the changes made by 
+the &lt;span class=&quot;badge&quot;&gt;up&lt;/span&gt; method. Here’s an example of what the 
+&lt;span class=&quot;badge&quot;&gt;down&lt;/span&gt; method might look like for the 
+&lt;span class=&quot;badge&quot;&gt;add_email_to_users&lt;/span&gt; migration:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;down&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;remove_column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This code will remove the email column from the users table.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;running-migrations&quot;&gt;Running Migrations&lt;/h3&gt;
+
+&lt;p&gt;Once you’ve created a migration, you can run it by running the following command:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:migrate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will execute all the pending migrations in your application. Rails keeps 
+track of which migrations have already been run, so running 
+&lt;span class=&quot;badge&quot;&gt;rails db:migrate&lt;/span&gt; multiple times will not apply the 
+same migration more than once.&lt;/p&gt;
+
+&lt;p&gt;You can also roll back a migration by running the following command:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:rollback&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will undo the last migration that was applied. You can roll back multiple 
+migrations by specifying the number of migrations to roll back:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:rollback &lt;span class=&quot;nv&quot;&gt;STEP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will roll back the last two migrations that were applied.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;modifying-a-migration&quot;&gt;Modifying a Migration&lt;/h3&gt;
+
+&lt;p&gt;If you need to modify an existing migration, you can edit the migration file directly. 
+However, you should be aware that once a migration has been run, it should not 
+be modified unless absolutely necessary. Modifying a migration that has already 
+been applied can cause issues with the consistency of your database schema.&lt;/p&gt;
+
+&lt;p&gt;If you need to make a change to a migration that has already been run, you 
+should create a new migration that modifies the existing schema. For example, 
+if you need to rename a column that was added in a previous migration, you could 
+create a new migration that renames the column:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate migration rename_email_column_in_users&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will create a new migration file that you can use to rename the column. 
+Here’s an example of what the up method might look like:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;up&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;rename_column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new_email&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This code will rename the email column to new_email.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;adding-indexes&quot;&gt;Adding Indexes&lt;/h3&gt;
+
+&lt;p&gt;Adding indexes to your database tables can help to improve query performance. 
+You can create an index on a column in a table using a migration. Here’s an 
+example of how to create an index on the email column in the users table:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;add_index&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This code will create an index on the email column in the users table. Rails will 
+automatically generate a name for the index based on the table and column names.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;dropping-tables&quot;&gt;Dropping Tables&lt;/h3&gt;
+
+&lt;p&gt;If you need to remove a table from your database, you can do so using a migration. 
+Here’s an example of how to remove the users table:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;drop_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This code will remove the users table from your database.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Migrations are a powerful tool that allow you to manage database changes and 
+schema updates in a version-controlled and consistent way. In this tutorial, 
+we covered the basics of how to create, modify, and manage migrations in a 
+Rails application.&lt;/p&gt;
+
+&lt;p&gt;Remember that once a migration has been applied, it should not be modified unless 
+absolutely necessary. If you need to make a change to a migration that has already 
+been applied, create a new migration that modifies the existing schema.&lt;/p&gt;
+
+&lt;p&gt;With Rails Migrations, you can easily modify the structure of your application’s 
+database and keep your schema in sync with your application’s code.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Debugging Rails applications with Pry or Byebug</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug" rel="alternate" type="text/html" title="Debugging Rails applications with Pry or Byebug" /><published>2023-03-05T13:15:00+03:00</published><updated>2023-03-05T13:15:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Debugging is an essential part of developing a Ruby on Rails application. 
 It involves finding and fixing errors or bugs in the code. There are different 
@@ -938,68 +1108,4 @@ Save the file.&lt;/p&gt;
 &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flush&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;privileges&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="databases" /><summary type="html">1 . Install MySQL</summary></entry><entry><title type="html">Installing Ruby on Ubuntu Using rbenv</title><link href="http://0.0.0.0:4000/category/programming/ruby/tutorials/202301/installing-ruby-on-ubuntu-using-rbenv" rel="alternate" type="text/html" title="Installing Ruby on Ubuntu Using rbenv" /><published>2023-01-26T10:30:00+03:00</published><updated>2023-01-26T10:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/tutorials/202301/installing-ruby-on-ubuntu-using-rbenv</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/tutorials/202301/installing-ruby-on-ubuntu-using-rbenv">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;rbenv is a ruby version management tool designed to manage multiple versions of 
-Ruby on the same device and lets you easily switch between them.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1--install-dependencies-for-compiiling-ruby&quot;&gt;1 . Install dependencies for compiiling Ruby&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;core&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zlib1g&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;essential&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libssl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libreadline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libyaml&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libsqlite3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sqlite3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libxml2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libxslt1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libcurl4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;openssl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;software&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;common&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;libffi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dev&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dirmngr&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gnupg&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;https&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ca&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;certificates&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2--install-rbenv&quot;&gt;2 . Install rbenv&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rbenv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rbenv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.rbenv
-
-$ echo &apos;export PATH=&quot;$HOME/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rbenv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&apos; &amp;gt;&amp;gt; ~/.bashrc
-
-$ echo &apos;eval &quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rbenv&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;init&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&apos; &amp;gt;&amp;gt; ~/.bashrc
-
-$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-
-$ echo &apos;export PATH=&quot;&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rbenv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;$PATH&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&apos; &amp;gt;&amp;gt; ~/.bashrc
-
-$ git clone https://github.com/rbenv/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
-
-$ exec $SHELL&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3--install-ruby&quot;&gt;3 . Install Ruby&lt;/h3&gt;
-&lt;p&gt;Install a Ruby version of your choice. e.g 3.2.0&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rbenv&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Make it the default version&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rbenv&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;global&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Confirm instllation&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# ruby 3.2.0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;4--install-bundler&quot;&gt;4 . Install Bundler&lt;/h3&gt;
-&lt;p&gt;This method is an alias for &lt;span class=&quot;badge&quot;&gt;inspect&lt;/span&gt; method.&lt;/p&gt;
-
-&lt;p&gt;Returns the new String formed from each array element.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# install the latest version&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundler&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# or you can install a version of your choice&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundler&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.17&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
-
-
-&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rbenv&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rehash&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# See if it is installed&lt;/span&gt;
-
-&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Bundler version 2.3.26&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction rbenv is a ruby version management tool designed to manage multiple versions of Ruby on the same device and lets you easily switch between them.</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="databases" /><summary type="html">1 . Install MySQL</summary></entry></feed>

@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Configure Git on Ubuntu 18.10 Cosmic Canimal - Techietuts</title>
+ <title>Rails Migrations Basics - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Configure Git on Ubuntu 18.10 Cosmic Canimal" />
+<meta property="og:title" content="Rails Migrations Basics" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Git is used as a version control system. In this tutorial we are going to set it up to match our Github account. If you don’t already have a Github account, register one." />
-<meta property="og:description" content="Git is used as a version control system. In this tutorial we are going to set it up to match our Github account. If you don’t already have a Github account, register one." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-06-06T14:17:06+03:00" />
+<meta property="article:published_time" content="2023-03-12T09:35:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Configure Git on Ubuntu 18.10 Cosmic Canimal" />
+<meta property="twitter:title" content="Rails Migrations Basics" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Git is used as a version control system. In this tutorial we are going to set it up to match our Github account. If you don’t already have a Github account, register one.","headline":"Configure Git on Ubuntu 18.10 Cosmic Canimal","dateModified":"2020-06-06T14:17:06+03:00","datePublished":"2020-06-06T14:17:06+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10"},"url":"http://0.0.0.0:4000/category/vcs/github/configurations/202006/configure-git-on-ubuntu-18-10","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction","headline":"Rails Migrations Basics","dateModified":"2023-03-12T09:35:00+03:00","datePublished":"2023-03-12T09:35:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,85 +909,182 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Configure Git on Ubuntu 18.10 Cosmic Canimal</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Rails Migrations Basics</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> June 2020</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> March 2023</p>
     <div>
                 <!-- Page content object inserted below -->
-        <p>Git is used as a version control system. In this tutorial we are going to set it up to match our Github account. If you don’t already have a Github account, <a href="https://github.com/" target="_blank">register</a> one.</p>
+        <h3 id="introduction">Introduction</h3>
 
-<p><code class="language-plaintext highlighter-rouge">Ubuntu version: 18.10</code></p>
+<p>Rails Migrations are a powerful tool that allows developers to manage database 
+changes and schema updates in a version-controlled and consistent way. Migrations 
+help developers to easily modify the structure of their application’s database, 
+and they are a key component of the Ruby on Rails framework.</p>
 
-<h4 align="center">STEP 1: <h5 align="center">Account Configuration</h5></h4>
+<p>In this section, we’ll cover the basics of how to create, modify, and manage 
+migrations in a Rails application.</p>
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<p><br /></p>
+<h3 id="creating-a-migration">Creating a Migration</h3>
 
-<div class="terminal-home">
+<p>To create a new migration in a Rails application, you can use the 
+<span class="badge">rails generate</span> command followed by the migration name 
+and the list of attributes that you want to add to the database table. For example, 
+to create a migration that adds a new column to the users table, you can run the 
+following command:</p>
 
- <h5 class="hashed"># Replace name and email in the following steps with the ones you used for your Github account.</h5>
- <p class="console">git config --global color.ui true</p>
-
- <p class="console">git config --global user.name "YOUR NAME"</p>
-
- <p class="console">git config --global user.email "YOUR@EMAIL.com"</p>
-
- <h5 class="hashed"># Generate SSH key</h5>
- <p class="console">ssh-keygen -t rsa -b 4096 -C "YOUR@EMAIL.com"</p>
-
-</div>
-</section>
 <p><br /></p>
 
-<h4 align="center">STEP 2: <h5 align="center">Copy the generated SSH key and add it to your Github account</h5></h4>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails generate migration add_email_to_users email:string</code></pre></figure>
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<p><br />
+This will create a new migration file in the <span class="badge">db/migrate</span> 
+directory with a name that looks something like 
+<span class="badge">20210312132235_add_email_to_users.rb</span>. The name of the 
+migration file includes a timestamp to ensure that each migration is executed in 
+the correct order.</p>
 
-<div class="terminal-home">
+<p>The migration file will contain two methods: <span class="badge">up</span> and 
+<span class="badge">down</span>. The <span class="badge">up</span> method is used 
+to define the changes that need to be made to the database, and the 
+<span class="badge">down</span> method is used to define how to revert those changes.</p>
 
- <h5 class="hashed"># Copy SSH key. This command outputs your SSH key on the terminal. Highlight everything and copy.</h5>
- <p class="console">cat ~/.ssh/id_rsa.pub</p>
+<p>Here’s an example of what the up method might look like for the 
+<span class="badge">add_email_to_users</span> migration:</p>
 
-</div>
-</section>
 <p><br /></p>
 
-<p>Paste the output of the above command <a href="https://github.com/settings/ssh" target="_blank">here</a> . <br /><br /></p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">up</span>
+  <span class="n">add_column</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:string</span>
+<span class="k">end</span></code></pre></figure>
 
-<h4 align="center">STEP 3: <h5 align="center">Verify it Worked</h5></h4>
+<p><br />
+This code will add a new column named email to the users table with a data type 
+of string.</p>
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<p>The <span class="badge">down</span> method is used to undo the changes made by 
+the <span class="badge">up</span> method. Here’s an example of what the 
+<span class="badge">down</span> method might look like for the 
+<span class="badge">add_email_to_users</span> migration:</p>
 
-<div class="terminal-home">
-
- <p class="console">ssh -T git@github.com</p>
- <h5 class="hashed">Hi user_name! You've successfully authenticated but GitHub does not provide shell access.</h5>
- 
-</div>
-</section>
 <p><br /></p>
 
-<p>That’s it!</p>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">down</span>
+  <span class="n">remove_column</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:email</span>
+<span class="k">end</span></code></pre></figure>
 
-<p><em>See you in the next tuts</em></p>
+<p><br />
+This code will remove the email column from the users table.</p>
 
+<p><br /></p>
+<h3 id="running-migrations">Running Migrations</h3>
+
+<p>Once you’ve created a migration, you can run it by running the following command:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails db:migrate</code></pre></figure>
+
+<p><br />
+This will execute all the pending migrations in your application. Rails keeps 
+track of which migrations have already been run, so running 
+<span class="badge">rails db:migrate</span> multiple times will not apply the 
+same migration more than once.</p>
+
+<p>You can also roll back a migration by running the following command:</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails db:rollback</code></pre></figure>
+
+<p><br />
+This will undo the last migration that was applied. You can roll back multiple 
+migrations by specifying the number of migrations to roll back:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails db:rollback <span class="nv">STEP</span><span class="o">=</span>2</code></pre></figure>
+
+<p><br />
+This will roll back the last two migrations that were applied.</p>
+
+<p><br /></p>
+<h3 id="modifying-a-migration">Modifying a Migration</h3>
+
+<p>If you need to modify an existing migration, you can edit the migration file directly. 
+However, you should be aware that once a migration has been run, it should not 
+be modified unless absolutely necessary. Modifying a migration that has already 
+been applied can cause issues with the consistency of your database schema.</p>
+
+<p>If you need to make a change to a migration that has already been run, you 
+should create a new migration that modifies the existing schema. For example, 
+if you need to rename a column that was added in a previous migration, you could 
+create a new migration that renames the column:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails generate migration rename_email_column_in_users</code></pre></figure>
+
+<p><br />
+This will create a new migration file that you can use to rename the column. 
+Here’s an example of what the up method might look like:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">up</span>
+  <span class="n">rename_column</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:new_email</span>
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+This code will rename the email column to new_email.</p>
+
+<p><br /></p>
+<h3 id="adding-indexes">Adding Indexes</h3>
+
+<p>Adding indexes to your database tables can help to improve query performance. 
+You can create an index on a column in a table using a migration. Here’s an 
+example of how to create an index on the email column in the users table:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">change</span>
+  <span class="n">add_index</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:email</span>
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+This code will create an index on the email column in the users table. Rails will 
+automatically generate a name for the index based on the table and column names.</p>
+
+<p><br /></p>
+<h3 id="dropping-tables">Dropping Tables</h3>
+
+<p>If you need to remove a table from your database, you can do so using a migration. 
+Here’s an example of how to remove the users table:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">change</span>
+  <span class="n">drop_table</span> <span class="ss">:users</span>
+<span class="k">end</span></code></pre></figure>
+
+<p><br />
+This code will remove the users table from your database.</p>
+
+<p><br /></p>
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Migrations are a powerful tool that allow you to manage database changes and 
+schema updates in a version-controlled and consistent way. In this tutorial, 
+we covered the basics of how to create, modify, and manage migrations in a 
+Rails application.</p>
+
+<p>Remember that once a migration has been applied, it should not be modified unless 
+absolutely necessary. If you need to make a change to a migration that has already 
+been applied, create a new migration that modifies the existing schema.</p>
+
+<p>With Rails Migrations, you can easily modify the structure of your application’s 
+database and keep your schema in sync with your application’s code.</p>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
 
    </div>
 
