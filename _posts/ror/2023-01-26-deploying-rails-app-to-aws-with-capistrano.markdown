@@ -16,7 +16,7 @@ permalink: "category/:categories/ruby-on-rails/tutorials/:year:month/:title"
 
 Deploying application updates takes multiple steps. Performing all these steps 
 every time you want to deploy application updates is time-consuming and error-prone.
-This section will guide you how to automate the deployment of application updates 
+This section will guide you on how to automate the deployment of application updates 
 through Capistrano.
 
 Capistrano is a popular task automation tool among Ruby developers. Once Capistrano is set up,

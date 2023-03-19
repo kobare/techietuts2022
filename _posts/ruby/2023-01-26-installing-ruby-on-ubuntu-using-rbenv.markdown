@@ -71,9 +71,7 @@ $ ruby -v
 
 <br>
 ### 4 . Install Bundler
-This method is an alias for <span class="badge">inspect</span> method.
 
-Returns the new String formed from each array element.
 
 {% highlight ruby %}
 

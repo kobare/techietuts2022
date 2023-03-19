@@ -96,7 +96,7 @@ end
   ii) Install ImageMagick
 
 The chances that ImageMagick has already been installed on your Ubuntu system 
-are pretty. Confirm this by checking its version:
+are pretty high. Confirm this by checking its version:
 
 {% highlight terminal %}
  
