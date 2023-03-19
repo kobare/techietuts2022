@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Setting Up Email For Rails Devise Authentication - Techietuts</title>
+ <title>Nginx: Features, Benefits, and Use Cases - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Setting Up Email For Rails Devise Authentication" />
+<meta property="og:title" content="Nginx: Features, Benefits, and Use Cases" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Introduction" />
 <meta property="og:description" content="Introduction" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-08-01T05:55:00+03:00" />
+<meta property="article:published_time" content="2023-03-19T12:00:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Setting Up Email For Rails Devise Authentication" />
+<meta property="twitter:title" content="Nginx: Features, Benefits, and Use Cases" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Introduction","headline":"Setting Up Email For Rails Devise Authentication","dateModified":"2022-08-01T05:55:00+03:00","datePublished":"2022-08-01T05:55:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202208/setting-up-email-for-rails-devise-authentication","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction","headline":"Nginx: Features, Benefits, and Use Cases","dateModified":"2023-03-19T12:00:00+03:00","datePublished":"2023-03-19T12:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases"},"url":"http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,338 +909,156 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Setting Up Email For Rails Devise Authentication</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Nginx: Features, Benefits, and Use Cases</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> August 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> March 2023</p>
     <div>
                 <!-- Page content object inserted below -->
         <h3 id="introduction">Introduction</h3>
 
-<p>There are several ways to authenticate users on a Rails app and the easiest approach is to use existing tools such as the <span class="badge">Devise</span> gem, since it’s a mature solution that has thousands of hours of code review, design, testing, and time in production.</p>
+<p>Nginx is a high-performance, open-source web server and reverse proxy software 
+that has gained widespread popularity in recent years. It is known for its speed, 
+scalability, and flexibility, and is used by some of the world’s largest websites 
+and applications.</p>
 
-<p>During the authentication process, your app needs to commmunicate to the users via email because features such as <span class="badge">password reset</span> and <span class="badge">account confirmation</span> are contingent on the email service. Rails has an inbuilt component called <span class="badge">Action Mailer</span> that allows your app to send emails with just a few tweaks.</p>
-
-<p>This section reveals the simple configurations needed to allow Devise to send account confirmation request and password reset link emails to app users.</p>
+<p>In this guide, we’ll take a closer look at what Nginx is, what features it offers, 
+and some of the benefits and use cases for using Nginx in your web applications.</p>
 
 <p><br /></p>
-<h3 id="prerequisites">Prerequisites</h3>
+<h3 id="definition">Definition</h3>
 
-<p><em>NB: You may skirt these requirement versions if you are willing to experiment.</em></p>
+<p>Nginx (pronounced “engine-x”) is a lightweight, open-source HTTP server software 
+that was first released in 2004. It was designed to be a high-performance alternative 
+to the Apache HTTP Server, which was the dominant web server software at the time.</p>
+
+<p>Nginx is often used as a reverse proxy server or load balancer, which means it 
+sits in front of web servers and handles incoming client requests, forwarding 
+them to the appropriate backend server to generate a response. It is also commonly 
+used to serve static content, such as HTML, CSS, JavaScript, and images, as well 
+as dynamic content generated by applications running on a backend server.</p>
+
+<p><br /></p>
+<h3 id="features-of-nginx">Features of Nginx</h3>
+
+<p>Nginx offers a wide range of features that make it a popular choice for web 
+developers and administrators. Here are some of the key features of Nginx:</p>
 
 <ol>
-  <li>Ruby 3.2.0</li>
-  <li>Rails 7.0.3</li>
-  <li>Gmail account</li>
+  <li>
+    <p>High Performance: Nginx is known for its high performance and low resource usage. 
+It can handle large amounts of traffic and is optimized for serving static content 
+and handling multiple concurrent connections.</p>
+  </li>
+  <li>
+    <p>Scalability: Nginx can be used as a load balancer to distribute incoming traffic 
+among multiple servers, helping to improve scalability and availability of web 
+applications.</p>
+  </li>
+  <li>
+    <p>Reverse Proxy: Nginx can act as a reverse proxy to protect backend servers from 
+direct exposure to the internet, as well as provide additional security features 
+such as SSL termination, authentication, and access control.</p>
+  </li>
+  <li>
+    <p>Caching: Nginx can serve as a cache for static content, helping to reduce the 
+load on backend servers and improve response times for clients. It can also cache 
+dynamic content with appropriate headers to improve application performance.</p>
+  </li>
+  <li>
+    <p>SSL/TLS termination: Nginx can terminate SSL/TLS connections and pass unencrypted 
+traffic to the backend server, reducing the load on the server and allowing for 
+more efficient handling of SSL/TLS connections.</p>
+  </li>
+  <li>
+    <p>Content filtering: Nginx can be used to filter and block specific types of 
+traffic based on content or other criteria, providing an additional layer of 
+security for web applications.</p>
+  </li>
 </ol>
 
 <p><br /></p>
-<h3 id="part-a-creating-a-rails-7-project">Part A: Creating a Rails 7 Project</h3>
+<h3 id="benefits-of-using-nginx">Benefits of using Nginx</h3>
 
-<p>Create a new rails project called <span class="badge">devise_email</span> by following this document: <a href="/category/frameworks/ruby-on-rails/tutorials/202204/creating-a-rails-7-app" target="_blank">Creating A Rails 7 App: With esbuild, bootstrap and jquery</a>.</p>
+<p>Using Nginx as a web server or reverse proxy server can provide several benefits 
+for web developers and administrators. Here are some of the key benefits of using Nginx:</p>
 
-<p><br /></p>
-<h3 id="part-b-installing-devise">Part B: Installing Devise</h3>
-
-<p>1 . Add <span class="badge">devise</span> gem in the <span class="badge">Gemfile</span> file.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Gemfile</span>
-
-<span class="n">gem</span> <span class="s1">'devise'</span>
-  </code></pre></figure>
-
-<p><br />
-2 . Bundle install</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span>
-<span class="go">  </span></code></pre></figure>
-
-<p><br />
-3 . Setup devise</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails g devise:install</code></pre></figure>
-
-<p><br />
-4 . Generate <span class="badge">user</span> model</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails g devise user</code></pre></figure>
-
-<p><br />
-5 . Add <span class="badge">confirmable</span> and <span class="badge">recoverable</span> to the <span class="badge">users</span> table 
-in <span class="badge">db/migrations/[…]_devise_create_users.rb</span>.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># db/migrations/[...]_devise_create_users.rb</span>
-
-<span class="c1"># frozen_string_literal: true</span>
-
-<span class="k">class</span> <span class="nc">DeviseCreateUsers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">7.0</span><span class="p">]</span>
-  <span class="k">def</span> <span class="nf">change</span>
-    <span class="n">create_table</span> <span class="ss">:users</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
-      <span class="c1">## Database authenticatable</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:email</span><span class="p">,</span>              <span class="ss">null: </span><span class="kp">false</span><span class="p">,</span> <span class="ss">default: </span><span class="s2">""</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">string</span> <span class="ss">:encrypted_password</span><span class="p">,</span> <span class="ss">null: </span><span class="kp">false</span><span class="p">,</span> <span class="ss">default: </span><span class="s2">""</span>
-
-      <span class="c1">## Recoverable</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">string</span>   <span class="ss">:reset_password_token</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">datetime</span> <span class="ss">:reset_password_sent_at</span>
-
-      <span class="c1">## Rememberable</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">datetime</span> <span class="ss">:remember_created_at</span>
-
-      <span class="c1">## Trackable</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">integer</span>  <span class="ss">:sign_in_count</span><span class="p">,</span> <span class="ss">default: </span><span class="mi">0</span><span class="p">,</span> <span class="ss">null: </span><span class="kp">false</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">datetime</span> <span class="ss">:current_sign_in_at</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">datetime</span> <span class="ss">:last_sign_in_at</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">string</span>   <span class="ss">:current_sign_in_ip</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">string</span>   <span class="ss">:last_sign_in_ip</span>
-
-      <span class="c1">## Confirmable</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">string</span>   <span class="ss">:confirmation_token</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">datetime</span> <span class="ss">:confirmed_at</span>
-      <span class="n">t</span><span class="p">.</span><span class="nf">datetime</span> <span class="ss">:confirmation_sent_at</span>
-      <span class="c1">#t.string   :unconfirmed_email # Only if using reconfirmable</span>
-
-      <span class="c1">## Lockable</span>
-      <span class="c1">#t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts</span>
-      <span class="c1">#t.string   :unlock_token # Only if unlock strategy is :email or :both</span>
-      <span class="c1">#t.datetime :locked_at</span>
-
-
-      <span class="n">t</span><span class="p">.</span><span class="nf">timestamps</span> <span class="ss">null: </span><span class="kp">false</span>
-    <span class="k">end</span>
-
-    <span class="n">add_index</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:email</span><span class="p">,</span>                <span class="ss">unique: </span><span class="kp">true</span>
-    <span class="n">add_index</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:reset_password_token</span><span class="p">,</span> <span class="ss">unique: </span><span class="kp">true</span>
-    <span class="n">add_index</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:confirmation_token</span><span class="p">,</span>   <span class="ss">unique: </span><span class="kp">true</span>
-    <span class="c1">#add_index :users, :unlock_token,         unique: true</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
-
-<p><br />
-6 . Add <span class="badge">devise :confirmable</span> in <span class="badge">models/user.rb</span> file.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># models/user.rb</span>
-<span class="c1"># ...</span>
-<span class="n">devise</span> <span class="ss">:confirmable</span></code></pre></figure>
-
-<p><br />
-7 . Run migrations</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails db:migrate</code></pre></figure>
-
-<p><br />
-8 . Add <span class="badge">:turbo_stream</span> as a navigational format in 
-<span class="badge">config/initializers/devise.rb</span>. Rails 7 throws this error if you dont have it:
-<span class="badge">undefined method `user_url’ for #&lt;Devise::RegistrationsController:0x0000000000cf08&gt;</span></p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/initializers/devise.rb</span>
-<span class="c1"># ...</span>
-
-<span class="n">config</span><span class="p">.</span><span class="nf">navigational_formats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'*/*'</span><span class="p">,</span> <span class="ss">:html</span><span class="p">,</span> <span class="ss">:turbo_stream</span><span class="p">]</span></code></pre></figure>
-
-<p><br />
-9 . Redirect user to login page if they are not signed in.</p>
-
-<p>Add this code to <span class="badge">controllers/application_controller.rb</span> before any other actions.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># controllers/application_controller.rb</span>
-
-  <span class="n">before_action</span> <span class="ss">:authenticate_user!</span>
-<span class="c1"># ...</span></code></pre></figure>
-
-<p><br />
-10 . Add <span class="badge">sign in</span> and <span class="badge">log out</span> 
-links to the navbar in <span class="badge">app/views/layouts/application.html.erb</span></p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- views/layouts/application.html.erb --&gt;</span>
-<span class="c">&lt;!-- .... --&gt;</span>  
-
-  <span class="nt">&lt;body&gt;</span>
-
-   <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar navbar-expand-sm bg-dark navbar-dark fixed-top"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container-fluid"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Devise Email Example<span class="nt">&lt;/a&gt;</span>
-     <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;/a&gt;</span>
-     <span class="nt">&lt;</span><span class="err">%</span> <span class="na">if</span> <span class="na">current_user.nil</span><span class="err">?</span> <span class="err">%</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">link_to</span> <span class="err">"</span><span class="na">sign</span> <span class="na">in</span><span class="err">",</span> <span class="na">new_user_session_path</span><span class="err">,</span> <span class="na">method:</span> <span class="na">:get</span><span class="err">,</span> <span class="na">class:</span> <span class="err">"</span><span class="na">btn</span> <span class="na">btn-primary</span> <span class="na">btn-sm</span><span class="err">"%</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;</span><span class="err">%</span> <span class="na">else</span> <span class="err">%</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">link_to</span> <span class="err">"</span><span class="na">log</span> <span class="na">out</span><span class="err">",</span> <span class="na">destroy_user_session_path</span><span class="err">,</span> <span class="na">method:</span> <span class="na">:delete</span><span class="err">,</span> <span class="na">class:</span> <span class="err">"</span><span class="na">btn</span> <span class="na">btn-primary</span> <span class="na">btn-sm</span><span class="err">"%</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;</span>        
-    <span class="nt">&lt;/div&gt;</span>
-   <span class="nt">&lt;/nav&gt;</span>
-  
-   <span class="nt">&lt;</span><span class="err">%</span> <span class="na">flash.each</span> <span class="na">do</span> <span class="err">|</span><span class="na">key</span><span class="err">,</span> <span class="na">value</span><span class="err">|</span> <span class="err">%</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"&lt;%= flash_class(key) %&gt;"</span><span class="nt">&gt;</span>
-     <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">value</span> <span class="err">%</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-   <span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">yield</span> <span class="err">%</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;/body&gt;</span></code></pre></figure>
+<ol>
+  <li>
+    <p>Improved Performance: Nginx is optimized for serving static content and handling 
+multiple concurrent connections, helping to improve the performance of web applications.</p>
+  </li>
+  <li>
+    <p>Enhanced Security: Nginx can act as a reverse proxy to protect backend servers 
+from direct exposure to the internet, as well as provide additional security 
+features such as SSL termination, authentication, and access control.</p>
+  </li>
+  <li>
+    <p>Scalability: Nginx can be used as a load balancer to distribute incoming 
+traffic among multiple servers, helping to improve scalability and availability 
+of web applications.</p>
+  </li>
+  <li>
+    <p>Flexible Configuration: Nginx offers a flexible and powerful configuration 
+language that allows administrators to customize the behavior of the server to 
+meet their specific needs.</p>
+  </li>
+  <li>
+    <p>Open Source: Nginx is an open-source software, which means that it is freely 
+available for download and can be modified and distributed under the terms of the license.</p>
+  </li>
+</ol>
 
 <p><br /></p>
-<h3 id="part-c-setting-up-gmail-app-passwords">Part C: Setting Up Gmail App Passwords</h3>
+<h3 id="use-cases-for-nginx">Use Cases for Nginx</h3>
 
-<p><span class="badge">ActionMailer</span> will use your gmail account to send mail, but you can not use your normal gmail password with external applications. Gmail has a nifty feature called <a href="https://myaccount.google.com/apppasswords" target="_blank">App passwords</a> that lets you sign in to your Google Account from apps on devices that don’t support 2-Step Verification. Click <a href="https://myaccount.google.com/apppasswords" target="_blank">here</a> to set up App passwords. On the page, select ‘Mail’ under the ‘select app’ tab, then enter a custom name under the ‘select device’ tab.</p>
+<p>Nginx can be used in a wide range of applications and use cases, including but not limited to:</p>
 
-<p>Click on the ‘Generate’ button to generate the password. Just like your normal password, this app password grants complete access to your Google Account. Copy 16-character password shown, you will need it for the next step.</p>
-
-<p><br /></p>
-<h3 id="part-d-setting-up-environment-variables-for-the-email-credentials">Part D: Setting Up Environment Variables For the Email Credentials</h3>
-
-<p>1 . In your rails project, create a  ruby hidden file in /config directory that 
-will contain the ENV variables. Prepend a dot <span class="badge">.</span> in the file name to make it hidden.</p>
-
-<p>e.g <span class="badge">.my_secret.rb</span>, which will contain this:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># /config/.my_secret.rb</span>
-
-<span class="no">ENV</span><span class="p">[</span><span class="s1">'EMAIL_USER_ID'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'your_id@gmail.com'</span>
-<span class="no">ENV</span><span class="p">[</span><span class="s1">'EMAIL_PASSWORD'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'the_gmail_app_password'</span></code></pre></figure>
-
-<p><em>NB: press <span class="badge">Ctrl + H</span>to view hidden files on linux.</em></p>
-
-<p><br />
-2 . You want the rails app to load <span class="badge">.my_secret.rb</span> file as soon as the server fires up. To do that, you will use the File and load methods inside the /config/environment.rb file in the rails project. Make sure to place this code just above the line: <span class="badge">Rails.application.initialize!</span></p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># /config/environment.rb</span>
-
-<span class="c1"># load my_secret.rb</span>
-<span class="n">app_credentials</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">,</span> <span class="s1">'config'</span><span class="p">,</span> <span class="s1">'.my_secret.rb'</span><span class="p">)</span>
-<span class="nb">load</span><span class="p">(</span><span class="n">app_credentials</span><span class="p">)</span> <span class="k">if</span> <span class="no">File</span><span class="p">.</span><span class="nf">exist?</span><span class="p">(</span><span class="n">app_credentials</span><span class="p">)</span>
-
-<span class="c1"># Initialize the Rails application.</span>
-<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">initialize!</span></code></pre></figure>
-
-<p><br />
-3 . Ensure the <span class="badge">.my_secret.rb</span> file is not submitted to github whenever you commit your project to a github repository. To do that, open the .gitignore file and add the path to the file as shown below:</p>
-
-<figure class="highlight"><pre><code class="language-text" data-lang="text"># .gitignore
-
-/config/.my_secret.rb</code></pre></figure>
-
-<p><br />
-With the these steps you are done setting up the environment variables for your database. Now if you open the rails console and enter this <span class="badge">ENV[‘EMAIL_USER_ID’]</span>, it should output the content of that variable:</p>
-
-<figure class="highlight"><pre><code class="language-rails-console" data-lang="rails-console"> 
-
-$ ENV['EMAIL_USER_ID']
-
-$ your_id@gmail.com
-
-$ ENV['EMAIL_PASSWORD'] 
-
-$ the_gmail_app_password</code></pre></figure>
+<ol>
+  <li>
+    <p>Serving Static Content: Nginx can serve static content such as HTML, CSS, 
+JavaScript, and images, providing a high-performance and efficient way to deliver web content.</p>
+  </li>
+  <li>
+    <p>Load Balancing: Nginx can be used as a load balancer to distribute incoming 
+traffic among multiple servers, helping to improve the availability and scalability 
+of web applications.</p>
+  </li>
+  <li>
+    <p>Reverse Proxy: Nginx can act as a reverse proxy to protect backend servers 
+from direct exposure to the internet, as well as provide additional security 
+features such as SSL termination, authentication, and access control.</p>
+  </li>
+  <li>
+    <p>Caching: Nginx can serve as a cache for static content, helping to reduce the 
+load on backend servers and improve response times for clients. It can also cache 
+dynamic content with appropriate headers to improve application performance.</p>
+  </li>
+  <li>
+    <p>SSL/TLS Termination: Nginx can terminate SSL/TLS connections and pass unencrypted 
+traffic to the backend server, reducing the load on the server and allowing for 
+more efficient handling of SSL/TLS connections.</p>
+  </li>
+  <li>
+    <p>Content Filtering: Nginx can be used to filter and block specific types of 
+traffic based on content or other criteria, providing an additional layer of 
+security for web applications.</p>
+  </li>
+</ol>
 
 <p><br /></p>
-<h3 id="part-e-configure-devise-to-work-with-actionmailer">Part E: Configure Devise to work with <span class="badge">ActionMailer</span></h3>
+<h3 id="conclusion">Conclusion</h3>
 
-<p>1 . Add your email address in <span class="badge">config/initializers/devise.rb</span></p>
+<p>Nginx is a high-performance, flexible, and powerful web server and reverse proxy 
+software that has become increasingly popular in recent years. Its ability to 
+handle large amounts of traffic, serve static content efficiently, act as a load 
+balancer, and provide additional security features make it a popular choice for 
+web developers and administrators.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/initializers/devise.rb</span>
-<span class="c1"># ...</span>
-<span class="n">config</span><span class="p">.</span><span class="nf">mailer_sender</span> <span class="o">=</span> <span class="s1">'your_id@gmail.com'</span>
-
-<span class="n">config</span><span class="p">.</span><span class="nf">reconfirmable</span> <span class="o">=</span> <span class="kp">false</span></code></pre></figure>
-
-<p><br />
-2 . Configure <span class="badge">ActionMailer</span> for the development 
-environment in <span class="badge">config/environments/development.rb</span>.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/environments/development.rb</span>
-<span class="c1"># ...</span>
-  <span class="n">config</span><span class="p">.</span><span class="nf">action_mailer</span><span class="p">.</span><span class="nf">raise_delivery_errors</span> <span class="o">=</span> <span class="kp">true</span>
-
-  <span class="n">config</span><span class="p">.</span><span class="nf">action_mailer</span><span class="p">.</span><span class="nf">perform_caching</span> <span class="o">=</span> <span class="kp">false</span>
-  
-  <span class="n">config</span><span class="p">.</span><span class="nf">action_mailer</span><span class="p">.</span><span class="nf">default_url_options</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">host: </span><span class="s1">'localhost'</span><span class="p">,</span> <span class="ss">port: </span><span class="mi">3000</span> <span class="p">}</span>
-  <span class="n">config</span><span class="p">.</span><span class="nf">action_mailer</span><span class="p">.</span><span class="nf">delivery_method</span> <span class="o">=</span> <span class="ss">:smtp</span>
-  <span class="n">config</span><span class="p">.</span><span class="nf">action_mailer</span><span class="p">.</span><span class="nf">smtp_settings</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="ss">:address</span> <span class="o">=&gt;</span> <span class="s2">"smtp.gmail.com"</span><span class="p">,</span> 
-    <span class="ss">:port</span> <span class="o">=&gt;</span> <span class="mi">587</span><span class="p">,</span>   
-    <span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">"gmail.com"</span><span class="p">,</span>
-    <span class="ss">:tls</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>          
-    <span class="ss">:enable_starttls_auto</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span>
-    <span class="ss">:authentication</span> <span class="o">=&gt;</span> <span class="ss">:login</span><span class="p">,</span>
-    <span class="ss">:user_name</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'EMAIL_USER_ID'</span><span class="p">],</span>
-    <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'EMAIL_PASSWORD'</span><span class="p">]</span>
-  <span class="p">}</span></code></pre></figure>
-
-<p><br /></p>
-<h3 id="testing-the-app">Testing the app</h3>
-
-<p>To run the app, cd into the root of the project and issue this command:</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>bin/dev</code></pre></figure>
-
-<p>Now navigate to <span class="badge">localhost:3000</span>. Create an account by 
-clicking on the <span class="badge">sign up</span> link. This should send you an email containing the confirmation instructions.
-You will also get reset password emails whenever you reset your password by clicking on <span class="badge">forgot your password</span> link.</p>
-
-<p><br /></p>
-<h3 id="additional-information">Additional Information</h3>
-
-<h4 id="--redirecting-users">- Redirecting users</h4>
-
-<p>1 . Redirecting After The User Signs Up (Confirmation Pending)</p>
-
-<p>If you want to redirect the user to a specific url after signing up, override the 
-<span class="badge">after_inactive_sign_up_path_for</span> in the <span class="badge">registrations_controller</span>.</p>
-
-<p><br />
- i). Create a new <span class="badge">registrations_controller.rb</span> in <span class="badge">app/controllers</span> directory.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/registrations_controller.rb</span>
-
-<span class="k">class</span> <span class="nc">RegistrationsController</span> <span class="o">&lt;</span> <span class="o">::</span><span class="no">Devise</span><span class="o">::</span><span class="no">RegistrationsController</span>
-  <span class="n">layout</span> <span class="kp">false</span>
-  <span class="c1"># the rest is inherited, so it should work</span>
-  
-  <span class="kp">private</span>
-  <span class="k">def</span> <span class="nf">after_inactive_sign_up_path_for</span><span class="p">(</span><span class="n">resource_or_scope</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">resource_or_scope</span> <span class="o">==</span> <span class="ss">:user</span> <span class="o">||</span> <span class="n">resource_or_scope</span><span class="p">.</span><span class="nf">class</span> <span class="o">==</span> <span class="no">User</span> <span class="o">||</span> <span class="n">resource_or_scope</span> <span class="o">==</span> <span class="no">User</span>
-      <span class="n">your_pending_registrations_path</span>
-    <span class="c1">#elsif resource_or_scope == :admin || resource_or_scope.class == AdminUser  || resource_or_scope == AdminUser</span>
-    <span class="c1">#  admin_root_path</span>
-    <span class="k">else</span>
-      <span class="k">super</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-  
-<span class="k">end</span></code></pre></figure>
-
-<p><br />
- ii). Override Devise default behaviour in the routes in <span class="badge">config/routes.rb</span></p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
-<span class="c1"># config/routes.rb</span>
- <span class="n">devise_for</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">controllers: </span><span class="p">{</span> <span class="ss">registrations: </span><span class="s1">'registrations'</span> <span class="p">}</span>
- </code></pre></figure>
-
-<p><br />
-2 . Redirecting From The Confirmation Email</p>
-
-<p>You may want to redirect the user to a specific url after they clicked the link 
-in the confirmation email. To do that, just override the 
-<span class="badge">after_confirmation_path_for</span> in the <span class="badge">confirmations_controller</span>.</p>
-
-<p><br />
- i). Create a new <span class="badge">confirmations_controller.rb</span> in <span class="badge">app/controllers</span> directory.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/controllers/confirmations_controller.rb</span>
-
-<span class="k">class</span> <span class="nc">ConfirmationsController</span> <span class="o">&lt;</span> <span class="no">Devise</span><span class="o">::</span><span class="no">ConfirmationsController</span>
-  <span class="kp">private</span>
-  <span class="k">def</span> <span class="nf">after_confirmation_path_for</span><span class="p">(</span><span class="n">resource_name</span><span class="p">,</span> <span class="n">resource</span><span class="p">)</span>
-    <span class="n">sign_in</span><span class="p">(</span><span class="n">resource</span><span class="p">)</span> <span class="c1"># In case you want to sign in the user</span>
-    <span class="c1"># some_other_new_after_confirmation_path</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
-
-<p><br />
- ii). Override Devise default behaviour in the routes in <span class="badge">config/routes.rb</span></p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
-<span class="c1"># config/routes.rb</span>
- <span class="n">devise_for</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">controllers: </span><span class="p">{</span> <span class="ss">confirmations: </span><span class="s1">'confirmations'</span> <span class="p">}</span></code></pre></figure>
+<p>In this guide, we’ve explored the key features and benefits of Nginx, as well as 
+some common use cases for using Nginx in web applications. Whether you’re serving 
+static content, distributing traffic among multiple servers, or protecting backend 
+servers from direct exposure to the internet, Nginx is a versatile tool that can 
+help you improve the performance, scalability, and security of your web applications.</p>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>
