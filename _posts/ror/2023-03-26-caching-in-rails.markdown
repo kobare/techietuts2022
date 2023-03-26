@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Caching Rails"
+title:  "Caching in Rails"
 author: Denis Kobare
 date:   2023-03-26 11:40:00 +0300
 img: /assets/img/svg/ror.svg
