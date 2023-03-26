@@ -65,7 +65,7 @@ you can use fragment caching to cache the comments for each article separately.
 To use fragment caching, wrap the expensive code in a cache block like this:
 
 <br>
-{% highlight erb %}
+{% highlight html %}
 
 <% cache @article.comments do %>
   <%= render @article.comments %>
