@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Rails Mapping of Datatypes to Database Types - Techietuts</title>
+ <title>Nginx Commands Cheat Sheet - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Rails Mapping of Datatypes to Database Types" />
+<meta property="og:title" content="Nginx Commands Cheat Sheet" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types" />
+<meta name="description" content="Introduction The following are usefull commands for nginx on linux." />
+<meta property="og:description" content="Introduction The following are usefull commands for nginx on linux." />
+<link rel="canonical" href="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202301/nginx-commands-cheat-sheet" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202301/nginx-commands-cheat-sheet" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-11-28T15:00:00+03:00" />
+<meta property="article:published_time" content="2023-01-26T15:45:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Rails Mapping of Datatypes to Database Types" />
+<meta property="twitter:title" content="Nginx Commands Cheat Sheet" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Rails Mapping of Datatypes to Database Types","dateModified":"2022-11-28T15:00:00+03:00","datePublished":"2022-11-28T15:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202211/rails-mapping-of-datatypes-to-database-types","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction The following are usefull commands for nginx on linux.","headline":"Nginx Commands Cheat Sheet","dateModified":"2023-01-26T15:45:00+03:00","datePublished":"2023-01-26T15:45:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202301/nginx-commands-cheat-sheet"},"url":"http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202301/nginx-commands-cheat-sheet","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,254 +909,74 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Rails Mapping of Datatypes to Database Types</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Nginx Commands Cheat Sheet</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> November 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> January 2023</p>
     <div>
                 <!-- Page content object inserted below -->
-        <style>
+        <h3 id="introduction">Introduction</h3>
+<p>The following are usefull commands for nginx on linux.</p>
 
-@media(min-width: 81em) {
+<p><br /></p>
+<h3 id="part-a-commands">Part A: Commands</h3>
 
-  .mobile {
-    display: none !important;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    gap: 10px;
-    background-color: #fff;
-    padding: 10px;
-  }
+<p>1 . Check nginx version</p>
 
-  .grid-container > div {
-    background-color: #C5C6D0;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 18px;
-  }
-
-  li {
-    list-style: none;
-    text-align: left;
-    padding-right: 10px;
-  }
-
-}
-
-
-@media(max-width: 81em) {
-
-  .desktop {
-    display: none !important;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 10px;
-    background-color: #fff;
-    padding: 10px;
-  }
-
-  .grid-container > div {
-    background-color: #C5C6D0;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 18px;
-  }
-
-  li {
-    list-style: none;
-    text-align: left;
-    padding-right: 10px;
-  }
-
-}
-
-</style>
-
-<div class="grid-container desktop">
-  <div class="col-one">
-   <h4 class="text-center grey-h">&nbsp;</h4>
-     <ul>
-    <li>:binary</li>   
-    <li>:boolean</li>
-    <li>:date</li>
-    <li>:datetime</li>
-    <li>:decimal</li>
-    <li>:float</li>
-    <li>:integer</li>
-    <li>:string</li>
-    <li>:text</li>
-    <li>:time</li>
-    <li>:timestamp</li>    
-   </ul>  
-  </div>
-  
-  <div>
-   <h4 class="text-center grey-h">MySQL</h4>
-     <ul>
-    <li>blob</li>   
-    <li>tinyint(1)</li>
-    <li>date</li>
-    <li>datetime</li>
-    <li>decimal</li>
-    <li>float</li>
-    <li>int(11)</li>
-    <li>varchar(255)</li>
-    <li>text</li>
-    <li>time</li>
-    <li>datetime</li>    
-   </ul>  
-  </div>
-
-  <div>
-   <h4 class="text-center grey-h">Postgresql</h4>
-     <ul>
-    <li>bytea</li>   
-    <li>boolean</li>
-    <li>date</li>
-    <li>timestamp</li>
-    <li>decimal</li>
-    <li>float</li>
-    <li>integer</li>
-    <li>note 1</li>
-    <li>text</li>
-    <li>time</li>
-    <li>timestamp</li>    
-   </ul>  
-  </div>
-
-  <div>
-   <h4 class="text-center grey-h">SQLite</h4>
-     <ul>
-    <li>blob</li>   
-    <li>boolean</li>
-    <li>date</li>
-    <li>datetime</li>
-    <li>decimal</li>
-    <li>float</li>
-    <li>integer</li>
-    <li>varchar(255)</li>
-    <li>text</li>
-    <li>datetime</li>
-    <li>datetime</li>    
-   </ul>  
-  </div>
-
-  <div>
-   <h4 class="text-center grey-h">Oracle</h4>
-     <ul>
-    <li>blob</li>   
-    <li>number(1)</li>
-    <li>date</li>
-    <li>date</li>
-    <li>decimal</li>
-    <li>number</li>
-    <li>number(38)</li>
-    <li>varchar2(255)</li>
-    <li>clob</li>
-    <li>date</li>
-    <li>date</li>    
-   </ul>  
-  </div>
-
-</div>
-
-<!-- Mobile view -->
-
-<div class="grid-container mobile">
-  <div class="col-one">
-   <h4 class="text-center grey-h">&nbsp;</h4>
-     <ul>
-    <li>:binary</li>   
-    <li>:boolean</li>
-    <li>:date</li>
-    <li>:datetime</li>
-    <li>:decimal</li>
-    <li>:float</li>
-    <li>:integer</li>
-    <li>:string</li>
-    <li>:text</li>
-    <li>:time</li>
-    <li>:timestamp</li>    
-   </ul>  
-  </div>
-  
-  <div>
-   <h4 class="text-center grey-h">MySQL</h4>
-     <ul>
-    <li>blob</li>   
-    <li>tinyint(1)</li>
-    <li>date</li>
-    <li>datetime</li>
-    <li>decimal</li>
-    <li>float</li>
-    <li>int(11)</li>
-    <li>varchar(255)</li>
-    <li>text</li>
-    <li>time</li>
-    <li>datetime</li>    
-   </ul>  
-  </div>
-
-  <div>
-   <h4 class="text-center grey-h">Postgresql</h4>
-     <ul>
-    <li>bytea</li>   
-    <li>boolean</li>
-    <li>date</li>
-    <li>timestamp</li>
-    <li>decimal</li>
-    <li>float</li>
-    <li>integer</li>
-    <li>note 1</li>
-    <li>text</li>
-    <li>time</li>
-    <li>timestamp</li>    
-   </ul>  
-  </div>
-
-  <div>
-   <h4 class="text-center grey-h">SQLite</h4>
-     <ul>
-    <li>blob</li>   
-    <li>boolean</li>
-    <li>date</li>
-    <li>datetime</li>
-    <li>decimal</li>
-    <li>float</li>
-    <li>integer</li>
-    <li>varchar(255)</li>
-    <li>text</li>
-    <li>datetime</li>
-    <li>datetime</li>    
-   </ul>  
-  </div>
-
-  <div>
-   <h4 class="text-center grey-h">Oracle</h4>
-     <ul>
-    <li>blob</li>   
-    <li>number(1)</li>
-    <li>date</li>
-    <li>date</li>
-    <li>decimal</li>
-    <li>number</li>
-    <li>number(38)</li>
-    <li>varchar2(255)</li>
-    <li>clob</li>
-    <li>date</li>
-    <li>date</li>    
-   </ul>  
-  </div>
-
-</div>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>nginx <span class="nt">-v</span></code></pre></figure>
 
 <p><br />
-<em>Thanks for reading, see you in the next one!</em></p>
+2 . Start nginx server</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>service nginx start</code></pre></figure>
+
+<p><br />
+3 . Stop nginx server</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>service nginx stop</code></pre></figure>
+
+<p><br />
+4 . Restart nginx server</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>service nginx restart</code></pre></figure>
+
+<p><br />
+5 . Reload nginx server</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>service nginx reload</code></pre></figure>
+
+<p><br />
+6 . Check nginx status</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>service nginx status</code></pre></figure>
+
+<p><br />
+7 . Find syntax errors in the Nginx configuration file after making changes</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>nginx <span class="nt">-t</span>
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>or
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>nginx <span class="nt">-t</span> <span class="nt">-c</span> /path/to/the/file</code></pre></figure>
+
+<p><br /></p>
+<h3 id="part-b-file-locations">Part B: File locations</h3>
+
+<p>1 . Log Files</p>
+
+<p><span class="badge">/var/log/nginx/access.log</span> <br />
+<span class="badge">/var/log/nginx/error.log</span></p>
+
+<p><br />
+2 . Global config file</p>
+
+<p><span class="badge">/etc/nginx/conf.d/mod-http-passenger.conf</span></p>
+
+<p><br />
+3 . Default server file
+<span class="badge">/etc/nginx/sites-enabled/default</span></p>
+
+<p><br />
+<em>That’s it! Thanks for reading, see you in the next one!</em></p>
 
    </div>
 
