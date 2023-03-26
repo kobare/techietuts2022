@@ -1,4 +1,148 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-03-19T12:23:41+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Nginx: Features, Benefits, and Use Cases</title><link href="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases" rel="alternate" type="text/html" title="Nginx: Features, Benefits, and Use Cases" /><published>2023-03-19T12:00:00+03:00</published><updated>2023-03-19T12:00:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-03-26T12:47:59+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Caching Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails" rel="alternate" type="text/html" title="Caching Rails" /><published>2023-03-26T11:40:00+03:00</published><updated>2023-03-26T11:40:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Rails provides several types of caching to help improve the performance of your 
+application. The three most commonly used types of caching are fragment caching, 
+action caching, and HTTP caching. Let’s take a closer look at each type of caching 
+and when to use it.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;page-caching&quot;&gt;Page Caching&lt;/h3&gt;
+
+&lt;p&gt;Page caching is the simplest form of caching available in Rails 7. It involves 
+saving the entire HTML response of a page to a file and serving the same file for 
+subsequent requests. This type of caching is useful for pages that don’t have any 
+dynamic content, such as homepages, about us pages, or other static pages.&lt;/p&gt;
+
+&lt;p&gt;To enable page caching, you can use the caches_page method in your controller, like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HomeController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;caches_page&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:index&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# code to render the page&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+In this example, the &lt;span class=&quot;badge&quot;&gt;caches_page&lt;/span&gt; method caches the 
+HTML response for the &lt;span class=&quot;badge&quot;&gt;index&lt;/span&gt; action of the 
+&lt;span class=&quot;badge&quot;&gt;HomeController&lt;/span&gt; class. Whenever a user requests 
+the &lt;span class=&quot;badge&quot;&gt;index&lt;/span&gt; page, Rails will serve the cached HTML 
+response instead of rendering the page again.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;fragment-caching&quot;&gt;Fragment Caching:&lt;/h3&gt;
+
+&lt;p&gt;Fragment caching is used to cache parts of a view that are expensive to generate. 
+For example, if you have a page that includes a list of articles and each article 
+has many comments, rendering the page may take a long time if you have to load 
+all the comments for each article on every request. To speed up the rendering process, 
+you can use fragment caching to cache the comments for each article separately.&lt;/p&gt;
+
+&lt;p&gt;To use fragment caching, wrap the expensive code in a cache block like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-erb&quot; data-lang=&quot;erb&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cache&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;comments&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;cp&quot;&gt;&amp;lt;%=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;comments&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;%&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will cache the output of the expensive code and use it on subsequent requests, 
+avoiding the need to regenerate it each time. In this example, the comments for 
+each article are cached separately, so if a new comment is added to one of the articles, 
+only the cached fragment for that article will be invalidated.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;action-caching&quot;&gt;Action Caching:&lt;/h3&gt;
+
+&lt;p&gt;Action Caching works like Page Caching except the incoming web request hits the 
+Rails stack so that &lt;span class=&quot;badge&quot;&gt;before&lt;/span&gt; filters can be run on it 
+before the cache is served.&lt;/p&gt;
+
+&lt;p&gt;This ensures that any actions needing to take place before the cached copy is hit 
+can be performed. Therefore increasing performance while taking into account the 
+functionality required to access parts of your application.&lt;/p&gt;
+
+&lt;p&gt;Suppose you have a before filter that checks whether the user is authorized to 
+view the article. If the user is authorized, the cached copy of the article is 
+served, and if the user is not authorized, the before filter redirects the user 
+to the login page.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of how you can use Action Caching in your Rails 7 application:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArticlesController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:authenticate_user!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;except: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@article&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ... other code to render the article page ...&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;cache_action&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;admin?&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cache_action&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Cache-Control&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;public, max-age=300&apos;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;expires_in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;minutes&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+In this example, we have a &lt;span class=&quot;badge&quot;&gt;before_action :authenticate_user!&lt;/span&gt;, 
+which ensures that only authenticated users can view the article. In the show 
+action, we use cache_action to cache the output of the action for 5 minutes, 
+but only if the current user is not an admin. This ensures that non-admin users 
+get the cached copy of the article, and the before_filter 
+&lt;span class=&quot;badge&quot;&gt;:authenticate_user!&lt;/span&gt; is executed before serving the cached copy.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;http-caching&quot;&gt;HTTP Caching:&lt;/h3&gt;
+
+&lt;p&gt;HTTP caching is used to cache responses from the server and avoid unnecessary 
+network requests. For example, if you have a page that displays a list of products, 
+you can use HTTP caching to allow the client to cache the response and avoid 
+downloading unnecessary data.&lt;/p&gt;
+
+&lt;p&gt;To use HTTP caching, add the following code to your controller action:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@products&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;fresh_when&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;last_modified: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@products&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;maximum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:updated_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;public: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will set the &lt;span class=&quot;badge&quot;&gt;Last-Modified&lt;/span&gt; and 
+&lt;span class=&quot;badge&quot;&gt;ETag&lt;/span&gt; headers on the response, allowing the 
+client to make conditional requests and avoid downloading unnecessary data. 
+In this example, the response will be cached based on the 
+&lt;span class=&quot;badge&quot;&gt;last_modified&lt;/span&gt; timestamp of the products, so if a new 
+product is added or an existing product is updated, the cached response will be 
+invalidated and regenerated.&lt;/p&gt;
+
+&lt;p&gt;In addition to these types of caching, Rails also provides other caching mechanisms 
+like low-level caching and Russian doll caching. Low-level caching is used to cache 
+arbitrary objects, such as database queries or API responses. Russian doll caching 
+is used to cache nested fragments of a view, which can be useful when you have 
+complex views with many nested elements.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;When using caching in your Rails application, it’s important to consider the 
+trade-offs between performance and complexity. Caching can significantly improve 
+the performance of your application, but it can also introduce some complexity 
+and potential issues, such as cache invalidation and cache consistency. 
+Be sure to test your application thoroughly with caching enabled and monitor its 
+performance to ensure that it’s working as expected.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Nginx: Features, Benefits, and Use Cases</title><link href="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases" rel="alternate" type="text/html" title="Nginx: Features, Benefits, and Use Cases" /><published>2023-03-19T12:00:00+03:00</published><updated>2023-03-19T12:00:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202303/nginx-features-benefits-and-use-uases">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Nginx is a high-performance, open-source web server and reverse proxy software 
 that has gained widespread popularity in recent years. It is known for its speed, 
@@ -1127,99 +1271,4 @@ Next, run Capistrano to start the deployment:&lt;/p&gt;
 &lt;p&gt;You have now automated deployments using Capistrano!&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Installing Nginx and Passenger on Ubuntu</title><link href="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202301/installing-nginx-and-passenger-on-ubuntu" rel="alternate" type="text/html" title="Installing Nginx and Passenger on Ubuntu" /><published>2023-01-26T12:30:00+03:00</published><updated>2023-01-26T12:30:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202301/installing-nginx-and-passenger-on-ubuntu</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/operating-systems/ubuntu/202301/installing-nginx-and-passenger-on-ubuntu">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;This section describes the installation of Nginx and Passenger on Ubuntu.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1-install-nginx&quot;&gt;1. Install nginx&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;nginx&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2-install-passenger-packages&quot;&gt;2. Install Passenger packages&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Install our PGP key and add HTTPS support &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;APT
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; dirmngr gnupg apt-transport-https ca-certificates curl
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;curl https://oss-binaries.phusionpassenger.com/auto-software-signing-gpg-key.txt | gpg &lt;span class=&quot;nt&quot;&gt;--dearmor&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sudo tee&lt;/span&gt; /etc/apt/trusted.gpg.d/phusion.gpg &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;/dev/null
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Add our APT repository
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;sh &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;echo deb https://oss-binaries.phusionpassenger.com/apt/passenger jammy main &amp;gt; /etc/apt/sources.list.d/passenger.list&apos;&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Install Passenger + Nginx module
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt; libnginx-mod-http-passenger&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3--enable-the-passenger-nginx-module&quot;&gt;3 . Enable the Passenger Nginx module&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; /etc/nginx/modules-enabled/50-mod-http-passenger.conf &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo ln&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /usr/share/nginx/modules-available/mod-http-passenger.load /etc/nginx/modules-enabled/50-mod-http-passenger.conf &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo ls&lt;/span&gt; /etc/nginx/conf.d/mod-http-passenger.conf&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;4--point-passenger-to-the-correct-version-of-ruby&quot;&gt;4 . Point Passenger to the correct version of Ruby&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nano /etc/nginx/conf.d/mod-http-passenger.conf&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Change the &lt;span class=&quot;badge&quot;&gt;passenger_ruby&lt;/span&gt; directive to match the following:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;passenger_ruby /home/username/.rbenv/shims/ruby;
-
-# for example
-passenger_ruby /home/ubuntu/.rbenv/shims/ruby;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;5--start-nginx&quot;&gt;5 . Start nginx&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx start&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Confirm that NGINX is running by visiting your server’s public IP address in your browser. You should be greeted with the “Welcome to NGINX” message.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;6--add-an-nginx-server-for-your-application&quot;&gt;6 . Add an nginx server for your application&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Remove the default nginx server
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo rm&lt;/span&gt; /etc/nginx/sites-enabled/default
-&lt;span class=&quot;go&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;create a server &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;your application
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nano /etc/nginx/sites-enabled/myapp&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-The contents should resemble this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;server {
-listen 80;
-listen [::]:80;
-server_name _;
-root /home/username/projects/myapp/current/public;
-passenger_enabled on;
-passenger_app_env production;
-location /cable {
-passenger_app_group_name myapp_websocket;
-passenger_force_max_concurrent_requests_per_process 0;
-}
-# Allow uploads up to 100MB in size
-
-  location ~ ^/(assets|packs) {
-    expires max;
-    gzip_static on;
-  }
-}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Replace &lt;span class=&quot;badge&quot;&gt;username&lt;/span&gt; with the name of your user and 
-change &lt;span class=&quot;badge&quot;&gt;myapp&lt;/span&gt; to the name of your app. You will use 
-this same folder later on when you define your Capistrano &lt;span class=&quot;badge&quot;&gt;deploy_to&lt;/span&gt; folder.
-Save the file.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;7--reload-nginx-to-load-the-new-server-files&quot;&gt;7 . Reload NGINX to load the new server files.&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx reload&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;That’s it! Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction This section describes the installation of Nginx and Passenger on Ubuntu.</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry></feed>
