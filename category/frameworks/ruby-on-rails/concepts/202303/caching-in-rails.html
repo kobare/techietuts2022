@@ -961,9 +961,9 @@ you can use fragment caching to cache the comments for each article separately.<
 
 <p><br /></p>
 
-<figure class="highlight"><pre><code class="language-erb" data-lang="erb"><span class="cp">&lt;%</span> <span class="n">cache</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span> <span class="k">do</span> <span class="cp">%&gt;</span>
-  <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="vi">@article</span><span class="p">.</span><span class="nf">comments</span> <span class="cp">%&gt;</span>
-<span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;</span><span class="err">%</span> <span class="na">cache</span> <span class="err">@</span><span class="na">article.comments</span> <span class="na">do</span> <span class="err">%</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;</span><span class="err">%=</span> <span class="na">render</span> <span class="err">@</span><span class="na">article.comments</span> <span class="err">%</span><span class="nt">&gt;</span>
+<span class="nt">&lt;</span><span class="err">%</span> <span class="na">end</span> <span class="err">%</span><span class="nt">&gt;</span></code></pre></figure>
 
 <p><br />
 This will cache the output of the expensive code and use it on subsequent requests, 
