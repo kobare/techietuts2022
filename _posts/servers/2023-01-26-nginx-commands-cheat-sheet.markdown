@@ -3,12 +3,12 @@ layout: post
 title:  "Nginx Commands Cheat Sheet"
 author: Denis Kobare
 date:   2023-01-26 15:45:00 +0300
-img: /assets/img/svg/ubuntu.svg
+img: /assets/img/svg/nginx.svg
 categories: more-topics
 sub_category: operating-systems
 type: ubuntu
 technology: nginx, passenger
-permalink: "category/:categories/operating-systems/ubuntu/:year:month/:title"
+permalink: "category/:categories/cloud-services/servers/:year:month/:title"
 ---
 
 

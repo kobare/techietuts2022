@@ -7,7 +7,7 @@ img: /assets/img/svg/nginx.svg
 categories: more-topics
 sub_category: cloud-services
 type: servers
-technology: Ruby
+technology: nginx
 permalink: "category/:categories/cloud-services/servers/:year:month/:title"
 ---
 
