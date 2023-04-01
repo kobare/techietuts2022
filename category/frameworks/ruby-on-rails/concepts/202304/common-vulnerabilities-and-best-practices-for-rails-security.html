@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Polymorphic Associations in Rails - Techietuts</title>
+ <title>Common Vulnerabilities and Best Practices for Rails Security - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Polymorphic Associations in Rails" />
+<meta property="og:title" content="Common Vulnerabilities and Best Practices for Rails Security" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Definition" />
-<meta property="og:description" content="Definition" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/polymorphic-associations-in-rails" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/polymorphic-associations-in-rails" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-12-11T06:00:00+03:00" />
+<meta property="article:published_time" content="2023-04-01T18:30:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Polymorphic Associations in Rails" />
+<meta property="twitter:title" content="Common Vulnerabilities and Best Practices for Rails Security" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Definition","headline":"Polymorphic Associations in Rails","dateModified":"2022-12-11T06:00:00+03:00","datePublished":"2022-12-11T06:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/polymorphic-associations-in-rails"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202212/polymorphic-associations-in-rails","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction","headline":"Common Vulnerabilities and Best Practices for Rails Security","dateModified":"2023-04-01T18:30:00+03:00","datePublished":"2023-04-01T18:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,127 +909,93 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Polymorphic Associations in Rails</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Common Vulnerabilities and Best Practices for Rails Security</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> December 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> April 2023</p>
     <div>
                 <!-- Page content object inserted below -->
-        <h3 id="definition">Definition</h3>
+        <h3 id="introduction">Introduction</h3>
 
-<p>In Rails, a polymorphic association is an Active Record association that can 
-connect a model to multiple other models and therefore eliminating the need to add
-multiple index columns for the respective associations.</p>
-
-<p><br /></p>
-<h3 id="application-example">Application Example</h3>
-
-<p>There are three models: 
-<span class="badge">review.rb</span>,
-<span class="badge">movie.rb</span>,
-<span class="badge">actor.rb</span></p>
-
-<p>A review belongs to both a movie and an actor. There are two ways to create these associations:</p>
+<p>Ruby on Rails is a powerful and popular web development framework that has gained 
+a reputation for being secure. However, like any web application, a Rails app is 
+vulnerable to security attacks if it is not properly secured. Rails security is 
+a vast topic, but there are some common vulnerabilities and best practices that 
+you should be aware of to make your application secure.</p>
 
 <p><br /></p>
-<h4 id="1-by-adding-movie_id-and-actor_id-columns-in-reviews-table">1. By Adding movie_id and actor_id columns in reviews table</h4>
+<h3 id="common-rails-security-vulnerabilities">Common Rails Security Vulnerabilities</h3>
 
-<p>With this approach, you create the movie_id and actor_id columns in reviews 
-table and then edit the associations in the models like so:</p>
+<p>1 . Cross-Site Scripting (XSS) Attacks: It is a type of security vulnerability 
+that allows an attacker to inject malicious code into a web page viewed by other users. 
+Rails has built-in protections against XSS attacks, but it is essential to 
+sanitize user input properly to prevent these attacks.</p>
+
+<p>For example, consider a form where users can input their name. If the form does 
+not validate the input and sanitize it properly, an attacker can inject a malicious 
+script as their name, which can then execute on the user’s browser when the page loads. 
+Rails provides built-in sanitization methods like sanitize and strip_tags to prevent XSS attacks.</p>
+
+<p><br />
+2 . SQL Injection Attacks: This type of attack occurs when an attacker inserts 
+malicious SQL code into a query. Rails provides built-in protection against SQL 
+injection attacks through Active Record. Still, it’s necessary to ensure that 
+user input is properly validated and sanitized.</p>
+
+<p>For example, consider a form where users can search for products by entering keywords. 
+If the search form does not validate and sanitize the input properly, an attacker 
+can inject malicious SQL code into the query, which can then execute on the server 
+and potentially allow the attacker to access sensitive data. Rails provides 
+built-in protection against SQL injection attacks through parameterized queries.</p>
+
+<p><br />
+3 . Cross-Site Request Forgery (CSRF) Attacks: In this type of attack, the attacker 
+tricks the user into performing an action without their consent. Rails provides 
+built-in protection against CSRF attacks through CSRF tokens.</p>
+
+<p>For example, consider a form where users can update their account information. 
+If the form does not include a CSRF token, an attacker can trick the user into 
+submitting the form by luring them to a malicious website that sends the form 
+data to the server. Rails provides built-in protection against CSRF attacks by 
+generating a unique CSRF token for each form and requiring it to be included in the form data.</p>
 
 <p><br /></p>
+<h3 id="best-practices-for-rails-security">Best Practices for Rails Security:</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/review.rb</span>
-<span class="k">class</span> <span class="nc">Review</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">belongs_to</span> <span class="ss">:movie</span>
-  <span class="n">belongs_to</span> <span class="ss">:actor</span>
-<span class="k">end</span>
-
-
-<span class="c1"># app/models/movie.rb</span>
-<span class="k">class</span> <span class="nc">Movie</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">has_many</span> <span class="ss">:reviews</span>
-<span class="k">end</span>
-
-
-<span class="c1"># app/models/actor.rb</span>
-<span class="k">class</span> <span class="nc">Actor</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">has_many</span> <span class="ss">:reviews</span>
-<span class="k">end</span></code></pre></figure>
-
-<p>There’s no problem with this, it works just fine. But wait, what if you start having additional 
-other tables that have a similar association with reviews? That will quickly become 
-redundant and that’s where polymorphic associations come to our rescue.</p>
-
-<p><br /></p>
-<h4 id="2-using-a-polymorphic-association">2. Using a polymorphic association</h4>
-
-<p>The first approach works well but as we have seen, it can become unnecessarily messy. 
-A polymorphic association can help us avoid that. Essentially, since both the 
-movies and the actors table have a similar association with the reviews table,
-then we can definitely use shared generic columns to map these associations.</p>
-
-<p>When using the polymorphic approach, rails creates a virtual table to represent 
-the the table that has associations with multiple other tables. In this case, 
-the <span class="badge">reviews</span> table.</p>
-
-<p>i). Configure a virtual table for <span class="badge">reviews</span> and call it something like <span class="badge">reviewable</span>.</p>
+<ol>
+  <li>
+    <p>Input validation and sanitization: You should always validate and sanitize user 
+input to prevent security vulnerabilities like XSS and SQL injection attacks. 
+Rails provides built-in sanitization methods like sanitize and strip_tags to 
+prevent XSS attacks, and parameterized queries to prevent SQL injection attacks.</p>
+  </li>
+  <li>
+    <p>Use strong authentication and authorization: Implementing strong authentication 
+and authorization practices can help protect your Rails app against unauthorized access. 
+Use strong passwords and hash them properly to prevent password-related attacks. 
+You can use libraries like Devise or Authlogic to implement authentication and authorization in your Rails app.</p>
+  </li>
+  <li>
+    <p>Use HTTPS: Always use HTTPS to ensure that data transmitted between the server 
+and the client is encrypted. Use libraries like OpenSSL to configure HTTPS in your Rails app.</p>
+  </li>
+  <li>
+    <p>Keep your Rails app up-to-date: Regularly update your Rails app and its 
+dependencies to ensure that any security vulnerabilities are patched. You can use 
+libraries like Bundler and Dependabot to manage your app’s dependencies.</p>
+  </li>
+  <li>
+    <p>Use third-party libraries judiciously: Always check the reputation of third-party 
+libraries before using them in your Rails app. Use libraries that have a good 
+track record, are well-maintained, and have been reviewed by the community.</p>
+  </li>
+</ol>
 
 <p><br /></p>
+<h3 id="conclusion">Conclusion</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/review.rb</span>
-<span class="k">class</span> <span class="nc">Review</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">belongs_to</span> <span class="ss">:reviewable</span><span class="p">,</span> <span class="ss">polymorphic: </span><span class="kp">true</span>
-  
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">create_review</span><span class="p">(</span><span class="n">description</span><span class="p">,</span> <span class="n">reviewable</span><span class="p">)</span>
-    <span class="no">Review</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">description: </span><span class="n">description</span><span class="p">,</span> <span class="ss">reviewable_id: </span><span class="n">reviewable</span><span class="p">.</span><span class="nf">id</span><span class="p">,</span> <span class="ss">reviewable_type: </span><span class="n">reviewable</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">name</span><span class="p">)</span>
-  <span class="k">end</span>
-  
-<span class="k">end</span></code></pre></figure>
-
-<p><br />
-  ii). Map the virtual table to the other tables like so:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/models/movie.rb</span>
-<span class="k">class</span> <span class="nc">Movie</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">has_many</span> <span class="ss">:reviews</span><span class="p">,</span> <span class="ss">as: :reviewable</span>  
-<span class="k">end</span>
-
-
-<span class="c1"># app/models/actor.rb</span>
-<span class="k">class</span> <span class="nc">Actor</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
-  <span class="n">has_many</span> <span class="ss">:reviews</span><span class="p">,</span> <span class="ss">as: :reviewable</span>
-<span class="k">end</span></code></pre></figure>
-
-<p><br />
-  iii). Add the generic columns for the virtual table on the table in focus (reviews table)</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">#</span><span class="w"> </span>alter table table_name add column <span class="o">[</span>virtual_table_name]_id int<span class="o">(</span>11<span class="o">)</span><span class="p">;</span>
-<span class="gp">#</span><span class="w"> </span>alter table table_name add column <span class="o">[</span>virtual_table_name]_type varchar<span class="o">(</span>255<span class="o">)</span><span class="p">;</span>
-<span class="go">
-</span><span class="gp">$</span><span class="w"> </span>alter table reviews add column reviewable_id int<span class="o">(</span>11<span class="o">)</span><span class="p">;</span>
-<span class="go">
-</span><span class="gp">$</span><span class="w"> </span>alter table reviews add column reviewable_type varchar<span class="o">(</span>255<span class="o">)</span><span class="p">;</span></code></pre></figure>
-
-<p><br />
-The name of the class is stored in the <span class="badge">reviewable_type</span> column so that rails can 
-use that in combination with the <span class="badge">reviewable_id</span> to determine the records associated with them.</p>
-
-<p><br />
-  iv). Test it</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="go">movie = Movie.find(22)
-customer = Customer.find(155)
-description = "Awesome!"
-
-review.create_review(description, movie)
-review.create_review(description, customer)</span></code></pre></figure>
-
-<p><br />
-Rails can automatically query the database using the polymorphic association:</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="go">Movie.first.reviewable
-
-SELECT `reviews`.* FROM `reviews` WHERE `reviews`.`reviewable_id` = 1 AND `reviews`.`reviewable_type` = 'Movie'</span></code></pre></figure>
+<p>In conclusion, Rails security is a complex topic that requires constant vigilance. 
+By following best practices and regularly updating your app, you can make your 
+Rails application secure against common security vulnerabilities. Always validate</p>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>

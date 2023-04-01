@@ -1,4 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-03-26T13:08:55+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Caching in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails" rel="alternate" type="text/html" title="Caching in Rails" /><published>2023-03-26T11:40:00+03:00</published><updated>2023-03-26T11:40:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-01T19:03:38+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Common Vulnerabilities and Best Practices for Rails Security</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security" rel="alternate" type="text/html" title="Common Vulnerabilities and Best Practices for Rails Security" /><published>2023-04-01T18:30:00+03:00</published><updated>2023-04-01T18:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Ruby on Rails is a powerful and popular web development framework that has gained 
+a reputation for being secure. However, like any web application, a Rails app is 
+vulnerable to security attacks if it is not properly secured. Rails security is 
+a vast topic, but there are some common vulnerabilities and best practices that 
+you should be aware of to make your application secure.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;common-rails-security-vulnerabilities&quot;&gt;Common Rails Security Vulnerabilities&lt;/h3&gt;
+
+&lt;p&gt;1 . Cross-Site Scripting (XSS) Attacks: It is a type of security vulnerability 
+that allows an attacker to inject malicious code into a web page viewed by other users. 
+Rails has built-in protections against XSS attacks, but it is essential to 
+sanitize user input properly to prevent these attacks.&lt;/p&gt;
+
+&lt;p&gt;For example, consider a form where users can input their name. If the form does 
+not validate the input and sanitize it properly, an attacker can inject a malicious 
+script as their name, which can then execute on the user’s browser when the page loads. 
+Rails provides built-in sanitization methods like sanitize and strip_tags to prevent XSS attacks.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . SQL Injection Attacks: This type of attack occurs when an attacker inserts 
+malicious SQL code into a query. Rails provides built-in protection against SQL 
+injection attacks through Active Record. Still, it’s necessary to ensure that 
+user input is properly validated and sanitized.&lt;/p&gt;
+
+&lt;p&gt;For example, consider a form where users can search for products by entering keywords. 
+If the search form does not validate and sanitize the input properly, an attacker 
+can inject malicious SQL code into the query, which can then execute on the server 
+and potentially allow the attacker to access sensitive data. Rails provides 
+built-in protection against SQL injection attacks through parameterized queries.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Cross-Site Request Forgery (CSRF) Attacks: In this type of attack, the attacker 
+tricks the user into performing an action without their consent. Rails provides 
+built-in protection against CSRF attacks through CSRF tokens.&lt;/p&gt;
+
+&lt;p&gt;For example, consider a form where users can update their account information. 
+If the form does not include a CSRF token, an attacker can trick the user into 
+submitting the form by luring them to a malicious website that sends the form 
+data to the server. Rails provides built-in protection against CSRF attacks by 
+generating a unique CSRF token for each form and requiring it to be included in the form data.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;best-practices-for-rails-security&quot;&gt;Best Practices for Rails Security:&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Input validation and sanitization: You should always validate and sanitize user 
+input to prevent security vulnerabilities like XSS and SQL injection attacks. 
+Rails provides built-in sanitization methods like sanitize and strip_tags to 
+prevent XSS attacks, and parameterized queries to prevent SQL injection attacks.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use strong authentication and authorization: Implementing strong authentication 
+and authorization practices can help protect your Rails app against unauthorized access. 
+Use strong passwords and hash them properly to prevent password-related attacks. 
+You can use libraries like Devise or Authlogic to implement authentication and authorization in your Rails app.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use HTTPS: Always use HTTPS to ensure that data transmitted between the server 
+and the client is encrypted. Use libraries like OpenSSL to configure HTTPS in your Rails app.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Keep your Rails app up-to-date: Regularly update your Rails app and its 
+dependencies to ensure that any security vulnerabilities are patched. You can use 
+libraries like Bundler and Dependabot to manage your app’s dependencies.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use third-party libraries judiciously: Always check the reputation of third-party 
+libraries before using them in your Rails app. Use libraries that have a good 
+track record, are well-maintained, and have been reviewed by the community.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;In conclusion, Rails security is a complex topic that requires constant vigilance. 
+By following best practices and regularly updating your app, you can make your 
+Rails application secure against common security vulnerabilities. Always validate&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Caching in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails" rel="alternate" type="text/html" title="Caching in Rails" /><published>2023-03-26T11:40:00+03:00</published><updated>2023-03-26T11:40:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Rails provides several types of caching to help improve the performance of your 
 application. The three most commonly used types of caching are fragment caching, 
@@ -1034,241 +1118,4 @@ Action Cable, you can easily add real-time communication to your Ruby on Rails w
 &lt;span class=&quot;badge&quot;&gt;/etc/nginx/sites-enabled/default&lt;/span&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;That’s it! Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction The following are usefull commands for nginx on linux.</summary></entry><entry><title type="html">Deploying Rails App to AWS EC2 Ubuntu Server With Capistrano</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202301/deploying-rails-app-to-aws-with-capistrano" rel="alternate" type="text/html" title="Deploying Rails App to AWS EC2 Ubuntu Server With Capistrano" /><published>2023-01-26T13:25:00+03:00</published><updated>2023-01-26T13:25:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202301/deploying-rails-app-to-aws-with-capistrano</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202301/deploying-rails-app-to-aws-with-capistrano">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Deploying application updates takes multiple steps. Performing all these steps 
-every time you want to deploy application updates is time-consuming and error-prone.
-This section will guide you on how to automate the deployment of application updates 
-through Capistrano.&lt;/p&gt;
-
-&lt;p&gt;Capistrano is a popular task automation tool among Ruby developers. Once Capistrano is set up,
-deploying further application updates only takes a single command.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-a&quot;&gt;Part A&lt;/h3&gt;
-&lt;p&gt;ssh into your server and:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/category/programming/ruby/tutorials/202301/installing-ruby-on-ubuntu-using-rbenv&quot; target=&quot;_blank&quot;&gt;Install Ruby&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/category/databases/mysql/tutorials/202301/installing-mysql-on-ubuntu&quot; target=&quot;_blank&quot;&gt;Install MySQL&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/category/more-topics/operating-systems/ubuntu/202301/installing-nginx-and-passenger-on-ubuntu&quot; target=&quot;_blank&quot;&gt;Install nginx and passenger&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-b&quot;&gt;Part B&lt;/h3&gt;
-
-&lt;h3 id=&quot;1--initializing-capistrano&quot;&gt;1 . Initializing Capistrano&lt;/h3&gt;
-&lt;p&gt;The first thing you need to do is to install Capistrano into your rails project.&lt;/p&gt;
-
-&lt;p&gt;i). Open the Gemfile and add:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Gemfile&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:production&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;capistrano&apos;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;capistrano-bundler&apos;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;capistrano-passenger&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&amp;gt;= 0.1.1&apos;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;capistrano-rails&apos;&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# Because we’re using rbenv on our EC2 Server&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;capistrano-rbenv&apos;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-  ii) Install the gem bundle and initialize Capistrano:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;cap &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2--editing-capfile&quot;&gt;2 . Editing Capfile&lt;/h3&gt;
-
-&lt;p&gt;Capfile is the Capistrano entry point. It defines what recipes to load. You must edit it to load the
-recipes you need.&lt;/p&gt;
-
-&lt;p&gt;We will want Capistrano to automatically run bundle install, and we will want Capistrano to
-automatically tell Passenger to restart our app. These are taken care of by the capistrano-bundler and
-capistrano-passenger recipes. So make sure that the following lines are uncommented:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Capfile&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#Because the server uses rbenv&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;capistrano/rbenv&quot;&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;capistrano/bundler&quot;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# require &quot;capistrano/rails/assets&quot; # hashed out because of server&apos;s assets precompile issues&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;capistrano/rails/migrations&quot;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;capistrano/passenger&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3--editing-configdeployrb&quot;&gt;3 . Editing config/deploy.rb&lt;/h3&gt;
-
-&lt;p&gt;The next step is to edit config/deploy.rb. This file contains configuration values that control how the
-loaded recipes should do their jobs. It also defines additional commands to be executed on servers. You
-must edit it according to your situation.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/deploy.rb&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# config valid for current version and patch releases of Capistrano&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Remove the lock statement since already serves as a mechanism to lock down gem&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# lock &quot;~&amp;gt; 3.11.0&quot;&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# Set repo_url to your Git repository&apos;s URL&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;myapp&quot;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:repo_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;git@github.com:yourgitusername/myapp.git&quot;&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# Default deploy_to directory is /var/www/my_app_name&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:deploy_to&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/home/username/projects/myapp&quot;&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# set linked_files and linked_dirs&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:linked_files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:linked_files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;config/database.yml&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;config/secrets.yml&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;.env&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:linked_dirs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:linked_dirs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;log&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;tmp/pids&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;tmp/cache&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;tmp/sockets&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;vendor/bundle&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;public/system&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;public/uploads&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-
-
-&lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:deploy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;after&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:restart&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:clear_cache&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;on&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;roles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:web&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;in: :groups&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;limit: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;wait: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;# Here we can do anything such as:&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;# within release_path do&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;#   execute :rake, &apos;cache:clear&apos;&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;# end&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;4--editing-configdeployproductionrb&quot;&gt;4 . Editing config/deploy/production.rb&lt;/h3&gt;
-
-&lt;p&gt;The next step is to edit config/deploy/production.rb. This file defines the servers that Capistrano should
-deploy to, in the form of SSH login information.&lt;/p&gt;
-
-&lt;p&gt;Our server is on Amazon EC2, so be sure to uncomment the set &lt;span class=&quot;badge&quot;&gt;:ssh_options&lt;/span&gt; call and point the
-keys option to your Amazon EC2 key file. Also set the auth_methods option to %w(publickey
-password).&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/deploy/production.rb&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# role-based syntax&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# ==================&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Single server&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Replace with your server&apos;s IP and user&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;role&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%w{username@54.82.83.53}&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;role&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:web&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%w{username@54.82.83.53}&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;role&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:db&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;sx&quot;&gt;%w{username@54.82.83.53}&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# Custom SSH Options&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# ==================&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# --------------&lt;/span&gt;
- &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:ssh_options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;ss&quot;&gt;keys: &lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%w(/home/username/somepath/your_key_pair.pem)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;ss&quot;&gt;forward_agent: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;ss&quot;&gt;auth_methods: &lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%w(publickey password)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;5--setting-up-a-basic-directory-structure&quot;&gt;5 . Setting up a basic directory structure&lt;/h3&gt;
-&lt;p&gt;Run the following commands on the server to setup a basic directory structure that Capistrano can
-work with.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/use&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;projects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myapp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shared&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;myappuser: &lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/home/use&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;projects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myapp&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/use&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;projects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myapp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shared&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;6--create-initial-configuration-files&quot;&gt;6 . Create initial configuration files&lt;/h3&gt;
-
-&lt;p&gt;The app expects a &lt;span class=&quot;badge&quot;&gt;config/database.yml&lt;/span&gt; and a 
-&lt;span class=&quot;badge&quot;&gt;config/secrets.yml&lt;/span&gt; files. The contents of these 
-configuration files are only known to the server and persist across
-application releases. The shared directory is the perfect place to place them. 
-And as configured before in &lt;span class=&quot;badge&quot;&gt;config/deploy.rb&lt;/span&gt;, Capistrano will 
-automatically create symlinks within the release directory to those files.&lt;/p&gt;
-
-&lt;p&gt;i) On the server, create the &lt;span class=&quot;badge&quot;&gt;shared/config&lt;/span&gt; directory and add &lt;span class=&quot;badge&quot;&gt;database.yml&lt;/span&gt; and
-&lt;span class=&quot;badge&quot;&gt;secrets.yml&lt;/span&gt; files inside:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; /home/username/projects/myapp/shared/config
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo touch&lt;/span&gt; /home/username/projects/myapp/shared/config/database.yml &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo touch&lt;/span&gt; /home/username/projects/myapp/shared/config/secrets.yml&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-  ii). Then fix and tighten permissions:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo chown -R username: home/username/projects/myapp/shared/config
-chmod 600 home/username/projects/myapp/shared/config/database.yml
-chmod 600 home/username/projects/myapp/shared/config/secrets.yml&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-  iii). edit database.yml file&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt; 
-  
-&lt;span class=&quot;na&quot;&gt;production&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;adapter&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mysql2&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;utf8&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;reconnect&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;false&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;myapp_database&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;pool&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;db_username&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;db_password&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-  iv). On your development machine, generate the secret key and add it to 
-       &lt;span class=&quot;badge&quot;&gt;config/initializers/secret_token.rb&lt;/span&gt; file.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt; 
-  
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails secret&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
-&lt;span class=&quot;c1&quot;&gt;# config/initializers/secret_token.rb&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Be sure to restart your server when you modify this file.&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Your secret key is used for verifying the integrity of signed cookies.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# If you change this key, all old signed cookies will become invalid!&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Make sure the secret is at least 30 characters and all random,&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# no regular words or you&apos;ll be exposed to dictionary attacks.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# You can use `rake secret` to generate a secure secret key.&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Make sure your secret_key_base is kept private&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# if you&apos;re sharing your code publicly.&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;secret_key_base&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;90a82db7702c2d0af8a5ad715962116b8fffaf7bb833162a32ef71d345845e424de9e0ecda1dbd81191201ecbtfc09c7f6a747eb17d7cc111490914df62b2c09&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-  v). Add the secret key in the &lt;span class=&quot;badge&quot;&gt;secrets.yml&lt;/span&gt; file on the server&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yml&quot; data-lang=&quot;yml&quot;&gt;  
- 
-&lt;span class=&quot;s&quot;&gt;90a82db7702c2d0af8a5ad715962116b8fffaf7bb833162a32ef71d345845e424de9e0ecda1dbd81191201ecbtfc09c7f6a747eb17d7cc111490914df62b2c09&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;7--deploying-a-new-release&quot;&gt;7 . Deploying a new release&lt;/h3&gt;
-&lt;p&gt;You are now ready to deploy a new release using Capistrano!
-On your local computer, make a random change in your application, then commit and push your changes.
-Next, run Capistrano to start the deployment:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;cap production deploy&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;You have now automated deployments using Capistrano!&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry></feed>
+&lt;em&gt;That’s it! Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction The following are usefull commands for nginx on linux.</summary></entry></feed>
