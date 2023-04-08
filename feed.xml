@@ -1,4 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-01T19:03:38+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Common Vulnerabilities and Best Practices for Rails Security</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security" rel="alternate" type="text/html" title="Common Vulnerabilities and Best Practices for Rails Security" /><published>2023-04-01T18:30:00+03:00</published><updated>2023-04-01T18:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-08T11:32:29+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Optimizing Database Performance in Rails: Tips and Tricks</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails" rel="alternate" type="text/html" title="Optimizing Database Performance in Rails: Tips and Tricks" /><published>2023-04-08T10:00:00+03:00</published><updated>2023-04-08T10:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;As your Rails application grows, database performance can become a bottleneck. 
+Slow queries and inefficient database operations can negatively impact the user 
+experience and make your application feel sluggish. In this article, we will discuss 
+tips and tricks for optimizing database performance in Rails.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-use-indexes&quot;&gt;1. Use indexes&lt;/h3&gt;
+
+&lt;p&gt;Indexes can significantly improve query performance. Ensure that the columns 
+commonly used in WHERE clauses, JOINs, and ORDER BY clauses are indexed. 
+To create an index, you can use the Rails migration generator:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;add_index&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will create an index on the email column of the users table.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-avoid-n1-queries&quot;&gt;2. Avoid N+1 queries&lt;/h3&gt;
+
+&lt;p&gt;N+1 queries occur when a query is executed for each record in a collection. 
+This can lead to a large number of queries and significantly slow down your application. 
+Use eager loading to preload associated records and avoid this issue. 
+You can use the includes method to eager load associations:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will preload the posts association for all User records in a single query.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-use-caching&quot;&gt;3. Use caching&lt;/h3&gt;
+
+&lt;p&gt;Caching can improve performance by reducing the number of queries made to the database. 
+Consider using Rails caching mechanisms like fragment caching, low-level caching, 
+and page caching. You can use the cache method to cache fragments of views:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;cache&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- user profile content --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will cache the user profile content for the specified user.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;4-use-database-specific-features&quot;&gt;4. Use database-specific features&lt;/h3&gt;
+
+&lt;p&gt;Different databases have specific features that can be used to optimize performance. 
+For example, PostgreSQL has full-text search capabilities, while MySQL has spatial 
+data indexing. Use these features to your advantage when building your application.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;5-use-database-connection-pooling&quot;&gt;5. Use database connection pooling&lt;/h3&gt;
+
+&lt;p&gt;Connection pooling can improve database performance by reusing database connections 
+rather than creating new ones for each request. You can use the connection_pool 
+method to manage database connections:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connection_pool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;with_connection&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# database operation&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will ensure that the database connection is reused for subsequent database operations.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;6-optimize-queries&quot;&gt;6. Optimize queries&lt;/h3&gt;
+
+&lt;p&gt;Write efficient queries that use appropriate SELECT statements, WHERE clauses, and JOINs. 
+Avoid using complex ORMs for complex queries, as they can be slow and inefficient. 
+Consider writing custom SQL queries instead.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;7-use-pagination&quot;&gt;7. Use pagination&lt;/h3&gt;
+
+&lt;p&gt;Limit the number of records returned by a query by using pagination. 
+This can significantly improve performance for large datasets. You can use the 
+&lt;span class=&quot;badge&quot;&gt;will_paginate&lt;/span&gt; gem to implement pagination:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;paginate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;page: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;per_page: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will limit the number of User records returned to 10 per page.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;8-monitor-database-performance&quot;&gt;8. Monitor database performance&lt;/h3&gt;
+
+&lt;p&gt;Use tools like New Relic or Scout to monitor database performance and identify 
+slow queries or other performance bottlenecks. This will help you identify areas 
+of your application that need optimization.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;9-use-background-processing&quot;&gt;9. Use background processing&lt;/h3&gt;
+
+&lt;p&gt;Move expensive database operations, like sending emails or generating reports, 
+to background jobs using tools like Sidekiq or Resque. This will improve the overall 
+performance of your application by offloading CPU-intensive tasks to a separate process.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;In conclusion, optimizing database performance is an important aspect of building 
+a high-performance Rails application. By following these tips and tricks, you can 
+improve the performance of your application and provide a better user experience for your users.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Common Vulnerabilities and Best Practices for Rails Security</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security" rel="alternate" type="text/html" title="Common Vulnerabilities and Best Practices for Rails Security" /><published>2023-04-01T18:30:00+03:00</published><updated>2023-04-01T18:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Ruby on Rails is a powerful and popular web development framework that has gained 
 a reputation for being secure. However, like any web application, a Rails app is 
@@ -1056,66 +1164,4 @@ Action Cable, you can easily add real-time communication to your Ruby on Rails w
 &lt;p&gt;In today’s fast-paced software development world, message queues have become a critical component of many software systems. They provide a reliable and scalable way to exchange data between applications and services, allowing systems to operate independently, scale, and evolve as needed. With their flexible and extensible architecture, message queues provide a solid foundation for building and integrating modern software systems. Whether you are building a new software system or integrating existing systems, message queues are an essential tool for ensuring the success of your project.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Nginx Commands Cheat Sheet</title><link href="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202301/nginx-commands-cheat-sheet" rel="alternate" type="text/html" title="Nginx Commands Cheat Sheet" /><published>2023-01-26T15:45:00+03:00</published><updated>2023-01-26T15:45:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202301/nginx-commands-cheat-sheet</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/cloud-services/servers/202301/nginx-commands-cheat-sheet">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-&lt;p&gt;The following are usefull commands for nginx on linux.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-a-commands&quot;&gt;Part A: Commands&lt;/h3&gt;
-
-&lt;p&gt;1 . Check nginx version&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;nginx &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Start nginx server&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx start&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Stop nginx server&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx stop&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-4 . Restart nginx server&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx restart&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-5 . Reload nginx server&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx reload&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-6 . Check nginx status&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx status&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-7 . Find syntax errors in the Nginx configuration file after making changes&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nginx &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt;
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;or
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;nginx &lt;span class=&quot;nt&quot;&gt;-t&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; /path/to/the/file&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;part-b-file-locations&quot;&gt;Part B: File locations&lt;/h3&gt;
-
-&lt;p&gt;1 . Log Files&lt;/p&gt;
-
-&lt;p&gt;&lt;span class=&quot;badge&quot;&gt;/var/log/nginx/access.log&lt;/span&gt; &lt;br /&gt;
-&lt;span class=&quot;badge&quot;&gt;/var/log/nginx/error.log&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Global config file&lt;/p&gt;
-
-&lt;p&gt;&lt;span class=&quot;badge&quot;&gt;/etc/nginx/conf.d/mod-http-passenger.conf&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Default server file
-&lt;span class=&quot;badge&quot;&gt;/etc/nginx/sites-enabled/default&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;That’s it! Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction The following are usefull commands for nginx on linux.</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry></feed>
