@@ -21,9 +21,9 @@ Ruby on the same device and lets you easily switch between them.
 <br>
 ### 1 . Install dependencies for compiiling Ruby
 
-{% highlight ruby %}
+{% highlight terminal %}
 
-$ sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev dirmngr gnupg apt-transport-https ca-certificates
+$ sudo apt update && sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev dirmngr gnupg apt-transport-https ca-certificates
 
 {% endhighlight %}
 
@@ -31,7 +31,7 @@ $ sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libre
 <br>
 ### 2 . Install rbenv
 
-{% highlight ruby %}
+{% highlight terminal %}
 
 $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
@@ -54,7 +54,7 @@ $ exec $SHELL
 ### 3 . Install Ruby 
 Install a Ruby version of your choice. e.g 3.2.0
 
-{% highlight ruby %}
+{% highlight terminal %}
 
 $ rbenv install 3.2.0
 
@@ -73,7 +73,7 @@ $ ruby -v
 ### 4 . Install Bundler
 
 
-{% highlight ruby %}
+{% highlight terminal %}
 
 # install the latest version
 $ gem install bundler
@@ -88,7 +88,7 @@ $ rbenv rehash
 
 # See if it is installed
 
-$ bundle -v
+$ bundler -v
 
 # Bundler version 2.3.26
 

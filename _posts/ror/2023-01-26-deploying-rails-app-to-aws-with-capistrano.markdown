@@ -225,9 +225,9 @@ $ sudo touch /home/username/projects/myapp/shared/config/database.yml && sudo to
 
 {% highlight terminal %}
 
-sudo chown -R username: home/username/projects/myapp/shared/config
-chmod 600 home/username/projects/myapp/shared/config/database.yml
-chmod 600 home/username/projects/myapp/shared/config/secrets.yml
+sudo chown -R username: /home/username/projects/myapp/shared/config
+chmod 600 /home/username/projects/myapp/shared/config/database.yml
+chmod 600 /home/username/projects/myapp/shared/config/secrets.yml
 
 {% endhighlight  %}
 
