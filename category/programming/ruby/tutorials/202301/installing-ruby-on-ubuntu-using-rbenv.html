@@ -921,58 +921,58 @@ Ruby on the same device and lets you easily switch between them.</p>
 <p><br /></p>
 <h3 id="1--install-dependencies-for-compiiling-ruby">1 . Install dependencies for compiiling Ruby</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span><span class="o">-</span><span class="n">core</span> <span class="n">curl</span> <span class="n">zlib1g</span><span class="o">-</span><span class="n">dev</span> <span class="n">build</span><span class="o">-</span><span class="n">essential</span> <span class="n">libssl</span><span class="o">-</span><span class="n">dev</span> <span class="n">libreadline</span><span class="o">-</span><span class="n">dev</span> <span class="n">libyaml</span><span class="o">-</span><span class="n">dev</span> <span class="n">libsqlite3</span><span class="o">-</span><span class="n">dev</span> <span class="n">sqlite3</span> <span class="n">libxml2</span><span class="o">-</span><span class="n">dev</span> <span class="n">libxslt1</span><span class="o">-</span><span class="n">dev</span> <span class="n">libcurl4</span><span class="o">-</span><span class="n">openssl</span><span class="o">-</span><span class="n">dev</span> <span class="n">software</span><span class="o">-</span><span class="n">properties</span><span class="o">-</span><span class="n">common</span> <span class="n">libffi</span><span class="o">-</span><span class="n">dev</span> <span class="n">dirmngr</span> <span class="n">gnupg</span> <span class="n">apt</span><span class="o">-</span><span class="n">transport</span><span class="o">-</span><span class="n">https</span> <span class="n">ca</span><span class="o">-</span><span class="n">certificates</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt-get <span class="nb">install </span>git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev dirmngr gnupg apt-transport-https ca-certificates</code></pre></figure>
 
 <p><br /></p>
 <h3 id="2--install-rbenv">2 . Install rbenv</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">git</span> <span class="nb">clone</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">rbenv</span><span class="o">/</span><span class="n">rbenv</span><span class="p">.</span><span class="nf">git</span> <span class="o">~</span><span class="sr">/.rbenv
-
-$ echo 'export PATH="$HOME/</span><span class="p">.</span><span class="nf">rbenv</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="vg">$PATH</span><span class="s2">"' &gt;&gt; ~/.bashrc
-
-$ echo 'eval "</span><span class="err">$</span><span class="p">(</span><span class="n">rbenv</span> <span class="n">init</span> <span class="o">-</span><span class="p">)</span><span class="s2">"' &gt;&gt; ~/.bashrc
-
-$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-
-$ echo 'export PATH="</span><span class="vg">$HOME</span><span class="o">/</span><span class="p">.</span><span class="nf">rbenv</span><span class="o">/</span><span class="n">plugins</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="n">build</span><span class="o">/</span><span class="n">bin</span><span class="p">:</span><span class="vg">$PATH</span><span class="s2">"' &gt;&gt; ~/.bashrc
-
-$ git clone https://github.com/rbenv/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
-
-$ exec $SHELL</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'export PATH="$HOME/.rbenv/bin:$PATH"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'eval "$(rbenv init -)"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="s1">'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"'</span> <span class="o">&gt;&gt;</span> ~/.bashrc
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>git clone https://github.com/rbenv/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">exec</span> <span class="nv">$SHELL</span></code></pre></figure>
 
 <p><br /></p>
 <h3 id="3--install-ruby">3 . Install Ruby</h3>
 <p>Install a Ruby version of your choice. e.g 3.2.0</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">rbenv</span> <span class="n">install</span> <span class="mf">3.2</span><span class="o">.</span><span class="mi">0</span>
-
-<span class="c1"># Make it the default version</span>
-<span class="err">$</span> <span class="n">rbenv</span> <span class="n">global</span> <span class="mf">3.2</span><span class="o">.</span><span class="mi">0</span>
-
-<span class="c1"># Confirm instllation</span>
-<span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="n">v</span>
-
-<span class="c1"># ruby 3.2.0</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rbenv <span class="nb">install </span>3.2.0
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>Make it the default version
+<span class="gp">$</span><span class="w"> </span>rbenv global 3.2.0
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>Confirm instllation
+<span class="gp">$</span><span class="w"> </span>ruby <span class="nt">-v</span>
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>ruby 3.2.0</code></pre></figure>
 
 <p><br /></p>
 <h3 id="4--install-bundler">4 . Install Bundler</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># install the latest version</span>
-<span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">bundler</span>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">#</span><span class="w"> </span><span class="nb">install </span>the latest version
+<span class="gp">$</span><span class="w"> </span>gem <span class="nb">install </span>bundler
+<span class="go">
 
+</span><span class="gp">#</span><span class="w"> </span>or you can <span class="nb">install </span>a version of your choice
+<span class="gp">$</span><span class="w"> </span>gem <span class="nb">install </span>bundler <span class="nt">-v</span> 1.17.3
+<span class="go">
 
-<span class="c1"># or you can install a version of your choice</span>
-<span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">bundler</span> <span class="o">-</span><span class="n">v</span> <span class="mf">1.17</span><span class="o">.</span><span class="mi">3</span>
+</span><span class="gp">$</span><span class="w"> </span>rbenv rehash
+<span class="go">
 
-
-<span class="err">$</span> <span class="n">rbenv</span> <span class="n">rehash</span>
-
-
-<span class="c1"># See if it is installed</span>
-
-<span class="err">$</span> <span class="n">bundle</span> <span class="o">-</span><span class="n">v</span>
-
-<span class="c1"># Bundler version 2.3.26</span></code></pre></figure>
+</span><span class="gp">#</span><span class="w"> </span>See <span class="k">if </span>it is installed
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span>bundler <span class="nt">-v</span>
+<span class="go">
+</span><span class="gp">#</span><span class="w"> </span>Bundler version 2.3.26</code></pre></figure>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>
@@ -1139,23 +1139,23 @@ $ exec $SHELL</span></code></pre></figure>
    
     <div class="center-icon grid-image"><img src="/assets/img/svg/ror.svg"></div>
     <div class="white-text grid-title" style="text-align: left;">
-     <p class="footer-post-title"><a href="/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails">Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails</a></p>
-     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2023</p>
-    </div>          
-    
-     
-   
-    <div class="center-icon grid-image"><img src="/assets/img/svg/ai.svg"></div>
-    <div class="white-text grid-title" style="text-align: left;">
-     <p class="footer-post-title"><a href="/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers">How ChatGPT can Improve Productivity for Web Developers</a></p>
-     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2023</p>
+     <p class="footer-post-title"><a href="/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics">Rails Migrations Basics</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> March 2023</p>
     </div>          
     
      
    
     <div class="center-icon grid-image"><img src="/assets/img/svg/ror.svg"></div>
     <div class="white-text grid-title" style="text-align: left;">
-     <p class="footer-post-title"><a href="/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable">Ruby on Rails 7 Action Cable: A Complete Guide with a Practical Example</a></p>
+     <p class="footer-post-title"><a href="/category/frameworks/ruby-on-rails/tutorials/202303/debugging-rails-applications-with-pry-or-byebug">Debugging Rails applications with Pry or Byebug</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> March 2023</p>
+    </div>          
+    
+     
+   
+    <div class="center-icon grid-image"><img src="/assets/img/svg/ror.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails">Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails</a></p>
      <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2023</p>
     </div>          
     
