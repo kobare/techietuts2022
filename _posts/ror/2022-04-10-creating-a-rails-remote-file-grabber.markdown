@@ -2,7 +2,7 @@
 layout: post
 title:  "Creating A Rails 7 Remote File Grabber App"
 author: Denis Kobare
-date:   2023-04-10 18:30:00 +0300
+date:   2026-04-10 18:30:00 +0300
 img: /assets/img/svg/ror.svg
 categories: frameworks
 sub_category: ruby-on-rails
