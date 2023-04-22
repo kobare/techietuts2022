@@ -1,4 +1,175 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-16T14:41:56+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Building a Scalable and Fault-tolerant Rails Application Architecture</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails-(copy)" rel="alternate" type="text/html" title="Building a Scalable and Fault-tolerant Rails Application Architecture" /><published>2023-04-15T16:00:00+03:00</published><updated>2023-04-15T16:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails%20(copy)</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails-(copy)">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-22T14:21:20+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">How to use ActiveJob for background processing in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails" rel="alternate" type="text/html" title="How to use ActiveJob for background processing in Rails" /><published>2023-04-22T13:30:00+03:00</published><updated>2023-04-22T13:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Background processing is an essential component of modern web applications. 
+With the growing demand for high-performance applications, background processing 
+is becoming increasingly important to handle long-running or resource-intensive 
+tasks, such as sending emails, processing files, or generating reports. In the 
+Ruby on Rails framework, ActiveJob is a convenient and straightforward way to 
+perform background processing. ActiveJob provides a unified interface to work 
+with different queuing backends, such as Delayed Job, Resque, or Sidekiq.&lt;/p&gt;
+
+&lt;p&gt;In this blog, we will explore how to use ActiveJob for background processing in Rails.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;what-is-activejob&quot;&gt;What is ActiveJob?&lt;/h3&gt;
+
+&lt;p&gt;ActiveJob is a high-level interface for declaring, enqueuing, and executing 
+background jobs in Rails applications. It is part of the Rails framework and 
+abstracts away the differences between different queuing backends, allowing 
+developers to switch between them with minimal effort.&lt;/p&gt;
+
+&lt;p&gt;ActiveJob defines a simple API that developers can use to define jobs, specify 
+parameters, and enqueue them for execution. Once a job is enqueued, ActiveJob 
+takes care of dispatching it to the selected queuing backend, and then executing 
+it asynchronously. ActiveJob also provides mechanisms for handling retries, 
+failures, and monitoring the status of jobs.&lt;/p&gt;
+
+&lt;p&gt;ActiveJob supports a wide range of queuing backends, including in-process queuing, 
+database-backed queuing, and external queuing systems such as RabbitMQ, Amazon SQS, 
+or Google Cloud Pub/Sub. This flexibility makes ActiveJob an excellent choice for 
+any Rails application that needs to perform background processing.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;a-creating-an-activejob&quot;&gt;a). Creating an ActiveJob&lt;/h3&gt;
+
+&lt;p&gt;To create a new ActiveJob, we can use the &lt;span class=&quot;badge&quot;&gt;rails generate job
+&lt;/span&gt; command. This will 
+generate a new job file in the &lt;span class=&quot;badge&quot;&gt;app/jobs&lt;/span&gt; directory of 
+our Rails application. For example, to create a job called &lt;span class=&quot;badge&quot;&gt;
+NotificationJob&lt;/span&gt;, we can run:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate job Notification&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will create a file called &lt;span class=&quot;badge&quot;&gt;notification_job.rb&lt;/span&gt; in 
+the &lt;span class=&quot;badge&quot;&gt;app/jobs&lt;/span&gt; directory, with the following contents:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NotificationJob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationJob&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;queue_as&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:default&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Do something later&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This file defines a new job class called &lt;span class=&quot;badge&quot;&gt;NotificationJob&lt;/span&gt;, 
+which inherits from &lt;span class=&quot;badge&quot;&gt;ApplicationJob&lt;/span&gt;, the base class for 
+all ActiveJobs in the Rails application. The queue_as method specifies the queue 
+in which the job will be enqueued. In this case, we use the &lt;span class=&quot;badge&quot;&gt;
+:default queue&lt;/span&gt;, which is the default queue for the selected queuing backend.&lt;/p&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;perform&lt;/span&gt; method is the entry point for the job. 
+This method will be called asynchronously when the job is executed, and it can 
+receive any number of arguments. Inside this method, we can implement the logic 
+for the job, which can include database operations, HTTP requests, or any other 
+kind of processing.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;b-enqueuing-a-job&quot;&gt;b). Enqueuing a job&lt;/h3&gt;
+
+&lt;p&gt;To enqueue a job, we can create a new instance of the job class and call the 
+&lt;span class=&quot;badge&quot;&gt;perform_later&lt;/span&gt; method on it. For example, to enqueue a 
+&lt;span class=&quot;badge&quot;&gt;NotificationJob&lt;/span&gt; with the argument “Hello, world!”, we 
+can write:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;NotificationJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will add a new job to the queue, which will be executed asynchronously by 
+ActiveJob.&lt;/p&gt;
+
+&lt;p&gt;By default, ActiveJob uses the Async queuing backend, which performs background 
+processing in the same process as the Rails application. This can be useful for 
+development or testing, but it is not recommended for production environments, 
+where a separate queuing backend should be used.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;c-configuring-the-queuing-backend&quot;&gt;c). Configuring the queuing backend&lt;/h3&gt;
+
+&lt;p&gt;ActiveJob supports several queuing backends, each with its own advantages and 
+disadvantages. The most common queuing backends are Delayed Job, Resque, and 
+Sidekiq, which provide more robust and scalable background processing than the 
+default Async backend. In this section, we will explore how to configure 
+ActiveJob to use these queuing backends.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;i-delayed-job&quot;&gt;i). Delayed Job&lt;/h3&gt;
+
+&lt;p&gt;Delayed Job is a popular queuing backend for Rails applications. It provides a 
+simple way to perform background processing using a separate process or thread 
+pool. To use Delayed Job with ActiveJob, we need to add the &lt;span class=&quot;badge&quot;&gt;
+delayed_job&lt;/span&gt; gem to our Gemfile and run &lt;span class=&quot;badge&quot;&gt;bundle install
+&lt;/span&gt;. Then, we can configure ActiveJob to use the Delayed Job backend by 
+setting the &lt;span class=&quot;badge&quot;&gt;queue_adapter&lt;/span&gt; option in our application 
+configuration:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;queue_adapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:delayed_job&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;With this configuration, ActiveJob will use the Delayed Job backend to enqueue 
+and execute jobs.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;ii-resque&quot;&gt;ii). Resque&lt;/h3&gt;
+
+&lt;p&gt;Resque is another queuing backend for Rails applications, based on Redis. It 
+provides a scalable and fault-tolerant way to perform background processing, with 
+support for job priorities, job dependencies, and job retries. To use Resque with 
+ActiveJob, we need to add the &lt;span class=&quot;badge&quot;&gt;resque&lt;/span&gt; and 
+&lt;span class=&quot;badge&quot;&gt;resque-scheduler&lt;/span&gt; gems to our Gemfile and run 
+&lt;span class=&quot;badge&quot;&gt;bundle install&lt;/span&gt;. Then, we can configure ActiveJob to 
+use the Resque backend by setting the &lt;span class=&quot;badge&quot;&gt;queue_adapter&lt;/span&gt; 
+option in our application configuration:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;queue_adapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:resque&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;With this configuration, ActiveJob will use the Resque backend to enqueue and 
+execute jobs.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;iii-sidekiq&quot;&gt;iii). Sidekiq&lt;/h3&gt;
+
+&lt;p&gt;Sidekiq is a powerful and popular queuing backend for Rails applications, based 
+on Redis and multi-threading. It provides a fast and efficient way to perform 
+background processing, with support for job retries, job batching, and job 
+scheduling. To use Sidekiq with ActiveJob, we need to add the &lt;span class=&quot;badge&quot;&gt;
+sidekiq&lt;/span&gt; gem to our Gemfile and run &lt;span class=&quot;badge&quot;&gt;bundle install&lt;/span&gt;. 
+Then, we can configure ActiveJob to use the Sidekiq backend by setting the 
+&lt;span class=&quot;badge&quot;&gt;queue_adapter&lt;/span&gt; option in our application configuration:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;queue_adapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:sidekiq&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;With this configuration, ActiveJob will use the Sidekiq backend to enqueue and 
+execute jobs.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;ActiveJob is a powerful and flexible way to perform background processing in 
+Rails applications. It provides a unified interface for working with different 
+queuing backends, allowing developers to switch between them with minimal effort. 
+By using ActiveJob, we can offload long-running or resource-intensive tasks from 
+the main request-response cycle, improving the performance and scalability of our 
+applications. With the support for retries, failures, and monitoring, ActiveJob 
+makes it easy to build robust and fault-tolerant background processing workflows.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Building a Scalable and Fault-tolerant Rails Application Architecture</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/building-a-scalable-and-fault-tolerant-rails-application-architecture.markdown" rel="alternate" type="text/html" title="Building a Scalable and Fault-tolerant Rails Application Architecture" /><published>2023-04-15T16:00:00+03:00</published><updated>2023-04-15T16:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/building-a-scalable%20and-fault-tolerant-rails-application-architecture.markdown</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/building-a-scalable-and-fault-tolerant-rails-application-architecture.markdown">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Rails is a popular web application framework that has been widely adopted by 
 developers for building scalable and fault-tolerant web applications. Building a 
@@ -12,54 +183,102 @@ and fault-tolerant Rails application architecture.&lt;/p&gt;
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;1--use-a-load-balancer&quot;&gt;1 . Use a Load Balancer&lt;/h3&gt;
 
-&lt;p&gt;One of the first things you should consider when building a scalable and fault-tolerant Rails application architecture is the use of a load balancer. A load balancer helps distribute incoming traffic evenly across multiple servers, ensuring that no single server becomes overloaded.&lt;/p&gt;
+&lt;p&gt;One of the first things you should consider when building a scalable and fault-tolerant 
+Rails application architecture is the use of a load balancer. A load balancer 
+helps distribute incoming traffic evenly across multiple servers, ensuring that 
+no single server becomes overloaded.&lt;/p&gt;
 
-&lt;p&gt;There are several load balancers available for Rails applications, including software-based solutions like HAProxy and NGINX, and cloud-based solutions like AWS Elastic Load Balancer (ELB) and Google Cloud Load Balancing. Regardless of which load balancer you choose, it’s important to configure it correctly to ensure that it can handle increased traffic and failover to backup servers in the event of a failure.&lt;/p&gt;
+&lt;p&gt;There are several load balancers available for Rails applications, including 
+software-based solutions like HAProxy and NGINX, and cloud-based solutions like 
+AWS Elastic Load Balancer (ELB) and Google Cloud Load Balancing. Regardless of 
+which load balancer you choose, it’s important to configure it correctly to ensure 
+that it can handle increased traffic and failover to backup servers in the event 
+of a failure.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;2--use-multiple-web-servers&quot;&gt;2 . Use Multiple Web Servers&lt;/h3&gt;
 
-&lt;p&gt;Another key component of a scalable and fault-tolerant Rails application architecture is the use of multiple web servers. By deploying your Rails application across multiple servers, you can ensure that your application can handle increased traffic and maintain uptime even in the face of unexpected failures.&lt;/p&gt;
+&lt;p&gt;Another key component of a scalable and fault-tolerant Rails application architecture 
+is the use of multiple web servers. By deploying your Rails application across 
+multiple servers, you can ensure that your application can handle increased traffic 
+and maintain uptime even in the face of unexpected failures.&lt;/p&gt;
 
-&lt;p&gt;There are several ways to deploy a Rails application across multiple web servers, including using a cloud-based infrastructure like AWS or Google Cloud Platform, or using a container orchestration platform like Kubernetes or Docker Swarm.&lt;/p&gt;
+&lt;p&gt;There are several ways to deploy a Rails application across multiple web servers, 
+including using a cloud-based infrastructure like AWS or Google Cloud Platform, 
+or using a container orchestration platform like Kubernetes or Docker Swarm.&lt;/p&gt;
 
-&lt;p&gt;Regardless of which deployment strategy you choose, it’s important to configure your servers correctly to ensure that they can handle increased traffic and failover to backup servers in the event of a failure.&lt;/p&gt;
+&lt;p&gt;Regardless of which deployment strategy you choose, it’s important to configure 
+your servers correctly to ensure that they can handle increased traffic and 
+failover to backup servers in the event of a failure.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;3--use-a-database-replication-strategy&quot;&gt;3 . Use a Database Replication Strategy&lt;/h3&gt;
 
-&lt;p&gt;A database replication strategy is another key component of a scalable and fault-tolerant Rails application architecture. By replicating your database across multiple servers, you can ensure that your application can handle increased traffic and maintain uptime even in the face of unexpected failures.&lt;/p&gt;
+&lt;p&gt;A database replication strategy is another key component of a scalable and 
+fault-tolerant Rails application architecture. By replicating your database across 
+multiple servers, you can ensure that your application can handle increased traffic 
+and maintain uptime even in the face of unexpected failures.&lt;/p&gt;
 
-&lt;p&gt;There are several database replication strategies available for Rails applications, including master-slave replication and multi-master replication. Regardless of which replication strategy you choose, it’s important to configure your database servers correctly to ensure that they can handle increased traffic and failover to backup servers in the event of a failure.&lt;/p&gt;
+&lt;p&gt;There are several database replication strategies available for Rails applications, 
+including master-slave replication and multi-master replication. Regardless of 
+which replication strategy you choose, it’s important to configure your database 
+servers correctly to ensure that they can handle increased traffic and failover 
+to backup servers in the event of a failure.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;4--use-caching&quot;&gt;4 . Use Caching&lt;/h3&gt;
 
-&lt;p&gt;Caching is another important component of a scalable and fault-tolerant Rails application architecture. By caching frequently accessed data, you can reduce the load on your servers and improve application performance.&lt;/p&gt;
+&lt;p&gt;Caching is another important component of a scalable and fault-tolerant Rails 
+application architecture. By caching frequently accessed data, you can reduce the 
+load on your servers and improve application performance.&lt;/p&gt;
 
-&lt;p&gt;There are several caching strategies available for Rails applications, including in-memory caching, file-based caching, and distributed caching using tools like Redis or Memcached. Regardless of which caching strategy you choose, it’s important to configure your caching layer correctly to ensure that it can handle increased traffic and failover to backup servers in the event of a failure.&lt;/p&gt;
+&lt;p&gt;There are several caching strategies available for Rails applications, including 
+in-memory caching, file-based caching, and distributed caching using tools like 
+Redis or Memcached. Regardless of which caching strategy you choose, it’s important 
+to configure your caching layer correctly to ensure that it can handle increased 
+traffic and failover to backup servers in the event of a failure.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;5--choose-the-right-infrastructure-provider&quot;&gt;5 . Choose The Right Infrastructure Provider&lt;/h3&gt;
 
-&lt;p&gt;Cloud providers like AWS, Google Cloud Platform, and Microsoft Azure offer a wide range of tools and services that can help you build a highly available and scalable architecture. These cloud providers offer tools like load balancers, auto-scaling groups, and managed databases that can help you quickly and easily scale your application as needed.&lt;/p&gt;
+&lt;p&gt;Cloud providers like AWS, Google Cloud Platform, and Microsoft Azure offer a wide 
+range of tools and services that can help you build a highly available and scalable 
+architecture. These cloud providers offer tools like load balancers, auto-scaling 
+groups, and managed databases that can help you quickly and easily scale your 
+application as needed.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;6--use-a-microservices-architecture&quot;&gt;6 . Use a Microservices Architecture&lt;/h3&gt;
 
-&lt;p&gt;With a microservices architecture, your application is broken down into smaller, independent services, each with its own database and API. This allows you to scale individual services as needed, and also makes it easier to troubleshoot and debug issues when they arise.&lt;/p&gt;
+&lt;p&gt;With a microservices architecture, your application is broken down into smaller, 
+independent services, each with its own database and API. This allows you to scale 
+individual services as needed, and also makes it easier to troubleshoot and debug 
+issues when they arise.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;7--monitor-and-analyze-application-performance&quot;&gt;7 . Monitor and Analyze Application Performance&lt;/h3&gt;
 
-&lt;p&gt;Finally, it’s important to monitor and analyze the performance of your Rails application on an ongoing basis. By tracking key performance metrics like response time, throughput, and error rate, you can identify potential performance bottlenecks and take action to address them before they impact application availability.&lt;/p&gt;
+&lt;p&gt;Finally, it’s important to monitor and analyze the performance of your Rails 
+application on an ongoing basis. By tracking key performance metrics like response 
+time, throughput, and error rate, you can identify potential performance bottlenecks 
+and take action to address them before they impact application availability.&lt;/p&gt;
 
-&lt;p&gt;There are several monitoring and analysis tools available for Rails applications, including New Relic, AppSignal, and Scout. Regardless of which tool you choose, it’s important to configure it correctly and regularly review performance metrics to ensure that your application is running smoothly.&lt;/p&gt;
+&lt;p&gt;There are several monitoring and analysis tools available for Rails applications, 
+including New Relic, AppSignal, and Scout. Regardless of which tool you choose, 
+it’s important to configure it correctly and regularly review performance metrics 
+to ensure that your application is running smoothly.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
 
-&lt;p&gt;In conclusion, building a scalable and fault-tolerant Rails application architecture requires careful planning, implementation, and ongoing monitoring. By using a load balancer, deploying multiple web servers, implementing a database replication strategy, using caching, and monitoring application performance, you can ensure that your application can handle increased traffic and maintain uptime even in the face of unexpected failures. Additionally, choosing the right infrastructure provider and using a microservices architecture can help you quickly and easily scale your application as needed.&lt;/p&gt;
+&lt;p&gt;In conclusion, building a scalable and fault-tolerant Rails application architecture 
+requires careful planning, implementation, and ongoing monitoring. By using a load 
+balancer, deploying multiple web servers, implementing a database replication 
+strategy, using caching, and monitoring application performance, you can ensure 
+that your application can handle increased traffic and maintain uptime even in 
+the face of unexpected failures. Additionally, choosing the right infrastructure 
+provider and using a microservices architecture can help you quickly and easily 
+scale your application as needed.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Optimizing Database Performance in Rails: Tips and Tricks</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails" rel="alternate" type="text/html" title="Optimizing Database Performance in Rails: Tips and Tricks" /><published>2023-04-08T10:00:00+03:00</published><updated>2023-04-08T10:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
@@ -1015,177 +1234,6 @@ the appropriate view and returns the response to the user.&lt;/p&gt;
 &lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
 
 &lt;p&gt;In conclusion, the MVC pattern is a powerful way to organize a Rails application and make it easier to understand and maintain. By separating the application into distinct components, you can write clean and maintainable code that is easier to test and modify.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Ruby on Rails 7 Action Cable: A Complete Guide with a Practical Example</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable" rel="alternate" type="text/html" title="Ruby on Rails 7 Action Cable: A Complete Guide with a Practical Example" /><published>2023-02-11T17:30:00+03:00</published><updated>2023-02-11T17:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202302/rails-7-action-cable">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Ruby on Rails Action Cable is a feature of the Ruby on Rails web framework that 
-allows you to add real-time communication to your web applications. With Action 
-Cable, you can create real-time connections between your application’s client-side 
-and server-side, allowing for real-time updates and notifications.&lt;/p&gt;
-
-&lt;p&gt;In this section, we’ll walk through the process of building a complete real-time 
-chat application using Ruby on Rails Action Cable. By the end of this section, 
-you’ll have a working chat application that allows users to send and receive 
-messages in real-time.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-1-create-a-new-ruby-on-rails-application&quot;&gt;Step 1: Create a new Ruby on Rails application&lt;/h3&gt;
-
-&lt;p&gt;The first step is to create a new Ruby on Rails application. To do this, open a 
-terminal and run the following command:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails new realtime-chat&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;This will create a new Ruby on Rails application in a directory named realtime-chat.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-2-generate-a-chat-room-model-and-controller&quot;&gt;Step 2: Generate a Chat Room model and controller&lt;/h3&gt;
-
-&lt;p&gt;Next, we’ll generate a Chat Room model and controller. A Chat Room is where users 
-can send and receive messages. To generate the Chat Room model and controller, 
-run the following commands:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate model ChatRoom name:string
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate controller ChatRooms&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-3-add-routes-for-the-chat-rooms&quot;&gt;Step 3: Add routes for the Chat Rooms&lt;/h3&gt;
-
-&lt;p&gt;Now, we’ll add routes for the Chat Rooms. Open the config/routes.rb file and add 
-the following line:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/routes.rb&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;draw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:chat_rooms&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;to: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;chat_rooms#index&apos;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;This will create RESTful routes for the Chat Rooms and set the root path of the 
-application to the index action of the Chat Rooms controller.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-4-create-the-chat-room-view&quot;&gt;Step 4: Create the Chat Room view&lt;/h3&gt;
-
-&lt;p&gt;Next, we’ll create the view for the Chat Room. To do this, create a file in 
-&lt;span class=&quot;badge&quot;&gt;app/views/chat_rooms&lt;/span&gt; named 
-&lt;span class=&quot;badge&quot;&gt;show.html.erb&lt;/span&gt; with the following content:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt; &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- app/views/chat_rooms/show.html.erb --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;chat_room.name&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;messages&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;message-input&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Send&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-5-generate-a-channel-for-the-chat-room&quot;&gt;Step 5: Generate a channel for the Chat Room&lt;/h3&gt;
-
-&lt;p&gt;Now, we’ll generate a channel for the Chat Room. To do this, run the following command:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate channel ChatRoom&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;This will generate a channel class in the file &lt;span class=&quot;badge&quot;&gt;app/channels/chat_room_channel.rb&lt;/span&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-6-add-broadcast-method-to-the-channel&quot;&gt;Step 6: Add broadcast method to the channel&lt;/h3&gt;
-
-&lt;p&gt;Next, we’ll add a broadcast method to the channel. This method will broadcast 
-messages to the Chat Room channel. Open the &lt;span class=&quot;badge&quot;&gt;app/channels/chat_room_channel.rb&lt;/span&gt; 
-file and add the following code:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/channels/chat_room_channel.rb&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ChatRoomChannel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationCable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Channel&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;subscribed&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;stream_from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;chat_room_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;unsubscribed&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# Any cleanup needed when channel is unsubscribed&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;ActionCable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;server&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;broadcast&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;chat_room_&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;message: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;message&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-7-create-a-javascript-file-for-the-chat-room&quot;&gt;Step 7: Create a JavaScript file for the Chat Room&lt;/h3&gt;
-
-&lt;p&gt;Next, we’ll create a JavaScript file for the Chat Room that will handle sending 
-and receiving messages using Action Cable. Create a file named 
-&lt;span class=&quot;badge&quot;&gt;chat_rooms.js&lt;/span&gt; in &lt;span class=&quot;badge&quot;&gt;app/assets/javascripts&lt;/span&gt; with the following content:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;err&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;assets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;javascripts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chat_rooms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;js&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;turbolinks:load&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chat_room&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscriptions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ChatRoomChannel&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[data-chat-room-id]&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;chat-room-id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;connected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;disconnected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;received&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#messages&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;send_message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chat_room_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;receive&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;chat_room_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;chat_room_id&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#new_message&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#message-input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chat_room&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send_message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[data-chat-room-id]&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;chat-room-id&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#message-input&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-8-add-a-form-to-the-chat-room-view&quot;&gt;Step 8: Add a form to the Chat Room view&lt;/h3&gt;
-
-&lt;p&gt;Next, we’ll add a form to the Chat Room view that will allow users to send messages. 
-Open the &lt;span class=&quot;badge&quot;&gt;app/views/chat_rooms/show.html.erb&lt;/span&gt; file and 
-modify the form as follows:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- app/views/chat_rooms/show.html.erb --&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;chat_room.name&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;messages&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;new_message&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;message-input&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submit&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Send&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-9-add-the-chat_room_id-to-the-chat-room-view&quot;&gt;Step 9: Add the chat_room_id to the Chat Room view&lt;/h3&gt;
-
-&lt;p&gt;Finally, we’ll add the chat_room_id to the Chat Room view so that it can be used 
-in the JavaScript file. Open the &lt;span class=&quot;badge&quot;&gt;app/views/chat_rooms/show.html.erb&lt;/span&gt; 
-file and add the following line:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;!--&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chat_rooms&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;erb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%= content_tag :div, nil, data: { chat_room_id: @chat_room.id } %&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;step-10-start-the-ruby-on-rails-server&quot;&gt;Step 10: Start the Ruby on Rails server&lt;/h3&gt;
-
-&lt;p&gt;Now, we’re ready to start the Ruby on Rails server and see our real-time chat 
-application in action. To start the server, run the following command:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails server&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Open a web browser and navigate to http://localhost:3000 to see the chat application. 
-You can open multiple browser tabs and send messages between them to see the real-time updates in action.&lt;/p&gt;
-
-&lt;p&gt;In this guide, we’ve walked through the process of building a complete real-time 
-chat application using Ruby on Rails Action Cable. By leveraging the power of 
-Action Cable, you can easily add real-time communication to your Ruby on Rails web applications.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry></feed>
