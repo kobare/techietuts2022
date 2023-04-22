@@ -22,7 +22,7 @@ Ruby on Rails framework, ActiveJob is a convenient and straightforward way to
 perform background processing. ActiveJob provides a unified interface to work 
 with different queuing backends, such as Delayed Job, Resque, or Sidekiq. 
 
-In this blog, we will explore how to use ActiveJob for background processing in Rails.
+In this section, we will explore how to use ActiveJob for background processing in Rails.
 
 
 <br>
@@ -157,6 +157,7 @@ config.active_job.queue_adapter = :delayed_job
 {% endhighlight %}
 
 
+<br>
 With this configuration, ActiveJob will use the Delayed Job backend to enqueue 
 and execute jobs.
 
@@ -183,6 +184,7 @@ config.active_job.queue_adapter = :resque
 {% endhighlight %}
 
 
+<br>
 With this configuration, ActiveJob will use the Resque backend to enqueue and 
 execute jobs.
 
@@ -209,6 +211,7 @@ config.active_job.queue_adapter = :sidekiq
 {% endhighlight %}
 
 
+<br>
 With this configuration, ActiveJob will use the Sidekiq backend to enqueue and 
 execute jobs.
 
