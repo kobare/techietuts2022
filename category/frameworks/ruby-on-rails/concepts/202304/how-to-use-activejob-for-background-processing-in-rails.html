@@ -924,7 +924,7 @@ Ruby on Rails framework, ActiveJob is a convenient and straightforward way to
 perform background processing. ActiveJob provides a unified interface to work 
 with different queuing backends, such as Delayed Job, Resque, or Sidekiq.</p>
 
-<p>In this blog, we will explore how to use ActiveJob for background processing in Rails.</p>
+<p>In this section, we will explore how to use ActiveJob for background processing in Rails.</p>
 
 <p><br /></p>
 <h3 id="what-is-activejob">What is ActiveJob?</h3>
@@ -1031,7 +1031,8 @@ configuration:</p>
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/application.rb</span>
 <span class="n">config</span><span class="p">.</span><span class="nf">active_job</span><span class="p">.</span><span class="nf">queue_adapter</span> <span class="o">=</span> <span class="ss">:delayed_job</span></code></pre></figure>
 
-<p>With this configuration, ActiveJob will use the Delayed Job backend to enqueue 
+<p><br />
+With this configuration, ActiveJob will use the Delayed Job backend to enqueue 
 and execute jobs.</p>
 
 <p><br /></p>
@@ -1051,7 +1052,8 @@ option in our application configuration:</p>
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/application.rb</span>
 <span class="n">config</span><span class="p">.</span><span class="nf">active_job</span><span class="p">.</span><span class="nf">queue_adapter</span> <span class="o">=</span> <span class="ss">:resque</span></code></pre></figure>
 
-<p>With this configuration, ActiveJob will use the Resque backend to enqueue and 
+<p><br />
+With this configuration, ActiveJob will use the Resque backend to enqueue and 
 execute jobs.</p>
 
 <p><br /></p>
@@ -1070,7 +1072,8 @@ Then, we can configure ActiveJob to use the Sidekiq backend by setting the
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/application.rb</span>
 <span class="n">config</span><span class="p">.</span><span class="nf">active_job</span><span class="p">.</span><span class="nf">queue_adapter</span> <span class="o">=</span> <span class="ss">:sidekiq</span></code></pre></figure>
 
-<p>With this configuration, ActiveJob will use the Sidekiq backend to enqueue and 
+<p><br />
+With this configuration, ActiveJob will use the Sidekiq backend to enqueue and 
 execute jobs.</p>
 
 <p><br /></p>

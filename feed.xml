@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-22T14:21:20+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">How to use ActiveJob for background processing in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails" rel="alternate" type="text/html" title="How to use ActiveJob for background processing in Rails" /><published>2023-04-22T13:30:00+03:00</published><updated>2023-04-22T13:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-22T14:26:28+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">How to use ActiveJob for background processing in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails" rel="alternate" type="text/html" title="How to use ActiveJob for background processing in Rails" /><published>2023-04-22T13:30:00+03:00</published><updated>2023-04-22T13:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Background processing is an essential component of modern web applications. 
 With the growing demand for high-performance applications, background processing 
@@ -8,7 +8,7 @@ Ruby on Rails framework, ActiveJob is a convenient and straightforward way to
 perform background processing. ActiveJob provides a unified interface to work 
 with different queuing backends, such as Delayed Job, Resque, or Sidekiq.&lt;/p&gt;
 
-&lt;p&gt;In this blog, we will explore how to use ActiveJob for background processing in Rails.&lt;/p&gt;
+&lt;p&gt;In this section, we will explore how to use ActiveJob for background processing in Rails.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h3 id=&quot;what-is-activejob&quot;&gt;What is ActiveJob?&lt;/h3&gt;
@@ -115,7 +115,8 @@ configuration:&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;queue_adapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:delayed_job&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;With this configuration, ActiveJob will use the Delayed Job backend to enqueue 
+&lt;p&gt;&lt;br /&gt;
+With this configuration, ActiveJob will use the Delayed Job backend to enqueue 
 and execute jobs.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -135,7 +136,8 @@ option in our application configuration:&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;queue_adapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:resque&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;With this configuration, ActiveJob will use the Resque backend to enqueue and 
+&lt;p&gt;&lt;br /&gt;
+With this configuration, ActiveJob will use the Resque backend to enqueue and 
 execute jobs.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -154,7 +156,8 @@ Then, we can configure ActiveJob to use the Sidekiq backend by setting the
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;queue_adapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:sidekiq&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;With this configuration, ActiveJob will use the Sidekiq backend to enqueue and 
+&lt;p&gt;&lt;br /&gt;
+With this configuration, ActiveJob will use the Sidekiq backend to enqueue and 
 execute jobs.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
