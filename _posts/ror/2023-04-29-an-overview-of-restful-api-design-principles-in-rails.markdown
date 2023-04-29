@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "An overview of RESTful API design principles in Rails"
+title:  "An Overview of RESTful API Design Principles in Rails"
 author: Denis Kobare
 date:   2023-04-29 13:00:00 +0300
 img: /assets/img/svg/ror.svg
