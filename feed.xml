@@ -1,4 +1,283 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-22T14:26:28+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">How to use ActiveJob for background processing in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails" rel="alternate" type="text/html" title="How to use ActiveJob for background processing in Rails" /><published>2023-04-22T13:30:00+03:00</published><updated>2023-04-22T13:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-29T13:48:00+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">An overview of RESTful API design principles in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails" rel="alternate" type="text/html" title="An overview of RESTful API design principles in Rails" /><published>2023-04-29T13:00:00+03:00</published><updated>2023-04-29T13:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;With the rise of web applications, the need for APIs has increased in the software 
+development industry. RESTful APIs are widely used because of their simplicity, 
+scalability, and compatibility with HTTP. RESTful APIs can be implemented in any 
+programming language or framework, including Ruby on Rails.&lt;/p&gt;
+
+&lt;p&gt;Rails is a popular web application framework that provides out-of-the-box support 
+for RESTful APIs. In this article, we will discuss the principles of RESTful API 
+design in Rails and provide an overview of the tools and techniques used in their 
+implementation.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;restful-api-principles&quot;&gt;RESTful API Principles&lt;/h3&gt;
+
+&lt;p&gt;REST stands for Representational State Transfer, which is a set of principles used 
+to design web services. RESTful APIs follow the following principles:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1--resource-oriented-architecture&quot;&gt;1 . Resource-Oriented Architecture&lt;/h4&gt;
+
+&lt;p&gt;RESTful APIs are based on resources that represent a collection of related objects. 
+Each resource is identified by a unique URI, and the interactions with the resource 
+are defined by HTTP methods like GET, POST, PUT, and DELETE.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2--client-server-model&quot;&gt;2 . Client-Server Model&lt;/h4&gt;
+
+&lt;p&gt;RESTful APIs follow the client-server model, where the client initiates the request, 
+and the server responds with the data. The server-side application exposes a set 
+of endpoints that can be accessed by the client.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3--stateless&quot;&gt;3 . Stateless&lt;/h4&gt;
+&lt;p&gt;RESTful APIs are stateless, meaning that each request is treated independently of 
+the previous request. The server does not store any client-specific data between 
+requests, and each request must contain all the necessary information to fulfill 
+the request.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;4--cacheable&quot;&gt;4 . Cacheable&lt;/h4&gt;
+
+&lt;p&gt;RESTful APIs are designed to be cacheable, meaning that the response to a request 
+can be cached by the client or a proxy server. This reduces the number of requests 
+sent to the server and improves the performance of the application.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;5--uniform-interface&quot;&gt;5 . Uniform Interface&lt;/h4&gt;
+
+&lt;p&gt;RESTful APIs have a uniform interface, which means that the interaction between 
+the client and server is standardized. The interface includes the use of HTTP 
+methods, resource URIs, media types, and response codes.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;implementing-restful-apis-in-rails&quot;&gt;Implementing RESTful APIs in Rails&lt;/h3&gt;
+
+&lt;p&gt;Rails provides a framework for building RESTful APIs that follow the above 
+principles. Rails implements RESTful routing, which means that it maps HTTP 
+requests to controller actions based on the HTTP method and the resource URI.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1--defining-resources&quot;&gt;1 . Defining Resources&lt;/h4&gt;
+
+&lt;p&gt;In Rails, resources are defined in the routes.rb file. The resources method 
+generates a set of RESTful routes for a given controller. For example, the 
+following code defines a resource for a blog post:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:posts&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will generate the following RESTful routes:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/posts
+GET /&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/posts
+PUT /&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/posts/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2--using-http-methods&quot;&gt;2 . Using HTTP Methods&lt;/h4&gt;
+
+&lt;p&gt;HTTP methods are used to interact with the resources in Rails. The following 
+table shows the HTTP methods and their corresponding controller actions:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;style&gt;
+  th {
+    background-color: lightgrey;
+  }
+  table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: 0 auto;
+  }
+  td, th {
+    padding: 8px;
+    border: 1px solid black;
+  }
+&lt;/style&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;HTTP Method&lt;/th&gt;
+      &lt;th&gt;Controller Action&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GET&lt;/td&gt;
+      &lt;td&gt;index, show&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;POST&lt;/td&gt;
+      &lt;td&gt;create&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PUT&lt;/td&gt;
+      &lt;td&gt;update&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DELETE&lt;/td&gt;
+      &lt;td&gt;destroy&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+For example, the following code defines a controller action for retrieving all 
+blog posts:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@posts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@posts&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This code will respond to a GET request to /posts and return a JSON representation of all blog posts.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3--handling-errors&quot;&gt;3 . Handling Errors&lt;/h4&gt;
+
+&lt;p&gt;Rails provides a set of HTTP response codes that should be used to indicate the 
+status of the request. The following table shows the HTTP response codes and 
+their meaning:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;HTTP Response Code&lt;/th&gt;
+      &lt;th&gt;Meaning&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;200&lt;/td&gt;
+      &lt;td&gt;OK&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;201&lt;/td&gt;
+      &lt;td&gt;Created&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;204&lt;/td&gt;
+      &lt;td&gt;No Content&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;400&lt;/td&gt;
+      &lt;td&gt;Bad Request&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;401&lt;/td&gt;
+      &lt;td&gt;Unauthorized&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;403&lt;/td&gt;
+      &lt;td&gt;Forbidden&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;404&lt;/td&gt;
+      &lt;td&gt;Not Found&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;500&lt;/td&gt;
+      &lt;td&gt;Internal Server Error&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+For example, the following code handles a not found error in Rails:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;API&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;rescue_from&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RecordNotFound&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exception&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;error: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Record not found&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :not_found&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This code will return a JSON response with an error message and a 404 status code.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;API&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;rescue_from&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RecordNotFound&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exception&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;error: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Record not found&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :not_found&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;4--versioning&quot;&gt;4 . Versioning&lt;/h4&gt;
+&lt;p&gt;RESTful APIs often need to evolve over time, and versioning is used to manage 
+these changes. Rails provides a mechanism for versioning APIs by specifying the 
+version in the URI. For example, the following code defines a versioned resource:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:api&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:v1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:posts&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This will generate the following URIs for the posts resource:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;5--authentication-and-authorization&quot;&gt;5 . Authentication and Authorization&lt;/h4&gt;
+&lt;p&gt;RESTful APIs often require authentication and authorization to restrict access 
+to resources. Rails provides several authentication and authorization gems, 
+such as Devise and CanCanCan. These gems can be used to handle authentication 
+and authorization in Rails.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;RESTful APIs are an essential part of modern web applications, and they are 
+widely used by developers to build scalable and maintainable systems. Rails 
+provides an excellent framework for building RESTful APIs, and it has become a 
+popular choice for developers due to its simplicity and flexibility.&lt;/p&gt;
+
+&lt;p&gt;When designing RESTful APIs in Rails, it is important to follow the principles 
+of REST and use the tools and techniques provided by the framework. This includes 
+defining resources, using HTTP methods, handling errors, versioning, and 
+implementing authentication and authorization.&lt;/p&gt;
+
+&lt;p&gt;By following these principles and using the tools provided by Rails, developers 
+can build high-quality and scalable RESTful APIs that are easy to maintain and 
+extend. However, it is important to keep in mind that designing RESTful APIs is 
+an ongoing process, and it requires constant evaluation and iteration to ensure 
+that it meets the changing needs of the application and its users.&lt;/p&gt;
+
+&lt;p&gt;In conclusion, RESTful API design principles in Rails are an essential part of 
+building modern web applications. By following these principles and using the 
+tools provided by Rails, developers can build scalable and maintainable systems 
+that provide a seamless experience for their users.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">How to use ActiveJob for background processing in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails" rel="alternate" type="text/html" title="How to use ActiveJob for background processing in Rails" /><published>2023-04-22T13:30:00+03:00</published><updated>2023-04-22T13:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Background processing is an essential component of modern web applications. 
 With the growing demand for high-performance applications, background processing 
@@ -1155,88 +1434,4 @@ is a valuable resource, it’s always important to verify the information it pro
 before using it in your work.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails" rel="alternate" type="text/html" title="Understanding the MVC (Model-View-Controller) Pattern in Ruby on Rails" /><published>2023-02-19T09:30:00+03:00</published><updated>2023-02-19T09:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202302/understanding-the-mvc-pattern-in-ruby-on-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Ruby on Rails is a popular web application framework that follows the MVC 
-(Model-View-Controller) architectural pattern. This pattern is used to separate 
-an application into three main components: the model, the view, and the controller. 
-In this article, we’ll dive into what each of these components does and how they 
-work together in a Rails application.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;the-model&quot;&gt;The Model&lt;/h3&gt;
-
-&lt;p&gt;The model is responsible for representing the data in the application and for 
-performing any necessary operations on that data. In Rails, the model is represented 
-by an Active Record class. This class is used to interact with the database, 
-retrieve data, and perform any necessary operations. For example, let’s consider 
-a model for a blog post:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-With this simple model, we can perform operations like creating a new post, 
-retrieving all posts, finding a single post by its ID, and more.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;the-view&quot;&gt;The View&lt;/h3&gt;
-
-&lt;p&gt;The view is responsible for presenting the data to the user. In Rails, views are 
-typically written in HTML, with some embedded Ruby code to dynamically display data. 
-For example, let’s consider a view for displaying a list of posts:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;posts.each&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;post.title&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;post.body&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-In this view, we use embedded Ruby code to loop through all of the posts and 
-display their title and body.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;the-controller&quot;&gt;The Controller&lt;/h3&gt;
-
-&lt;p&gt;The controller is responsible for receiving user requests, handling any necessary 
-data processing, and communicating with the model and the view. In Rails, the 
-controller is represented by a class that inherits from &lt;span class=&quot;badge&quot;&gt;ActionController::Base&lt;/span&gt;. 
-For example, let’s consider a controller for managing posts:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;class PostsController &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ApplicationController&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;index&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;posts = &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Post.all&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;na&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;show&lt;/span&gt;
-    &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post = &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Post.find(params[:id])&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-In this controller, we have two actions, index and show. The index action retrieves all of the posts and stores them in an instance variable, while the show action retrieves a single post by its ID and stores it in an instance variable.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;putting-it-all-together&quot;&gt;Putting it all together&lt;/h3&gt;
-
-&lt;p&gt;Now that we’ve seen what each component of the MVC pattern does, let’s see how 
-they all work together in a Rails application. When a user makes a request to 
-the application, the request is routed to the appropriate controller action. 
-The controller action then performs any necessary data processing and communicates 
-with the model to retrieve the necessary data. Finally, the controller renders 
-the appropriate view and returns the response to the user.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;In conclusion, the MVC pattern is a powerful way to organize a Rails application and make it easier to understand and maintain. By separating the application into distinct components, you can write clean and maintainable code that is easier to test and modify.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry></feed>
