@@ -1,4 +1,208 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-04-29T18:40:18+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">An Overview of RESTful API Design Principles in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails" rel="alternate" type="text/html" title="An Overview of RESTful API Design Principles in Rails" /><published>2023-04-29T13:00:00+03:00</published><updated>2023-04-29T13:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-05-04T17:03:18+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Best Practices for Git Workflows and Branch Management</title><link href="http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown" rel="alternate" type="text/html" title="Best Practices for Git Workflows and Branch Management" /><published>2023-05-04T16:30:00+03:00</published><updated>2023-05-04T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown</id><content type="html" xml:base="http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Git is a popular version control system used by Rails developers to manage 
+changes, collaborate with others, and maintain code quality. However, using Git 
+effectively requires more than just basic knowledge of its commands. In this 
+article, we’ll explore some best practices for Git workflows and branch 
+management in Rails apps, with practical examples to illustrate each point.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;use-a-branching-model&quot;&gt;Use a Branching Model&lt;/h3&gt;
+
+&lt;p&gt;A branching model is a strategy for organizing your Git branches based on the 
+workflow of your team. There are several popular branching models, but one that 
+works well for Rails apps is the Gitflow model.&lt;/p&gt;
+
+&lt;p&gt;Gitflow separates branches into two main types: long-lived branches and 
+short-lived branches. Long-lived branches are used to represent the overall state 
+of your codebase, such as production or staging environments. Short-lived 
+branches are used for feature development, bug fixes, and other changes that are 
+not yet ready for release.&lt;/p&gt;
+
+&lt;p&gt;Using Gitflow, you can create a “develop” branch to represent the current state 
+of your development work. When a feature or bug fix is ready for testing, it can 
+be merged into the “develop” branch. Once the “develop” branch has accumulated 
+enough changes, it can be merged into a “release” branch for final testing and 
+then into the “master” branch for production release.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of how to create a new feature branch using Gitflow:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git flow feature start new-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This command creates a new branch named “feature/new-feature” based on the 
+current state of the “develop” branch. You can then make changes to this branch 
+and commit them as usual.&lt;/p&gt;
+
+&lt;p&gt;When you’re done with the feature, you can use the following command to merge it 
+back into the “develop” branch:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git flow feature finish new-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This command merges the changes from the “feature/new-feature” branch into the 
+“develop” branch and deletes the “feature/new-feature” branch.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;keep-branches-small-and-focused&quot;&gt;Keep Branches Small and Focused&lt;/h3&gt;
+
+&lt;p&gt;When working on a feature or bug fix, it’s tempting to create a large branch that 
+includes multiple changes. However, this can make it difficult to review and 
+merge your code later. Instead, it’s best to keep your branches small and focused 
+on a single change.&lt;/p&gt;
+
+&lt;p&gt;Using small, focused branches makes it easier to review and merge changes because 
+the changes are easier to understand. Additionally, small branches can be merged 
+more quickly, reducing the time between when a change is completed and when it’s 
+released.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of how to create a new branch for a small change:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; fix-bug&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This command creates a new branch named “fix-bug” based on the current state of 
+the branch you’re currently on. You can then make the necessary changes and 
+commit them as usual.&lt;/p&gt;
+
+&lt;p&gt;When you’re done with the change, you can use the following command to merge it 
+back into the original branch:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git checkout original-branch
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git merge fix-bug&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This command merges the changes from the “fix-bug” branch into the 
+“original-branch” branch.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;use-pull-requests-for-code-review&quot;&gt;Use Pull Requests for Code Review&lt;/h3&gt;
+
+&lt;p&gt;Code review is an important part of maintaining code quality in your Rails app. 
+Pull requests (PRs) are a Git feature that allows you to submit your changes for 
+review before they are merged into a branch.&lt;/p&gt;
+
+&lt;p&gt;Using PRs for code review has several benefits. First, it allows other members 
+of your team to review your changes and provide feedback before they are merged. 
+This can help catch bugs and improve the overall quality of your code. Second, 
+PRs can be used to track of changes over time, making it easier to understand 
+why certain decisions were made.&lt;/p&gt;
+
+&lt;p&gt;To use PRs for code review, you can create a branch for your changes and then 
+submit a pull request to the branch you want to merge your changes into. Other 
+members of your team can then review your changes and provide feedback before 
+the changes are merged.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of how to create a pull request using GitHub:&lt;/p&gt;
+
+&lt;p&gt;1 . Create a new branch for your changes:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; my-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . Push the branch to GitHub:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git push origin my-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Create a pull request on GitHub:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Go to the repository on GitHub.&lt;/li&gt;
+  &lt;li&gt;Click on the “Pull requests” tab.&lt;/li&gt;
+  &lt;li&gt;Click on the “New pull request” button.&lt;/li&gt;
+  &lt;li&gt;Select the branch you want to merge your changes into (e.g. “develop”).&lt;/li&gt;
+  &lt;li&gt;Select the branch that contains your changes (e.g. “my-feature”).&lt;/li&gt;
+  &lt;li&gt;Provide a description of the changes you made.&lt;/li&gt;
+  &lt;li&gt;Submit the pull request.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Once the pull request is submitted, other members of your team can review the 
+changes and provide feedback. You can make additional changes based on the 
+feedback and push them to the same branch. GitHub will automatically update the 
+pull request with the new changes.&lt;/p&gt;
+
+&lt;p&gt;When the pull request is approved, you can merge the changes into the target 
+branch. GitHub provides an option to merge the changes using a merge commit, 
+which creates a new commit that represents the merge. This commit includes a 
+message that summarizes the changes that were merged, making it easier to 
+understand the history of the code.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;use-rebase-to-keep-branches-up-to-date&quot;&gt;Use Rebase to Keep Branches Up-to-Date&lt;/h3&gt;
+
+&lt;p&gt;When working on a long-lived branch, such as the “develop” branch, it’s important 
+to keep it up-to-date with the latest changes from other branches. This can be 
+done using the “merge” command, which combines the changes from two branches into 
+a new commit.&lt;/p&gt;
+
+&lt;p&gt;However, merging can create a messy history, with multiple merge commits that 
+make it difficult to understand the changes over time. To avoid this, you can use 
+the “rebase” command instead.&lt;/p&gt;
+
+&lt;p&gt;Rebasing takes the changes from one branch and applies them on top of another 
+branch. This creates a linear history, with a single branch representing the 
+changes over time. Rebasing can make it easier to understand the history of your 
+code and to identify the cause of bugs or issues.&lt;/p&gt;
+
+&lt;p&gt;Here’s an example of how to use rebase to keep your branch up-to-date:&lt;/p&gt;
+
+&lt;p&gt;1 . Checkout the branch you want to rebase:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git checkout my-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+2 . Fetch the latest changes from the remote repository:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git fetch origin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+3 . Rebase your changes on top of the latest changes:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git rebase origin/develop&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+This command takes the changes in your “my-feature” branch and applies them on 
+top of the latest changes in the “develop” branch.&lt;/p&gt;
+
+&lt;p&gt;After the rebase is complete, you may need to resolve any conflicts that arise. 
+Once the conflicts are resolved, you can push your changes to the remote 
+repository using the “push” command.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Using Git effectively is essential for maintaining code quality and collaborating 
+with others on your Rails app. By following these best practices for Git workflows 
+and branch management, you can ensure that your code is well-organized, easy to 
+understand, and ready for release.&lt;/p&gt;
+
+&lt;p&gt;Remember to use a branching model, keep branches small and focused, use pull 
+requests for code review, and use rebase to keep your branches up-to-date. With 
+these practices in place, you’ll be well on your way to developing high-quality 
+Rails apps that are easy to maintain and extend.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Introduction</summary></entry><entry><title type="html">An Overview of RESTful API Design Principles in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails" rel="alternate" type="text/html" title="An Overview of RESTful API Design Principles in Rails" /><published>2023-04-29T13:00:00+03:00</published><updated>2023-04-29T13:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;With the rise of web applications, the need for APIs has increased in the software 
 development industry. RESTful APIs are widely used because of their simplicity, 
@@ -1369,69 +1573,4 @@ of the code and inspect variables, call methods, and execute arbitrary Ruby code
 to help us diagnose and fix issues.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">How ChatGPT can Improve Productivity for Web Developers</title><link href="http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers" rel="alternate" type="text/html" title="How ChatGPT can Improve Productivity for Web Developers" /><published>2023-02-19T09:30:00+03:00</published><updated>2023-02-19T09:30:00+03:00</updated><id>http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers</id><content type="html" xml:base="http://0.0.0.0:4000/category/more-topics/machine-learning/articles/202302/how-chatgpt-can-improve-productivity-for-web-developers">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;As a web developer, staying productive and on top of your tasks is critical to 
-the success of your projects and the satisfaction of your clients. With the ever-evolving 
-landscape of web development, it’s essential to be able to work efficiently and 
-effectively to keep up with the latest technologies and best practices. This is 
-where ChatGPT can help.&lt;/p&gt;
-
-&lt;p&gt;ChatGPT is a large language model developed by OpenAI that uses deep learning 
-techniques to understand and generate human-like text. As a result, it can provide 
-valuable assistance to web developers in a range of areas, from coding to project management.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1--code-completion&quot;&gt;1 . Code Completion&lt;/h3&gt;
-
-&lt;p&gt;One of the key benefits of ChatGPT for web developers is its ability to generate 
-code snippets. If you’re working on a project and need a specific piece of code, 
-you can ask ChatGPT for suggestions and it will provide you with relevant examples. 
-Additionally, if you have partially written code, ChatGPT can complete it for you, 
-saving you time and effort.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2--documentation&quot;&gt;2 . Documentation&lt;/h3&gt;
-
-&lt;p&gt;Another way ChatGPT can improve your productivity as a web developer is by helping 
-you with documentation. Whether you need information on a specific programming 
-language, framework, library, or technology, you can ask ChatGPT for details and 
-it will provide you with accurate and up-to-date information. This can be especially 
-helpful when you’re working on a project and need to quickly reference something.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3--troubleshooting&quot;&gt;3 . Troubleshooting&lt;/h3&gt;
-
-&lt;p&gt;Web development can often be a challenging and complex process, and it’s not uncommon 
-to encounter problems and errors along the way. If you’re stuck on a problem, 
-you can use ChatGPT to help identify the root cause and provide solutions. 
-Simply ask ChatGPT about the error message or problem you’re facing, and it will 
-provide you with relevant information and suggestions for fixing the issue.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;4--research&quot;&gt;4 . Research&lt;/h3&gt;
-&lt;p&gt;As a web developer, it’s important to stay informed about the latest developments 
-in your field. ChatGPT can assist with your research by answering questions related 
-to the latest technologies, best practices, and other relevant topics. This can 
-help you stay up-to-date and improve your overall knowledge, which in turn can 
-improve your productivity and the quality of your work.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;5--project-management&quot;&gt;5 . Project Management&lt;/h3&gt;
-&lt;p&gt;Finally, ChatGPT can also assist with project management. You can use it to help 
-keep track of project tasks and deadlines, generate project reports, and provide 
-project progress updates. This can help you stay organized and on top of your 
-projects, and ensure that everything is running smoothly.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;In conclusion, ChatGPT is a powerful tool that can significantly improve your 
-productivity as a web developer. Whether you need help with coding, documentation, 
-troubleshooting, research, or project management, ChatGPT can provide you with the 
-information and support you need to get the job done. Just remember, while ChatGPT 
-is a valuable resource, it’s always important to verify the information it provides 
-before using it in your work.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry></feed>

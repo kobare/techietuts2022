@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Ruby & Ruby on Rails Errors - Techietuts</title>
+ <title>Best Practices for Git Workflows and Branch Management - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Ruby &amp; Ruby on Rails Errors" />
+<meta property="og:title" content="Best Practices for Git Workflows and Branch Management" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="ERROR TYPE: Dependency Error" />
-<meta property="og:description" content="ERROR TYPE: Dependency Error" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-06-09T15:51:06+03:00" />
+<meta property="article:published_time" content="2023-05-04T16:30:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Ruby &amp; Ruby on Rails Errors" />
+<meta property="twitter:title" content="Best Practices for Git Workflows and Branch Management" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"ERROR TYPE: Dependency Error","headline":"Ruby &amp; Ruby on Rails Errors","dateModified":"2020-06-09T15:51:06+03:00","datePublished":"2020-06-09T15:51:06+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/exceptions/202006/ruby-and-ruby-on-rails-errors","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction","headline":"Best Practices for Git Workflows and Branch Management","dateModified":"2023-05-04T16:30:00+03:00","datePublished":"2023-05-04T16:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown"},"url":"http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,60 +909,216 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Ruby & Ruby on Rails Errors</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Best Practices for Git Workflows and Branch Management</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> June 2020</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> May 2023</p>
     <div>
                 <!-- Page content object inserted below -->
-        <h4 align="center">ERROR TYPE: <h5 align="center">Dependency Error</h5></h4>
+        <h3 id="introduction">Introduction</h3>
 
-<section class="terminal-container terminal-fixed-top">
-<header class="terminal">
-<span class="button red"></span>
-<span class="button yellow"></span>
-<span class="button green"></span>
-user@local_machine
-</header>
+<p>Git is a popular version control system used by Rails developers to manage 
+changes, collaborate with others, and maintain code quality. However, using Git 
+effectively requires more than just basic knowledge of its commands. In this 
+article, we’ll explore some best practices for Git workflows and branch 
+management in Rails apps, with practical examples to illustrate each point.</p>
 
-<div class="terminal-home">
+<p><br /></p>
+<h3 id="use-a-branching-model">Use a Branching Model</h3>
 
- <h5 class="hashed"># Error when trying to run a jekyll project</h5>
- <p class="console">Dependency Error: Yikes! It looks like you don't have jekyll-commonmark-ghpages or one of its dependencies installed. In order to use Jekyll as currently configured, you'll need to install this gem. The full error message from Ruby is: 'incompatible library version - /home/koby/gems/gems/commonmarker-0.17.13/lib/commonmarker/commonmarker.so' If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/!</p>
+<p>A branching model is a strategy for organizing your Git branches based on the 
+workflow of your team. There are several popular branching models, but one that 
+works well for Rails apps is the Gitflow model.</p>
 
- <h5 class="hashed"># Step 1:</h5>
- <h5 class="hashed"># Warning! This will uninstall bundler and all other gems</h5>
- <h5 class="hashed"># a removes all versions</h5>
- <h5 class="hashed"># I ignores dependencies</h5>
- <h5 class="hashed"># x includes executables</h5>
+<p>Gitflow separates branches into two main types: long-lived branches and 
+short-lived branches. Long-lived branches are used to represent the overall state 
+of your codebase, such as production or staging environments. Short-lived 
+branches are used for feature development, bug fixes, and other changes that are 
+not yet ready for release.</p>
 
- 
- <h5 class="hashed">For Rubygems &gt;= 2.1.0:</h5>
- <p class="console">gem uninstall -aIx</p>
+<p>Using Gitflow, you can create a “develop” branch to represent the current state 
+of your development work. When a feature or bug fix is ready for testing, it can 
+be merged into the “develop” branch. Once the “develop” branch has accumulated 
+enough changes, it can be merged into a “release” branch for final testing and 
+then into the “master” branch for production release.</p>
 
- <h5 class="hashed">For Rubygems &lt; 2.1.0:</h5>
- <p class="console">for i in `gem list --no-versions`; do gem uninstall -aIx $i; done</p>
+<p>Here’s an example of how to create a new feature branch using Gitflow:</p>
 
- <h5 class="hashed"># If the above didn't work: You could also build out a new Gemfile and run bundle clean --force. This will remove all other gems that aren't included in the new Gemfile.</h5>
- <p class="console">bundle clean --force</p>
-
- <h5 class="hashed"># Step 2:</h5>
- 
- <h5 class="hashed"># Now install the version of bundler required by your project</h5>
- <p class="console">gem install bundler:2.1.4</p>
-
- <h5 class="hashed"># Step 3:</h5>
- 
- <h5 class="hashed">#After this everything should be ok!</h5>
- <p class="console">bundle install</p>
-   
-</div>
-</section>
 <p><br /></p>
 
-<p>That’s it!</p>
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git flow feature start new-feature</code></pre></figure>
 
-<p><em>See you in the next tuts</em></p>
+<p><br />
+This command creates a new branch named “feature/new-feature” based on the 
+current state of the “develop” branch. You can then make changes to this branch 
+and commit them as usual.</p>
 
+<p>When you’re done with the feature, you can use the following command to merge it 
+back into the “develop” branch:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git flow feature finish new-feature</code></pre></figure>
+
+<p><br />
+This command merges the changes from the “feature/new-feature” branch into the 
+“develop” branch and deletes the “feature/new-feature” branch.</p>
+
+<p><br /></p>
+<h3 id="keep-branches-small-and-focused">Keep Branches Small and Focused</h3>
+
+<p>When working on a feature or bug fix, it’s tempting to create a large branch that 
+includes multiple changes. However, this can make it difficult to review and 
+merge your code later. Instead, it’s best to keep your branches small and focused 
+on a single change.</p>
+
+<p>Using small, focused branches makes it easier to review and merge changes because 
+the changes are easier to understand. Additionally, small branches can be merged 
+more quickly, reducing the time between when a change is completed and when it’s 
+released.</p>
+
+<p>Here’s an example of how to create a new branch for a small change:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git checkout <span class="nt">-b</span> fix-bug</code></pre></figure>
+
+<p><br />
+This command creates a new branch named “fix-bug” based on the current state of 
+the branch you’re currently on. You can then make the necessary changes and 
+commit them as usual.</p>
+
+<p>When you’re done with the change, you can use the following command to merge it 
+back into the original branch:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git checkout original-branch
+<span class="gp">$</span><span class="w"> </span>git merge fix-bug</code></pre></figure>
+
+<p><br />
+This command merges the changes from the “fix-bug” branch into the 
+“original-branch” branch.</p>
+
+<p><br /></p>
+<h3 id="use-pull-requests-for-code-review">Use Pull Requests for Code Review</h3>
+
+<p>Code review is an important part of maintaining code quality in your Rails app. 
+Pull requests (PRs) are a Git feature that allows you to submit your changes for 
+review before they are merged into a branch.</p>
+
+<p>Using PRs for code review has several benefits. First, it allows other members 
+of your team to review your changes and provide feedback before they are merged. 
+This can help catch bugs and improve the overall quality of your code. Second, 
+PRs can be used to track of changes over time, making it easier to understand 
+why certain decisions were made.</p>
+
+<p>To use PRs for code review, you can create a branch for your changes and then 
+submit a pull request to the branch you want to merge your changes into. Other 
+members of your team can then review your changes and provide feedback before 
+the changes are merged.</p>
+
+<p>Here’s an example of how to create a pull request using GitHub:</p>
+
+<p>1 . Create a new branch for your changes:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git checkout <span class="nt">-b</span> my-feature</code></pre></figure>
+
+<p><br />
+2 . Push the branch to GitHub:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git push origin my-feature</code></pre></figure>
+
+<p><br />
+3 . Create a pull request on GitHub:</p>
+
+<ul>
+  <li>Go to the repository on GitHub.</li>
+  <li>Click on the “Pull requests” tab.</li>
+  <li>Click on the “New pull request” button.</li>
+  <li>Select the branch you want to merge your changes into (e.g. “develop”).</li>
+  <li>Select the branch that contains your changes (e.g. “my-feature”).</li>
+  <li>Provide a description of the changes you made.</li>
+  <li>Submit the pull request.</li>
+</ul>
+
+<p><br />
+Once the pull request is submitted, other members of your team can review the 
+changes and provide feedback. You can make additional changes based on the 
+feedback and push them to the same branch. GitHub will automatically update the 
+pull request with the new changes.</p>
+
+<p>When the pull request is approved, you can merge the changes into the target 
+branch. GitHub provides an option to merge the changes using a merge commit, 
+which creates a new commit that represents the merge. This commit includes a 
+message that summarizes the changes that were merged, making it easier to 
+understand the history of the code.</p>
+
+<p><br /></p>
+<h3 id="use-rebase-to-keep-branches-up-to-date">Use Rebase to Keep Branches Up-to-Date</h3>
+
+<p>When working on a long-lived branch, such as the “develop” branch, it’s important 
+to keep it up-to-date with the latest changes from other branches. This can be 
+done using the “merge” command, which combines the changes from two branches into 
+a new commit.</p>
+
+<p>However, merging can create a messy history, with multiple merge commits that 
+make it difficult to understand the changes over time. To avoid this, you can use 
+the “rebase” command instead.</p>
+
+<p>Rebasing takes the changes from one branch and applies them on top of another 
+branch. This creates a linear history, with a single branch representing the 
+changes over time. Rebasing can make it easier to understand the history of your 
+code and to identify the cause of bugs or issues.</p>
+
+<p>Here’s an example of how to use rebase to keep your branch up-to-date:</p>
+
+<p>1 . Checkout the branch you want to rebase:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git checkout my-feature</code></pre></figure>
+
+<p><br />
+2 . Fetch the latest changes from the remote repository:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git fetch origin</code></pre></figure>
+
+<p><br />
+3 . Rebase your changes on top of the latest changes:</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>git rebase origin/develop</code></pre></figure>
+
+<p><br />
+This command takes the changes in your “my-feature” branch and applies them on 
+top of the latest changes in the “develop” branch.</p>
+
+<p>After the rebase is complete, you may need to resolve any conflicts that arise. 
+Once the conflicts are resolved, you can push your changes to the remote 
+repository using the “push” command.</p>
+
+<p><br /></p>
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Using Git effectively is essential for maintaining code quality and collaborating 
+with others on your Rails app. By following these best practices for Git workflows 
+and branch management, you can ensure that your code is well-organized, easy to 
+understand, and ready for release.</p>
+
+<p>Remember to use a branching model, keep branches small and focused, use pull 
+requests for code review, and use rebase to keep your branches up-to-date. With 
+these practices in place, you’ll be well on your way to developing high-quality 
+Rails apps that are easy to maintain and extend.</p>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
 
    </div>
 
