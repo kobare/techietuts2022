@@ -1,4 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-05-13T13:43:04+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Building a Progressive Web App (PWA) with Rails: Offline Access and Push Notifications</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/building-a-progressive-web-app-with-rails-offline-access-and-push-notifications" rel="alternate" type="text/html" title="Building a Progressive Web App (PWA) with Rails: Offline Access and Push Notifications" /><published>2023-05-13T13:00:00+03:00</published><updated>2023-05-13T13:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/building-a-progressive-web-app-with-rails-offline-access-and-push-notifications</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/building-a-progressive-web-app-with-rails-offline-access-and-push-notifications">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-05-20T12:32:22+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Efficient Rails Testing: Ensuring Code Quality and Reliability</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/efficient-rails-testing-ensuring-code-quality-and-reliability" rel="alternate" type="text/html" title="Efficient Rails Testing: Ensuring Code Quality and Reliability" /><published>2023-05-20T12:00:00+03:00</published><updated>2023-05-20T12:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/efficient-rails-testing-ensuring-code-quality-and-reliability</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/efficient-rails-testing-ensuring-code-quality-and-reliability">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Testing is crucial for building robust software applications in Ruby on Rails. 
+Rails provides a comprehensive testing framework that simplifies the process, 
+allowing developers to verify code correctness, catch bugs early, and ensure 
+application stability. This section explores essential concepts and best 
+practices for efficient Rails testing.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;test-types-in-rails&quot;&gt;Test Types in Rails:&lt;/h3&gt;
+
+&lt;p&gt;Rails testing framework includes various types of tests, each serving a specific purpose:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Unit Tests: Focus on individual components like models, ensuring their isolated functionality.&lt;/li&gt;
+  &lt;li&gt;Functional Tests: Verify controller behavior, handling HTTP requests and responses.&lt;/li&gt;
+  &lt;li&gt;Integration Tests: Validate component interactions and how different parts work together.&lt;/li&gt;
+  &lt;li&gt;System Tests: Mimic real user interactions, including browser automation, to test end-to-end functionality.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;test-fixtures-and-factories&quot;&gt;Test Fixtures and Factories:&lt;/h4&gt;
+
+&lt;p&gt;Choose between fixtures and factories for testing data:&lt;/p&gt;
+
+&lt;p&gt;Fixtures: Provide pre-defined data.
+Factories: Generate dynamic test data using libraries like FactoryBot, offering 
+more flexibility and control.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;testing-tools&quot;&gt;Testing Tools:&lt;/h4&gt;
+
+&lt;p&gt;Rails incorporates various testing tools and frameworks:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Test::Unit: Default testing framework with a simple and intuitive syntax.&lt;/li&gt;
+  &lt;li&gt;RSpec: Popular alternative to Test::Unit, providing expressive and readable syntax.&lt;/li&gt;
+  &lt;li&gt;Capybara: Powerful library for integration and system testing, including browser automation.&lt;/li&gt;
+  &lt;li&gt;Shoulda Matchers: Simplify writing common test assertions, reducing boilerplate code.&lt;/li&gt;
+  &lt;li&gt;VCR: Record and replay HTTP interactions for offline testing and reducing dependencies.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;test-driven-development-tdd&quot;&gt;Test-Driven Development (TDD):&lt;/h4&gt;
+
+&lt;p&gt;TDD emphasizes writing tests before implementing code, ensuring quality and 
+providing quick feedback. Follow the “Red-Green-Refactor” cycle: write failing 
+tests, implement code to pass tests, and refactor for improvement.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;continuous-integration-ci&quot;&gt;Continuous Integration (CI):&lt;/h4&gt;
+
+&lt;p&gt;Integrate automated tests with CI systems like Jenkins, Travis CI, or CircleCI 
+to streamline the process. CI runs tests automatically on code changes, providing 
+timely feedback and catching issues early.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;testing-best-practices&quot;&gt;Testing Best Practices:&lt;/h4&gt;
+
+&lt;p&gt;Maximize Rails testing effectiveness with these practices:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Keep tests focused and concise, following the “Single Responsibility Principle.”&lt;/li&gt;
+  &lt;li&gt;Use descriptive test names to convey intent and purpose clearly.&lt;/li&gt;
+  &lt;li&gt;Utilize test coverage tools like SimpleCov for comprehensive test coverage.&lt;/li&gt;
+  &lt;li&gt;Practice TDD to guide development and enforce code quality.&lt;/li&gt;
+  &lt;li&gt;Use fixtures or factories to generate test data and isolate dependencies.&lt;/li&gt;
+  &lt;li&gt;Regularly update tests to align with application codebase changes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Testing is essential in Rails development, ensuring stability, maintainability, 
+and overall quality. By understanding test types, utilizing appropriate tools, 
+practicing TDD, and embracing CI, developers can build reliable and robust Rails 
+applications. Following testing best practices instills confidence in code and 
+delivers high-quality software to users.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Building a Progressive Web App (PWA) with Rails: Offline Access and Push Notifications</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/building-a-progressive-web-app-with-rails-offline-access-and-push-notifications" rel="alternate" type="text/html" title="Building a Progressive Web App (PWA) with Rails: Offline Access and Push Notifications" /><published>2023-05-13T13:00:00+03:00</published><updated>2023-05-13T13:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/building-a-progressive-web-app-with-rails-offline-access-and-push-notifications</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/building-a-progressive-web-app-with-rails-offline-access-and-push-notifications">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;In recent years, Progressive Web Apps (PWAs) have gained significant popularity 
 among web developers and users alike. PWAs provide a seamless and engaging user 
@@ -1527,174 +1607,4 @@ servers from direct exposure to the internet, Nginx is a versatile tool that can
 help you improve the performance, scalability, and security of your web applications.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry><entry><title type="html">Rails Migrations Basics</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics" rel="alternate" type="text/html" title="Rails Migrations Basics" /><published>2023-03-12T09:35:00+03:00</published><updated>2023-03-12T09:35:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/rails-migrations-basics">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Rails Migrations are a powerful tool that allows developers to manage database 
-changes and schema updates in a version-controlled and consistent way. Migrations 
-help developers to easily modify the structure of their application’s database, 
-and they are a key component of the Ruby on Rails framework.&lt;/p&gt;
-
-&lt;p&gt;In this section, we’ll cover the basics of how to create, modify, and manage 
-migrations in a Rails application.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;creating-a-migration&quot;&gt;Creating a Migration&lt;/h3&gt;
-
-&lt;p&gt;To create a new migration in a Rails application, you can use the 
-&lt;span class=&quot;badge&quot;&gt;rails generate&lt;/span&gt; command followed by the migration name 
-and the list of attributes that you want to add to the database table. For example, 
-to create a migration that adds a new column to the users table, you can run the 
-following command:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate migration add_email_to_users email:string&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will create a new migration file in the &lt;span class=&quot;badge&quot;&gt;db/migrate&lt;/span&gt; 
-directory with a name that looks something like 
-&lt;span class=&quot;badge&quot;&gt;20210312132235_add_email_to_users.rb&lt;/span&gt;. The name of the 
-migration file includes a timestamp to ensure that each migration is executed in 
-the correct order.&lt;/p&gt;
-
-&lt;p&gt;The migration file will contain two methods: &lt;span class=&quot;badge&quot;&gt;up&lt;/span&gt; and 
-&lt;span class=&quot;badge&quot;&gt;down&lt;/span&gt;. The &lt;span class=&quot;badge&quot;&gt;up&lt;/span&gt; method is used 
-to define the changes that need to be made to the database, and the 
-&lt;span class=&quot;badge&quot;&gt;down&lt;/span&gt; method is used to define how to revert those changes.&lt;/p&gt;
-
-&lt;p&gt;Here’s an example of what the up method might look like for the 
-&lt;span class=&quot;badge&quot;&gt;add_email_to_users&lt;/span&gt; migration:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;up&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;add_column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This code will add a new column named email to the users table with a data type 
-of string.&lt;/p&gt;
-
-&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;down&lt;/span&gt; method is used to undo the changes made by 
-the &lt;span class=&quot;badge&quot;&gt;up&lt;/span&gt; method. Here’s an example of what the 
-&lt;span class=&quot;badge&quot;&gt;down&lt;/span&gt; method might look like for the 
-&lt;span class=&quot;badge&quot;&gt;add_email_to_users&lt;/span&gt; migration:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;down&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;remove_column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This code will remove the email column from the users table.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;running-migrations&quot;&gt;Running Migrations&lt;/h3&gt;
-
-&lt;p&gt;Once you’ve created a migration, you can run it by running the following command:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:migrate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will execute all the pending migrations in your application. Rails keeps 
-track of which migrations have already been run, so running 
-&lt;span class=&quot;badge&quot;&gt;rails db:migrate&lt;/span&gt; multiple times will not apply the 
-same migration more than once.&lt;/p&gt;
-
-&lt;p&gt;You can also roll back a migration by running the following command:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:rollback&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will undo the last migration that was applied. You can roll back multiple 
-migrations by specifying the number of migrations to roll back:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:rollback &lt;span class=&quot;nv&quot;&gt;STEP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;2&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will roll back the last two migrations that were applied.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;modifying-a-migration&quot;&gt;Modifying a Migration&lt;/h3&gt;
-
-&lt;p&gt;If you need to modify an existing migration, you can edit the migration file directly. 
-However, you should be aware that once a migration has been run, it should not 
-be modified unless absolutely necessary. Modifying a migration that has already 
-been applied can cause issues with the consistency of your database schema.&lt;/p&gt;
-
-&lt;p&gt;If you need to make a change to a migration that has already been run, you 
-should create a new migration that modifies the existing schema. For example, 
-if you need to rename a column that was added in a previous migration, you could 
-create a new migration that renames the column:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate migration rename_email_column_in_users&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will create a new migration file that you can use to rename the column. 
-Here’s an example of what the up method might look like:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;up&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;rename_column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new_email&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This code will rename the email column to new_email.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;adding-indexes&quot;&gt;Adding Indexes&lt;/h3&gt;
-
-&lt;p&gt;Adding indexes to your database tables can help to improve query performance. 
-You can create an index on a column in a table using a migration. Here’s an 
-example of how to create an index on the email column in the users table:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;add_index&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This code will create an index on the email column in the users table. Rails will 
-automatically generate a name for the index based on the table and column names.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;dropping-tables&quot;&gt;Dropping Tables&lt;/h3&gt;
-
-&lt;p&gt;If you need to remove a table from your database, you can do so using a migration. 
-Here’s an example of how to remove the users table:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;drop_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This code will remove the users table from your database.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;Migrations are a powerful tool that allow you to manage database changes and 
-schema updates in a version-controlled and consistent way. In this tutorial, 
-we covered the basics of how to create, modify, and manage migrations in a 
-Rails application.&lt;/p&gt;
-
-&lt;p&gt;Remember that once a migration has been applied, it should not be modified unless 
-absolutely necessary. If you need to make a change to a migration that has already 
-been applied, create a new migration that modifies the existing schema.&lt;/p&gt;
-
-&lt;p&gt;With Rails Migrations, you can easily modify the structure of your application’s 
-database and keep your schema in sync with your application’s code.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="more-topics" /><summary type="html">Introduction</summary></entry></feed>
