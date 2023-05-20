@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Getting Started With graphql Rails 7 API - Techietuts</title>
+ <title>Test-Driven Development (TDD): Building Quality Software through Automated Testing - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Getting Started With graphql Rails 7 API" />
+<meta property="og:title" content="Test-Driven Development (TDD): Building Quality Software through Automated Testing" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Prerequisites" />
-<meta property="og:description" content="Prerequisites" />
-<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202205/getting-started-with-graphql-rails-7-api" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202205/getting-started-with-graphql-rails-7-api" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-05-22T14:10:00+03:00" />
+<meta property="article:published_time" content="2023-05-20T13:00:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Getting Started With graphql Rails 7 API" />
+<meta property="twitter:title" content="Test-Driven Development (TDD): Building Quality Software through Automated Testing" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"Prerequisites","headline":"Getting Started With graphql Rails 7 API","dateModified":"2022-05-22T14:10:00+03:00","datePublished":"2022-05-22T14:10:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202205/getting-started-with-graphql-rails-7-api"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/tutorials/202205/getting-started-with-graphql-rails-7-api","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction","headline":"Test-Driven Development (TDD): Building Quality Software through Automated Testing","dateModified":"2023-05-20T13:00:00+03:00","datePublished":"2023-05-20T13:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,190 +909,128 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Getting Started With graphql Rails 7 API</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Test-Driven Development (TDD): Building Quality Software through Automated Testing</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> May 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> May 2023</p>
     <div>
                 <!-- Page content object inserted below -->
-        <h3 id="prerequisites">Prerequisites</h3>
+        <h3 id="introduction">Introduction</h3>
 
-<ol>
-  <li>Ubuntu 18.04</li>
-  <li>Ruby 3.1.0</li>
-  <li>Rails 7.0.2.4</li>
-  <li>MySQL</li>
-</ol>
-
-<p><em>NB: You’re at liberty to experiment with other versions and databases.</em></p>
+<p>Test-Driven Development (TDD) is a software development approach that emphasizes 
+writing tests before implementing the actual code. By following this iterative 
+and disciplined process, developers can create high-quality software with 
+improved design, maintainability, and reliability. This article explores the 
+principles, benefits, and best practices of Test-Driven Development.</p>
 
 <p><br /></p>
-<h3 id="create-the-rails-api-project">Create the Rails API Project</h3>
+<h3 id="the-principles-of-tdd">The Principles of TDD:</h3>
 
-<p>1 . Create a new Rails 7 API project</p>
+<p>TDD follows a simple yet powerful cycle known as the “Red-Green-Refactor” cycle:</p>
 
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span><span class="w"> </span>rails new your_app_name <span class="nt">-d</span> mysql <span class="nt">--api</span>
-<span class="go"> </span></code></pre></figure>
+<ul>
+  <li>
+    <p>Red: Write a failing test case that captures the desired behavior or functionality.</p>
+  </li>
+  <li>
+    <p>Green: Implement the minimum code necessary to make the test pass. This code 
+may not be perfect or optimized yet.</p>
+  </li>
+  <li>
+    <p>Refactor: Enhance the code, ensuring it is clean, efficient, and adheres to 
+best practices. Refactoring does not introduce new functionality but improves 
+the existing codebase.</p>
+  </li>
+</ul>
 
-<p><br />
-2 . Configure session store</p>
-
-<p>Open config/application.rb and add these three lines</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">Yourappname</span>
-  <span class="k">class</span> <span class="nc">Application</span> <span class="o">&lt;</span> <span class="no">Rails</span><span class="o">::</span><span class="no">Application</span>
-    <span class="c1"># ...    </span>
-    <span class="n">config</span><span class="p">.</span><span class="nf">session_store</span> <span class="ss">:cookie_store</span><span class="p">,</span> <span class="ss">key: </span><span class="s1">'_your_app_name_session'</span>
-    <span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">Cookies</span>
-    <span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="n">config</span><span class="p">.</span><span class="nf">session_store</span><span class="p">,</span> <span class="n">config</span><span class="p">.</span><span class="nf">session_options</span>    
-  <span class="k">end</span>
-<span class="k">end</span>
- </code></pre></figure>
-
-<p><br />
-3 . Create the Database</p>
-
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span><span class="w"> </span>rake db:create
-<span class="go"> </span></code></pre></figure>
+<p>This cycle is repeated for each new feature or behavior, gradually building a 
+comprehensive suite of tests and a robust codebase.</p>
 
 <p><br /></p>
-<h3 id="configure-cors">Configure CORS</h3>
-<p>Configure CORS to allow frontend to make requests</p>
+<h3 id="benefits-of-tdd">Benefits of TDD:</h3>
 
-<p>1 . Uncomment the rack-cors gem in the Gemfile</p>
+<p>Implementing TDD in your software development process provides numerous advantages:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Gemfile</span>
-<span class="o">...</span>
-<span class="n">gem</span> <span class="s1">'rack-cors'</span></code></pre></figure>
-
-<p><br />
-2 . Run bundle install</p>
-
-<figure class="highlight"><pre><code class="language-console" data-lang="console"><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span></code></pre></figure>
-
-<p><br />
-3 . Uncomment the following code in config/initializers/cors.rb file</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/initializers/cors.rb</span>
-
-<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">cinfig</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">insert_before</span> <span class="mi">0</span><span class="p">,</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Cors</span> <span class="k">do</span>
-  <span class="n">allow</span> <span class="k">do</span>
-    <span class="n">origins</span> <span class="s1">'*'</span> <span class="c1"># Allow all hosts to make requests to the API</span>
-    
-    <span class="n">resource</span> <span class="s1">'*'</span>
-      <span class="ss">headers: :any</span><span class="p">,</span>
-      <span class="ss">methods: </span><span class="p">[</span><span class="ss">:get</span><span class="p">,</span> <span class="ss">:post</span><span class="p">,</span> <span class="ss">:put</span><span class="p">,</span> <span class="ss">:patch</span><span class="p">,</span> <span class="ss">:delete</span><span class="p">,</span> <span class="ss">:options</span><span class="p">,</span> <span class="ss">:head</span><span class="p">]</span>
-  <span class="k">end</span>
-<span class="k">end</span></code></pre></figure>
+<ul>
+  <li>
+    <p>Reliable and Accurate Software: TDD encourages developers to thoroughly test 
+their code, ensuring that it meets the specified requirements. This results in 
+more accurate and reliable software that behaves as expected.</p>
+  </li>
+  <li>
+    <p>Improved Code Quality: Writing tests before implementation forces developers 
+to think critically about their design choices and produce modular, loosely 
+coupled code. As a result, the codebase becomes more maintainable, scalable, 
+and easier to understand.</p>
+  </li>
+  <li>
+    <p>Faster Debugging and Troubleshooting: By catching issues early in the development 
+process, TDD minimizes the time spent debugging and troubleshooting. Failing tests 
+provide immediate feedback, guiding developers towards the source of the problem.</p>
+  </li>
+  <li>
+    <p>Agile Development: TDD promotes incremental development and iterative improvement, 
+allowing for faster feature implementation and rapid adaptation to changing requirements.</p>
+  </li>
+  <li>
+    <p>Enhanced Collaboration: TDD encourages collaboration between developers and 
+stakeholders by providing a shared understanding of the software’s expected behavior. 
+This leads to improved communication, reduced misunderstandings, and better 
+alignment with customer expectations.</p>
+  </li>
+</ul>
 
 <p><br /></p>
-<h3 id="install-graphql">Install Graphql</h3>
+<h3 id="best-practices-for-tdd">Best Practices for TDD:</h3>
 
-<p>1 . Add graphql in the Gemfile</p>
+<p>To make the most of TDD, consider the following best practices:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Gemfile</span>
-<span class="c1"># ...</span>
-<span class="n">gem</span> <span class="s1">'graphql'</span></code></pre></figure>
+<ul>
+  <li>
+    <p>Start with Small, Atomic Tests: Begin by writing small, focused tests that 
+verify a single behavior or feature. This ensures clarity and simplicity in both 
+the tests and the implementation code.</p>
+  </li>
+  <li>
+    <p>Test All Edge Cases: Cover different scenarios, including boundary cases and 
+potential error conditions, to ensure comprehensive test coverage and robust software behavior.</p>
+  </li>
+  <li>
+    <p>Refactor Regularly: As the codebase grows, refactor to improve its structure, 
+eliminate duplication, and enhance maintainability. Refactoring should not modify 
+the behavior of the code but improve its internal quality.</p>
+  </li>
+  <li>
+    <p>Keep Tests Fast and Independent: Test execution speed is crucial for developer 
+productivity. Maintain fast-running tests that are independent of each other to 
+isolate failures and improve test performance.</p>
+  </li>
+  <li>
+    <p>Embrace Automation: Utilize testing frameworks and tools that facilitate 
+automated test execution, such as Ruby’s built-in Test::Unit or popular 
+alternatives like RSpec or MiniTest. Automation saves time and enables frequent 
+and reliable testing.</p>
+  </li>
+</ul>
 
-<p><br />
-2 . Add graphiql-rails within the development dependencies in the Gemfile</p>
+<p><br /></p>
+<h3 id="overcoming-challenges-and-considerations">Overcoming Challenges and Considerations:</h3>
 
-<p>Graphiql is the graphql UI that enables interaction with the API endpoints via the browser.</p>
+<p>Implementing TDD may present certain challenges, such as a learning curve for 
+developers and potential time investment in writing tests. However, the long-term 
+benefits far outweigh these initial hurdles. It’s essential to foster a culture 
+that values testing and provides adequate support, training, and resources to 
+adopt TDD successfully.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Gemfile</span>
+<p><br /></p>
+<h3 id="conclusion">Conclusion</h3>
 
-<span class="c1"># ...</span>
-
-<span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
-  <span class="c1"># ...</span>
-  <span class="n">gem</span> <span class="s1">'graphiql-rails'</span>  
-<span class="k">end</span></code></pre></figure>
-
-<p><br />
-3 . Add sprockets</p>
-
-<p>An API cannot render any page in the browser. Therefore, to get the GraphiQL editor to work, you must add sprockets to config/application.rb</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># config/application.rb</span>
-
-<span class="c1"># ...</span>
-
-<span class="nb">require</span> <span class="s2">"sprockets/railtie"</span>
-
-<span class="c1">#module Yourappname</span>
-<span class="c1">#  class Application &lt; Rails::Application</span>
-<span class="c1">#    # ...    </span>
-<span class="c1">#    config.session_store :cookie_store, key: '_your_app_name_session'</span>
-<span class="c1">#    config.middleware.use ActionDispatch::Cookies</span>
-<span class="c1">#    config.middleware.use config.session_store, config.session_options    </span>
-<span class="c1">#  end</span>
-<span class="c1">#end</span></code></pre></figure>
-
-<p><br />
-4 . Install gems</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>bundle <span class="nb">install</span></code></pre></figure>
-
-<p><br />
-5 . Install graphql boilerplate code</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span>rails generate graphql:install</code></pre></figure>
-
-<p><br />
-6 . Create a config directory in app/assets and create a manifest.js file in it</p>
-
-<p>The manifest.js file specifies additional assets to be compiled and made available to the browser.</p>
-
-<p>The -p and -f flags will instruct the commands to skip creating the directory and the file respectively if they already exist.</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">$</span><span class="w"> </span><span class="nb">mkdir</span> <span class="nt">-p</span> app/assets/config <span class="o">&amp;&amp;</span> <span class="nb">test</span> <span class="nt">-f</span> manifest.js <span class="o">||</span> <span class="nb">touch </span>app/assets/config/manifest.js</code></pre></figure>
-
-<p><br />
-7 . Open app/config/manifest.js and add this</p>
-
-<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="go">//= link graphiql/rails/application.css
-//= link graphiql/rails/application.js</span></code></pre></figure>
-
-<p><br />
-8 . Mount the GraphiQL engine in the development environment in the routes:</p>
-
-<p>This enables access to the GraphiQL UI in the browser</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
-
-  <span class="k">if</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">env</span><span class="p">.</span><span class="nf">development?</span>
-    <span class="n">mount</span> <span class="no">GraphiQL</span><span class="o">::</span><span class="no">Rails</span><span class="o">::</span><span class="no">Engine</span><span class="p">,</span> <span class="ss">at: </span><span class="s2">"/graphiql"</span><span class="p">,</span> <span class="ss">graphql_path: </span><span class="s2">"graphql#execute"</span>
-  <span class="k">end</span>
-
-  <span class="n">post</span> <span class="s2">"/graphql"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"graphql#execute"</span>
-  <span class="n">get</span> <span class="s2">"/graphql"</span><span class="p">,</span> <span class="ss">to: </span><span class="s2">"graphql#execute"</span>  
-  <span class="c1"># Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html</span>
-
-  <span class="c1"># Defines the root path route ("/")</span>
-  <span class="c1"># root "articles#index"</span>
-<span class="k">end</span></code></pre></figure>
-
-<p><br />
-9 . Test the GraphQL endpoint via the graphiql ui</p>
-
-<p>Restart your development server, open the browser and navigate to localhost:3000/graphiql
-You should see something similar to this:</p>
-
-<p><img class="zoom-on-hover" srcset="   /assets/img/posts/graphql_ui.png 2.5x,   /assets/img/posts/graphql_ui.png 5.5x " alt="missing image" /></p>
-
-<p><br />
-10 . Test the API</p>
-
-<p>Clear out the default text in the editor’s left pane and type in the following query:</p>
-
-<figure class="highlight"><pre><code class="language-graphql" data-lang="graphql"><span class="k">query</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="n">testField</span><span class="w">
-</span><span class="p">}</span></code></pre></figure>
-
-<p>Click the Play button to execute the query, you should receive a response as shown below:</p>
-
-<p><img class="zoom-on-hover" srcset="   /assets/img/posts/graphql_hello_world.png 2.5x,   /assets/img/posts/graphql_hello_world.png 5.5x " alt="missing image" /></p>
-
-<p>That’s it! You have successfully set up a graphql Rails 7 API.</p>
+<p>Test-Driven Development is a powerful approach to software development that 
+fosters high-quality, reliable, and maintainable code. By writing tests first, 
+developers ensure accurate implementation, improve code design, and reduce bugs 
+and defects. TDD promotes collaboration, agility, and faster development cycles, 
+leading to improved software products and customer satisfaction. Embrace TDD as 
+a core practice in your development process and experience the long-term benefits 
+it brings to your software projects.</p>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>
