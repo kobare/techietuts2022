@@ -17,7 +17,7 @@ permalink: "category/:categories/ruby-on-rails/concepts/:year:month/:title"
 Test-Driven Development (TDD) is a software development approach that emphasizes 
 writing tests before implementing the actual code. By following this iterative 
 and disciplined process, developers can create high-quality software with 
-improved design, maintainability, and reliability. This article explores the 
+improved design, maintainability, and reliability. This section explores the 
 principles, benefits, and best practices of Test-Driven Development.
 
 
