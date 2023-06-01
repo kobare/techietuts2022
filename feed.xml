@@ -1,9 +1,690 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-05-20T13:27:39+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Test-Driven Development (TDD): Building Quality Software through Automated Testing</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing" rel="alternate" type="text/html" title="Test-Driven Development (TDD): Building Quality Software through Automated Testing" /><published>2023-05-20T13:00:00+03:00</published><updated>2023-05-20T13:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-05-27T16:44:18+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Rails System Testing</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-system-testing" rel="alternate" type="text/html" title="Rails System Testing" /><published>2023-05-27T15:45:00+03:00</published><updated>2023-05-27T15:45:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-system-testing</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-system-testing">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;System testing is a critical aspect of ensuring the stability and reliability of 
+a Ruby on Rails application. It involves testing the application as a whole, 
+simulating real user interactions and validating the behavior across multiple 
+components. Rails provides a robust framework for system testing, allowing 
+developers to perform end-to-end tests that encompass the full stack. This 
+comprehensive guide will walk you through the process of writing effective system 
+tests in Rails, covering various aspects of testing the application’s 
+functionality from the user’s perspective.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;setting-up-the-test-environment&quot;&gt;Setting up the Test Environment&lt;/h3&gt;
+
+&lt;p&gt;Before diving into system testing, it’s important to set up the appropriate 
+testing environment. Rails provides a testing framework by default, whether 
+it’s the default “Test::Unit” framework or an alternative like “RSpec.” 
+Install the necessary gems and configure your test environment accordingly. 
+Additionally, Rails provides tools like fixtures or factories to generate test data.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;understanding-rails-system-tests&quot;&gt;Understanding Rails System Tests&lt;/h3&gt;
+
+&lt;p&gt;System tests in Rails focus on simulating real user interactions with the 
+application. These tests cover a broader scope than integration tests and are 
+designed to validate the behavior of the entire system, including controllers, 
+models, views, and external services.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;writing-system-tests&quot;&gt;Writing System Tests&lt;/h3&gt;
+
+&lt;p&gt;Let’s explore the different aspects of writing effective system tests in Rails:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;a-simulating-user-interactions&quot;&gt;a. Simulating User Interactions&lt;/h4&gt;
+&lt;p&gt;Use system tests to simulate real user interactions with the application. 
+This includes visiting pages, clicking buttons, filling out forms, and navigating 
+through different screens.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;application_system_test_case&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UsersTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationSystemTestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;signing up as a new user&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;visit&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/signup&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fill_in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fill_in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;john@example.com&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fill_in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;click_button&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Sign Up&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;assert_text&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Account successfully created. Welcome, John!&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;b-testing-ui-elements-and-navigation&quot;&gt;b. Testing UI Elements and Navigation&lt;/h4&gt;
+
+&lt;p&gt;System tests allow you to verify the presence and behavior of UI elements such 
+as buttons, forms, links, and navigational elements. Test that the UI elements 
+are rendered correctly and that navigation between different pages works as expected.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;application_system_test_case&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostsTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationSystemTestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;creating a new post&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;visit&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/login&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fill_in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;john@example.com&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fill_in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;click_button&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Log In&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;click_link&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;New Post&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fill_in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Title&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;New Post&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;fill_in&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Body&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;with: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;click_button&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Create Post&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;assert_text&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Post successfully created&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_text&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;New Post&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_text&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;c-testing-external-service-interactions&quot;&gt;c. Testing External Service Interactions&lt;/h4&gt;
+
+&lt;p&gt;In system tests, you can also test interactions with external services such as 
+APIs or third-party integrations. Use tools like VCR to record and replay API 
+requests to ensure consistent and reliable tests.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;application_system_test_case&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;vcr&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ExternalServiceTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationSystemTestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;retrieving data from an external API&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;VCR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;use_cassette&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;external_api&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;visit&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/data&quot;&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;assert_text&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Data retrieved successfully&quot;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;assert_text&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;External API Data&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;running-system-tests&quot;&gt;Running System Tests&lt;/h3&gt;
+
+&lt;p&gt;You can run system tests using the command-line interface provided by Rails. 
+Execute all tests in your application or selectively run specific tests based on 
+file or line numbers. Integration with continuous integration tools allows for 
+automated test execution.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;best-practices-for-rails-system-testing&quot;&gt;Best Practices for Rails System Testing&lt;/h3&gt;
+
+&lt;p&gt;Follow these best practices to write effective and maintainable system tests in Rails:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Keep tests focused and isolated: Each system test should focus on a specific 
+user flow or scenario, ensuring a clear and concise test case.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use descriptive test names: Clear and descriptive test names help convey the 
+purpose and intention of each test case.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Leverage test data effectively: Set up the necessary test data using fixtures 
+or factories to simulate real-world scenarios.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use tools for browser automation: Tools like Capybara provide a convenient way 
+to interact with the application in system tests.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Consider performance implications: System tests cover a broader scope and can 
+be slower than unit or integration tests. Optimize test execution time as much 
+as possible.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Update and maintain tests: As your application evolves, update your system 
+tests to reflect changes in functionality or requirements.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;System testing plays a crucial role in ensuring the overall functionality and 
+reliability of a Ruby on Rails application. By following the guidelines outlined 
+in this comprehensive guide, you can effectively perform end-to-end testing, 
+simulating user interactions and validating the behavior of the entire system. 
+Thoroughly tested system tests enhance the confidence and quality of your 
+application, ensuring a smooth user experience. Embrace the power of system 
+testing in Rails and elevate the robustness of your software development process.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Rails Integration Testing</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-integration-testing" rel="alternate" type="text/html" title="Rails Integration Testing" /><published>2023-05-27T15:40:00+03:00</published><updated>2023-05-27T15:40:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-integration-testing</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-integration-testing">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Integration testing plays a crucial role in ensuring the smooth functioning and 
+seamless interaction of different components within a Ruby on Rails application. 
+Integration tests focus on testing the application as a whole, including the 
+interactions between controllers, models, and views. This comprehensive guide 
+will walk you through the process of writing effective integration tests in 
+Rails, covering various aspects of testing the full request-response cycle.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;setting-up-the-test-environment&quot;&gt;Setting up the Test Environment&lt;/h3&gt;
+
+&lt;p&gt;Before writing integration tests, it’s essential to set up the appropriate 
+testing environment. Rails provides a testing framework, whether it’s the default 
+“Test::Unit” framework or an alternative like “RSpec.” Install the necessary 
+gems and configure your test environment accordingly. Additionally, Rails 
+provides tools like fixtures or factories to generate test data.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;understanding-rails-integration-tests&quot;&gt;Understanding Rails Integration Tests&lt;/h3&gt;
+
+&lt;p&gt;Integration tests in Rails focus on testing the complete flow of a request 
+through the application, simulating real user interactions. They ensure that the 
+different components of the application work together as expected, including 
+controllers, models, views, and database interactions.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;writing-integration-tests&quot;&gt;Writing Integration Tests&lt;/h3&gt;
+&lt;p&gt;Let’s explore the different aspects of writing effective integration tests in Rails:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;a-simulating-user-actions&quot;&gt;a. Simulating User Actions&lt;/h4&gt;
+&lt;p&gt;Use integration tests to simulate user actions, such as visiting pages, 
+submitting forms, and following links. Test that the expected actions are 
+performed, and the appropriate responses are received.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserFlowsTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionDispatch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IntegrationTest&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;can sign up as a new user&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/signup&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/users&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;params: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;email: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;john@example.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;password: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:redirect&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;follow_redirect!&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;assert_select&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;p.notice&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Account successfully created. Welcome, John!&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;b-testing-controller-actions-and-interactions&quot;&gt;b. Testing Controller Actions and Interactions&lt;/h4&gt;
+
+&lt;p&gt;Integration tests allow you to test the behavior and interactions of multiple 
+controllers. Verify that the correct controller actions are executed, along with 
+any necessary model or database interactions.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostsFlowsTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionDispatch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IntegrationTest&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;can create a new post&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/login&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;params: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;email: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;john@example.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;password: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;password&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:redirect&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;follow_redirect!&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/posts/new&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/posts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;params: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;post: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;New Post&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:redirect&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;follow_redirect!&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;assert_select&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;h1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;New Post&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_select&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;p&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;c-testing-views-and-page-elements&quot;&gt;c. Testing Views and Page Elements&lt;/h4&gt;
+
+&lt;p&gt;Integration tests can also verify the content and structure of rendered views. 
+Use assertions to test the presence of specific elements or text within the 
+rendered views.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostsFlowsTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionDispatch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;IntegrationTest&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;can view a post&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;New Post&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/posts/&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;assert_select&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;h1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;New Post&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_select&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;p&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;running-integration-tests&quot;&gt;Running Integration Tests&lt;/h3&gt;
+
+&lt;p&gt;You can run integration tests using the command-line interface provided by Rails. 
+Execute all tests in your application or selectively run specific tests based on 
+file or line numbers. Integration with continuous integration tools allows for 
+automated test execution.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;best-practices-for-rails-integration-testing&quot;&gt;Best Practices for Rails Integration Testing&lt;/h3&gt;
+
+&lt;p&gt;Follow these best practices to write effective and maintainable integration tests 
+in Rails:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Keep tests focused and concise: Each integration test should focus on a 
+specific user flow or scenario.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use descriptive test names: Clear and descriptive test names help convey the 
+purpose and intention of each test case.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Test both success and failure scenarios: Ensure that your integration tests 
+cover both successful and failure cases.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use test data effectively: Set up the necessary test data using fixtures or 
+factories to simulate real-world scenarios.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mock or stub external dependencies: Use mocking or stubbing techniques to 
+isolate your integration tests from external dependencies like APIs or external 
+services.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Update and maintain tests: As your application evolves, update your integration 
+tests to reflect changes in functionality or requirements.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Integration testing is crucial for ensuring the seamless interaction and 
+functionality of different components within a Rails application. By following 
+the guidelines outlined in this comprehensive guide, you can effectively test the 
+full request-response cycle, verifying the behavior and interactions of controllers, 
+models, and views. Thoroughly tested integration tests enhance the reliability 
+and robustness of your application, providing confidence in its overall 
+functionality. Embrace the power of integration testing in Rails and elevate the 
+quality of your software development process.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Rails Controller Testing</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-controller-testing" rel="alternate" type="text/html" title="Rails Controller Testing" /><published>2023-05-27T15:35:00+03:00</published><updated>2023-05-27T15:35:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-controller-testing</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-controller-testing">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Controller testing is an integral part of developing Ruby on Rails applications, 
+allowing developers to verify the behavior and functionality of controllers. 
+In Rails, controllers handle the logic between the models and views, processing 
+requests and generating responses. This section will walk you through the process 
+of writing effective controller tests in Rails, covering various aspects of 
+controller functionality.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;setting-up-the-test-environment&quot;&gt;Setting up the Test Environment&lt;/h3&gt;
+
+&lt;p&gt;Before writing controller tests, it’s important to set up the appropriate testing 
+environment. Rails provides a testing framework by default, whether it’s the 
+“Test::Unit” framework or an alternative like “RSpec.” Install the necessary 
+gems and configure your test environment accordingly. Additionally, Rails 
+provides tools like fixtures or factories to generate test data.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;understanding-rails-controller-tests&quot;&gt;Understanding Rails Controller Tests&lt;/h3&gt;
+
+&lt;p&gt;Controller tests in Rails focus on verifying the behavior and functionality of 
+your controllers. They ensure that the correct actions are performed, request 
+parameters are processed properly, and responses are generated as expected.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;writing-controller-tests&quot;&gt;Writing Controller Tests&lt;/h3&gt;
+&lt;p&gt;Let’s explore the different aspects of writing effective controller tests in Rails:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;a-basic-actions&quot;&gt;a. Basic Actions:&lt;/h4&gt;
+&lt;p&gt;Test the basic actions of your controllers, such as &lt;span class=&quot;badge&quot;&gt;index&lt;/span&gt;, 
+&lt;span class=&quot;badge&quot;&gt;show&lt;/span&gt;, &lt;span class=&quot;badge&quot;&gt;new&lt;/span&gt;, 
+&lt;span class=&quot;badge&quot;&gt;create&lt;/span&gt;, &lt;span class=&quot;badge&quot;&gt;edit&lt;/span&gt;, 
+&lt;span class=&quot;badge&quot;&gt;update&lt;/span&gt;, and &lt;span class=&quot;badge&quot;&gt;destroy&lt;/span&gt;. 
+Verify that these actions are performing the intended operations and generating 
+the appropriate responses.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UsersControllerTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should get index&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:index&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should create user&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_difference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;User.count&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;params: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;assert_redirected_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# More test cases for other actions...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;b-request-parameters&quot;&gt;b. Request Parameters&lt;/h4&gt;
+
+&lt;p&gt;Test that the request parameters are correctly processed by the controller actions. 
+Ensure that the necessary parameters are present and processed appropriately.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UsersControllerTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should create user&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_difference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;User.count&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;params: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;assert_redirected_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;c-authentication-and-authorization&quot;&gt;c. Authentication and Authorization&lt;/h4&gt;
+
+&lt;p&gt;If your controllers have authentication or authorization requirements, write test 
+cases to ensure that the appropriate access controls are in place.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostsControllerTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should redirect to login if not authenticated&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_redirected_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;login_path&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should allow access to authenticated users&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_response&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:success&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;d-flash-messages-and-redirects&quot;&gt;d. Flash Messages and Redirects&lt;/h4&gt;
+
+&lt;p&gt;Test that flash messages and redirects are set correctly in your controller actions.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UsersControllerTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should create user and set flash message&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_difference&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;User.count&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;params: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;assert_equal&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;User successfully created&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:notice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_redirected_to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;running-controller-tests&quot;&gt;Running Controller Tests&lt;/h3&gt;
+
+&lt;p&gt;You can run controller tests using the command-line interface provided by Rails. 
+Execute all tests in your application or selectively run specific tests based on 
+file or line numbers. Integration with continuous integration tools allows for 
+automated test execution.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;best-practices-for-rails-controller-testing&quot;&gt;Best Practices for Rails Controller Testing&lt;/h3&gt;
+
+&lt;p&gt;Follow these best practices to write effective and maintainable controller 
+tests in Rails:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Keep tests focused and concise: Each test should focus on a specific controller 
+action and its expected behavior.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use descriptive test names: Clear and descriptive test names help convey the 
+purpose and intention of each test case.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Test both success and failure scenarios: Ensure that your controller tests 
+cover both successful and failure cases.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mock or stub external dependencies: Use mocking or stubbing techniques to 
+isolate the controller tests from external dependencies like models or services.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use test doubles for complex interactions: When testing complex controller 
+interactions, use test doubles (such as mocks or spies) to verify the expected behavior.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Update and maintain tests: As your application evolves, update your controller 
+tests to reflect changes in functionality or requirements.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Controller testing is crucial for verifying the behavior and functionality of 
+your Rails controllers. By following the guidelines outlined in this comprehensive 
+guide, you can effectively test your controllers, ensuring the correct actions 
+are performed, request parameters are processed properly, and responses are 
+generated as expected. Thoroughly tested controllers enhance the reliability and 
+maintainability of your application, providing confidence in its functionality. 
+Embrace the power of controller testing in Rails and elevate the quality of your 
+software development process.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Rails Unit Testing</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-unit-testing" rel="alternate" type="text/html" title="Rails Unit Testing" /><published>2023-05-27T15:30:00+03:00</published><updated>2023-05-27T15:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-unit-testing</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/rails-unit-testing">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Unit testing plays a vital role in software development, allowing developers to 
+verify the behavior and correctness of individual components in isolation. 
+In Ruby on Rails, unit testing focuses on testing models, ensuring their behavior, 
+validations, associations, callbacks, and custom methods are working as expected. 
+This section will walk you through the process of writing effective 
+unit tests for Rails models, covering various aspects of model testing.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;setting-up-the-test-environment&quot;&gt;Setting up the Test Environment&lt;/h3&gt;
+
+&lt;p&gt;To begin writing unit tests in Rails, it’s essential to set up the appropriate 
+testing environment. While Rails comes with the default “Test::Unit” framework, 
+many developers prefer using “RSpec” for its expressiveness and readability. 
+You can install RSpec by adding it to your Gemfile and running the necessary 
+commands. Additionally, Rails provides a separate test database to keep your 
+test data isolated from production and development databases.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;understanding-rails-unit-tests&quot;&gt;Understanding Rails Unit Tests&lt;/h3&gt;
+
+&lt;p&gt;Rails unit tests primarily focus on testing models, which represent tables in 
+the database and encapsulate the business logic and behavior of the corresponding 
+entities in your application. Unit tests allow you to verify the correctness of 
+model validations, associations, callbacks, and custom methods.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;writing-model-unit-tests&quot;&gt;Writing Model Unit Tests&lt;/h3&gt;
+
+&lt;p&gt;Model unit tests in Rails ensure the desired behavior and validity of your models. 
+Let’s explore some key aspects of model unit testing:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;a-validations&quot;&gt;a. Validations&lt;/h4&gt;
+
+&lt;p&gt;Test that the validations defined in your models are functioning correctly. 
+For instance, verify that required fields are indeed required or that specific 
+fields accept only valid data.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should not save user without a name&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Saved the user without a name&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should not save user with a duplicate name&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;existing_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Saved the user with a duplicate name&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;b-associations&quot;&gt;b. Associations&lt;/h4&gt;
+
+&lt;p&gt;Validate the associations between models by creating test cases that ensure the 
+associations are properly defined and working as expected.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should belong to a user&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;First Post&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_equal&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;user&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should have many comments&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;First Post&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;comment1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Comment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;content: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Great post!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;post: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;comment2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Comment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;content: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Well done!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;post: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_includes&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;comments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comment1&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_includes&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;comments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;comment2&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;c-custom-methods&quot;&gt;c. Custom Methods&lt;/h4&gt;
+
+&lt;p&gt;Write test cases to validate the behavior of custom methods in your models.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should return the full name&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;first_name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;last_name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Doe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_equal&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;John Doe&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;full_name&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;d-callbacks&quot;&gt;d. Callbacks&lt;/h4&gt;
+
+&lt;p&gt;Test any callbacks defined in your models to ensure they execute the intended 
+actions.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;test_helper&apos;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ProductTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TestCase&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;should set the default price on create&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;product&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Widget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;assert_equal&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;price&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;using-test-fixtures-or-factories&quot;&gt;Using Test Fixtures or Factories&lt;/h3&gt;
+
+&lt;p&gt;Test fixtures or factories are essential tools for generating test data in Rails 
+unit tests. Fixtures are predefined data snapshots stored in YAML files, while 
+factories provide a more flexible and dynamic way to generate test data. 
+Popular factory libraries like FactoryBot simplify the creation of test objects 
+with customizable attributes.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;running-unit-tests&quot;&gt;Running Unit Tests&lt;/h3&gt;
+
+&lt;p&gt;Rails provides a command-line interface for conveniently running unit tests. 
+You can execute all tests in your application or selectively run specific tests 
+based on file or line numbers. Integration with continuous integration tools 
+like Jenkins or Travis CI allows for automated test execution in your 
+development workflow.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;test-coverage-and-reporting&quot;&gt;Test Coverage and Reporting&lt;/h3&gt;
+
+&lt;p&gt;Maintaining good test coverage is crucial to ensure the effectiveness of your 
+tests. Tools like SimpleCov can be integrated into your test suite to generate 
+coverage reports, indicating which parts of your code are adequately tested and 
+identifying areas that require additional test cases.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;best-practices-for-rails-unit-testing&quot;&gt;Best Practices for Rails Unit Testing&lt;/h3&gt;
+
+&lt;p&gt;To write effective and maintainable unit tests in Rails, adhere to the following best practices:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Keep tests independent: Each unit test should be self-contained and not rely 
+on the state or results of other tests.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use descriptive test names: Clear and descriptive test names help convey the 
+purpose and intention of each test case.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Test behavior, not implementation: Focus on testing the expected behavior of 
+your models rather than the underlying implementation details.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Update and maintain tests: As your application evolves, update your unit tests 
+to reflect changes in functionality or requirements.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Balance speed and coverage: Aim for a good balance between test coverage and 
+execution speed. Some tests may be slower due to database interactions, so 
+prioritize critical areas.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Unit testing is a critical aspect of building reliable and robust Rails 
+applications. By following the guidelines outlined in this comprehensive guide, 
+you can effectively test your models in isolation, ensuring their behavior, 
+validations, associations, callbacks, and custom methods meet the expected 
+requirements. Thoroughly tested models enhance the stability and maintainability 
+of your application, providing confidence in its functionality. Embrace the 
+power of unit testing in Rails and elevate the quality of your software 
+development process.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Test-Driven Development (TDD): Building Quality Software through Automated Testing</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing" rel="alternate" type="text/html" title="Test-Driven Development (TDD): Building Quality Software through Automated Testing" /><published>2023-05-20T13:00:00+03:00</published><updated>2023-05-20T13:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/tdd-building-quality-software-through-automated-testing">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;Test-Driven Development (TDD) is a software development approach that emphasizes 
 writing tests before implementing the actual code. By following this iterative 
 and disciplined process, developers can create high-quality software with 
-improved design, maintainability, and reliability. This article explores the 
+improved design, maintainability, and reliability. This section explores the 
 principles, benefits, and best practices of Test-Driven Development.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -1129,454 +1810,6 @@ By using ActiveJob, we can offload long-running or resource-intensive tasks from
 the main request-response cycle, improving the performance and scalability of our 
 applications. With the support for retries, failures, and monitoring, ActiveJob 
 makes it easy to build robust and fault-tolerant background processing workflows.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Building a Scalable and Fault-tolerant Rails Application Architecture</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/building-a-scalable-and-fault-tolerant-rails-application-architecture.markdown" rel="alternate" type="text/html" title="Building a Scalable and Fault-tolerant Rails Application Architecture" /><published>2023-04-15T16:00:00+03:00</published><updated>2023-04-15T16:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/building-a-scalable%20and-fault-tolerant-rails-application-architecture.markdown</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/building-a-scalable-and-fault-tolerant-rails-application-architecture.markdown">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Rails is a popular web application framework that has been widely adopted by 
-developers for building scalable and fault-tolerant web applications. Building a 
-scalable and fault-tolerant Rails application architecture requires careful 
-planning and implementation to ensure that the application can handle increased 
-traffic and maintain uptime even in the face of unexpected failures.&lt;/p&gt;
-
-&lt;p&gt;In this article, we’ll explore some key considerations for building a scalable 
-and fault-tolerant Rails application architecture.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1--use-a-load-balancer&quot;&gt;1 . Use a Load Balancer&lt;/h3&gt;
-
-&lt;p&gt;One of the first things you should consider when building a scalable and fault-tolerant 
-Rails application architecture is the use of a load balancer. A load balancer 
-helps distribute incoming traffic evenly across multiple servers, ensuring that 
-no single server becomes overloaded.&lt;/p&gt;
-
-&lt;p&gt;There are several load balancers available for Rails applications, including 
-software-based solutions like HAProxy and NGINX, and cloud-based solutions like 
-AWS Elastic Load Balancer (ELB) and Google Cloud Load Balancing. Regardless of 
-which load balancer you choose, it’s important to configure it correctly to ensure 
-that it can handle increased traffic and failover to backup servers in the event 
-of a failure.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2--use-multiple-web-servers&quot;&gt;2 . Use Multiple Web Servers&lt;/h3&gt;
-
-&lt;p&gt;Another key component of a scalable and fault-tolerant Rails application architecture 
-is the use of multiple web servers. By deploying your Rails application across 
-multiple servers, you can ensure that your application can handle increased traffic 
-and maintain uptime even in the face of unexpected failures.&lt;/p&gt;
-
-&lt;p&gt;There are several ways to deploy a Rails application across multiple web servers, 
-including using a cloud-based infrastructure like AWS or Google Cloud Platform, 
-or using a container orchestration platform like Kubernetes or Docker Swarm.&lt;/p&gt;
-
-&lt;p&gt;Regardless of which deployment strategy you choose, it’s important to configure 
-your servers correctly to ensure that they can handle increased traffic and 
-failover to backup servers in the event of a failure.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3--use-a-database-replication-strategy&quot;&gt;3 . Use a Database Replication Strategy&lt;/h3&gt;
-
-&lt;p&gt;A database replication strategy is another key component of a scalable and 
-fault-tolerant Rails application architecture. By replicating your database across 
-multiple servers, you can ensure that your application can handle increased traffic 
-and maintain uptime even in the face of unexpected failures.&lt;/p&gt;
-
-&lt;p&gt;There are several database replication strategies available for Rails applications, 
-including master-slave replication and multi-master replication. Regardless of 
-which replication strategy you choose, it’s important to configure your database 
-servers correctly to ensure that they can handle increased traffic and failover 
-to backup servers in the event of a failure.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;4--use-caching&quot;&gt;4 . Use Caching&lt;/h3&gt;
-
-&lt;p&gt;Caching is another important component of a scalable and fault-tolerant Rails 
-application architecture. By caching frequently accessed data, you can reduce the 
-load on your servers and improve application performance.&lt;/p&gt;
-
-&lt;p&gt;There are several caching strategies available for Rails applications, including 
-in-memory caching, file-based caching, and distributed caching using tools like 
-Redis or Memcached. Regardless of which caching strategy you choose, it’s important 
-to configure your caching layer correctly to ensure that it can handle increased 
-traffic and failover to backup servers in the event of a failure.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;5--choose-the-right-infrastructure-provider&quot;&gt;5 . Choose The Right Infrastructure Provider&lt;/h3&gt;
-
-&lt;p&gt;Cloud providers like AWS, Google Cloud Platform, and Microsoft Azure offer a wide 
-range of tools and services that can help you build a highly available and scalable 
-architecture. These cloud providers offer tools like load balancers, auto-scaling 
-groups, and managed databases that can help you quickly and easily scale your 
-application as needed.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;6--use-a-microservices-architecture&quot;&gt;6 . Use a Microservices Architecture&lt;/h3&gt;
-
-&lt;p&gt;With a microservices architecture, your application is broken down into smaller, 
-independent services, each with its own database and API. This allows you to scale 
-individual services as needed, and also makes it easier to troubleshoot and debug 
-issues when they arise.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;7--monitor-and-analyze-application-performance&quot;&gt;7 . Monitor and Analyze Application Performance&lt;/h3&gt;
-
-&lt;p&gt;Finally, it’s important to monitor and analyze the performance of your Rails 
-application on an ongoing basis. By tracking key performance metrics like response 
-time, throughput, and error rate, you can identify potential performance bottlenecks 
-and take action to address them before they impact application availability.&lt;/p&gt;
-
-&lt;p&gt;There are several monitoring and analysis tools available for Rails applications, 
-including New Relic, AppSignal, and Scout. Regardless of which tool you choose, 
-it’s important to configure it correctly and regularly review performance metrics 
-to ensure that your application is running smoothly.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;In conclusion, building a scalable and fault-tolerant Rails application architecture 
-requires careful planning, implementation, and ongoing monitoring. By using a load 
-balancer, deploying multiple web servers, implementing a database replication 
-strategy, using caching, and monitoring application performance, you can ensure 
-that your application can handle increased traffic and maintain uptime even in 
-the face of unexpected failures. Additionally, choosing the right infrastructure 
-provider and using a microservices architecture can help you quickly and easily 
-scale your application as needed.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Optimizing Database Performance in Rails: Tips and Tricks</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails" rel="alternate" type="text/html" title="Optimizing Database Performance in Rails: Tips and Tricks" /><published>2023-04-08T10:00:00+03:00</published><updated>2023-04-08T10:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/optimizing-database-performance-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;As your Rails application grows, database performance can become a bottleneck. 
-Slow queries and inefficient database operations can negatively impact the user 
-experience and make your application feel sluggish. In this article, we will discuss 
-tips and tricks for optimizing database performance in Rails.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;1-use-indexes&quot;&gt;1. Use indexes&lt;/h3&gt;
-
-&lt;p&gt;Indexes can significantly improve query performance. Ensure that the columns 
-commonly used in WHERE clauses, JOINs, and ORDER BY clauses are indexed. 
-To create an index, you can use the Rails migration generator:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;add_index&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will create an index on the email column of the users table.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;2-avoid-n1-queries&quot;&gt;2. Avoid N+1 queries&lt;/h3&gt;
-
-&lt;p&gt;N+1 queries occur when a query is executed for each record in a collection. 
-This can lead to a large number of queries and significantly slow down your application. 
-Use eager loading to preload associated records and avoid this issue. 
-You can use the includes method to eager load associations:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;includes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:posts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will preload the posts association for all User records in a single query.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;3-use-caching&quot;&gt;3. Use caching&lt;/h3&gt;
-
-&lt;p&gt;Caching can improve performance by reducing the number of queries made to the database. 
-Consider using Rails caching mechanisms like fragment caching, low-level caching, 
-and page caching. You can use the cache method to cache fragments of views:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;cache&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- user profile content --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will cache the user profile content for the specified user.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;4-use-database-specific-features&quot;&gt;4. Use database-specific features&lt;/h3&gt;
-
-&lt;p&gt;Different databases have specific features that can be used to optimize performance. 
-For example, PostgreSQL has full-text search capabilities, while MySQL has spatial 
-data indexing. Use these features to your advantage when building your application.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;5-use-database-connection-pooling&quot;&gt;5. Use database connection pooling&lt;/h3&gt;
-
-&lt;p&gt;Connection pooling can improve database performance by reusing database connections 
-rather than creating new ones for each request. You can use the connection_pool 
-method to manage database connections:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connection_pool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;with_connection&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# database operation&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will ensure that the database connection is reused for subsequent database operations.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;6-optimize-queries&quot;&gt;6. Optimize queries&lt;/h3&gt;
-
-&lt;p&gt;Write efficient queries that use appropriate SELECT statements, WHERE clauses, and JOINs. 
-Avoid using complex ORMs for complex queries, as they can be slow and inefficient. 
-Consider writing custom SQL queries instead.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;7-use-pagination&quot;&gt;7. Use pagination&lt;/h3&gt;
-
-&lt;p&gt;Limit the number of records returned by a query by using pagination. 
-This can significantly improve performance for large datasets. You can use the 
-&lt;span class=&quot;badge&quot;&gt;will_paginate&lt;/span&gt; gem to implement pagination:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;paginate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;page: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;per_page: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will limit the number of User records returned to 10 per page.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;8-monitor-database-performance&quot;&gt;8. Monitor database performance&lt;/h3&gt;
-
-&lt;p&gt;Use tools like New Relic or Scout to monitor database performance and identify 
-slow queries or other performance bottlenecks. This will help you identify areas 
-of your application that need optimization.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;9-use-background-processing&quot;&gt;9. Use background processing&lt;/h3&gt;
-
-&lt;p&gt;Move expensive database operations, like sending emails or generating reports, 
-to background jobs using tools like Sidekiq or Resque. This will improve the overall 
-performance of your application by offloading CPU-intensive tasks to a separate process.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;In conclusion, optimizing database performance is an important aspect of building 
-a high-performance Rails application. By following these tips and tricks, you can 
-improve the performance of your application and provide a better user experience for your users.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Common Vulnerabilities and Best Practices for Rails Security</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security" rel="alternate" type="text/html" title="Common Vulnerabilities and Best Practices for Rails Security" /><published>2023-04-01T18:30:00+03:00</published><updated>2023-04-01T18:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/common-vulnerabilities-and-best-practices-for-rails-security">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Ruby on Rails is a powerful and popular web development framework that has gained 
-a reputation for being secure. However, like any web application, a Rails app is 
-vulnerable to security attacks if it is not properly secured. Rails security is 
-a vast topic, but there are some common vulnerabilities and best practices that 
-you should be aware of to make your application secure.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;common-rails-security-vulnerabilities&quot;&gt;Common Rails Security Vulnerabilities&lt;/h3&gt;
-
-&lt;p&gt;1 . Cross-Site Scripting (XSS) Attacks: It is a type of security vulnerability 
-that allows an attacker to inject malicious code into a web page viewed by other users. 
-Rails has built-in protections against XSS attacks, but it is essential to 
-sanitize user input properly to prevent these attacks.&lt;/p&gt;
-
-&lt;p&gt;For example, consider a form where users can input their name. If the form does 
-not validate the input and sanitize it properly, an attacker can inject a malicious 
-script as their name, which can then execute on the user’s browser when the page loads. 
-Rails provides built-in sanitization methods like sanitize and strip_tags to prevent XSS attacks.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . SQL Injection Attacks: This type of attack occurs when an attacker inserts 
-malicious SQL code into a query. Rails provides built-in protection against SQL 
-injection attacks through Active Record. Still, it’s necessary to ensure that 
-user input is properly validated and sanitized.&lt;/p&gt;
-
-&lt;p&gt;For example, consider a form where users can search for products by entering keywords. 
-If the search form does not validate and sanitize the input properly, an attacker 
-can inject malicious SQL code into the query, which can then execute on the server 
-and potentially allow the attacker to access sensitive data. Rails provides 
-built-in protection against SQL injection attacks through parameterized queries.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Cross-Site Request Forgery (CSRF) Attacks: In this type of attack, the attacker 
-tricks the user into performing an action without their consent. Rails provides 
-built-in protection against CSRF attacks through CSRF tokens.&lt;/p&gt;
-
-&lt;p&gt;For example, consider a form where users can update their account information. 
-If the form does not include a CSRF token, an attacker can trick the user into 
-submitting the form by luring them to a malicious website that sends the form 
-data to the server. Rails provides built-in protection against CSRF attacks by 
-generating a unique CSRF token for each form and requiring it to be included in the form data.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;best-practices-for-rails-security&quot;&gt;Best Practices for Rails Security:&lt;/h3&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;Input validation and sanitization: You should always validate and sanitize user 
-input to prevent security vulnerabilities like XSS and SQL injection attacks. 
-Rails provides built-in sanitization methods like sanitize and strip_tags to 
-prevent XSS attacks, and parameterized queries to prevent SQL injection attacks.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Use strong authentication and authorization: Implementing strong authentication 
-and authorization practices can help protect your Rails app against unauthorized access. 
-Use strong passwords and hash them properly to prevent password-related attacks. 
-You can use libraries like Devise or Authlogic to implement authentication and authorization in your Rails app.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Use HTTPS: Always use HTTPS to ensure that data transmitted between the server 
-and the client is encrypted. Use libraries like OpenSSL to configure HTTPS in your Rails app.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Keep your Rails app up-to-date: Regularly update your Rails app and its 
-dependencies to ensure that any security vulnerabilities are patched. You can use 
-libraries like Bundler and Dependabot to manage your app’s dependencies.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Use third-party libraries judiciously: Always check the reputation of third-party 
-libraries before using them in your Rails app. Use libraries that have a good 
-track record, are well-maintained, and have been reviewed by the community.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;In conclusion, Rails security is a complex topic that requires constant vigilance. 
-By following best practices and regularly updating your app, you can make your 
-Rails application secure against common security vulnerabilities. Always validate&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Caching in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails" rel="alternate" type="text/html" title="Caching in Rails" /><published>2023-03-26T11:40:00+03:00</published><updated>2023-03-26T11:40:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202303/caching-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Rails provides several types of caching to help improve the performance of your 
-application. The three most commonly used types of caching are fragment caching, 
-action caching, and HTTP caching. Let’s take a closer look at each type of caching 
-and when to use it.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;page-caching&quot;&gt;Page Caching&lt;/h3&gt;
-
-&lt;p&gt;Page caching is the simplest form of caching available in Rails 7. It involves 
-saving the entire HTML response of a page to a file and serving the same file for 
-subsequent requests. This type of caching is useful for pages that don’t have any 
-dynamic content, such as homepages, about us pages, or other static pages.&lt;/p&gt;
-
-&lt;p&gt;To enable page caching, you can use the caches_page method in your controller, like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HomeController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;caches_page&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:index&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# code to render the page&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-In this example, the &lt;span class=&quot;badge&quot;&gt;caches_page&lt;/span&gt; method caches the 
-HTML response for the &lt;span class=&quot;badge&quot;&gt;index&lt;/span&gt; action of the 
-&lt;span class=&quot;badge&quot;&gt;HomeController&lt;/span&gt; class. Whenever a user requests 
-the &lt;span class=&quot;badge&quot;&gt;index&lt;/span&gt; page, Rails will serve the cached HTML 
-response instead of rendering the page again.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;fragment-caching&quot;&gt;Fragment Caching:&lt;/h3&gt;
-
-&lt;p&gt;Fragment caching is used to cache parts of a view that are expensive to generate. 
-For example, if you have a page that includes a list of articles and each article 
-has many comments, rendering the page may take a long time if you have to load 
-all the comments for each article on every request. To speed up the rendering process, 
-you can use fragment caching to cache the comments for each article separately.&lt;/p&gt;
-
-&lt;p&gt;To use fragment caching, wrap the expensive code in a cache block like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;cache&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;article.comments&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%=&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;article.comments&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will cache the output of the expensive code and use it on subsequent requests, 
-avoiding the need to regenerate it each time. In this example, the comments for 
-each article are cached separately, so if a new comment is added to one of the articles, 
-only the cached fragment for that article will be invalidated.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;action-caching&quot;&gt;Action Caching:&lt;/h3&gt;
-
-&lt;p&gt;Action Caching works like Page Caching except the incoming web request hits the 
-Rails stack so that &lt;span class=&quot;badge&quot;&gt;before&lt;/span&gt; filters can be run on it 
-before the cache is served.&lt;/p&gt;
-
-&lt;p&gt;This ensures that any actions needing to take place before the cached copy is hit 
-can be performed. Therefore increasing performance while taking into account the 
-functionality required to access parts of your application.&lt;/p&gt;
-
-&lt;p&gt;Suppose you have a before filter that checks whether the user is authorized to 
-view the article. If the user is authorized, the cached copy of the article is 
-served, and if the user is not authorized, the before filter redirects the user 
-to the login page.&lt;/p&gt;
-
-&lt;p&gt;Here’s an example of how you can use Action Caching in your Rails 7 application:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArticlesController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:authenticate_user!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;except: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@article&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Article&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# ... other code to render the article page ...&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;cache_action&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;current_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;admin?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cache_action&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Cache-Control&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;public, max-age=300&apos;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;expires_in&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;minutes&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-In this example, we have a &lt;span class=&quot;badge&quot;&gt;before_action :authenticate_user!&lt;/span&gt;, 
-which ensures that only authenticated users can view the article. In the show 
-action, we use cache_action to cache the output of the action for 5 minutes, 
-but only if the current user is not an admin. This ensures that non-admin users 
-get the cached copy of the article, and the before_filter 
-&lt;span class=&quot;badge&quot;&gt;:authenticate_user!&lt;/span&gt; is executed before serving the cached copy.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;http-caching&quot;&gt;HTTP Caching:&lt;/h3&gt;
-
-&lt;p&gt;HTTP caching is used to cache responses from the server and avoid unnecessary 
-network requests. For example, if you have a page that displays a list of products, 
-you can use HTTP caching to allow the client to cache the response and avoid 
-downloading unnecessary data.&lt;/p&gt;
-
-&lt;p&gt;To use HTTP caching, add the following code to your controller action:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@products&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;fresh_when&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;last_modified: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@products&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;maximum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:updated_at&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;public: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will set the &lt;span class=&quot;badge&quot;&gt;Last-Modified&lt;/span&gt; and 
-&lt;span class=&quot;badge&quot;&gt;ETag&lt;/span&gt; headers on the response, allowing the 
-client to make conditional requests and avoid downloading unnecessary data. 
-In this example, the response will be cached based on the 
-&lt;span class=&quot;badge&quot;&gt;last_modified&lt;/span&gt; timestamp of the products, so if a new 
-product is added or an existing product is updated, the cached response will be 
-invalidated and regenerated.&lt;/p&gt;
-
-&lt;p&gt;In addition to these types of caching, Rails also provides other caching mechanisms 
-like low-level caching and Russian doll caching. Low-level caching is used to cache 
-arbitrary objects, such as database queries or API responses. Russian doll caching 
-is used to cache nested fragments of a view, which can be useful when you have 
-complex views with many nested elements.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;When using caching in your Rails application, it’s important to consider the 
-trade-offs between performance and complexity. Caching can significantly improve 
-the performance of your application, but it can also introduce some complexity 
-and potential issues, such as cache invalidation and cache consistency. 
-Be sure to test your application thoroughly with caching enabled and monitor its 
-performance to ensure that it’s working as expected.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry></feed>
