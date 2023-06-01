@@ -2,7 +2,7 @@
 layout: post
 title:  "Rails Integration Testing"
 author: Denis Kobare
-date:   2023-05-27 15:40:00 +0300
+date:   2023-06-01 15:40:00 +0300
 img: /assets/img/svg/ror.svg
 categories: frameworks
 sub_category: ruby-on-rails

@@ -2,7 +2,7 @@
 layout: post
 title:  "Rails Unit Testing"
 author: Denis Kobare
-date:   2023-05-27 15:30:00 +0300
+date:   2023-06-01 15:30:00 +0300
 img: /assets/img/svg/ror.svg
 categories: frameworks
 sub_category: ruby-on-rails
