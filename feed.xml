@@ -1,4 +1,651 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-06-01T15:58:16+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Rails System Testing</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202306/rails-system-testing" rel="alternate" type="text/html" title="Rails System Testing" /><published>2023-06-01T15:45:00+03:00</published><updated>2023-06-01T15:45:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202306/rails-system-testing</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202306/rails-system-testing">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2023-07-05T16:52:54+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Demystifying JavaScript Promises: A Powerful Asynchronous Programming Concept</title><link href="http://0.0.0.0:4000/category/programming/javascript/concepts/202307/demystifying-javascript-promises-a-powerful-asynchronous-programming-concept" rel="alternate" type="text/html" title="Demystifying JavaScript Promises: A Powerful Asynchronous Programming Concept" /><published>2023-07-05T16:00:00+03:00</published><updated>2023-07-05T16:00:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/javascript/concepts/202307/demystifying-javascript-promises-a-powerful-asynchronous-programming-concept</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/javascript/concepts/202307/demystifying-javascript-promises-a-powerful-asynchronous-programming-concept">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;JavaScript is a versatile programming language that powers the interactive web. 
+It allows developers to create dynamic and responsive applications by leveraging 
+various concepts and features. One of the most powerful and essential concepts 
+in JavaScript is Promises. Introduced in ECMAScript 6 (ES6), Promises simplify 
+asynchronous programming, enabling developers to handle complex operations with 
+ease. This section will delve into the world of JavaScript Promises, exploring 
+their purpose, usage, and benefits.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;understanding-asynchronous-programming&quot;&gt;Understanding Asynchronous Programming&lt;/h3&gt;
+
+&lt;p&gt;Before we dive into Promises, it’s crucial to understand the concept of 
+asynchronous programming. In JavaScript, asynchronous operations occur outside 
+the normal flow of the program. For example, fetching data from an API, reading 
+a file, or making an HTTP request are all asynchronous operations. Traditionally, 
+developers used callbacks to handle such operations, but they often led to 
+callback hell—a situation where nested callbacks become hard to read and maintain.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;introducing-promises&quot;&gt;Introducing Promises&lt;/h3&gt;
+
+&lt;p&gt;Promises offer a cleaner and more structured approach to handling asynchronous 
+operations. A Promise is an object that represents the eventual 
+completion (or failure) of an asynchronous operation and its resulting value. 
+It acts as a placeholder for a value that may not be available yet but will be 
+resolved in the future.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;the-promise-object-has-three-states&quot;&gt;The Promise object has three states:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pending: The initial state when the Promise is neither fulfilled nor rejected.&lt;/li&gt;
+  &lt;li&gt;Fulfilled: The state when the Promise is successfully resolved with a value.&lt;/li&gt;
+  &lt;li&gt;Rejected: The state when an error occurs, and the Promise is rejected with a reason.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;creating-a-promise&quot;&gt;Creating a Promise&lt;/h3&gt;
+
+&lt;p&gt;To create a Promise, we use the Promise constructor, which takes a single 
+argument—an executor function. The executor function, in turn, takes two 
+parameters: resolve and reject. Here’s an example:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Asynchronous operation&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// If successful, call resolve(value)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// If error occurs, call reject(error)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;consuming-promises&quot;&gt;Consuming Promises&lt;/h3&gt;
+
+&lt;p&gt;Once a Promise is created, we can consume it using the &lt;span class=&quot;badge&quot;&gt;then()&lt;/span&gt; and &lt;span class=&quot;badge&quot;&gt;catch()&lt;/span&gt; methods. 
+The &lt;span class=&quot;badge&quot;&gt;then()&lt;/span&gt; method is called when the Promise is fulfilled, and it takes a 
+callback function as an argument. The &lt;span class=&quot;badge&quot;&gt;catch()&lt;/span&gt; method is called when the Promise 
+is rejected, allowing us to handle errors. Here’s an example:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Promise fulfilled&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Promise rejected&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;chaining-promises&quot;&gt;Chaining Promises&lt;/h3&gt;
+
+&lt;p&gt;One of the significant advantages of Promises is their ability to chain multiple 
+asynchronous operations. The &lt;span class=&quot;badge&quot;&gt;then()&lt;/span&gt; method returns a new Promise, allowing us to 
+chain it with additional &lt;span class=&quot;badge&quot;&gt;then()&lt;/span&gt; calls. This creates a more readable and maintainable 
+code structure. Here’s an example:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;fetchData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;processData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;benefits-of-promises&quot;&gt;Benefits of Promises&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improved Readability: Promises provide a more readable and structured way of handling asynchronous operations, avoiding callback hell.&lt;/li&gt;
+  &lt;li&gt;Error Handling: Promises simplify error handling by centralizing it in a single &lt;span class=&quot;badge&quot;&gt;catch()&lt;/span&gt; block.&lt;/li&gt;
+  &lt;li&gt;Chaining: Promises enable us to chain multiple asynchronous operations, resulting in cleaner and more maintainable code.&lt;/li&gt;
+  &lt;li&gt;Compatibility: Promises are widely supported in modern JavaScript environments, making them a reliable choice for asynchronous programming.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;JavaScript Promises have revolutionized asynchronous programming in JavaScript. 
+By providing a clean and structured approach to handling asynchronous operations, 
+Promises have significantly improved code readability, error handling, and overall 
+developer productivity. As you delve deeper into JavaScript, mastering Promises 
+will empower you to create more efficient and responsive web applications. 
+Embrace the power of Promises and unlock the full potential of JavaScript’s 
+asynchronous nature.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry><entry><title type="html">Understanding Closures in JavaScript</title><link href="http://0.0.0.0:4000/category/programming/javascript/concepts/202307/understanding-closures-in-javaScript" rel="alternate" type="text/html" title="Understanding Closures in JavaScript" /><published>2023-07-05T16:00:00+03:00</published><updated>2023-07-05T16:00:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/javascript/concepts/202307/understanding-closures-in-javaScript</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/javascript/concepts/202307/understanding-closures-in-javaScript">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;JavaScript is a versatile and dynamic programming language widely used for web 
+development. Its rich set of features and functionalities have empowered developers 
+to create robust and interactive web applications. Among its many powerful 
+concepts, closures stand out as a fundamental and unique aspect of JavaScript. 
+Understanding closures is crucial for writing clean, efficient, and maintainable 
+code. In this section, we will delve into the concept of closures, exploring 
+their definition, how they work, and practical use cases.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;what-are-closures&quot;&gt;What are Closures?&lt;/h3&gt;
+
+&lt;p&gt;In JavaScript, closures are a fundamental aspect of its lexical scope system. A 
+closure is an inner function that has access to its own scope, the outer 
+function’s scope, and the global scope. This means that the inner function 
+“closes over” variables and functions defined in its outer function, enabling it 
+to retain access to them even after the outer function has finished executing.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;how-closures-work&quot;&gt;How Closures Work&lt;/h3&gt;
+
+&lt;p&gt;To better comprehend closures, let’s look at a simple example:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;outerFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;outerVariable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;I am from the outer function!&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;innerFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;outerVariable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;innerFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;closureExample&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;outerFunction&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;closureExample&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Output: &quot;I am from the outer function!&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+In the example above, the &lt;span class=&quot;badge&quot;&gt;outerFunction&lt;/span&gt; contains an inner function &lt;span class=&quot;badge&quot;&gt;innerFunction&lt;/span&gt;. When &lt;span class=&quot;badge&quot;&gt;outerFunction&lt;/span&gt; is called, it creates a new scope and defines a variable &lt;span class=&quot;badge&quot;&gt;outerVariable&lt;/span&gt; within it. The &lt;span class=&quot;badge&quot;&gt;innerFunction&lt;/span&gt;, which is returned by &lt;span class=&quot;badge&quot;&gt;outerFunction&lt;/span&gt;, retains a reference to the outerVariable, forming a closure. Consequently, even after &lt;span class=&quot;badge&quot;&gt;outerFunction&lt;/span&gt; has finished executing, &lt;span class=&quot;badge&quot;&gt;innerFunction&lt;/span&gt; can still access and utilize the &lt;span class=&quot;badge&quot;&gt;outerVariable&lt;/span&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;benefits-of-closures&quot;&gt;Benefits of Closures&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Encapsulation: Closures enable encapsulation of data and logic, preventing 
+variable and function pollution in the global scope. This ensures better code 
+organization and reduces the likelihood of naming conflicts.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Private Data: By using closures, developers can create private variables 
+accessible only within the closure’s scope. This facilitates information hiding 
+and enhances data security.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Function Factories: Closures enable the creation of function factories, which 
+produce customized functions based on different input parameters. This pattern is 
+particularly useful when generating event handlers or callbacks.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Asynchronous Operations: Closures play a significant role in handling asynchronous 
+operations. Functions like setTimeout, setInterval, and event listeners often rely 
+on closures to retain context and data when their execution is deferred.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Common Use Cases&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Module Pattern: Closures are the foundation of the Module Pattern, a design 
+pattern used for creating self-contained, reusable, and maintainable modules in 
+JavaScript.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Event Handling: Closures are widely used to manage event handlers, allowing 
+them to access specific data relevant to the event.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Memoization: Closures can be leveraged for implementing memoization, a technique 
+to cache expensive function calls and optimize performance.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Closures are a powerful concept in JavaScript that facilitates encapsulation, 
+data privacy, and function factories. They play a crucial role in handling 
+asynchronous operations and offer various practical applications like the Module 
+Pattern and memoization. Understanding closures empowers developers to write 
+cleaner and more efficient code while taking advantage of the full potential of 
+JavaScript’s lexical scope system. As you continue to enhance your JavaScript 
+skills, embrace the power of closures and unlock new possibilities in your web 
+development journey.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry><entry><title type="html">Object-Oriented Programming in Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202307/oop-in-ruby" rel="alternate" type="text/html" title="Object-Oriented Programming in Ruby" /><published>2023-07-05T14:30:00+03:00</published><updated>2023-07-05T14:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202307/oop-in-ruby</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202307/oop-in-ruby">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Ruby is renowned for its simplicity and elegance, and one of its standout features 
+is its support for object-oriented programming (OOP). In this article, we will 
+delve deeper into the world of object-oriented programming in Ruby, exploring 
+advanced concepts and techniques that will empower you to write more robust and modular code.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;understanding-object-oriented-programming&quot;&gt;Understanding Object-Oriented Programming&lt;/h3&gt;
+
+&lt;p&gt;Object-Oriented Programming (OOP) is a programming paradigm that organizes data 
+and behaviors into reusable structures called objects. The fundamental concepts 
+of OOP are encapsulation, inheritance, and polymorphism. Let’s explore these 
+concepts in detail:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-encapsulation&quot;&gt;1. Encapsulation&lt;/h3&gt;
+&lt;p&gt;Encapsulation is the process of bundling data and related behaviors (methods) 
+together within an object. It provides access to data through well-defined 
+interfaces while hiding the internal implementation details. In Ruby, 
+encapsulation is achieved using instance variables (prefixed with @) and 
+accessor methods (attr_reader, attr_writer, or attr_accessor).&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BankAccount&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:balance&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;balance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;balance&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deposit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;withdraw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@balance&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@balance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;amount&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Insufficient funds.&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Creating an object&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;BankAccount&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;deposit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;withdraw&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Current balance: $&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;balance&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-inheritance&quot;&gt;2. Inheritance&lt;/h3&gt;
+
+&lt;p&gt;Inheritance is a mechanism that allows classes to inherit attributes and behaviors 
+from a parent class. The child class, also known as the subclass or derived class, 
+can extend or override the functionality inherited from the parent class. 
+In Ruby, single inheritance is supported, meaning a class can inherit from only 
+one parent class.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Animal&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;speak&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;The animal makes a sound.&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Dog&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Animal&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;speak&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;The dog barks.&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Animal&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;speak&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;The cat meows.&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Creating objects&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;animal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Animal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;animal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;speak&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# Output: The animal makes a sound.&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dog&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Dog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;speak&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# Output: The dog barks.&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Cat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;speak&lt;/span&gt;      &lt;span class=&quot;c1&quot;&gt;# Output: The cat meows.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-polymorphism&quot;&gt;3. Polymorphism&lt;/h3&gt;
+
+&lt;p&gt;Polymorphism allows objects of different classes to be treated as if they belong 
+to a common superclass. It enables the use of a single interface to represent 
+multiple types. Polymorphism can be achieved through method overriding and 
+method overloading.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Vehicle&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;start_engine&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Engine starting...&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Car&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Vehicle&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;start_engine&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Car engine starting...&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Vehicle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;vehicle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;start_engine&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# Output: Engine starting...&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;car&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;start_engine&lt;/span&gt;       &lt;span class=&quot;c1&quot;&gt;# Output: Car engine starting...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;advanced-object-oriented-concepts&quot;&gt;Advanced Object-Oriented Concepts:&lt;/h3&gt;
+
+&lt;h4 id=&quot;i-method-overriding&quot;&gt;i). Method Overriding&lt;/h4&gt;
+
+&lt;p&gt;Method overriding occurs when a subclass provides its own implementation of 
+a method that is already defined in its superclass. The overridden method in 
+the subclass is invoked instead of the superclass method when the method is 
+called on an object of the subclass. This allows for specialized behavior in 
+subclasses.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;ii-modules-and-mixins&quot;&gt;ii). Modules and Mixins&lt;/h4&gt;
+
+&lt;p&gt;Modules are a way to package together methods, constants, and other module 
+declarations. They serve as a mechanism for code reuse and provide a means 
+of multiple inheritance in Ruby. Modules can be included in classes using 
+the include keyword, enabling the class to access the methods defined in the 
+module. Mixins are a specific use case of modules, allowing multiple classes 
+to share a common set of methods.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Greetings&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;greet&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello!&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Greetings&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Robot&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Greetings&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;greet&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# Output: Hello!&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;robot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Robot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;robot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;greet&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;# Output: Hello!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Object-Oriented Programming in Ruby empowers you to write modular, maintainable, 
+and reusable code. By mastering concepts such as encapsulation, inheritance, 
+polymorphism, method overriding, modules, abstract classes, and class methods, 
+you can take full advantage of Ruby’s object-oriented capabilities. Experiment 
+with these concepts and techniques to build elegant and powerful applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry><entry><title type="html">Ruby’s Blocks: Functional Programming in Action</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202307/rubys-blocks-functional-programming-in-action" rel="alternate" type="text/html" title="Ruby’s Blocks: Functional Programming in Action" /><published>2023-07-05T14:30:00+03:00</published><updated>2023-07-05T14:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202307/rubys-blocks-functional-programming-in-action</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202307/rubys-blocks-functional-programming-in-action">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Ruby, a dynamic and versatile programming language, embraces a wide range of 
+programming paradigms. One of the paradigms that Ruby excels in is functional 
+programming, thanks to its support for blocks. Blocks provide a powerful and 
+expressive way to encapsulate behavior and pass it around as a first-class object. 
+This section will explore the concept of blocks in Ruby, understanding 
+their syntax, usage, and how they contribute to the functional programming 
+capabilities of the language.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;understanding-blocks&quot;&gt;Understanding Blocks&lt;/h3&gt;
+
+&lt;p&gt;In Ruby, a block is a self-contained chunk of code that can be passed around as 
+an argument to a method. Blocks are primarily used for their ability to encapsulate 
+behavior and allow it to be executed at a later time or in a different context. 
+They are characterized by their braces ({}) or the do..end keywords.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-syntax-and-invocation&quot;&gt;1. Syntax and Invocation&lt;/h4&gt;
+
+&lt;p&gt;To create a block in Ruby, we enclose the code within braces or the do..end 
+keywords. For example:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+In the above example, the block puts “Hello, World!” is executed three times.&lt;/p&gt;
+
+&lt;p&gt;Blocks are typically invoked using methods that accept blocks as arguments. The 
+invoking method can execute the block once or multiple times, passing necessary 
+data to it.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-capturing-and-manipulating-blocks&quot;&gt;2. Capturing and Manipulating Blocks&lt;/h4&gt;
+
+&lt;p&gt;Ruby provides a special syntax to capture and work with blocks inside methods. 
+By using the yield keyword, methods can execute the block passed to them. The 
+yield statement transfers control to the block, allowing it to execute.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;greet&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello,&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Nice to meet you!&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;greet&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Ruby&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+In the above example, the greet method captures the block and executes it using 
+the yield keyword. The output will be:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Ruby&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Nice&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;meet&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3-higher-order-functions&quot;&gt;3. Higher-Order Functions&lt;/h4&gt;
+
+&lt;p&gt;Blocks enable the implementation of higher-order functions, which are functions 
+that can accept other functions (blocks) as arguments or return them as results. 
+Higher-order functions empower developers to write concise and reusable code by 
+abstracting behavior.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perform_operation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;addition&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;perform_operation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+In the above example, the &lt;span class=&quot;badge&quot;&gt;perform_operation&lt;/span&gt; method accepts a block 
+(in this case, a proc) and performs the operation specified by the block. 
+The output will be 8, the result of the addition operation.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;practical-applications&quot;&gt;Practical Applications&lt;/h3&gt;
+
+&lt;p&gt;The usage of blocks in Ruby opens up a wide range of practical applications:&lt;/p&gt;
+
+&lt;h4 id=&quot;1-iteration-and-enumerable-methods&quot;&gt;1. Iteration and Enumerable Methods&lt;/h4&gt;
+
+&lt;p&gt;Blocks are extensively used in Ruby for iteration purposes. Enumerable methods, 
+such as each, map, select, and reduce, accept blocks to define the behavior 
+applied to each element in a collection. This approach enables concise and 
+expressive code for iterating over data structures.&lt;/p&gt;
+
+&lt;h4 id=&quot;2-callbacks-and-hooks&quot;&gt;2. Callbacks and Hooks&lt;/h4&gt;
+
+&lt;p&gt;Blocks provide a convenient mechanism for implementing callbacks and hooks in Ruby. 
+Frameworks and libraries leverage blocks to allow developers to define custom 
+behavior that will be executed at specific points during program execution. 
+This flexibility enables extensibility and customization in various software components.&lt;/p&gt;
+
+&lt;h4 id=&quot;3-domain-specific-languages-dsls&quot;&gt;3. Domain-Specific Languages (DSLs)&lt;/h4&gt;
+
+&lt;p&gt;Blocks are the building blocks (pun intended) for creating DSLs in Ruby. By using 
+blocks, developers can design custom syntax that feels natural for a specific 
+domain. This allows domain experts to write code that is readable and closely 
+resembles the problem domain, enhancing productivity and maintainability.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Blocks in Ruby empower developers to embrace functional programming concepts, 
+providing a concise and expressive way to encapsulate behavior. With blocks, 
+Ruby becomes more than just an object-oriented language, enabling higher-order 
+functions, iteration, callbacks, and the creation of domain-specific languages. 
+Understanding and effectively utilizing blocks can significantly enhance your 
+Ruby programming skills, allowing you to write elegant and flexible code that 
+takes full advantage of the language’s functional programming capabilities.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry><entry><title type="html">Metaprograming in Ruby</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202307/metaprogramming-in-ruby" rel="alternate" type="text/html" title="Metaprograming in Ruby" /><published>2023-07-02T11:45:00+03:00</published><updated>2023-07-02T11:45:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202307/metaprogramming-in-ruby</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202307/metaprogramming-in-ruby">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Metaprogramming in Ruby empowers developers to write code that can modify itself 
+at runtime, opening up endless possibilities for creating dynamic and flexible 
+applications. In this section, we’ll embark on a journey through the fascinating 
+world of metaprogramming in Ruby, exploring key concepts and providing 
+implementation examples.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-metaclasses-extending-class-behavior-dynamically&quot;&gt;1. Metaclasses: Extending Class Behavior Dynamically&lt;/h3&gt;
+
+&lt;p&gt;Metaclasses are special classes in Ruby that define the behavior of other classes. 
+For example, you can dynamically add a class method, say_hello, to the Person 
+class using metaprogramming:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;singleton_class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class_eval&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hello&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello, everyone!&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;say_hello&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2-method_missing-gracefully-handling-missing-methods&quot;&gt;2. method_missing: Gracefully Handling Missing Methods&lt;/h3&gt;
+
+&lt;p&gt;The method_missing method gets called when a method is invoked that doesn’t exist 
+in an object. You can use method_missing to create a dynamic method dispatcher. 
+Here’s an example:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DynamicDispatcher&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;method_missing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;start_with?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;process_&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;process_dynamic_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;process_dynamic_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Implement custom logic based on the method name&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Processing dynamic method: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;dispatcher&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DynamicDispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;process_custom_action&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# This will invoke method_missing&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;3-define_method-generating-methods-at-runtime&quot;&gt;3. define_method: Generating Methods at Runtime&lt;/h3&gt;
+
+&lt;p&gt;The define_method method allows you to define methods dynamically at runtime. 
+Here’s an example of creating a dynamic attribute setter method:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DynamicAttributes&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@attributes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;define_attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;define_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute_name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;define_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DynamicAttributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;define_attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;John&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Output: John&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;4-building-dsls-creating-expressive-apis&quot;&gt;4. Building DSLs: Creating Expressive APIs&lt;/h3&gt;
+
+&lt;p&gt;Metaprogramming in Ruby is an excellent tool for building Domain-Specific 
+Languages (DSLs). Here’s an example of creating a simple DSL for defining routes 
+in a web framework:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Router&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@routes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;process_request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;404 Not Found&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;router&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/home&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Displaying home page&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;router&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;process_request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/home&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Output: Displaying home page&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;best-practices-and-considerations-metaprogramming-wisdom&quot;&gt;Best Practices and Considerations: Metaprogramming Wisdom&lt;/h3&gt;
+
+&lt;p&gt;While metaprogramming offers great power, it should be used judiciously. Best 
+practices include prioritizing code readability, avoiding excessive complexity, 
+and providing proper documentation when employing metaprogramming techniques.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Metaprogramming in Ruby unlocks a world of dynamic possibilities, allowing 
+developers to create flexible and expressive applications. By exploring metaclasses, 
+method_missing, define_method, and practical implementation examples, you have 
+the knowledge to harness the true potential of metaprogramming in Ruby. Experiment 
+responsibly, embrace best practices, and let the dynamic power of Ruby propel your 
+coding skills to new heights.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry><entry><title type="html">Rails System Testing</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202306/rails-system-testing" rel="alternate" type="text/html" title="Rails System Testing" /><published>2023-06-01T15:45:00+03:00</published><updated>2023-06-01T15:45:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202306/rails-system-testing</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202306/rails-system-testing">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
 
 &lt;p&gt;System testing is a critical aspect of ensuring the stability and reliability of 
 a Ruby on Rails application. It involves testing the application as a whole, 
@@ -796,1020 +1443,6 @@ and defects. TDD promotes collaboration, agility, and faster development cycles,
 leading to improved software products and customer satisfaction. Embrace TDD as 
 a core practice in your development process and experience the long-term benefits 
 it brings to your software projects.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Efficient Rails Testing: Ensuring Code Quality and Reliability</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/efficient-rails-testing-ensuring-code-quality-and-reliability" rel="alternate" type="text/html" title="Efficient Rails Testing: Ensuring Code Quality and Reliability" /><published>2023-05-20T12:00:00+03:00</published><updated>2023-05-20T12:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/efficient-rails-testing-ensuring-code-quality-and-reliability</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/efficient-rails-testing-ensuring-code-quality-and-reliability">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Testing is crucial for building robust software applications in Ruby on Rails. 
-Rails provides a comprehensive testing framework that simplifies the process, 
-allowing developers to verify code correctness, catch bugs early, and ensure 
-application stability. This section explores essential concepts and best 
-practices for efficient Rails testing.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;test-types-in-rails&quot;&gt;Test Types in Rails:&lt;/h3&gt;
-
-&lt;p&gt;Rails testing framework includes various types of tests, each serving a specific purpose:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Unit Tests: Focus on individual components like models, ensuring their isolated functionality.&lt;/li&gt;
-  &lt;li&gt;Functional Tests: Verify controller behavior, handling HTTP requests and responses.&lt;/li&gt;
-  &lt;li&gt;Integration Tests: Validate component interactions and how different parts work together.&lt;/li&gt;
-  &lt;li&gt;System Tests: Mimic real user interactions, including browser automation, to test end-to-end functionality.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;test-fixtures-and-factories&quot;&gt;Test Fixtures and Factories:&lt;/h3&gt;
-
-&lt;p&gt;Choose between fixtures and factories for testing data:&lt;/p&gt;
-
-&lt;p&gt;Fixtures: Provide pre-defined data.
-Factories: Generate dynamic test data using libraries like FactoryBot, offering 
-more flexibility and control.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;testing-tools&quot;&gt;Testing Tools:&lt;/h3&gt;
-
-&lt;p&gt;Rails incorporates various testing tools and frameworks:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Test::Unit: Default testing framework with a simple and intuitive syntax.&lt;/li&gt;
-  &lt;li&gt;RSpec: Popular alternative to Test::Unit, providing expressive and readable syntax.&lt;/li&gt;
-  &lt;li&gt;Capybara: Powerful library for integration and system testing, including browser automation.&lt;/li&gt;
-  &lt;li&gt;Shoulda Matchers: Simplify writing common test assertions, reducing boilerplate code.&lt;/li&gt;
-  &lt;li&gt;VCR: Record and replay HTTP interactions for offline testing and reducing dependencies.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;test-driven-development-tdd&quot;&gt;Test-Driven Development (TDD):&lt;/h3&gt;
-
-&lt;p&gt;TDD emphasizes writing tests before implementing code, ensuring quality and 
-providing quick feedback. Follow the “Red-Green-Refactor” cycle: write failing 
-tests, implement code to pass tests, and refactor for improvement.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;continuous-integration-ci&quot;&gt;Continuous Integration (CI):&lt;/h3&gt;
-
-&lt;p&gt;Integrate automated tests with CI systems like Jenkins, Travis CI, or CircleCI 
-to streamline the process. CI runs tests automatically on code changes, providing 
-timely feedback and catching issues early.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;testing-best-practices&quot;&gt;Testing Best Practices:&lt;/h3&gt;
-
-&lt;p&gt;Maximize Rails testing effectiveness with these practices:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Keep tests focused and concise, following the “Single Responsibility Principle.”&lt;/li&gt;
-  &lt;li&gt;Use descriptive test names to convey intent and purpose clearly.&lt;/li&gt;
-  &lt;li&gt;Utilize test coverage tools like SimpleCov for comprehensive test coverage.&lt;/li&gt;
-  &lt;li&gt;Practice TDD to guide development and enforce code quality.&lt;/li&gt;
-  &lt;li&gt;Use fixtures or factories to generate test data and isolate dependencies.&lt;/li&gt;
-  &lt;li&gt;Regularly update tests to align with application codebase changes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;Testing is essential in Rails development, ensuring stability, maintainability, 
-and overall quality. By understanding test types, utilizing appropriate tools, 
-practicing TDD, and embracing CI, developers can build reliable and robust Rails 
-applications. Following testing best practices instills confidence in code and 
-delivers high-quality software to users.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Building a Progressive Web App (PWA) with Rails: Offline Access and Push Notifications</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/building-a-progressive-web-app-with-rails-offline-access-and-push-notifications" rel="alternate" type="text/html" title="Building a Progressive Web App (PWA) with Rails: Offline Access and Push Notifications" /><published>2023-05-13T13:00:00+03:00</published><updated>2023-05-13T13:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/building-a-progressive-web-app-with-rails-offline-access-and-push-notifications</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202305/building-a-progressive-web-app-with-rails-offline-access-and-push-notifications">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;In recent years, Progressive Web Apps (PWAs) have gained significant popularity 
-among web developers and users alike. PWAs provide a seamless and engaging user 
-experience, combining the best features of web and mobile applications. They can 
-be accessed through web browsers and offer capabilities like offline access, push 
-notifications, and device integration. In this tutorial, we will explore how to 
-build a Progressive Web App with Rails, focusing on implementing PWA features 
-such as offline access and push notifications.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;benefits-of-progressive-web-apps-pwas&quot;&gt;Benefits of Progressive Web Apps (PWAs)&lt;/h3&gt;
-
-&lt;p&gt;Before diving into the implementation details, let’s understand the benefits of 
-building a Progressive Web App:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;1--cross-platform-compatibility&quot;&gt;1 . Cross-platform compatibility&lt;/h4&gt;
-&lt;p&gt;PWAs are built with web technologies such as HTML, CSS, and JavaScript, making 
-them compatible across various platforms and devices. They work on both desktop 
-and mobile devices, eliminating the need to develop separate applications for 
-different platforms.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;2--enhanced-user-experience&quot;&gt;2 . Enhanced user experience&lt;/h4&gt;
-&lt;p&gt;PWAs provide a native-like experience to users, with smooth animations, offline 
-access, and push notifications. They load quickly and respond instantly, even on 
-slower network connections, resulting in higher user engagement and satisfaction.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;3--offline-access&quot;&gt;3 . Offline access&lt;/h4&gt;
-&lt;p&gt;One of the standout features of PWAs is the ability to work offline. By utilizing 
-a combination of service workers and caching, PWAs can store and display content 
-even when the device is not connected to the internet. This ensures that users 
-can access and interact with the app regardless of their network status.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;4--push-notifications&quot;&gt;4 . Push notifications&lt;/h4&gt;
-&lt;p&gt;PWAs can send push notifications to users, allowing them to stay updated with new 
-content, alerts, or important information even when the app is not open. Push 
-notifications enable re-engagement and can significantly improve user retention 
-and conversion rates.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;5--app-like-behavior&quot;&gt;5 . App-like behavior&lt;/h4&gt;
-&lt;p&gt;PWAs can be installed on the user’s home screen, just like native mobile 
-applications, without the need to go through an app store. This provides easy 
-access and increases the visibility of your app to users. Additionally, PWAs can 
-access device features like cameras, geolocation, and sensors, enhancing their 
-functionality and versatility.&lt;/p&gt;
-
-&lt;p&gt;Now that we understand the benefits of PWAs, let’s move on to implementing PWA 
-features in a Rails application.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;implementing-offline-access&quot;&gt;Implementing Offline Access&lt;/h3&gt;
-
-&lt;p&gt;Offline access is a crucial feature of PWAs, as it allows users to access content 
-even when they are not connected to the internet. To implement offline access in 
-a Rails application, we’ll utilize service workers and caching.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;step-1-setting-up-a-service-worker&quot;&gt;Step 1: Setting up a Service Worker&lt;/h4&gt;
-
-&lt;p&gt;i). Create a new JavaScript file called service-worker.js in your Rails app’s 
-public directory.&lt;/p&gt;
-
-&lt;p&gt;ii). Add the following code to the service-worker.js file to register 
-the service worker:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;install&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;waitUntil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;caches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;your-app-cache&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
-        &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/assets/css/styles.css&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/assets/js/app.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// Add other assets you want to cache&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;respondWith&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;caches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;step-2-linking-the-service-worker-to-your-rails-application&quot;&gt;Step 2: Linking the Service Worker to Your Rails Application&lt;/h4&gt;
-
-&lt;p&gt;i). In your Rails application layout file (e.g., application.html.erb), add the 
-following code inside the &amp;lt;head&amp;gt; tag:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;serviceWorker&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;serviceWorker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/service-worker.js&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Service Worker registered with scope:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Service Worker registration failed:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;step-3-configuring-caching&quot;&gt;Step 3: Configuring Caching&lt;/h4&gt;
-
-&lt;p&gt;i). Open your Rails application’s config/initializers/assets.rb file.
-ii). Add the following code to configure caching for your assets:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;assets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;precompile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%w( service-worker.js )&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;assets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;register_transformer&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;text/cache-manifest&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;application/x-cache-manifest&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Sprockets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DirectiveProcessor&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;step-4-testing-offline-access&quot;&gt;Step 4: Testing Offline Access&lt;/h4&gt;
-
-&lt;p&gt;i). Start your Rails server by running rails server in your terminal.
-ii). Open your application in a web browser.
-iii). Use the browser’s developer tools to simulate offline mode.
-iv). Reload the page and verify that the cached assets are still being served.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Congratulations! You have successfully implemented offline access in your Rails 
-application using service workers and caching.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;implementing-push-notifications&quot;&gt;Implementing Push Notifications&lt;/h3&gt;
-
-&lt;p&gt;Push notifications are a powerful way to engage and re-engage users with your PWA. 
-To implement push notifications in a Rails application, we’ll utilize the Web 
-Push API and a service worker.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;step-1-setting-up-web-push&quot;&gt;Step 1: Setting up Web Push&lt;/h4&gt;
-
-&lt;p&gt;i). Generate VAPID keys by running the following command in your terminal:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;npx web-push generate-vapid-keys&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-ii). Take note of the generated public and private keys.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;step-2-configuring-the-rails-application&quot;&gt;Step 2: Configuring the Rails Application&lt;/h4&gt;
-
-&lt;p&gt;i). Install the webpush gem by adding it to your Gemfile and running bundle install.&lt;/p&gt;
-
-&lt;p&gt;ii). Create a new file called push_notifications_controller.rb and add the 
-following code:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PushNotificationsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;subscription&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:subscription&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;notification: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;New Notification&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;ss&quot;&gt;body: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;This is a push notification from your PWA!&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;ss&quot;&gt;icon: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;/assets/notification-icon.png&apos;&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;no&quot;&gt;Webpush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;payload_send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;endpoint: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subscription&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:endpoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;message: &lt;/span&gt;&lt;span class=&quot;no&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;generate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;p256dh: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subscription&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:p256dh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;auth: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subscription&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:auth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;vapid: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;ss&quot;&gt;subject: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;mailto:your@email.com&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;ss&quot;&gt;public_key: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;YOUR_VAPID_PUBLIC_KEY&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;ss&quot;&gt;private_key: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;YOUR_VAPID_PRIVATE_KEY&apos;&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Replace &lt;span class=&quot;badge&quot;&gt;YOUR_VAPID_PUBLIC_KEY&lt;/span&gt; and 
-&lt;span class=&quot;badge&quot;&gt;YOUR_VAPID_PRIVATE_KEY&lt;/span&gt; with the respective keys 
-generated in Step 1.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;step-3-adding-push-notification-ui&quot;&gt;Step 3: Adding Push Notification UI&lt;/h4&gt;
-
-&lt;p&gt;i). Create a view file called subscribe.html.erb and add the following code:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Subscribe to Push Notifications&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;subscribe-button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Subscribe&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;DOMContentLoaded&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;subscribeButton&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;subscribe-button&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-
-    &lt;span class=&quot;nx&quot;&gt;subscribeButton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;serviceWorker&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;PushManager&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;navigator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;serviceWorker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ready&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;serviceWorkerRegistration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;nx&quot;&gt;serviceWorkerRegistration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pushManager&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;userVisibleOnly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;na&quot;&gt;applicationServerKey&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;YOUR_VAPID_PUBLIC_KEY&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
-          &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;subscription&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/push_notifications&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-              &lt;span class=&quot;na&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-              &lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Content-Type&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;X-CSRF-Token&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;lt;%= form_authenticity_token %&amp;gt;&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
-              &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-              &lt;span class=&quot;na&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;subscription&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;subscription&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-          &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Error subscribing to push notifications:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-          &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
- &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;step-4-routing-and-csrf-protection&quot;&gt;Step 4: Routing and CSRF Protection&lt;/h4&gt;
-
-&lt;p&gt;i). Open your config/routes.rb file and add the following route:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;/push_notifications&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;to: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;push_notifications#create&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-ii). Make sure you have the protect_from_forgery method enabled in your 
-ApplicationController to provide CSRF protection.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;step-5-testing-push-notifications&quot;&gt;Step 5: Testing Push Notifications&lt;/h4&gt;
-
-&lt;p&gt;i). Start your Rails server by running rails server in your terminal.
-ii). Open your application in a web browser.
-iii). Navigate to the subscribe page (e.g., http://localhost:3000/subscribe).
-iv). Click the “Subscribe” button to subscribe to push notifications.
-v). Verify that the subscription details are being sent to the server and a push 
-notification is triggered.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Congratulations! You have successfully implemented push notifications in your 
-Rails application.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;In this tutorial, we explored the benefits of building a Progressive Web App with 
-Rails and learned how to implement PWA features such as offline access and push 
-notifications. By leveraging service workers, caching, and the Web Push API, we 
-were able to provide an enhanced user experience with offline access and real-time 
-push notifications. PWAs offer a powerful combination of web and mobile app 
-capabilities, providing cross-platform compatibility and engaging user experiences. 
-With the knowledge gained from this tutorial, you are now equipped to build your 
-own Progressive Web App with Rails and take advantage of the benefits it offers. Happy coding!&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Best Practices for Git Workflows and Branch Management</title><link href="http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown" rel="alternate" type="text/html" title="Best Practices for Git Workflows and Branch Management" /><published>2023-05-04T16:30:00+03:00</published><updated>2023-05-04T16:30:00+03:00</updated><id>http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown</id><content type="html" xml:base="http://0.0.0.0:4000/category/vcs/github/concepts/202305/best-practices-for-git-workflows-and-branch-management.markdown">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Git is a popular version control system used by Rails developers to manage 
-changes, collaborate with others, and maintain code quality. However, using Git 
-effectively requires more than just basic knowledge of its commands. In this 
-article, we’ll explore some best practices for Git workflows and branch 
-management in Rails apps, with practical examples to illustrate each point.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;use-a-branching-model&quot;&gt;Use a Branching Model&lt;/h3&gt;
-
-&lt;p&gt;A branching model is a strategy for organizing your Git branches based on the 
-workflow of your team. There are several popular branching models, but one that 
-works well for Rails apps is the Gitflow model.&lt;/p&gt;
-
-&lt;p&gt;Gitflow separates branches into two main types: long-lived branches and 
-short-lived branches. Long-lived branches are used to represent the overall state 
-of your codebase, such as production or staging environments. Short-lived 
-branches are used for feature development, bug fixes, and other changes that are 
-not yet ready for release.&lt;/p&gt;
-
-&lt;p&gt;Using Gitflow, you can create a “develop” branch to represent the current state 
-of your development work. When a feature or bug fix is ready for testing, it can 
-be merged into the “develop” branch. Once the “develop” branch has accumulated 
-enough changes, it can be merged into a “release” branch for final testing and 
-then into the “master” branch for production release.&lt;/p&gt;
-
-&lt;p&gt;Here’s an example of how to create a new feature branch using Gitflow:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git flow feature start new-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This command creates a new branch named “feature/new-feature” based on the 
-current state of the “develop” branch. You can then make changes to this branch 
-and commit them as usual.&lt;/p&gt;
-
-&lt;p&gt;When you’re done with the feature, you can use the following command to merge it 
-back into the “develop” branch:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git flow feature finish new-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This command merges the changes from the “feature/new-feature” branch into the 
-“develop” branch and deletes the “feature/new-feature” branch.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;keep-branches-small-and-focused&quot;&gt;Keep Branches Small and Focused&lt;/h3&gt;
-
-&lt;p&gt;When working on a feature or bug fix, it’s tempting to create a large branch that 
-includes multiple changes. However, this can make it difficult to review and 
-merge your code later. Instead, it’s best to keep your branches small and focused 
-on a single change.&lt;/p&gt;
-
-&lt;p&gt;Using small, focused branches makes it easier to review and merge changes because 
-the changes are easier to understand. Additionally, small branches can be merged 
-more quickly, reducing the time between when a change is completed and when it’s 
-released.&lt;/p&gt;
-
-&lt;p&gt;Here’s an example of how to create a new branch for a small change:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; fix-bug&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This command creates a new branch named “fix-bug” based on the current state of 
-the branch you’re currently on. You can then make the necessary changes and 
-commit them as usual.&lt;/p&gt;
-
-&lt;p&gt;When you’re done with the change, you can use the following command to merge it 
-back into the original branch:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git checkout original-branch
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git merge fix-bug&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This command merges the changes from the “fix-bug” branch into the 
-“original-branch” branch.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;use-pull-requests-for-code-review&quot;&gt;Use Pull Requests for Code Review&lt;/h3&gt;
-
-&lt;p&gt;Code review is an important part of maintaining code quality in your Rails app. 
-Pull requests (PRs) are a Git feature that allows you to submit your changes for 
-review before they are merged into a branch.&lt;/p&gt;
-
-&lt;p&gt;Using PRs for code review has several benefits. First, it allows other members 
-of your team to review your changes and provide feedback before they are merged. 
-This can help catch bugs and improve the overall quality of your code. Second, 
-PRs can be used to track of changes over time, making it easier to understand 
-why certain decisions were made.&lt;/p&gt;
-
-&lt;p&gt;To use PRs for code review, you can create a branch for your changes and then 
-submit a pull request to the branch you want to merge your changes into. Other 
-members of your team can then review your changes and provide feedback before 
-the changes are merged.&lt;/p&gt;
-
-&lt;p&gt;Here’s an example of how to create a pull request using GitHub:&lt;/p&gt;
-
-&lt;p&gt;1 . Create a new branch for your changes:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git checkout &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; my-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Push the branch to GitHub:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git push origin my-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Create a pull request on GitHub:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Go to the repository on GitHub.&lt;/li&gt;
-  &lt;li&gt;Click on the “Pull requests” tab.&lt;/li&gt;
-  &lt;li&gt;Click on the “New pull request” button.&lt;/li&gt;
-  &lt;li&gt;Select the branch you want to merge your changes into (e.g. “develop”).&lt;/li&gt;
-  &lt;li&gt;Select the branch that contains your changes (e.g. “my-feature”).&lt;/li&gt;
-  &lt;li&gt;Provide a description of the changes you made.&lt;/li&gt;
-  &lt;li&gt;Submit the pull request.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Once the pull request is submitted, other members of your team can review the 
-changes and provide feedback. You can make additional changes based on the 
-feedback and push them to the same branch. GitHub will automatically update the 
-pull request with the new changes.&lt;/p&gt;
-
-&lt;p&gt;When the pull request is approved, you can merge the changes into the target 
-branch. GitHub provides an option to merge the changes using a merge commit, 
-which creates a new commit that represents the merge. This commit includes a 
-message that summarizes the changes that were merged, making it easier to 
-understand the history of the code.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;use-rebase-to-keep-branches-up-to-date&quot;&gt;Use Rebase to Keep Branches Up-to-Date&lt;/h3&gt;
-
-&lt;p&gt;When working on a long-lived branch, such as the “develop” branch, it’s important 
-to keep it up-to-date with the latest changes from other branches. This can be 
-done using the “merge” command, which combines the changes from two branches into 
-a new commit.&lt;/p&gt;
-
-&lt;p&gt;However, merging can create a messy history, with multiple merge commits that 
-make it difficult to understand the changes over time. To avoid this, you can use 
-the “rebase” command instead.&lt;/p&gt;
-
-&lt;p&gt;Rebasing takes the changes from one branch and applies them on top of another 
-branch. This creates a linear history, with a single branch representing the 
-changes over time. Rebasing can make it easier to understand the history of your 
-code and to identify the cause of bugs or issues.&lt;/p&gt;
-
-&lt;p&gt;Here’s an example of how to use rebase to keep your branch up-to-date:&lt;/p&gt;
-
-&lt;p&gt;1 . Checkout the branch you want to rebase:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git checkout my-feature&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Fetch the latest changes from the remote repository:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git fetch origin&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Rebase your changes on top of the latest changes:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git rebase origin/develop&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This command takes the changes in your “my-feature” branch and applies them on 
-top of the latest changes in the “develop” branch.&lt;/p&gt;
-
-&lt;p&gt;After the rebase is complete, you may need to resolve any conflicts that arise. 
-Once the conflicts are resolved, you can push your changes to the remote 
-repository using the “push” command.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;Using Git effectively is essential for maintaining code quality and collaborating 
-with others on your Rails app. By following these best practices for Git workflows 
-and branch management, you can ensure that your code is well-organized, easy to 
-understand, and ready for release.&lt;/p&gt;
-
-&lt;p&gt;Remember to use a branching model, keep branches small and focused, use pull 
-requests for code review, and use rebase to keep your branches up-to-date. With 
-these practices in place, you’ll be well on your way to developing high-quality 
-Rails apps that are easy to maintain and extend.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="vcs" /><summary type="html">Introduction</summary></entry><entry><title type="html">An Overview of RESTful API Design Principles in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails" rel="alternate" type="text/html" title="An Overview of RESTful API Design Principles in Rails" /><published>2023-04-29T13:00:00+03:00</published><updated>2023-04-29T13:00:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/an-overview-of-restful-api-design-principles-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;With the rise of web applications, the need for APIs has increased in the software 
-development industry. RESTful APIs are widely used because of their simplicity, 
-scalability, and compatibility with HTTP. RESTful APIs can be implemented in any 
-programming language or framework, including Ruby on Rails.&lt;/p&gt;
-
-&lt;p&gt;Rails is a popular web application framework that provides out-of-the-box support 
-for RESTful APIs. In this article, we will discuss the principles of RESTful API 
-design in Rails and provide an overview of the tools and techniques used in their 
-implementation.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;restful-api-principles&quot;&gt;RESTful API Principles&lt;/h3&gt;
-
-&lt;p&gt;REST stands for Representational State Transfer, which is a set of principles used 
-to design web services. RESTful APIs follow the following principles:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;1--resource-oriented-architecture&quot;&gt;1 . Resource-Oriented Architecture&lt;/h4&gt;
-
-&lt;p&gt;RESTful APIs are based on resources that represent a collection of related objects. 
-Each resource is identified by a unique URI, and the interactions with the resource 
-are defined by HTTP methods like GET, POST, PUT, and DELETE.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;2--client-server-model&quot;&gt;2 . Client-Server Model&lt;/h4&gt;
-
-&lt;p&gt;RESTful APIs follow the client-server model, where the client initiates the request, 
-and the server responds with the data. The server-side application exposes a set 
-of endpoints that can be accessed by the client.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;3--stateless&quot;&gt;3 . Stateless&lt;/h4&gt;
-&lt;p&gt;RESTful APIs are stateless, meaning that each request is treated independently of 
-the previous request. The server does not store any client-specific data between 
-requests, and each request must contain all the necessary information to fulfill 
-the request.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;4--cacheable&quot;&gt;4 . Cacheable&lt;/h4&gt;
-
-&lt;p&gt;RESTful APIs are designed to be cacheable, meaning that the response to a request 
-can be cached by the client or a proxy server. This reduces the number of requests 
-sent to the server and improves the performance of the application.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;5--uniform-interface&quot;&gt;5 . Uniform Interface&lt;/h4&gt;
-
-&lt;p&gt;RESTful APIs have a uniform interface, which means that the interaction between 
-the client and server is standardized. The interface includes the use of HTTP 
-methods, resource URIs, media types, and response codes.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;implementing-restful-apis-in-rails&quot;&gt;Implementing RESTful APIs in Rails&lt;/h3&gt;
-
-&lt;p&gt;Rails provides a framework for building RESTful APIs that follow the above 
-principles. Rails implements RESTful routing, which means that it maps HTTP 
-requests to controller actions based on the HTTP method and the resource URI.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;1--defining-resources&quot;&gt;1 . Defining Resources&lt;/h4&gt;
-
-&lt;p&gt;In Rails, resources are defined in the routes.rb file. The resources method 
-generates a set of RESTful routes for a given controller. For example, the 
-following code defines a resource for a blog post:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:posts&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will generate the following RESTful routes:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/posts
-GET /&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/posts
-PUT /&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/posts/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;2--using-http-methods&quot;&gt;2 . Using HTTP Methods&lt;/h4&gt;
-
-&lt;p&gt;HTTP methods are used to interact with the resources in Rails. The following 
-table shows the HTTP methods and their corresponding controller actions:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;style&gt;
-  th {
-    background-color: lightgrey;
-  }
-  table {
-    border-collapse: collapse;
-    border: 1px solid black;
-    margin: 0 auto;
-  }
-  td, th {
-    padding: 8px;
-    border: 1px solid black;
-  }
-&lt;/style&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;HTTP Method&lt;/th&gt;
-      &lt;th&gt;Controller Action&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;GET&lt;/td&gt;
-      &lt;td&gt;index, show&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;POST&lt;/td&gt;
-      &lt;td&gt;create&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;PUT&lt;/td&gt;
-      &lt;td&gt;update&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;DELETE&lt;/td&gt;
-      &lt;td&gt;destroy&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;
-For example, the following code defines a controller action for retrieving all 
-blog posts:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PostsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@posts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@posts&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This code will respond to a GET request to /posts and return a JSON representation of all blog posts.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;3--handling-errors&quot;&gt;3 . Handling Errors&lt;/h4&gt;
-
-&lt;p&gt;Rails provides a set of HTTP response codes that should be used to indicate the 
-status of the request. The following table shows the HTTP response codes and 
-their meaning:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;HTTP Response Code&lt;/th&gt;
-      &lt;th&gt;Meaning&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;200&lt;/td&gt;
-      &lt;td&gt;OK&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;201&lt;/td&gt;
-      &lt;td&gt;Created&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;204&lt;/td&gt;
-      &lt;td&gt;No Content&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;400&lt;/td&gt;
-      &lt;td&gt;Bad Request&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;401&lt;/td&gt;
-      &lt;td&gt;Unauthorized&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;403&lt;/td&gt;
-      &lt;td&gt;Forbidden&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;404&lt;/td&gt;
-      &lt;td&gt;Not Found&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;500&lt;/td&gt;
-      &lt;td&gt;Internal Server Error&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;
-For example, the following code handles a not found error in Rails:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;API&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;rescue_from&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RecordNotFound&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exception&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;error: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Record not found&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :not_found&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This code will return a JSON response with an error message and a 404 status code.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActionController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;API&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;rescue_from&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RecordNotFound&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exception&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;error: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Record not found&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status: :not_found&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;4--versioning&quot;&gt;4 . Versioning&lt;/h4&gt;
-&lt;p&gt;RESTful APIs often need to evolve over time, and versioning is used to manage 
-these changes. Rails provides a mechanism for versioning APIs by specifying the 
-version in the URI. For example, the following code defines a versioned resource:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:api&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:v1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:posts&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will generate the following URIs for the posts resource:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;GET&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;POST&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;PUT&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;DELETE&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/api/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;5--authentication-and-authorization&quot;&gt;5 . Authentication and Authorization&lt;/h4&gt;
-&lt;p&gt;RESTful APIs often require authentication and authorization to restrict access 
-to resources. Rails provides several authentication and authorization gems, 
-such as Devise and CanCanCan. These gems can be used to handle authentication 
-and authorization in Rails.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;RESTful APIs are an essential part of modern web applications, and they are 
-widely used by developers to build scalable and maintainable systems. Rails 
-provides an excellent framework for building RESTful APIs, and it has become a 
-popular choice for developers due to its simplicity and flexibility.&lt;/p&gt;
-
-&lt;p&gt;When designing RESTful APIs in Rails, it is important to follow the principles 
-of REST and use the tools and techniques provided by the framework. This includes 
-defining resources, using HTTP methods, handling errors, versioning, and 
-implementing authentication and authorization.&lt;/p&gt;
-
-&lt;p&gt;By following these principles and using the tools provided by Rails, developers 
-can build high-quality and scalable RESTful APIs that are easy to maintain and 
-extend. However, it is important to keep in mind that designing RESTful APIs is 
-an ongoing process, and it requires constant evaluation and iteration to ensure 
-that it meets the changing needs of the application and its users.&lt;/p&gt;
-
-&lt;p&gt;In conclusion, RESTful API design principles in Rails are an essential part of 
-building modern web applications. By following these principles and using the 
-tools provided by Rails, developers can build scalable and maintainable systems 
-that provide a seamless experience for their users.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">How to use ActiveJob for background processing in Rails</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails" rel="alternate" type="text/html" title="How to use ActiveJob for background processing in Rails" /><published>2023-04-22T13:30:00+03:00</published><updated>2023-04-22T13:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202304/how-to-use-activejob-for-background-processing-in-rails">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Background processing is an essential component of modern web applications. 
-With the growing demand for high-performance applications, background processing 
-is becoming increasingly important to handle long-running or resource-intensive 
-tasks, such as sending emails, processing files, or generating reports. In the 
-Ruby on Rails framework, ActiveJob is a convenient and straightforward way to 
-perform background processing. ActiveJob provides a unified interface to work 
-with different queuing backends, such as Delayed Job, Resque, or Sidekiq.&lt;/p&gt;
-
-&lt;p&gt;In this section, we will explore how to use ActiveJob for background processing in Rails.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;what-is-activejob&quot;&gt;What is ActiveJob?&lt;/h3&gt;
-
-&lt;p&gt;ActiveJob is a high-level interface for declaring, enqueuing, and executing 
-background jobs in Rails applications. It is part of the Rails framework and 
-abstracts away the differences between different queuing backends, allowing 
-developers to switch between them with minimal effort.&lt;/p&gt;
-
-&lt;p&gt;ActiveJob defines a simple API that developers can use to define jobs, specify 
-parameters, and enqueue them for execution. Once a job is enqueued, ActiveJob 
-takes care of dispatching it to the selected queuing backend, and then executing 
-it asynchronously. ActiveJob also provides mechanisms for handling retries, 
-failures, and monitoring the status of jobs.&lt;/p&gt;
-
-&lt;p&gt;ActiveJob supports a wide range of queuing backends, including in-process queuing, 
-database-backed queuing, and external queuing systems such as RabbitMQ, Amazon SQS, 
-or Google Cloud Pub/Sub. This flexibility makes ActiveJob an excellent choice for 
-any Rails application that needs to perform background processing.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;a-creating-an-activejob&quot;&gt;a). Creating an ActiveJob&lt;/h3&gt;
-
-&lt;p&gt;To create a new ActiveJob, we can use the &lt;span class=&quot;badge&quot;&gt;rails generate job
-&lt;/span&gt; command. This will 
-generate a new job file in the &lt;span class=&quot;badge&quot;&gt;app/jobs&lt;/span&gt; directory of 
-our Rails application. For example, to create a job called &lt;span class=&quot;badge&quot;&gt;
-NotificationJob&lt;/span&gt;, we can run:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails generate job Notification&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will create a file called &lt;span class=&quot;badge&quot;&gt;notification_job.rb&lt;/span&gt; in 
-the &lt;span class=&quot;badge&quot;&gt;app/jobs&lt;/span&gt; directory, with the following contents:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NotificationJob&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationJob&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;queue_as&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:default&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# Do something later&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This file defines a new job class called &lt;span class=&quot;badge&quot;&gt;NotificationJob&lt;/span&gt;, 
-which inherits from &lt;span class=&quot;badge&quot;&gt;ApplicationJob&lt;/span&gt;, the base class for 
-all ActiveJobs in the Rails application. The queue_as method specifies the queue 
-in which the job will be enqueued. In this case, we use the &lt;span class=&quot;badge&quot;&gt;
-:default queue&lt;/span&gt;, which is the default queue for the selected queuing backend.&lt;/p&gt;
-
-&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;perform&lt;/span&gt; method is the entry point for the job. 
-This method will be called asynchronously when the job is executed, and it can 
-receive any number of arguments. Inside this method, we can implement the logic 
-for the job, which can include database operations, HTTP requests, or any other 
-kind of processing.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;b-enqueuing-a-job&quot;&gt;b). Enqueuing a job&lt;/h3&gt;
-
-&lt;p&gt;To enqueue a job, we can create a new instance of the job class and call the 
-&lt;span class=&quot;badge&quot;&gt;perform_later&lt;/span&gt; method on it. For example, to enqueue a 
-&lt;span class=&quot;badge&quot;&gt;NotificationJob&lt;/span&gt; with the argument “Hello, world!”, we 
-can write:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;NotificationJob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perform_later&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This will add a new job to the queue, which will be executed asynchronously by 
-ActiveJob.&lt;/p&gt;
-
-&lt;p&gt;By default, ActiveJob uses the Async queuing backend, which performs background 
-processing in the same process as the Rails application. This can be useful for 
-development or testing, but it is not recommended for production environments, 
-where a separate queuing backend should be used.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;c-configuring-the-queuing-backend&quot;&gt;c). Configuring the queuing backend&lt;/h3&gt;
-
-&lt;p&gt;ActiveJob supports several queuing backends, each with its own advantages and 
-disadvantages. The most common queuing backends are Delayed Job, Resque, and 
-Sidekiq, which provide more robust and scalable background processing than the 
-default Async backend. In this section, we will explore how to configure 
-ActiveJob to use these queuing backends.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;i-delayed-job&quot;&gt;i). Delayed Job&lt;/h3&gt;
-
-&lt;p&gt;Delayed Job is a popular queuing backend for Rails applications. It provides a 
-simple way to perform background processing using a separate process or thread 
-pool. To use Delayed Job with ActiveJob, we need to add the &lt;span class=&quot;badge&quot;&gt;
-delayed_job&lt;/span&gt; gem to our Gemfile and run &lt;span class=&quot;badge&quot;&gt;bundle install
-&lt;/span&gt;. Then, we can configure ActiveJob to use the Delayed Job backend by 
-setting the &lt;span class=&quot;badge&quot;&gt;queue_adapter&lt;/span&gt; option in our application 
-configuration:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;queue_adapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:delayed_job&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-With this configuration, ActiveJob will use the Delayed Job backend to enqueue 
-and execute jobs.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;ii-resque&quot;&gt;ii). Resque&lt;/h3&gt;
-
-&lt;p&gt;Resque is another queuing backend for Rails applications, based on Redis. It 
-provides a scalable and fault-tolerant way to perform background processing, with 
-support for job priorities, job dependencies, and job retries. To use Resque with 
-ActiveJob, we need to add the &lt;span class=&quot;badge&quot;&gt;resque&lt;/span&gt; and 
-&lt;span class=&quot;badge&quot;&gt;resque-scheduler&lt;/span&gt; gems to our Gemfile and run 
-&lt;span class=&quot;badge&quot;&gt;bundle install&lt;/span&gt;. Then, we can configure ActiveJob to 
-use the Resque backend by setting the &lt;span class=&quot;badge&quot;&gt;queue_adapter&lt;/span&gt; 
-option in our application configuration:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;queue_adapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:resque&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-With this configuration, ActiveJob will use the Resque backend to enqueue and 
-execute jobs.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;iii-sidekiq&quot;&gt;iii). Sidekiq&lt;/h3&gt;
-
-&lt;p&gt;Sidekiq is a powerful and popular queuing backend for Rails applications, based 
-on Redis and multi-threading. It provides a fast and efficient way to perform 
-background processing, with support for job retries, job batching, and job 
-scheduling. To use Sidekiq with ActiveJob, we need to add the &lt;span class=&quot;badge&quot;&gt;
-sidekiq&lt;/span&gt; gem to our Gemfile and run &lt;span class=&quot;badge&quot;&gt;bundle install&lt;/span&gt;. 
-Then, we can configure ActiveJob to use the Sidekiq backend by setting the 
-&lt;span class=&quot;badge&quot;&gt;queue_adapter&lt;/span&gt; option in our application configuration:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/application.rb&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;active_job&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;queue_adapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:sidekiq&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-With this configuration, ActiveJob will use the Sidekiq backend to enqueue and 
-execute jobs.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;ActiveJob is a powerful and flexible way to perform background processing in 
-Rails applications. It provides a unified interface for working with different 
-queuing backends, allowing developers to switch between them with minimal effort. 
-By using ActiveJob, we can offload long-running or resource-intensive tasks from 
-the main request-response cycle, improving the performance and scalability of our 
-applications. With the support for retries, failures, and monitoring, ActiveJob 
-makes it easy to build robust and fault-tolerant background processing workflows.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
 &lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry></feed>
