@@ -23,6 +23,7 @@ code. In this section, we will delve into the concept of closures, exploring
 their definition, how they work, and practical use cases.
 
 
+
 <br>
 ### What are Closures?
 
