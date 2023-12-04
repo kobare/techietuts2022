@@ -115,7 +115,7 @@ stackprof stackprof_report.dump
 
 {% endhighlight %}
 
-</br>
+<br>
 The report will show you a detailed breakdown of method calls, their durations, 
 and the number of times each method was called. Look for methods that consume a 
 significant amount of time. These are potential bottlenecks that you can optimize.

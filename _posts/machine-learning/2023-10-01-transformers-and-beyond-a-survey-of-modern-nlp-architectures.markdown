@@ -19,7 +19,7 @@ remarkable advancements thanks to the rise of a groundbreaking neural
 architecture known as Transformers. This innovative approach has revolutionized 
 language modeling, enabling more accurate and efficient text processing, and has 
 paved the way for a range of powerful models beyond just the pioneering BERT 
-(Bidirectional Encoder Representations from Transformers). In this article, 
+(Bidirectional Encoder Representations from Transformers). In this section, 
 we'll delve into modern NLP architectures that build upon the transformative 
 potential of Transformers, including BERT, T5 (Text-to-Text Transfer Transformer), 
 and their versatile adaptations. We'll also provide practical insights and code 
