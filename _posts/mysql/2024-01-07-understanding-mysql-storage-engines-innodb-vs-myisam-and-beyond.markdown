@@ -2,7 +2,7 @@
 layout: post
 title:  "Understanding MySQL Storage Engines: InnoDB vs. MyISAM and Beyond"
 author: Denis Kobare
-date:   2024-01-07 07:00:00 +0300
+date:   2024-01-01 08:00:00 +0300
 img: /assets/img/svg/mysql.svg
 categories: databases
 sub_category: mysql

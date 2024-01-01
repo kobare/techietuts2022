@@ -2,7 +2,7 @@
 layout: post
 title:  "Working with Databases in Ruby: ORM Deep Dive"
 author: Denis Kobare
-date:   2024-01-07 14:30:00 +0300
+date:   2024-01-01 05:30:00 +0300
 img: /assets/img/svg/ruby.svg
 categories: programming
 sub_category: ruby

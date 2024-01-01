@@ -2,7 +2,7 @@
 layout: post
 title:  "Understanding PostgreSQL Indexing: Boosting Query Performance with Effective Indexing"
 author: Denis Kobare
-date: 2024-01-07 07:00:00 +0300
+date: 2024-01-01 07:00:00 +0300
 img: /assets/img/svg/postgresql.svg
 categories: databases
 sub_category: postgres
