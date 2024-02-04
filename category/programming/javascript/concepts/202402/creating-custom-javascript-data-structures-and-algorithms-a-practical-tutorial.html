@@ -5,7 +5,7 @@
                 <!-- Head module inserted below -->
         <head>
  <meta charset="utf-8">
- <title>Ruby Array Methods [J - O] - Techietuts</title>
+ <title>Creating Custom JavaScript Data Structures and Algorithms: A Practical Tutorial - Techietuts</title>
  <meta name="description" content="">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
@@ -45,20 +45,20 @@
 
 <!-- Begin Jekyll SEO tag v2.7.1 -->
 <meta name="generator" content="Jekyll v4.2.1" />
-<meta property="og:title" content="Ruby Array Methods [J - O]" />
+<meta property="og:title" content="Creating Custom JavaScript Data Structures and Algorithms: A Practical Tutorial" />
 <meta name="author" content="Denis Kobare" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="1 . join() Converts each element of the array to a string, separated by the given separator." />
-<meta property="og:description" content="1 . join() Converts each element of the array to a string, separated by the given separator." />
-<link rel="canonical" href="http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o" />
-<meta property="og:url" content="http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/programming/javascript/concepts/202402/creating-custom-javascript-data-structures-and-algorithms-a-practical-tutorial" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/programming/javascript/concepts/202402/creating-custom-javascript-data-structures-and-algorithms-a-practical-tutorial" />
 <meta property="og:site_name" content="Techietuts" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-08-16T07:35:00+03:00" />
+<meta property="article:published_time" content="2024-02-04T11:00:00+03:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Ruby Array Methods [J - O]" />
+<meta property="twitter:title" content="Creating Custom JavaScript Data Structures and Algorithms: A Practical Tutorial" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","description":"1 . join() Converts each element of the array to a string, separated by the given separator.","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o"},"headline":"Ruby Array Methods [J - O]","dateModified":"2022-08-16T07:35:00+03:00","url":"http://0.0.0.0:4000/category/programming/ruby/concepts/202208/ruby-array-methods-j-o","datePublished":"2022-08-16T07:35:00+03:00","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","description":"Introduction","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/programming/javascript/concepts/202402/creating-custom-javascript-data-structures-and-algorithms-a-practical-tutorial"},"headline":"Creating Custom JavaScript Data Structures and Algorithms: A Practical Tutorial","dateModified":"2024-02-04T11:00:00+03:00","url":"http://0.0.0.0:4000/category/programming/javascript/concepts/202402/creating-custom-javascript-data-structures-and-algorithms-a-practical-tutorial","datePublished":"2024-02-04T11:00:00+03:00","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -909,332 +909,233 @@
 
     <div class="tittle-banner">
       <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
-      <h1 style="padding: -50px; line-height: 1.2em;">Ruby Array Methods [J - O]</h1>             
+      <h1 style="padding: -50px; line-height: 1.2em;">Creating Custom JavaScript Data Structures and Algorithms: A Practical Tutorial</h1>             
     </div>
-    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> August 2022</p>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> February 2024</p>
     <div>
                 <!-- Page content object inserted below -->
-        <h3 id="1--join">1 . join()</h3>
-<p>Converts each element of the array to a string, separated by the given separator.</p>
+        <h3 id="introduction">Introduction</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.join(separator)</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"-"</span><span class="p">)</span>
-<span class="c1"># "1-2-3-4-5"</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"9"</span><span class="p">)</span>
-<span class="c1"># "192939495"</span></code></pre></figure>
+<p>JavaScript is a versatile and powerful language used primarily for web 
+development, but its capabilities extend far beyond that. One of the fundamental 
+aspects of programming is understanding data structures and algorithms. In this 
+section, we’ll explore the implementation of custom data structures and 
+algorithms in JavaScript, complete with code explanations, use cases, and 
+performance considerations.</p>
 
 <p><br /></p>
-<h3 id="2--keep_if">2 . keep_if()</h3>
-<p>Retains those elements for which the block returns a truthy value then deletes all 
-other elements and returns the array.</p>
+<h3 id="the-power-of-custom-data-structures">The Power of Custom Data Structures</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.keep_if {...}</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">keep_if</span> <span class="p">{</span><span class="o">|</span><span class="n">i</span><span class="o">|</span> <span class="n">i</span><span class="p">.</span><span class="nf">odd?</span> <span class="p">}</span>
-<span class="c1"># [1, 3, 5]</span></code></pre></figure>
+<p>Custom data structures allow you to tailor your code to specific use cases, 
+improving efficiency and readability. We’ll start by creating three essential 
+custom data structures: linked lists, trees, and graphs.</p>
 
 <p><br /></p>
-<h3 id="3--last">3 . last()</h3>
-<p>Returns the last n elements in a new Array. When no argument is given, it returns the last element.</p>
+<h3 id="linked-lists">Linked Lists</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.last(n)</span>
+<p>A linked list is a linear data structure where elements, called nodes, are 
+connected by pointers. This structure allows for dynamic size and efficient 
+insertion/deletion operations. Let’s implement a basic singly linked list:</p>
 
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">class</span> <span class="nx">Node</span> <span class="p">{</span>
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="n">arr</span><span class="p">.</span><span class="nf">last</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="c1"># [4, 5]</span>
+<span class="kd">class</span> <span class="nx">LinkedList</span> <span class="p">{</span>
+    <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
 
+    <span class="nx">append</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Node</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">head</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">head</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">(</span><span class="nx">current</span><span class="p">.</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">current</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nx">current</span><span class="p">.</span><span class="nx">next</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
 
-<span class="n">arr</span><span class="p">.</span><span class="nf">last</span>
-<span class="c1"># 5</span></code></pre></figure>
+    <span class="c1">// Other methods: insert, delete, search, etc.</span>
+<span class="p">}</span></code></pre></figure>
 
-<p><br /></p>
-<h3 id="4--length">4 . length</h3>
-<p>Returns the count of elements in the array.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.length</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">length</span>
-<span class="c1"># 5</span></code></pre></figure>
-
-<p><br /></p>
-<h3 id="5--map">5 . map!</h3>
-<p>Calls the block with each element and replaces the element with the block’s return value.
-This method is an alias for <span class="badge">collect!</span> method.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.map!</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">map!</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="p">}</span>
-<span class="c1"># [1, 4, 9, 16, 25]</span>
-
-
-<span class="n">arr</span>
-<span class="c1"># [1, 4, 9, 16, 25]</span></code></pre></figure>
+<p>Use case: Linked lists are great for scenarios where you frequently insert or 
+remove elements, such as implementing undo/redo functionality in applications.</p>
 
 <p><br /></p>
-<h3 id="6--map">6 . map</h3>
-<p>Calls the block with each element and returns a new array whose elements are the return values from the block.
-This method is an alias for <span class="badge">collect</span> method.</p>
+<h3 id="trees">Trees</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.map</span>
+<p>Trees are hierarchical data structures with a root element and a set of child 
+elements, each of which can have its own children. We’ll implement a binary 
+search tree (BST), a commonly used type of tree:</p>
 
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">class</span> <span class="nx">TreeNode</span> <span class="p">{</span>
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">right</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<span class="n">arr</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span><span class="o">**</span><span class="mi">2</span> <span class="p">}</span>
-<span class="c1"># [1, 4, 9, 16, 25]</span>
+<span class="kd">class</span> <span class="nx">BinarySearchTree</span> <span class="p">{</span>
+    <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">root</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
 
-<span class="n">arr</span>
-<span class="c1"># [1, 2, 3, 4, 5]</span></code></pre></figure>
+    <span class="nx">insert</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">TreeNode</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">root</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">root</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">_insertRecursive</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">root</span><span class="p">,</span> <span class="nx">newNode</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-<p><br /></p>
-<h3 id="7--minmax">7 . minmax</h3>
-<p>Returns a new 2-element Array containing the minimum and maximum values from the array.
-When a block is given, the block must return an Integer. When no block is given, 
-each element must respond to Comparable method.</p>
+    <span class="nx">_insertRecursive</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="nx">newNode</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">newNode</span><span class="p">.</span><span class="nx">value</span> <span class="o">&lt;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">node</span><span class="p">.</span><span class="nx">left</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">node</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">_insertRecursive</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">left</span><span class="p">,</span> <span class="nx">newNode</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">node</span><span class="p">.</span><span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">node</span><span class="p">.</span><span class="nx">right</span> <span class="o">=</span> <span class="nx">newNode</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">_insertRecursive</span><span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">right</span><span class="p">,</span> <span class="nx">newNode</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.minmax {...}</span>
-<span class="c1"># Array.minmax</span>
+    <span class="c1">// Other methods: search, delete, traverse, etc.</span>
+<span class="p">}</span></code></pre></figure>
 
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">minmax</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
-<span class="c1"># [1, 5]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">minmax</span>
-<span class="c1"># [1, 5]</span></code></pre></figure>
-
-<p><br /></p>
-<h3 id="8--max">8 . max</h3>
-<p>Returns one of the maximum-valued element from array. When a block is given, the 
-block must return an Integer. When no block is given, each element must respond to Comparable method.</p>
-
-<p>With an argument Integer n and no block, it returns a new array with at most n elements.
-With an argument n and a block, it returns a new array with at most n elements, in 
-descending order per the block.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.max(n) {...}</span>
-<span class="c1"># Array.max(n)</span>
-<span class="c1"># Array.max {...}</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">max</span>
-<span class="c1"># 5</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">max</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="c1"># [5, 4]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">max</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
-<span class="c1"># =&gt; 5</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">max</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
-<span class="c1"># [5, 4]</span></code></pre></figure>
+<p>Use case: Binary search trees are useful for efficient searching and sorting 
+operations, such as finding the closest elements in a range or implementing 
+autocomplete functionality.</p>
 
 <p><br /></p>
-<h3 id="9--min">9 . min</h3>
-<p>Returns one of the minimum-valued element from array. When a block is given, the 
-block must return an Integer. When no block is given, each element must respond to Comparable method.</p>
+<h3 id="graphs">Graphs</h3>
 
-<p>With an argument Integer n and no block, it returns a new array with at most n elements.
-With an argument n and a block, it returns a new array with at most n elements, in 
-ascending order per the block.</p>
+<p>Graphs are versatile data structures that consist of nodes connected by edges. 
+They can represent a wide range of relationships. We’ll create a simple directed 
+graph:</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.min(n) {...}</span>
-<span class="c1"># Array.min(n)</span>
-<span class="c1"># Array.min {...}</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">class</span> <span class="nx">Graph</span> <span class="p">{</span>
+    <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">();</span>
+    <span class="p">}</span>
 
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="nx">addNode</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="nx">node</span><span class="p">,</span> <span class="p">[]);</span>
+    <span class="p">}</span>
 
-<span class="n">arr</span><span class="p">.</span><span class="nf">min</span>
-<span class="c1"># 1</span>
+    <span class="nx">addEdge</span><span class="p">(</span><span class="nx">node1</span><span class="p">,</span> <span class="nx">node2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">node1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">node2</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">nodes</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">node1</span><span class="p">).</span><span class="nx">push</span><span class="p">(</span><span class="nx">node2</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-<span class="n">arr</span><span class="p">.</span><span class="nf">min</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="c1"># [1, 2]</span>
+    <span class="c1">// Other methods: removeNode, removeEdge, traverse, etc.</span>
+<span class="p">}</span></code></pre></figure>
 
-<span class="n">arr</span><span class="p">.</span><span class="nf">min</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
-<span class="c1"># =&gt; 1</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">min</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
-<span class="c1"># [1, 2]</span></code></pre></figure>
-
-<p><br /></p>
-<h3 id="10--min_by">10 . min_by</h3>
-<p>Returns the elements for which the block returns the minimum values. With a block 
-given and no argument, returns the element for which the block returns the minimum value.</p>
-
-<p>With a block given and positive integer argument n given, returns an array 
-containing the n elements for which the block returns minimum values.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.min_by {...}</span>
-<span class="c1"># Array.min_by(n) {...}</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">min_by</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
-<span class="c1"># 1</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">min_by</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
-<span class="c1"># [1, 2]</span></code></pre></figure>
+<p>Use case: Graphs can model various scenarios, such as social networks, maps, or 
+dependency management systems.</p>
 
 <p><br /></p>
-<h3 id="11--max_by">11 . max_by</h3>
-<p>Returns the elements for which the block returns the maximum values. With a block 
-given and no argument, returns the element for which the block returns the maximum value.</p>
+<h3 id="custom-algorithms-in-javascript">Custom Algorithms in JavaScript</h3>
 
-<p>With a block given and positive integer argument n given, returns an array 
-containing the n elements for which the block returns maximum values.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.max_by {...}</span>
-<span class="c1"># Array.max_by(n) {...}</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">max_by</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
-<span class="c1"># 5</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">max_by</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
-<span class="c1"># [5, 4]</span></code></pre></figure>
+<p>Now that we have a solid foundation in custom data structures, let’s explore 
+some essential algorithms. We’ll focus on sorting and searching algorithms.</p>
 
 <p><br /></p>
-<h3 id="12--minmax_by">12 . minmax_by</h3>
-<p>Returns a 2-element array containing the elements for which the block returns 
-minimum and maximum values.</p>
+<h3 id="sorting-algorithms">Sorting Algorithms</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.minmax_by {...}</span>
+<p>Sorting is a fundamental operation in computer science. Here’s a simple 
+implementation of the bubble sort algorithm:</p>
 
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">bubbleSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">n</span> <span class="o">-</span> <span class="nx">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="p">{</span>
+                <span class="c1">// Swap arr[j] and arr[j+1]</span>
+                <span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">arr</span><span class="p">[</span><span class="nx">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">j</span><span class="p">]];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
 
-<span class="n">arr</span><span class="p">.</span><span class="nf">minmax_by</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="p">}</span>
-<span class="c1"># [1, 5]</span></code></pre></figure>
-
-<p><br /></p>
-<h3 id="13--member">13 . member?</h3>
-<p>Returns true if for some index i in array, obj == array[i]; otherwise false.
-This is an alias for <span class="badge">include?<span> method.</span></span></p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.member?(obj)</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">member?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1"># true</span></code></pre></figure>
+<p>Use case: Bubble sort is straightforward to understand, but it’s not the most 
+efficient sorting algorithm. It’s suitable for small arrays or when simplicity 
+is more important than performance.</p>
 
 <p><br /></p>
-<h3 id="14--methods">14 . methods</h3>
-<p>Returns a list of the names of public and protected methods of obj. This will include
-all the methods accessible in obj’s ancestors. If the optional parameter is false, 
-it returns an array of obj’s public and protected singleton methods, the array 
-will not include methods in modules included in obj.</p>
+<h3 id="searching-algorithms">Searching Algorithms</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.methods(regular=true) </span>
-<span class="c1"># Array.methods</span>
+<p>Searching algorithms help find specific elements within a data structure. Let’s 
+implement a binary search, which is a fast searching algorithm for sorted arrays:</p>
 
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">binarySearch</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">left</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">let</span> <span class="nx">right</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">left</span> <span class="o">&lt;=</span> <span class="nx">right</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">mid</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nx">left</span> <span class="o">+</span> <span class="nx">right</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span> <span class="o">===</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">mid</span><span class="p">;</span> <span class="c1">// Found the target!</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">mid</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">left</span> <span class="o">=</span> <span class="nx">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">right</span> <span class="o">=</span> <span class="nx">mid</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// Target not found</span>
+<span class="p">}</span></code></pre></figure>
 
-<span class="n">arr</span><span class="p">.</span><span class="nf">methods</span>
-<span class="c1"># [:hash, :abbrev, :to_h, :include?, :&amp;]</span></code></pre></figure>
-
-<p><br /></p>
-<h3 id="15--none">15 . none?</h3>
-<p>Returns true if no element of the array meet a given criterion.</p>
-
-<p>With no block given and no argument, returns true if the array has no truthy elements, false otherwise.</p>
-
-<p>With a block given and no argument, calls the block with each element in the 
-array and returns true if the block returns no truthy value, false otherwise.</p>
-
-<p>If argument obj is given, returns true if obj.=== no element, false otherwise.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.none? {...}</span>
-<span class="c1"># Array.none?</span>
-<span class="c1"># Array.none?(obj)</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">none?</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">}</span>
-<span class="c1"># false</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">none?</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="c1"># true</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">none?</span>
-<span class="c1"># false</span>
-
-<span class="p">[].</span><span class="nf">none?</span>
-
-<span class="c1"># true</span></code></pre></figure>
+<p>Use case: Binary search is highly efficient for finding elements in sorted 
+arrays. It’s commonly used in scenarios where you need to quickly locate items, 
+such as in search engines or dictionaries.</p>
 
 <p><br /></p>
-<h3 id="16--nil">16 . nil?</h3>
-<p>Returns true if the array is empty. Only the object nil responds true to nil?.</p>
+<h3 id="performance-considerations">Performance Considerations</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.nil?</span>
+<p>While custom data structures and algorithms offer flexibility, it’s essential to 
+consider their performance characteristics. For example:</p>
 
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">nil?</span> 
-<span class="c1"># false</span></code></pre></figure>
-
-<p><br /></p>
-<h3 id="17--one">17 . one?</h3>
-<p>Returns true if exactly one element of the array meets a given criterion.</p>
-
-<p>With no block given and no argument, returns true if the array has exactly one 
-truthy element, false otherwise.</p>
-
-<p>With a block given and no argument, calls the block with each element in
-the array and returns true if the block yields a truthy value for exactly one element, false otherwise.</p>
-
-<p>If argument obj is given, returns true if obj.=== exactly one element, false otherwise.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.one?</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">one?</span> 
-<span class="c1"># false</span>
-
-<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="kp">nil</span><span class="p">]</span>
-
-<span class="n">arr2</span><span class="p">.</span><span class="nf">one?</span> 
-<span class="c1"># true</span>
-
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">one?</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">}</span>
-<span class="c1"># false</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">one?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> 
-<span class="c1"># true</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">one?</span> <span class="p">{</span><span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">e</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">}</span>
-<span class="c1"># true</span></code></pre></figure>
+<ul>
+  <li>
+    <p>Time Complexity: Different operations (e.g., insertion, deletion, searching) 
+may have different time complexities for each data structure or algorithm. 
+Understand these complexities to choose the right one for your use case.</p>
+  </li>
+  <li>
+    <p>Space Complexity: Some data structures may consume more memory than others. 
+Consider the memory requirements of your application.</p>
+  </li>
+  <li>
+    <p>Balancing: For tree-based structures, balancing can be crucial to maintaining 
+optimal performance. Unbalanced trees may lead to skewed performance in certain 
+operations.</p>
+  </li>
+</ul>
 
 <p><br /></p>
-<h3 id="18--object_id">18 . object_id</h3>
-<p>Returns an integer identifier for obj.</p>
+<h3 id="conclusion">Conclusion</h3>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Array.object_id</span>
-
-<span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-
-<span class="n">arr</span><span class="p">.</span><span class="nf">object_id</span> 
-<span class="c1"># 739080</span>
-
-
-<span class="n">arr2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
-
-<span class="n">arr2</span><span class="p">.</span><span class="nf">object_id</span> 
-<span class="c1"># 783540</span></code></pre></figure>
+<p>In summary, custom data structures and algorithms empower you to solve complex 
+problems efficiently. By understanding their implementation, use cases, and 
+performance considerations, you’ll be better equipped to choose the right tools 
+for your programming needs. Start experimenting with these concepts in your 
+JavaScript projects, and you’ll unlock a new level of programming versatility. 
+Happy coding!</p>
 
 <p><br />
 <em>Thanks for reading, see you in the next one!</em></p>
