@@ -1,4 +1,831 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-02-04T19:39:50+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">CSS Grid Mastery: Building Modern Layouts with CSS Grid</title><link href="http://0.0.0.0:4000/category/programming/css/concepts/202402/css-grid-mastery-building-modern-layouts-with-css-grid" rel="alternate" type="text/html" title="CSS Grid Mastery: Building Modern Layouts with CSS Grid" /><published>2024-02-04T15:33:00+03:00</published><updated>2024-02-04T15:33:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/css/concepts/202402/css-grid-mastery-building-modern-layouts-with-css-grid</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/css/concepts/202402/css-grid-mastery-building-modern-layouts-with-css-grid">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2024-03-01T17:26:47+03:00</updated><id>http://0.0.0.0:4000/feed.xml</id><title type="html">Techietuts</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">HTML Meta Tags and SEO: Boosting Your Website’s Search Ranking</title><link href="http://0.0.0.0:4000/category/programming/html/concepts/202403/html-meta-tags-and-seo-boosting-your-website-search-ranking" rel="alternate" type="text/html" title="HTML Meta Tags and SEO: Boosting Your Website’s Search Ranking" /><published>2024-03-01T15:33:00+03:00</published><updated>2024-03-01T15:33:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/html/concepts/202403/html-meta-tags-and-seo-boosting-your-website-search-ranking</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/html/concepts/202403/html-meta-tags-and-seo-boosting-your-website-search-ranking">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
+
+&lt;p&gt;When it comes to boosting your website’s search ranking and improving its 
+visibility on search engines, HTML meta tags play a pivotal role. These tags 
+provide essential information to search engines, helping them understand the 
+content and context of your web pages. In this section, we’ll explore the 
+significance of HTML meta tags in search engine optimization (SEO), discuss the 
+most essential meta tags you should be aware of, and provide practical guidance 
+on optimizing your website for better search visibility.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;understanding-html-meta-tags&quot;&gt;Understanding HTML Meta Tags&lt;/h3&gt;
+
+&lt;p&gt;Meta tags are snippets of HTML code that provide metadata about a web page. They 
+don’t directly affect the visual appearance of your page but convey important 
+information to search engines and other web services. Think of meta tags as a 
+way to “speak” to search engines, telling them what your page is about and how 
+it should be treated in search results.&lt;/p&gt;
+
+&lt;p&gt;Let’s dive into some of the most crucial meta tags for SEO and learn how to 
+implement them effectively.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;1-title-tag&quot;&gt;1. Title Tag&lt;/h4&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;title&lt;/span&gt; tag is perhaps the most important meta tag 
+for SEO. It defines the title of a web page, which is displayed as the clickable 
+link in search engine results. The title tag should be concise, relevant to the 
+page’s content, and include targeted keywords. Here’s an example of a title tag:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Best Tips for Organic Gardening - YourGardenHub&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-meta-description&quot;&gt;2. Meta Description&lt;/h4&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;meta name=”description”&lt;/span&gt; tag provides a brief 
+summary of the page’s content. While it doesn’t directly impact search ranking, 
+a well-crafted meta description can entice users to click on your link in search 
+results. Keep it around 150-160 characters, and make it engaging, informative, 
+and reflective of the page’s content:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;description&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Discover expert tips for organic gardening, 
+from soil preparation to pest control. Create a thriving garden naturally.&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;3-meta-keywords-less-important&quot;&gt;3. Meta Keywords (Less Important)&lt;/h4&gt;
+
+&lt;p&gt;In the past, the &lt;span class=&quot;badge&quot;&gt;meta name=”keywords”&lt;/span&gt; tag was used to 
+list relevant keywords for a page. However, major search engines now largely 
+ignore this tag due to abuse. It’s still a good practice to include relevant 
+keywords in your content, but the meta keywords tag is no longer a significant 
+factor in SEO.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;4-canonical-tag&quot;&gt;4. Canonical Tag&lt;/h4&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;link rel=”canonical”&lt;/span&gt; tag helps prevent duplicate 
+content issues by indicating the preferred version of a web page when multiple 
+URLs with similar content exist. This is crucial for e-commerce sites with 
+products accessible through different URLs:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;canonical&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://www.yourgardenhub.com/tips/organic-gardening&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;5-robots-meta-tag&quot;&gt;5. Robots Meta Tag&lt;/h4&gt;
+
+&lt;p&gt;The &lt;span class=&quot;badge&quot;&gt;meta name=”robots”&lt;/span&gt; tag instructs search engine 
+crawlers on how to handle your page. Common directives include “index” (allow 
+the page to be indexed), “noindex” (prevent indexing), “follow” (follow links on 
+the page), and “nofollow” (don’t follow links):&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;robots&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;index,follow&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;best-practices-for-meta-tags&quot;&gt;Best Practices for Meta Tags&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Unique and Descriptive: Ensure that each page has a unique title and meta 
+description that accurately describe the content.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Relevance: Use targeted keywords in your title and description, but avoid 
+keyword stuffing—keep it natural and readable.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Length: Follow character limits for title (around 60 characters) and meta 
+description (around 150-160 characters).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Consistency: Maintain a consistent format for your meta tags across your 
+website.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Regular Updates: Review and update your meta tags periodically to reflect 
+changes in your content.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;By understanding the role of HTML meta tags and following best practices, you 
+can significantly improve your website’s search ranking and increase its 
+visibility in search engine results. Keep in mind that while meta tags are 
+essential, they are just one aspect of a comprehensive SEO strategy. 
+High-quality content, proper use of headings, internal linking, and other SEO 
+techniques are equally important for achieving long-term SEO success.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Definition</summary></entry><entry><title type="html">Authentication and Authorization in Django: A Comprehensive Guide</title><link href="http://0.0.0.0:4000/category/frameworks/django/concepts/202403/authentication-and-authorization-in-django-a-comprehensive-guide" rel="alternate" type="text/html" title="Authentication and Authorization in Django: A Comprehensive Guide" /><published>2024-03-01T15:30:00+03:00</published><updated>2024-03-01T15:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/django/concepts/202403/authentication-and-authorization-in-django-a-comprehensive-guide</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/django/concepts/202403/authentication-and-authorization-in-django-a-comprehensive-guide">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;When building web applications, security is of paramount importance. Ensuring 
+that only authenticated users can access certain parts of your application and 
+that they have the appropriate permissions is essential. In the world of Django, 
+a high-level Python web framework, this is achieved through a robust 
+authentication and authorization system. In this section, we’ll explore 
+different authentication methods, such as OAuth and JWT, and delve into 
+fine-grained authorization mechanisms to secure your Django web applications 
+effectively.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;introduction-to-authentication-and-authorization&quot;&gt;Introduction to Authentication and Authorization&lt;/h3&gt;
+
+&lt;p&gt;Authentication is the process of confirming the identity of a user, ensuring 
+they are who they claim to be. Authorization, on the other hand, determines what 
+actions an authenticated user is allowed to perform within the application. In 
+Django, these concepts are tightly integrated, providing a comprehensive 
+security foundation.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;user-authentication-in-django&quot;&gt;User Authentication in Django&lt;/h3&gt;
+
+&lt;h4 id=&quot;using-the-built-in-authentication-system&quot;&gt;Using the Built-in Authentication System&lt;/h4&gt;
+
+&lt;p&gt;Django comes with a powerful built-in authentication system. To enable it, 
+simply add ‘django.contrib.auth’ to your project’s INSTALLED_APPS. This system 
+provides user registration, login, logout, password management, and session 
+handling out of the box.&lt;/p&gt;
+
+&lt;p&gt;To require user authentication for a specific view, use the @login_required 
+decorator:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib.auth.decorators&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;login_required&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;login_required&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;protected_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Your view logic here&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;implementing-social-authentication-with-oauth&quot;&gt;Implementing Social Authentication with OAuth&lt;/h4&gt;
+
+&lt;p&gt;OAuth allows users to log in using their existing accounts from providers like 
+Google, Facebook, or GitHub. The python-social-auth library (also known as 
+social-auth-app-django) simplifies this integration.&lt;/p&gt;
+
+&lt;h5 id=&quot;install-the-library&quot;&gt;Install the library:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;n&quot;&gt;pip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;social&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auth&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;django&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 id=&quot;configure-settings&quot;&gt;Configure settings:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# settings.py
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...
+&lt;/span&gt;    &lt;span class=&quot;s&quot;&gt;&apos;social_django&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;AUTHENTICATION_BACKENDS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&apos;social_core.backends.google.GoogleOAuth2&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Add other providers here
+&lt;/span&gt;    &lt;span class=&quot;s&quot;&gt;&apos;django.contrib.auth.backends.ModelBackend&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;SOCIAL_AUTH_GOOGLE_OAUTH2_KEY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;your-google-client-id&apos;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;your-google-client-secret&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 id=&quot;add-authentication-urls&quot;&gt;Add authentication URLs:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# urls.py
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;auth/&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;social_django.urls&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;social&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)),&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h4 id=&quot;leveraging-jwt-for-token-based-authentication&quot;&gt;Leveraging JWT for Token-Based Authentication&lt;/h4&gt;
+
+&lt;p&gt;JSON Web Tokens (JWT) provide a stateless way of handling authentication. The 
+djangorestframework-jwt package simplifies JWT integration with Django Rest 
+Framework.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 id=&quot;install-the-package&quot;&gt;Install the package:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;pip install djangorestframework-jwt&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 id=&quot;configure-settings-1&quot;&gt;Configure settings:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# settings.py
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;REST_FRAMEWORK&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...
+&lt;/span&gt;    &lt;span class=&quot;s&quot;&gt;&apos;DEFAULT_AUTHENTICATION_CLASSES&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&apos;rest_framework_jwt.authentication.JSONWebTokenAuthentication&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# ...
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# JWT settings
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;datetime&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;JWT_AUTH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&apos;JWT_EXPIRATION_DELTA&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&apos;JWT_ALLOW_REFRESH&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&apos;JWT_REFRESH_EXPIRATION_DELTA&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timedelta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;days&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 id=&quot;obtain-jwt-tokens&quot;&gt;Obtain JWT tokens:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# views.py
+&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rest_framework_jwt.views&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obtain_jwt_token&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;api-token-auth/&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obtain_jwt_token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;fine-grained-authorization&quot;&gt;Fine-Grained Authorization&lt;/h3&gt;
+
+&lt;h4 id=&quot;understanding-djangos-permission-system&quot;&gt;Understanding Django’s Permission System&lt;/h4&gt;
+
+&lt;p&gt;Django’s permission system allows you to control access at both the view level 
+and the object level. By default, Django provides three permission classes: 
+IsAuthenticated, IsAdminUser, and IsAuthenticatedOrReadOnly.&lt;/p&gt;
+
+&lt;p&gt;To use permissions, apply them to your views:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rest_framework&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;permissions&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;APIView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;permission_classes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permissions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IsAuthenticated&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Your view logic here&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;customizing-permissions&quot;&gt;Customizing Permissions&lt;/h4&gt;
+
+&lt;p&gt;You can create custom permissions by extending permissions.BasePermission:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;rest_framework&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;permissions&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IsOwnerOrReadOnly&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permissions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BasePermission&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;has_object_permission&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;# Check if the user has the required permissions
+&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;owner&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;permissions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SAFE_METHODS&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;implementing-object-level-permissions&quot;&gt;Implementing Object-Level Permissions&lt;/h4&gt;
+
+&lt;p&gt;Django’s object-level permissions allow you to control access to specific 
+objects. Use the django-guardian package to implement this feature:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 id=&quot;install-the-package-1&quot;&gt;Install the package:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;pip install django-guardian&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 id=&quot;configure-settings-2&quot;&gt;Configure settings:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# settings.py
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...
+&lt;/span&gt;    &lt;span class=&quot;s&quot;&gt;&apos;guardian&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;AUTHENTICATION_BACKENDS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&apos;django.contrib.auth.backends.ModelBackend&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# required for Guardian
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# ...
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h5 id=&quot;use-object-level-permissions&quot;&gt;Use object-level permissions:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# views.py
+&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;guardian.shortcuts&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;assign_perm&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create_protected_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Create an object
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;my_object&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MyModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Assign permissions
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;assign_perm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;change_mymodel&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;best-practices-for-security&quot;&gt;Best Practices for Security&lt;/h3&gt;
+
+&lt;h4 id=&quot;protecting-sensitive-data&quot;&gt;Protecting Sensitive Data&lt;/h4&gt;
+
+&lt;p&gt;Always use HTTPS to encrypt data in transit. Use django-cryptography to encrypt 
+sensitive data stored in the database.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# settings.py
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;INSTALLED_APPS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...
+&lt;/span&gt;    &lt;span class=&quot;s&quot;&gt;&apos;cryptography&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;implementing-secure-password-policies&quot;&gt;Implementing Secure Password Policies&lt;/h4&gt;
+
+&lt;p&gt;Enforce strong password policies using the django-password-validators package:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;pip install django-password-validators&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;configure-settings-3&quot;&gt;Configure settings:&lt;/h5&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# settings.py
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;AUTH_PASSWORD_VALIDATORS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...
+&lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;NAME&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;password_validators.NumericPasswordValidator&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;NAME&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;password_validators.CommonPasswordValidator&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Add other validators here
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h5 id=&quot;logging-and-monitoring&quot;&gt;Logging and Monitoring&lt;/h5&gt;
+
+&lt;p&gt;Implement comprehensive logging and monitoring using Django’s built-in logging 
+framework and tools like Sentry or ELK (Elasticsearch, Logstash, Kibana) for 
+tracking application behavior and security incidents.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;In this section, we’ve explored various authentication methods, including the 
+built-in system, OAuth for social authentication, and JWT for token-based 
+authentication in Django. We’ve also delved into fine-grained authorization, 
+custom permissions, and object-level permissions. By following best practices 
+for security, you can build robust and secure web applications with Django, 
+protecting your users and their data.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Building RESTful Admin Panels in Rails: A Comprehensive Guide</title><link href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202403/building-restful-admin-panels-in-rails-a-comprehensive-guide" rel="alternate" type="text/html" title="Building RESTful Admin Panels in Rails: A Comprehensive Guide" /><published>2024-03-01T15:30:00+03:00</published><updated>2024-03-01T15:30:00+03:00</updated><id>http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202403/building-restful-admin-panels-in-rails-a-comprehensive-guide</id><content type="html" xml:base="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202403/building-restful-admin-panels-in-rails-a-comprehensive-guide">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Managing application data efficiently is crucial for any web application. An 
+effective administrative interface can greatly streamline this process. In this 
+section, we’ll explore how to build RESTful admin panels in Rails, giving you 
+the power to manage your application’s data effortlessly. We’ll cover two main 
+approaches: using popular gems like ActiveAdmin or creating a custom admin panel 
+from scratch.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;p&gt;Before we dive into the implementation, ensure you have the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ruby on Rails: Make sure you have Rails installed on your system. If not, you 
+can install it using gem install rails.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A Rails Application: You should have a functional Rails application where you 
+want to add the admin panel.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;using-activeadmin&quot;&gt;Using ActiveAdmin&lt;/h3&gt;
+
+&lt;p&gt;ActiveAdmin is a widely-used gem for building admin interfaces in Rails 
+applications. It provides a comprehensive set of tools to create elegant, 
+easy-to-use admin panels with minimal effort.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-1-install-activeadmin&quot;&gt;Step 1: Install ActiveAdmin&lt;/h4&gt;
+
+&lt;p&gt;In your Rails application, add ActiveAdmin to your Gemfile:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;activeadmin&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Install the gem by running:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;bundle install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Now, generate the ActiveAdmin configuration:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;rails generate active_admin:install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-2-create-admin-resources&quot;&gt;Step 2: Create Admin Resources&lt;/h4&gt;
+
+&lt;p&gt;ActiveAdmin lets you define admin resources for your application models. These 
+resources allow you to manage the data through the admin panel. Let’s say we 
+have a Post model. To create an admin resource for it:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;rails generate active_admin:resource Post&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This generates an admin file in the app/admin directory where you can customize 
+the display and functionality of the admin interface for the Post model.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-3-customize-the-admin-interface&quot;&gt;Step 3: Customize the Admin Interface&lt;/h4&gt;
+
+&lt;p&gt;You can customize the admin panel further by modifying the generated admin 
+resource file. Here’s a basic example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/admin/post.rb&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;ActiveAdmin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;register&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;permit_params&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:published_at&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;selectable_column&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;id_column&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:published_at&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;actions&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;inputs&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Post Details&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:content&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:published_at&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;actions&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This code customizes the display of the Post model in the admin panel, allowing 
+you to manage the title, content, and published_at fields.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-4-access-the-admin-panel&quot;&gt;Step 4: Access the Admin Panel&lt;/h4&gt;
+
+&lt;p&gt;Start your Rails server (rails server) and access the admin panel at 
+http://localhost:3000/admin. You’ll need to sign in using your application’s 
+authentication system (like Devise) or the default ActiveAdmin authentication.&lt;/p&gt;
+
+&lt;p&gt;ActiveAdmin provides a rich set of features including filtering, sorting, and 
+batch actions, making it a powerful choice for building admin panels with 
+minimal coding.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;building-a-custom-admin-panel&quot;&gt;Building a Custom Admin Panel&lt;/h3&gt;
+
+&lt;p&gt;If you prefer more control and want to build a custom admin panel, you can 
+follow these steps:&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-1-generate-the-admin-controller&quot;&gt;Step 1: Generate the Admin Controller&lt;/h4&gt;
+
+&lt;p&gt;Generate an admin controller to handle the administrative actions:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;rails generate controller Admin&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-2-implement-authentication&quot;&gt;Step 2: Implement Authentication&lt;/h4&gt;
+
+&lt;p&gt;Implement authentication for the admin panel. You can use a gem like Devise for 
+user authentication and create an Admin model or use an existing user model. 
+Ensure only authorized users can access the admin panel.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-3-define-admin-routes&quot;&gt;Step 3: Define Admin Routes&lt;/h4&gt;
+
+&lt;p&gt;Define routes for your admin actions in the config/routes.rb file:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# config/routes.rb&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:admin&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:posts&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Add more resources as needed&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-4-implement-admin-controllers&quot;&gt;Step 4: Implement Admin Controllers&lt;/h4&gt;
+
+&lt;p&gt;For each admin resource, create a corresponding controller in the 
+app/controllers/admin directory. For example, for the Post model:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/controllers/admin/posts_controller.rb&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Admin::PostsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:authenticate_admin!&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;index&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@posts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# Implement other CRUD actions as needed&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-5-create-admin-views&quot;&gt;Step 5: Create Admin Views&lt;/h4&gt;
+
+&lt;p&gt;Create views for your admin actions in the app/views/admin directory. Use the 
+same structure as your regular views but tailored for the admin interface.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-6-enhance-the-admin-interface&quot;&gt;Step 6: Enhance the Admin Interface&lt;/h4&gt;
+
+&lt;p&gt;Customize the admin views to provide a user-friendly interface. Use forms, 
+tables, and other UI components to manage the data efficiently.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h4 id=&quot;step-7-secure-the-admin-panel&quot;&gt;Step 7: Secure the Admin Panel&lt;/h4&gt;
+
+&lt;p&gt;Implement authorization checks in your admin controllers to ensure that only 
+authorized users can perform administrative actions.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;Building RESTful admin panels in Rails can be achieved either by utilizing gems 
+like ActiveAdmin or by creating a custom admin panel. ActiveAdmin provides a 
+quick and powerful solution for creating admin interfaces with minimal coding. 
+On the other hand, building a custom admin panel gives you complete control over 
+the design and functionality.&lt;/p&gt;
+
+&lt;p&gt;Choose the approach that best fits your application’s needs and complexity. 
+Regardless of the method you choose, a well-designed admin panel will make data 
+management a breeze, helping you focus on other aspects of your application’s 
+development.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="frameworks" /><summary type="html">Introduction</summary></entry><entry><title type="html">Python for Natural Language Processing (NLP): A Practical Introduction</title><link href="http://0.0.0.0:4000/category/programming/python/concepts/202403/python-for-natural-language-processing-nlp-a-practical-introduction" rel="alternate" type="text/html" title="Python for Natural Language Processing (NLP): A Practical Introduction" /><published>2024-03-01T14:30:00+03:00</published><updated>2024-03-01T14:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/python/concepts/202403/python-for-natural-language-processing-nlp-a-practical-introduction</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/python/concepts/202403/python-for-natural-language-processing-nlp-a-practical-introduction">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;Natural Language Processing (NLP) is a fascinating field that bridges the gap 
+between human language and computer algorithms. In this section, we’ll explore 
+the core concepts of NLP and learn how to leverage Python libraries like NLTK 
+(Natural Language Toolkit) and spaCy to perform various text processing tasks, 
+including sentiment analysis. By the end of this tutorial, you’ll have a solid 
+foundation for working with NLP in Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;understanding-nlp&quot;&gt;Understanding NLP&lt;/h3&gt;
+
+&lt;p&gt;Natural Language Processing involves the interaction between computers and human 
+language. It enables machines to understand, interpret, and generate human 
+language in a valuable way. NLP has a wide range of applications, from chatbots 
+and translation services to sentiment analysis and text summarization.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;setting-up-your-environment&quot;&gt;Setting Up Your Environment&lt;/h3&gt;
+
+&lt;p&gt;Before we dive into NLP, let’s set up our Python environment. Make sure you have 
+Python installed on your system, preferably Python 3.x. We’ll also need to 
+install the NLTK and spaCy libraries.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Install NLTK
+&lt;span class=&quot;go&quot;&gt;!pip install nltk
+
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Install spaCy
+&lt;span class=&quot;go&quot;&gt;!pip install spacy&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Next, we’ll download the required resources for NLTK and spaCy. Open your Python 
+interpreter and run the following commands:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;nltk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;download&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;punkt&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;# Download tokenization data
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Download spaCy model (English)
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;python&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spacy&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;download&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;en_core_web_sm&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;tokenization-with-nltk&quot;&gt;Tokenization with NLTK&lt;/h3&gt;
+
+&lt;p&gt;Tokenization is the process of splitting a text into smaller units, such as 
+words or sentences. NLTK provides a powerful tokenization module that we can use.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.tokenize&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sent_tokenize&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Sample text
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Natural Language Processing is amazing. It enables machines to understand human language.&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Tokenize into sentences
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sentences&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sent_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sentences&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Tokenize into words
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;words&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;word_tokenize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;words&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;part-of-speech-tagging-with-spacy&quot;&gt;Part-of-Speech Tagging with spaCy&lt;/h3&gt;
+
+&lt;p&gt;Part-of-speech (POS) tagging is the process of assigning a grammatical label to 
+each word in a text. spaCy makes this task easy and efficient.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;spacy&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Load the English model
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nlp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;spacy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;en_core_web_sm&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Sample text
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;I love using spaCy for NLP tasks.&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Process the text
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nlp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Print token and POS tag
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;doc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pos_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sentiment-analysis&quot;&gt;Sentiment Analysis&lt;/h3&gt;
+
+&lt;p&gt;Sentiment analysis aims to determine the sentiment or emotion expressed in a 
+piece of text. We can perform sentiment analysis using pre-trained models or by 
+training our own. For this tutorial, we’ll use a pre-trained model from the NLTK 
+library.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;nltk.sentiment&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SentimentIntensityAnalyzer&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Create SentimentIntensityAnalyzer object
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sia&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SentimentIntensityAnalyzer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Sample text
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;I love Python and NLP. It&apos;s fantastic!&quot;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Get sentiment score
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sentiment_score&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sia&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;polarity_scores&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Interpret the sentiment score
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sentiment_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;compound&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sentiment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;positive&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sentiment_score&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;compound&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sentiment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;negative&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;sentiment&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;neutral&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Sentiment:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sentiment&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;In this section, we’ve covered the basics of Natural Language Processing using 
+Python. We explored tokenization with NLTK, part-of-speech tagging with spaCy, 
+and even performed sentiment analysis. This is just the beginning of what you 
+can achieve with NLP in Python. As you continue to explore this field, you’ll 
+discover its vast potential and applications in various industries. 
+Happy NLP-ing!&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry><entry><title type="html">Exploring WebAssembly and Its Integration with JavaScript: Boosting Web Application Performance</title><link href="http://0.0.0.0:4000/category/programming/javascript/concepts/202403/exploring-webassembly-and-its-integration-with-javascript-boosting-web-application-performance" rel="alternate" type="text/html" title="Exploring WebAssembly and Its Integration with JavaScript: Boosting Web Application Performance" /><published>2024-03-01T11:00:00+03:00</published><updated>2024-03-01T11:00:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/javascript/concepts/202403/exploring-webassembly-and-its-integration-with-javascript-boosting-web-application-performance</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/javascript/concepts/202403/exploring-webassembly-and-its-integration-with-javascript-boosting-web-application-performance">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
+
+&lt;p&gt;WebAssembly (Wasm) has revolutionized the world of web development by providing 
+a high-performance, low-level bytecode that can be executed in modern web 
+browsers. This technology has opened up new possibilities for improving the 
+speed and efficiency of web applications, making it an essential tool for 
+developers striving to create seamless user experiences. In this section, we’ll 
+delve into the concept of WebAssembly, highlight its benefits, and demonstrate 
+how to integrate it with JavaScript to achieve remarkable performance gains. 
+We’ll also explore real-world use cases and provide benchmark comparisons to 
+showcase the power of this integration.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;what-is-webassembly&quot;&gt;What is WebAssembly?&lt;/h3&gt;
+
+&lt;p&gt;WebAssembly is a binary instruction format that is designed as a portable 
+compilation target for high-level programming languages, allowing code to run at 
+near-native speed in web browsers. It was jointly developed by major browser 
+vendors, including Mozilla, Google, Microsoft, and Apple, as a web standard.&lt;/p&gt;
+
+&lt;p&gt;One of the key benefits of WebAssembly is its ability to bridge the gap between 
+low-level languages (like C, C++, and Rust) and the web platform, which is 
+primarily dominated by JavaScript. This enables developers to bring existing 
+codebases, originally written in languages with better performance 
+characteristics, into the browser environment without sacrificing performance.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;benefits-of-webassembly&quot;&gt;Benefits of WebAssembly:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Performance: WebAssembly delivers near-native performance, making it a 
+game-changer for compute-intensive tasks, such as real-time image processing, 
+complex simulations, and video editing directly in the browser.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Cross-platform: Wasm is designed to be platform-independent. It can be 
+executed on different operating systems and web browsers, ensuring a consistent 
+experience for users.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Language Agnostic: WebAssembly is not tied to a specific programming language, 
+which means you can use various languages to compile to Wasm. This versatility 
+allows developers to leverage their language of choice while taking advantage of 
+the performance benefits.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Security: WebAssembly executes in a sandboxed environment, providing an 
+additional layer of security. It ensures that potentially harmful code cannot 
+access sensitive data or interfere with other parts of the application.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;integrating-webassembly-with-javascript&quot;&gt;Integrating WebAssembly with JavaScript:&lt;/h3&gt;
+
+&lt;p&gt;To demonstrate the integration of WebAssembly with JavaScript, let’s consider a 
+common use case: image processing. Suppose you have a web application that needs 
+to apply complex filters to images uploaded by users. This is a 
+compute-intensive task that can be significantly accelerated using WebAssembly.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choosing a WebAssembly Compiler: You’ll need a compiler to convert your code 
+(e.g., written in C or Rust) into WebAssembly. Two popular choices are 
+Emscripten (for C/C++) and wasm-pack (for Rust).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Writing the WebAssembly Code: In this step, you’ll write or adapt your 
+existing image processing algorithm in the chosen language (C or Rust). Make 
+sure to follow the guidelines for interfacing with JavaScript.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Exporting Functions: WebAssembly modules can export functions that can be 
+called from JavaScript. You’ll want to export functions that perform the image 
+processing tasks you need.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Loading and Using WebAssembly: In your JavaScript code, you’ll load the 
+compiled WebAssembly module and interact with the exported functions. You can 
+pass image data to the WebAssembly functions and receive processed data back.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;real-world-use-cases&quot;&gt;Real-world Use Cases:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Media Processing: As mentioned earlier, image and video processing are 
+excellent use cases for WebAssembly. Applying filters, resizing images, and even 
+running video codecs can be significantly accelerated.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gaming: WebAssembly is a game-changer for web-based gaming. It allows 
+developers to port existing game engines or create new games with better 
+performance, opening up possibilities for immersive browser-based gaming 
+experiences.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Scientific Simulations: Complex scientific simulations, such as physics 
+simulations or molecular modeling, can leverage WebAssembly to run efficiently 
+in the browser, enabling researchers to conduct experiments without installing 
+specialized software.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;benchmarks-and-performance&quot;&gt;Benchmarks and Performance:&lt;/h3&gt;
+
+&lt;p&gt;To showcase the performance gains achieved by integrating WebAssembly with 
+JavaScript, let’s consider a benchmark that compares image processing speed for 
+a JavaScript-only implementation versus a WebAssembly-enhanced version. We’ll 
+use a common image filter operation and measure the time it takes for each 
+implementation to process a set of images.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;sample-benchmark-code-snippet-javascript&quot;&gt;Sample benchmark code snippet (JavaScript):&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// JavaScript image processing function&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;applyFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imageData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Apply image filter here&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;processedImageData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Measure time taken for JavaScript image processing&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;startTimeJS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;performance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;processedImage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;applyFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;endTimeJS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;performance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeTakenJS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;endTimeJS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;startTimeJS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Time taken (JavaScript): &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;timeTakenJS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; ms`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Sample benchmark code snippet (WebAssembly + JavaScript):&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Load WebAssembly module&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wasmModule&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;loadWebAssemblyModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;imageProcessing.wasm&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// WebAssembly image processing function&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;applyFilterWasm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wasmModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;applyFilter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Measure time taken for WebAssembly image processing&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;startTimeWasm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;performance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;processedImage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;applyFilterWasm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;endTimeWasm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;performance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;timeTakenWasm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;endTimeWasm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;startTimeWasm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`Time taken (WebAssembly): &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;timeTakenWasm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; ms`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion:&lt;/h3&gt;
+
+&lt;p&gt;Integrating WebAssembly with JavaScript offers developers a powerful tool to 
+enhance the performance of web applications. By leveraging the near-native 
+execution speed of WebAssembly, developers can bring complex computations, 
+simulations, and media processing tasks to the browser, providing users with 
+faster and more responsive experiences. Real-world use cases and benchmarks 
+demonstrate the practicality and effectiveness of this integration. As you 
+explore WebAssembly, you’ll unlock new possibilities for creating innovative web 
+applications that push the boundaries of what’s achievable in the browser 
+environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry><entry><title type="html">CSS Grid Mastery: Building Modern Layouts with CSS Grid</title><link href="http://0.0.0.0:4000/category/programming/css/concepts/202402/css-grid-mastery-building-modern-layouts-with-css-grid" rel="alternate" type="text/html" title="CSS Grid Mastery: Building Modern Layouts with CSS Grid" /><published>2024-02-04T15:33:00+03:00</published><updated>2024-02-04T15:33:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/css/concepts/202402/css-grid-mastery-building-modern-layouts-with-css-grid</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/css/concepts/202402/css-grid-mastery-building-modern-layouts-with-css-grid">&lt;h3 id=&quot;definition&quot;&gt;Definition&lt;/h3&gt;
 
 &lt;p&gt;In the ever-evolving world of web design, CSS Grid has emerged as a powerful 
 tool for creating flexible and dynamic layouts. It allows designers and 
@@ -979,758 +1806,4 @@ and data integrity. With the right storage engine, you can optimize the performa
 of your MySQL database to meet the specific needs of your application.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="databases" /><summary type="html">Introduction</summary></entry><entry><title type="html">Understanding PostgreSQL Indexing: Boosting Query Performance with Effective Indexing</title><link href="http://0.0.0.0:4000/category/databases/postgres/concepts/202401/understanding-postgresql-indexing-boosting-query-performance-with-effective-indexing" rel="alternate" type="text/html" title="Understanding PostgreSQL Indexing: Boosting Query Performance with Effective Indexing" /><published>2024-01-01T07:00:00+03:00</published><updated>2024-01-01T07:00:00+03:00</updated><id>http://0.0.0.0:4000/category/databases/postgres/concepts/202401/understanding-postgresql-indexing-boosting-query-performance-with-effective-indexing</id><content type="html" xml:base="http://0.0.0.0:4000/category/databases/postgres/concepts/202401/understanding-postgresql-indexing-boosting-query-performance-with-effective-indexing">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;In the realm of relational databases, query performance is paramount. Slow 
-queries can impact user experience, hinder application responsiveness, and 
-consume valuable server resources. This is where indexing comes to the rescue. 
-Indexing is a fundamental concept in database management systems, and PostgreSQL, 
-one of the most popular open-source relational databases, offers a sophisticated 
-indexing system that can significantly improve query performance.&lt;/p&gt;
-
-&lt;p&gt;In this section, we will take a deep dive into PostgreSQL indexing. We’ll cover 
-various index types, explain their use cases, and provide best practices for 
-optimizing query performance. By the end of this tutorial, you’ll have a solid 
-understanding of how indexing works in PostgreSQL and be equipped with the 
-knowledge to make informed decisions when designing and optimizing your database.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;what-is-indexing&quot;&gt;What is Indexing?&lt;/h3&gt;
-
-&lt;p&gt;At its core, indexing is a technique used to speed up the retrieval of data from 
-a database table. It acts like an organized reference system, allowing the 
-database management system to quickly locate the rows that satisfy a specific 
-query condition. Without indexes, the database would need to scan the entire 
-table, which can be extremely slow for large datasets.&lt;/p&gt;
-
-&lt;p&gt;Indexes are created on one or more columns of a table, and they maintain a 
-sorted data structure that enables efficient lookup operations. However, it’s 
-essential to choose the right type of index for your use case to achieve optimal 
-performance.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;common-index-types-in-postgresql&quot;&gt;Common Index Types in PostgreSQL&lt;/h3&gt;
-
-&lt;h4 id=&quot;b-tree-indexes&quot;&gt;B-tree Indexes&lt;/h4&gt;
-
-&lt;p&gt;B-tree (Balanced Tree) indexes are the default and most commonly used index type 
-in PostgreSQL. They are well-suited for equality and range queries, making them 
-suitable for columns like primary keys and columns frequently used in WHERE 
-clauses.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;c1&quot;&gt;-- Creating a B-tree index&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INDEX&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx_name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;column_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;gist-generalized-search-tree-indexes&quot;&gt;GiST (Generalized Search Tree) Indexes&lt;/h4&gt;
-
-&lt;p&gt;GiST indexes are versatile and support various data types, including geometric 
-and full-text data. They are particularly useful for complex data types and 
-specialized query patterns.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;c1&quot;&gt;-- Creating a GiST index&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INDEX&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx_gist&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;USING&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gist&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;column_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;gin-generalized-inverted-index-indexes&quot;&gt;GIN (Generalized Inverted Index) Indexes&lt;/h4&gt;
-
-&lt;p&gt;GIN indexes are designed for columns containing arrays, full-text search data, 
-and other cases where the data can be broken down into smaller elements.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;c1&quot;&gt;-- Creating a GIN index&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INDEX&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx_gin&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;table_name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;USING&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;gin&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;column_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;others&quot;&gt;Others&lt;/h4&gt;
-
-&lt;p&gt;PostgreSQL offers additional index types like SP-GiST (Space-Partitioned 
-Generalized Search Tree), BRIN (Block Range INdex), and Hash indexes. Each has 
-its specific use cases, and understanding these can be beneficial when dealing 
-with specialized scenarios.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;choosing-the-right-index-for-your-use-case&quot;&gt;Choosing the Right Index for Your Use Case&lt;/h3&gt;
-
-&lt;p&gt;Choosing the appropriate index type depends on your specific use case and the 
-nature of your data. Consider the following factors:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Query Patterns: Understand the types of queries your application frequently 
-performs. This knowledge will guide you in selecting columns for indexing and 
-choosing the right index type.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Data Distribution: Analyze the distribution of data in the indexed columns. If 
-there are many duplicate values, a B-tree index might be less effective. In such 
-cases, a Hash index could be a better choice.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Data Types: Different index types are suitable for different data types. 
-Choose the index type that aligns with the data you’re indexing.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;best-practices-for-indexing-in-postgresql&quot;&gt;Best Practices for Indexing in PostgreSQL&lt;/h3&gt;
-
-&lt;h4 id=&quot;column-selection&quot;&gt;Column Selection&lt;/h4&gt;
-
-&lt;p&gt;Be selective when choosing columns for indexing. Index only the columns that are 
-frequently used in WHERE clauses, JOIN conditions, or columns involved in sorting. 
-Over-indexing can lead to increased maintenance overhead and slower write 
-operations.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;indexing-text-fields&quot;&gt;Indexing Text Fields&lt;/h4&gt;
-
-&lt;p&gt;For text fields, consider using full-text search capabilities provided by 
-extensions like pg_trgm or tsvector. These extensions can significantly improve 
-search performance for text-based queries.&lt;/p&gt;
-
-&lt;h4 id=&quot;understanding-query-patterns&quot;&gt;Understanding Query Patterns&lt;/h4&gt;
-
-&lt;p&gt;Monitor and analyze query performance regularly. Use PostgreSQL’s EXPLAIN 
-statement to understand how the query planner is using indexes. Adjust your 
-indexes based on query patterns to ensure they are effective.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;regular-maintenance&quot;&gt;Regular Maintenance&lt;/h4&gt;
-
-&lt;p&gt;Indexes require maintenance to stay effective. Perform routine maintenance tasks 
-such as vacuuming and reindexing to keep your indexes in optimal shape.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;real-world-examples&quot;&gt;Real-world Examples&lt;/h3&gt;
-
-&lt;p&gt;Let’s consider a real-world example to showcase the power of indexing in 
-PostgreSQL. Suppose we have a table called “users,” and we frequently query the 
-table based on the user’s email and status.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;c1&quot;&gt;-- Creating a B-tree index on email and status columns&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INDEX&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idx_users_email_status&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ON&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-By creating a B-tree index on both the “email” and “status” columns, we can 
-significantly accelerate queries that filter users based on these criteria.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;Effective indexing is essential for achieving excellent query performance in 
-PostgreSQL. By understanding the various index types, choosing the right indexes 
-for your use case, and following best practices, you can optimize your database 
-for fast and responsive queries. Regularly monitor and adjust your indexes as 
-your application evolves, ensuring that your database continues to deliver 
-optimal performance as data grows.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="databases" /><summary type="html">Introduction</summary></entry><entry><title type="html">Working with Databases in Ruby: ORM Deep Dive</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202401/working-with-databases-in-ruby-orm-deep-dive" rel="alternate" type="text/html" title="Working with Databases in Ruby: ORM Deep Dive" /><published>2024-01-01T05:30:00+03:00</published><updated>2024-01-01T05:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202401/working-with-databases-in-ruby-orm-deep-dive</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202401/working-with-databases-in-ruby-orm-deep-dive">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;When it comes to developing robust web applications, efficient management of 
-databases is paramount. Object-Relational Mapping (ORM) is a powerful technique 
-that simplifies the interaction between a Ruby application and a relational 
-database. In this section, we’ll explore the advantages of using ORM in Ruby, 
-delve into the popular ORM library ActiveRecord, and provide practical tips for 
-optimizing your database interactions.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;what-is-object-relational-mapping-orm&quot;&gt;What is Object-Relational Mapping (ORM)?&lt;/h3&gt;
-
-&lt;p&gt;ORM is a software design pattern that allows developers to work with databases 
-using object-oriented paradigms. Instead of writing raw SQL queries, developers 
-can manipulate database records using programming language constructs like 
-classes and objects. This abstraction layer not only makes code more readable 
-and maintainable but also reduces the amount of repetitive database-related code.&lt;/p&gt;
-
-&lt;p&gt;In Ruby, the most widely used ORM framework is ActiveRecord, which is part of 
-the Ruby on Rails ecosystem. Let’s explore the advantages of using ActiveRecord 
-and how it simplifies database interactions.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;advantages-of-activerecord&quot;&gt;Advantages of ActiveRecord&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Simplicity: ActiveRecord abstracts complex SQL queries into simple Ruby method 
-calls. For example, to retrieve all users from a users table, you can use 
-&lt;span class=&quot;badge&quot;&gt;User.all&lt;/span&gt; instead of writing a verbose 
-&lt;span class=&quot;badge&quot;&gt;SELECT&lt;/span&gt; statement.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Database Independence: ActiveRecord supports multiple database systems, 
-allowing you to switch between databases without changing your code 
-significantly. This is especially valuable if your application needs to support 
-different database backends.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Model-View-Controller (MVC) Architecture: ActiveRecord seamlessly integrates 
-with the MVC architecture, promoting a clean separation of concerns in your 
-application. Models represent the data structure, while controllers handle the 
-business logic, and views manage the presentation layer.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Automatic Schema Generation: ActiveRecord can automatically generate database 
-tables based on your defined models. This means you can create and modify your 
-database schema using Ruby code, making it easier to version control and 
-collaborate on schema changes.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Validation and Callbacks: ActiveRecord provides built-in validation mechanisms 
-to ensure data integrity. You can specify rules for your model attributes, such 
-as presence, format, or uniqueness. Callbacks allow you to define custom logic 
-that runs at specific points in the object’s lifecycle, such as before saving to 
-the database.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;getting-started-with-activerecord&quot;&gt;Getting Started with ActiveRecord&lt;/h3&gt;
-
-&lt;p&gt;To get started with ActiveRecord, you’ll need a Ruby project set up with the 
-appropriate gems. Add the following line to your project’s Gemfile and run 
-bundle install:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;activerecord&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Next, create a model that corresponds to a database table. For example, let’s 
-create a User model that represents a users table:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This minimalistic model definition assumes that the users table exists in your 
-database. If the table doesn’t exist, ActiveRecord will generate an error. To 
-create the users table, you can run a migration:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CreateUsers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;7.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;create_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:age&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;timestamps&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Run the migration using the following command:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rake db:migrate&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-Now that the table is created, you can perform various database operations using 
-the User model:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Create a new user&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;name: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;John Doe&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;age: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Retrieve all users&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;users&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Find a user by ID&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Update a user&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Jane Smith&apos;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Delete a user&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;destroy&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;tips-for-efficient-database-interactions&quot;&gt;Tips for Efficient Database Interactions&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Use Batch Operations: When dealing with a large number of records, use batch 
-operations like &lt;span class=&quot;badge&quot;&gt;find_each&lt;/span&gt; or 
-&lt;span class=&quot;badge&quot;&gt;in_batches&lt;/span&gt; to process records in smaller groups. This 
-helps to avoid memory issues and improves performance.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Indexing: Properly index your database columns based on the types of queries 
-you frequently perform. Indexing can significantly speed up query execution.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Limit and Offset: When retrieving a subset of records, use the limit and 
-offset methods to paginate results. This prevents loading all records into 
-memory at once.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Eager Loading: Use eager loading (includes) to preload associations when 
-querying multiple records. This reduces the number of database queries and 
-prevents the N+1 query problem.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Caching: Implement caching mechanisms, such as fragment caching or caching of 
-expensive query results, to reduce database load and improve response times.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;Object-Relational Mapping, particularly with ActiveRecord in the Ruby ecosystem, 
-provides a powerful way to work with databases. It simplifies database 
-interactions, promotes clean code architecture, and offers features like 
-automatic schema generation, validation, and callbacks. By following best 
-practices and optimizing your database interactions, you can create efficient 
-and maintainable Ruby applications that scale with ease.&lt;/p&gt;
-
-&lt;p&gt;Remember to always refer to the official documentation for the latest updates 
-and features when working with ActiveRecord or any other ORM library. 
-Happy coding!&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry><entry><title type="html">Redis in DevOps: Infrastructure Orchestration and Automation</title><link href="http://0.0.0.0:4000/category/databases/redis/concepts/202401/securing-your-redis-deployment-best-practices-and-practical-tips" rel="alternate" type="text/html" title="Redis in DevOps: Infrastructure Orchestration and Automation" /><published>2024-01-01T05:00:00+03:00</published><updated>2024-01-01T05:00:00+03:00</updated><id>http://0.0.0.0:4000/category/databases/redis/concepts/202401/securing-your-redis-deployment-best-practices-and-practical-tips</id><content type="html" xml:base="http://0.0.0.0:4000/category/databases/redis/concepts/202401/securing-your-redis-deployment-best-practices-and-practical-tips">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Redis is a powerful and versatile in-memory data store used by countless 
-applications to handle data caching, real-time analytics, and more. However, 
-like any other technology, it’s essential to ensure that your Redis deployment 
-is secure. In this section, we’ll cover best practices for securing your Redis 
-instance, including authentication, network security, role-based access control 
-(RBAC), and encryption of data at rest. By implementing these measures, you’ll 
-significantly enhance the security of your Redis deployment.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;authentication&quot;&gt;Authentication&lt;/h3&gt;
-
-&lt;p&gt;Authentication is the first line of defense for your Redis instance. By 
-requiring clients to authenticate themselves before accessing the database, you 
-prevent unauthorized access. To enable authentication in Redis, follow these 
-steps:&lt;/p&gt;
-
-&lt;p&gt;1 . Set a Strong Password: Use a strong and unique password for your Redis server. 
-Weak passwords can be easily guessed or cracked.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-redis&quot; data-lang=&quot;redis&quot;&gt;CONFIG SET requirepass &quot;your_strong_password&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-2 . Use Configuration File: Edit your Redis configuration file 
-(usually redis.conf) to include the following line:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-redis&quot; data-lang=&quot;redis&quot;&gt;requirepass your_strong_password&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-3 . Restart Redis: After making changes to the configuration, restart Redis to 
-apply the new settings.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;network-security&quot;&gt;Network Security&lt;/h3&gt;
-
-&lt;p&gt;Limiting the network access to your Redis instance is crucial to prevent 
-unauthorized connections. Follow these network security best practices:&lt;/p&gt;
-
-&lt;p&gt;1 . Bind to Localhost: Configure Redis to listen only on the localhost 
-(127.0.0.1) if it’s used locally. This prevents external connections.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;    bind 127.0.0.1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;2 . Use Firewall Rules: If your Redis instance needs to be accessed from 
-specific IP addresses or subnets, use firewall rules to restrict incoming 
-connections to those trusted sources.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;role-based-access-control-rbac&quot;&gt;Role-Based Access Control (RBAC)&lt;/h3&gt;
-
-&lt;p&gt;RBAC allows you to define fine-grained access control, granting specific 
-permissions to users or applications. Redis 6 introduced ACL 
-(Access Control Lists) that makes implementing RBAC easier. Here’s how to use it:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-1 . Enable ACL: In your Redis configuration file, add the following line to 
-enable ACL:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;aclfile /path/to/your/aclfile.conf&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;2 . Define Users and Permissions: Create an ACL file (e.g., aclfile.conf) and 
-define users and their permissions. For example:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;user your_user on +@all -@dangerous_commands ~*&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;
-This example allows the user &lt;span class=&quot;badge&quot;&gt;your_user&lt;/span&gt; to access all 
-commands except dangerous ones.&lt;/p&gt;
-
-&lt;p&gt;3 . Reload ACL Configuration: After modifying the ACL file, reload the 
-configuration in Redis:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-redis&quot; data-lang=&quot;redis&quot;&gt;ACL LOAD&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;encryption-of-data-at-rest&quot;&gt;Encryption of Data at Rest&lt;/h3&gt;
-
-&lt;p&gt;Encrypting data at rest ensures that even if an attacker gains access to the 
-underlying storage, they won’t be able to read the data without the encryption 
-key. Redis does not provide built-in data-at-rest encryption, so you need to 
-implement this at the storage level.&lt;/p&gt;
-
-&lt;p&gt;1 . Use Encrypted File Systems: If possible, store your Redis data on an 
-encrypted file system. This ensures that data written to disk is automatically 
-encrypted.&lt;/p&gt;
-
-&lt;p&gt;2 . Use Third-Party Tools: Consider using third-party tools that provide 
-transparent data encryption for databases, including Redis. Popular options 
-include using encrypted volumes provided by cloud providers.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;By following these best practices for securing your Redis deployment, you’ll 
-significantly reduce the risk of unauthorized access and data breaches. Stay 
-vigilant, keep your Redis instance up to date, and regularly review your 
-security measures to ensure your data remains safe.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="databases" /><summary type="html">Introduction</summary></entry><entry><title type="html">Introduction to Python Data Science: A Practical Guide</title><link href="http://0.0.0.0:4000/category/programming/python/concepts/202312/introduction-to-python-data-science-a-practical-guide" rel="alternate" type="text/html" title="Introduction to Python Data Science: A Practical Guide" /><published>2023-12-03T14:30:00+03:00</published><updated>2023-12-03T14:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/python/concepts/202312/introduction-to-python-data-science-a-practical-guide</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/python/concepts/202312/introduction-to-python-data-science-a-practical-guide">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;Data science has emerged as a powerful field that harnesses the immense 
-potential of data to extract valuable insights and drive informed 
-decision-making. Python, a versatile and widely-used programming language, has 
-become the de facto choice for data science due to its extensive ecosystem of 
-libraries and tools tailored for data analysis, manipulation, and visualization. 
-In this section, we will embark on a journey to explore the fundamentals of data 
-science using Python, focusing on key libraries such as NumPy, pandas, and 
-Matplotlib. By the end of this tutorial, you’ll have a solid foundation to start 
-your data science endeavors.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;why-python-for-data-science&quot;&gt;Why Python for Data Science?&lt;/h3&gt;
-
-&lt;p&gt;Python’s popularity in the data science community can be attributed to its 
-simplicity, readability, and the availability of robust libraries. These 
-libraries enable efficient data handling and analysis, making it an ideal choice 
-for both beginners and experienced data scientists.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;setting-up-your-environment&quot;&gt;Setting Up Your Environment&lt;/h3&gt;
-
-&lt;p&gt;Before we dive into the specifics of data science, it’s essential to set up a 
-conducive environment. We recommend using Jupyter Notebook, an interactive 
-environment that allows you to combine code, visualizations, and explanatory 
-text. To install Jupyter Notebook, run the following command in your terminal or 
-command prompt:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-terminal&quot; data-lang=&quot;terminal&quot;&gt;&lt;span class=&quot;go&quot;&gt;pip install jupyter&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Once Jupyter Notebook is installed, launch it by typing jupyter notebook in your 
-terminal.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;introduction-to-numpy&quot;&gt;Introduction to NumPy&lt;/h3&gt;
-
-&lt;p&gt;NumPy, short for Numerical Python, is a fundamental library for scientific 
-computing in Python. It provides support for large, multi-dimensional arrays and 
-matrices, as well as a wide range of mathematical functions to operate on these 
-arrays.&lt;/p&gt;
-
-&lt;p&gt;Let’s start by creating a simple NumPy array:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Create a 1D array
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr_1d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Create a 2D array
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr_2d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]])&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Perform basic operations
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum_arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr_1d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;mean_arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr_2d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1D Array:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr_1d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;2D Array:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr_2d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Sum of 1D Array:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum_arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Mean of 2D Array:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean_arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;data-manipulation-with-pandas&quot;&gt;Data Manipulation with pandas&lt;/h3&gt;
-
-&lt;p&gt;pandas is a versatile library for data manipulation and analysis. It introduces 
-two essential data structures: Series (1D) and DataFrame (2D). These structures 
-allow you to work with labeled and indexed data effectively.&lt;/p&gt;
-
-&lt;p&gt;Suppose we have a simple dataset:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;style&gt;
-  th {
-    background-color: lightgrey;
-  }
-  table {
-    border-collapse: collapse;
-    border: 1px solid black;
-    margin: 0 auto;
-  }
-  td, th {
-    padding: 8px;
-    border: 1px solid black;
-  }
-&lt;/style&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Name&lt;/th&gt;
-      &lt;th&gt;Age&lt;/th&gt;
-      &lt;th&gt;Country&lt;/th&gt;      
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Alice&lt;/td&gt;
-      &lt;td&gt;25&lt;/td&gt;
-      &lt;td&gt;USA&lt;/td&gt;      
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Bob&lt;/td&gt;
-      &lt;td&gt;30&lt;/td&gt;
-      &lt;td&gt;Canada&lt;/td&gt;      
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Carol&lt;/td&gt;
-      &lt;td&gt;28&lt;/td&gt;
-      &lt;td&gt;Australia&lt;/td&gt;      
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;We can represent this data using a pandas DataFrame:&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&apos;Name&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Alice&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Bob&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Carol&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&apos;Age&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&apos;Country&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;USA&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Canada&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&apos;Australia&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Basic operations
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean_age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Age&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;subset&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Age&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;DataFrame:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Mean Age:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean_age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Subset of Data:&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;data-visualization-with-matplotlib&quot;&gt;Data Visualization with Matplotlib&lt;/h3&gt;
-
-&lt;p&gt;Visualizing data is crucial for understanding patterns and trends. Matplotlib 
-is a powerful library for creating static, interactive, and animated 
-visualizations in Python.&lt;/p&gt;
-
-&lt;p&gt;Let’s create a simple line plot to visualize the relationship between x and y:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Sample data
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linspace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Create a line plot
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;sin(x)&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;Simple Line Plot&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;x&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&apos;y&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;In this introductory section, we’ve covered the essential tools and libraries 
-you need to start your journey into data science with Python. We explored NumPy 
-for numerical computing, pandas for data manipulation, and Matplotlib for data 
-visualization. This is just the beginning; data science is a vast field with 
-endless possibilities. Continue to explore, experiment, and build upon these 
-fundamentals as you delve deeper into the fascinating world of data science. 
-Happy coding!&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry><entry><title type="html">Understanding Ruby Garbage Collection and Memory Management</title><link href="http://0.0.0.0:4000/category/programming/ruby/concepts/202312/understanding-ruby-garbage-collection-and-memory-management" rel="alternate" type="text/html" title="Understanding Ruby Garbage Collection and Memory Management" /><published>2023-12-03T14:30:00+03:00</published><updated>2023-12-03T14:30:00+03:00</updated><id>http://0.0.0.0:4000/category/programming/ruby/concepts/202312/understanding-ruby-garbage-collection-and-memory-management</id><content type="html" xml:base="http://0.0.0.0:4000/category/programming/ruby/concepts/202312/understanding-ruby-garbage-collection-and-memory-management">&lt;h3 id=&quot;introduction&quot;&gt;Introduction&lt;/h3&gt;
-
-&lt;p&gt;When building robust Ruby applications, understanding how memory management and 
-garbage collection work is crucial for maintaining optimal performance and 
-preventing memory leaks. Ruby, as a dynamic and high-level language, provides 
-its own garbage collection mechanism that takes care of memory allocation and 
-deallocation. In this section, we’ll dive into how Ruby’s garbage collector 
-works, discuss memory management strategies, and offer practical tips for 
-optimizing memory usage in your Ruby applications.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;rubys-garbage-collector-a-high-level-overview&quot;&gt;Ruby’s Garbage Collector: A High-Level Overview&lt;/h3&gt;
-
-&lt;p&gt;Ruby employs a garbage collector to automatically manage memory, relieving 
-developers from the burden of manual memory allocation and deallocation. The 
-primary goal of the garbage collector is to identify and free memory that is no 
-longer reachable, thereby preventing memory leaks.&lt;/p&gt;
-
-&lt;p&gt;The garbage collector in Ruby uses a technique called “mark-and-sweep”. Here’s a 
-step-by-step explanation of how it works:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Mark Phase: The garbage collector starts by marking all the objects that are 
-reachable from the root objects (global variables, active stack frames, etc.). 
-It traverses the object graph, marking each reachable object.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Sweep Phase: Once the mark phase is complete, the garbage collector sweeps 
-through the entire heap, identifying and freeing the memory occupied by unmarked 
-(i.e., unreachable) objects. This is the phase where memory is effectively 
-reclaimed.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ruby’s garbage collector is triggered automatically when the memory usage 
-reaches a certain threshold. While this automated process is convenient, it’s 
-essential to understand how it impacts the performance of your application.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;memory-management-strategies&quot;&gt;Memory Management Strategies&lt;/h3&gt;
-
-&lt;p&gt;To optimize memory usage in your Ruby applications, consider the following 
-strategies:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Minimize Object Creation: Every object allocated consumes memory. Aim to 
-minimize unnecessary object creation, especially in loops. Use mutable data 
-structures when appropriate to reduce memory overhead.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Inefficient: Creates a new string in each iteration&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;&apos;&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Efficient: Uses an array to build the string&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;result_str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Release Resources: Explicitly release resources when they are no longer needed. 
-This includes closing files, database connections, and other external resources.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;# Close file handle after usage&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;data.txt&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;c1&quot;&gt;# Read and process the file&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# File handle is automatically closed outside the block&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Avoid Global Variables: Global variables keep objects alive throughout the 
-program’s lifetime. Use local variables or encapsulate data within appropriate 
-objects to limit the scope.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Monitor and Profile: Use tools like Ruby’s built-in ObjectSpace module or 
-third-party profilers to monitor memory usage and identify potential issues.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h4 id=&quot;tips-for-optimizing-memory-usage&quot;&gt;Tips for Optimizing Memory Usage&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Use Symbols: Symbols are lightweight, immutable objects used as keys in hashes. 
-They’re more memory-efficient than strings.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Use symbols as hash keys&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;John&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Avoid Circular References: Circular references between objects can prevent the 
-garbage collector from reclaiming memory. Be mindful when designing your data 
-structures.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Memory-friendly Libraries: When working with large datasets, consider using 
-memory-efficient libraries like &lt;span class=&quot;badge&quot;&gt;Enumerable#lazy&lt;/span&gt;, 
-which generates values on-the-fly, or &lt;span class=&quot;badge&quot;&gt;CSV.foreach&lt;/span&gt; for 
-reading large CSV files without loading the entire file into memory.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Use Enumerable#lazy for large datasets&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INFINITY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lazy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Batch Processing: For memory-intensive tasks, process data in smaller batches 
-rather than loading everything into memory at once.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;    &lt;span class=&quot;c1&quot;&gt;# Process data in batches&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each_slice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;process_batch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;batch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h3&gt;
-
-&lt;p&gt;Understanding how Ruby’s garbage collector works and implementing effective 
-memory management strategies is essential for building performant and scalable 
-Ruby applications. By following the tips and best practices outlined in this 
-section, you’ll be better equipped to optimize memory usage, prevent memory 
-leaks, and ensure your Ruby code runs smoothly even under heavy loads.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="programming" /><summary type="html">Introduction</summary></entry></feed>
+&lt;em&gt;Thanks for reading, see you in the next one!&lt;/em&gt;&lt;/p&gt;</content><author><name>Denis Kobare</name></author><category term="databases" /><summary type="html">Introduction</summary></entry></feed>
