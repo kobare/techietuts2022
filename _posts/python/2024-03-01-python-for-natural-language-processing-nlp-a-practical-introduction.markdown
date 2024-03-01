@@ -2,7 +2,7 @@
 layout: post
 title:  "Python for Natural Language Processing (NLP): A Practical Introduction"
 author: Denis Kobare
-date:   2024-03-03 14:30:00 +0300
+date:   2024-03-01 14:30:00 +0300
 img: /assets/img/svg/python.svg
 categories: programming
 sub_category: python

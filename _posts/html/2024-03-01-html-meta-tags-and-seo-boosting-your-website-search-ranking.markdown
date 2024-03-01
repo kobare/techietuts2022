@@ -2,7 +2,7 @@
 layout: post
 title:  "HTML Meta Tags and SEO: Boosting Your Website's Search Ranking"
 author: Denis Kobare
-date:   2024-03-03 15:33:00 +0300
+date:   2024-03-01 15:33:00 +0300
 img: /assets/img/svg/html.svg
 categories: programming
 sub_category: html

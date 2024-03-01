@@ -2,7 +2,7 @@
 layout: post
 title:  "Authentication and Authorization in Django: A Comprehensive Guide"
 author: Denis Kobare
-date:   2024-03-03 15:30:00 +0300
+date:   2024-03-01 15:30:00 +0300
 img: /assets/img/svg/django.svg
 categories: frameworks
 sub_category: django

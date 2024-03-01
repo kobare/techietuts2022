@@ -2,7 +2,7 @@
 layout: post
 title:  "Exploring WebAssembly and Its Integration with JavaScript: Boosting Web Application Performance"
 author: Denis Kobare
-date:   2024-03-03 11:00:00 +0300
+date:   2024-03-01 11:00:00 +0300
 img: /assets/img/svg/javascript.svg
 categories: programming
 sub_category: javascript
