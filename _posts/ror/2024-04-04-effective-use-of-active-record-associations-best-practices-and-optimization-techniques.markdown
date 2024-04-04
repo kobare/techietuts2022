@@ -2,7 +2,7 @@
 layout: post
 title:  "Effective Use of Active Record Associations: Best Practices and Optimization Techniques"
 author: Denis Kobare
-date:   2024-04-07 15:30:00 +0300
+date:   2024-04-04 15:30:00 +0300
 img: /assets/img/svg/ror.svg
 categories: frameworks
 sub_category: ruby-on-rails

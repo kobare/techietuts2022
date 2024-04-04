@@ -2,7 +2,7 @@
 layout: post
 title:  "Mastering HTML Email Markup for Effective Email Campaigns"
 author: Denis Kobare
-date:   2024-04-07 15:33:00 +0300
+date:   2024-04-04 15:33:00 +0300
 img: /assets/img/svg/html.svg
 categories: programming
 sub_category: html

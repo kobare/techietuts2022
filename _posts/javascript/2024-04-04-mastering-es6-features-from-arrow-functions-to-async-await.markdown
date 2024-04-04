@@ -2,7 +2,7 @@
 layout: post
 title:  "Mastering ES6+ Features: From Arrow Functions to Async/Await"
 author: Denis Kobare
-date:   2024-04-07 11:00:00 +0300
+date:   2024-04-04 11:00:00 +0300
 img: /assets/img/svg/javascript.svg
 categories: programming
 sub_category: javascript
