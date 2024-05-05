@@ -2,7 +2,7 @@
 layout: post
 title:  "Unlocking the Power of Custom CSS Properties (Variables) for Dynamic and Reusable Styles"
 author: Denis Kobare
-date:   2024-05-05 15:33:00 +0300
+date:   2024-05-05 11:00:00 +0300
 img: /assets/img/svg/css3.svg
 categories: programming
 sub_category: css

@@ -2,7 +2,7 @@
 layout: post
 title:  "5G and its Impact on Network Infrastructure: A Practical Exploration"
 author: Denis Kobare
-date:   2024-05-05 13:40:00 +0300
+date:   2024-05-05 11:00:00 +0300
 img: /assets/img/svg/networking.svg
 categories: more-topics
 sub_category: networking

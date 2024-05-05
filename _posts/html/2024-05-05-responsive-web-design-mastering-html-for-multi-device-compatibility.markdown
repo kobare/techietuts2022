@@ -2,7 +2,7 @@
 layout: post
 title:  "Responsive Web Design: Mastering HTML for Multi-Device Compatibility"
 author: Denis Kobare
-date:   2024-05-05 15:33:00 +0300
+date:   2024-05-05 11:00:00 +0300
 img: /assets/img/svg/html.svg
 categories: programming
 sub_category: html
