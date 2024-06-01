@@ -2,7 +2,7 @@
 layout: post
 title:  "CSS-in-JS Solutions: A Practical Comparison of styled-components and emotion"
 author: Denis Kobare
-date:   2024-06-02 15:33:00 +0300
+date:   2024-06-01 15:33:00 +0300
 img: /assets/img/svg/css3.svg
 categories: programming
 sub_category: css

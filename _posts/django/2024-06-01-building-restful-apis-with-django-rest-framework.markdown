@@ -2,7 +2,7 @@
 layout: post
 title:  "Building RESTful APIs with Django Rest Framework"
 author: Denis Kobare
-date:   2024-06-02 15:30:00 +0300
+date:   2024-06-01 15:30:00 +0300
 img: /assets/img/svg/django.svg
 categories: frameworks
 sub_category: django

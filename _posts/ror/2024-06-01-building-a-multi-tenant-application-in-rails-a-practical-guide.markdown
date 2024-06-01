@@ -2,7 +2,7 @@
 layout: post
 title:  "Building a Multi-Tenant Application in Rails: A Practical Guide"
 author: Denis Kobare
-date:   2024-06-02 15:30:00 +0300
+date:   2024-06-01 15:30:00 +0300
 img: /assets/img/svg/ror.svg
 categories: frameworks
 sub_category: ruby-on-rails

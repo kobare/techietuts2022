@@ -2,7 +2,7 @@
 layout: post
 title:  "Progressive Web Apps (PWAs) with JavaScript: Building Seamless User Experiences"
 author: Denis Kobare
-date:   2024-06-02 11:00:00 +0300
+date:   2024-06-01 11:00:00 +0300
 img: /assets/img/svg/javascript.svg
 categories: programming
 sub_category: javascript
