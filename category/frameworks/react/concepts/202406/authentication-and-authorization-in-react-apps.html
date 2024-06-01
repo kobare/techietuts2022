@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<!-- Techie Tuts website copyright 2020-->
+<html lang="en">
+
+                <!-- Head module inserted below -->
+        <head>
+ <meta charset="utf-8">
+ <title>Authentication and Authorization in React Apps - Techietuts</title>
+ <meta name="description" content="">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+
+<!-- Styles -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Quicksand&display=swap" rel="stylesheet"> 
+
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/firacode/5.2.0/fira_code.css">
+<link rel="stylesheet" href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+-->
+
+<link rel="stylesheet" href="/assets/css/fira_code.css">
+<link rel="stylesheet" href="/assets/css/dracula_prism.min.css">
+<script src="prism.min.js"></script>
+
+
+<link rel="stylesheet" href="/assets/css/xxxprism.css">
+<script src="/assets/css/xxxprism.js"></script>
+
+ 
+<link rel="stylesheet" href="/assets/css/code_syntax_highlighter.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+<link rel="manifest" href="/assets/img/favicon/site.webmanifest">
+ 
+ <!--  favicon  -->
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon_techietuts.png"> 
+ 
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Authentication and Authorization in React Apps" />
+<meta name="author" content="Denis Kobare" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/react/concepts/202406/authentication-and-authorization-in-react-apps" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/react/concepts/202406/authentication-and-authorization-in-react-apps" />
+<meta property="og:site_name" content="Techietuts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-06-01T15:30:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Authentication and Authorization in React Apps" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"Introduction","headline":"Authentication and Authorization in React Apps","dateModified":"2024-06-01T15:30:00+03:00","datePublished":"2024-06-01T15:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/react/concepts/202406/authentication-and-authorization-in-react-apps"},"url":"http://0.0.0.0:4000/category/frameworks/react/concepts/202406/authentication-and-authorization-in-react-apps","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<!--   Google AdSense   -->
+<!-- <script data-ad-client="ca-pub-6160810274402662" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6160810274402662" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+.reduce-size{
+  padding: 30px;
+ /* background-color: #efefef; */
+  width: 1080px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+</style>
+    
+
+  <body class="animsition">
+	  
+		<!-- Header module inserted below -->
+        <!-- Mobile Phone Navigation Menu -->
+<div class="mobile-nav">
+ <a href="/" class="top-bar"><img src="/assets/img/logo_02.png" class="logo" style="padding-left: 0;"></a>
+ <div id="myLinks">
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>programming</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>Programming Languages</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Ruby</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/ruby/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/ruby/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/ruby/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/ruby/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>JavaScript</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/javascript/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/javascript/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/javascript/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/javascript/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>HTML</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/html/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/html/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/html/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/html/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>CSS</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/css/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/css/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/css/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/css/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Python</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/python/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/python/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/python/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/python/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>frameworks</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-crop">&nbsp; &nbsp;</i>Frameworks</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Ruby-on-Rails</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/frameworks/ruby-on-rails/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/frameworks/ruby-on-rails/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/frameworks/ruby-on-rails/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/frameworks/ruby-on-rails/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Jekyll</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/frameworks/jekyll/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/frameworks/jekyll/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/frameworks/jekyll/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/frameworks/jekyll/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>React</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/frameworks/react/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/frameworks/react/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/frameworks/react/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/frameworks/react/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Django</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/frameworks/django/installation-&-setup"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Installation-&-Setup</a>
+          
+           <a href="/category/frameworks/django/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/frameworks/django/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/frameworks/django/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>databases</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-database">&nbsp; &nbsp;</i>Databases</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>MySql</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/databases/mysql/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/databases/mysql/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/databases/mysql/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/databases/mysql/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Postgres</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/databases/postgres/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/databases/postgres/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/databases/postgres/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/databases/postgres/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Redis</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/databases/redis/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/databases/redis/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/databases/redis/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/databases/redis/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>vcs</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-github">&nbsp; &nbsp;</i>Vcs</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Github</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/vcs/github/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/vcs/github/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/vcs/github/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/vcs/github/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>more-topics</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-connectdevelop">&nbsp; &nbsp;</i>More-topics</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Software Engineering</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/software-engineering/object-oriented-programming/"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Object Oriented Programming</a>
+          
+           <a href="/category/more-topics/software-engineering/data-structures/"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Data Structures</a>
+          
+           <a href="/category/more-topics/software-engineering/algorithms/"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Algorithms</a>
+          
+           <a href="/category/more-topics/software-engineering/design-patterns/"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Design Patterns</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Operating Systems</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/operating-systems/ubuntu"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Ubuntu</a>
+          
+           <a href="/category/more-topics/operating-systems/windows"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Windows</a>
+          
+           <a href="/category/more-topics/operating-systems/kali-linux"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Kali Linux</a>
+          
+           <a href="/category/more-topics/operating-systems/arch-linux"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Arch Linux</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cloud Services</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/cloud-services/heroku"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Heroku</a>
+          
+           <a href="/category/more-topics/cloud-services/aws"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>AWS</a>
+          
+           <a href="/category/more-topics/cloud-services/microservice-architecture"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Microservice Architecture</a>
+          
+           <a href="/category/more-topics/cloud-services/apis"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>APIs</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Machine Learning</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/machine-learning/supervised-learning"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Supervised Learning</a>
+          
+           <a href="/category/more-topics/machine-learning/unsupervised-learning"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Unsupervised Learning</a>
+          
+           <a href="/category/more-topics/machine-learning/neural-networks"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Neural Networks</a>
+          
+           <a href="/category/more-topics/machine-learning/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Networking</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/networking/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/more-topics/networking/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/more-topics/networking/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/more-topics/networking/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>blog</button> -->
+    
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Technology</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/blog/technology/ai"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>AI</a>
+          
+           <a href="/category/blog/technology/android"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Android</a>
+          
+           <a href="/category/blog/technology/internet"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Internet</a>
+          
+           <a href="/category/blog/technology/table-of-content"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Table of Content</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+  
+ </div>
+ <a href="javascript:void(0);" class="icon" onclick="showMobileNav()"><i class="fa fa-bars"></i></a>
+</div>
+
+
+<!-- Desktop Navigation Menu -->
+<div id="toggle-hide" class="navbar">
+  <div class="logo-section">
+    <a href="/"><img src="/assets/img/logo_02.png" class="logo"></img></a>
+  </div>
+  <div class="links">
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-search">&nbsp; &nbsp;</i>
+        <input type="text" name="query" id="query" placeholder="Search content">
+      </button>
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>Search Results:</h2>
+        </div>   
+        <div class="row search-row">
+        <ul  class="search" id="results-container"><!-- inserts li from search results --></ul>
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>Programming Languages</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>programming</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Ruby</h3>
+            
+             <a class="level-three-title" href="/category/programming/ruby/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/ruby/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/ruby/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/ruby/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>JavaScript</h3>
+            
+             <a class="level-three-title" href="/category/programming/javascript/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/javascript/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/javascript/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/javascript/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>HTML</h3>
+            
+             <a class="level-three-title" href="/category/programming/html/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/html/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/html/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/html/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>CSS</h3>
+            
+             <a class="level-three-title" href="/category/programming/css/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/css/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/css/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/css/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Python</h3>
+            
+             <a class="level-three-title" href="/category/programming/python/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/python/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/python/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/python/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-crop">&nbsp; &nbsp;</i>frameworks</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>frameworks</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Ruby-on-Rails</h3>
+            
+             <a class="level-three-title" href="/category/frameworks/ruby-on-rails/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/frameworks/ruby-on-rails/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/frameworks/ruby-on-rails/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/frameworks/ruby-on-rails/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Jekyll</h3>
+            
+             <a class="level-three-title" href="/category/frameworks/jekyll/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/frameworks/jekyll/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/frameworks/jekyll/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/frameworks/jekyll/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>React</h3>
+            
+             <a class="level-three-title" href="/category/frameworks/react/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/frameworks/react/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/frameworks/react/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/frameworks/react/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Django</h3>
+            
+             <a class="level-three-title" href="/category/frameworks/django/installation-&-setup"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Installation-&-Setup</a>
+            
+             <a class="level-three-title" href="/category/frameworks/django/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/frameworks/django/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/frameworks/django/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-database">&nbsp; &nbsp;</i>databases</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>databases</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>MySql</h3>
+            
+             <a class="level-three-title" href="/category/databases/mysql/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/databases/mysql/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/databases/mysql/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/databases/mysql/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Postgres</h3>
+            
+             <a class="level-three-title" href="/category/databases/postgres/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/databases/postgres/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/databases/postgres/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/databases/postgres/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Redis</h3>
+            
+             <a class="level-three-title" href="/category/databases/redis/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/databases/redis/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/databases/redis/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/databases/redis/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-github">&nbsp; &nbsp;</i>Version Control Sytems</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>vcs</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Github</h3>
+            
+             <a class="level-three-title" href="/category/vcs/github/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/vcs/github/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/vcs/github/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/vcs/github/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-connectdevelop">&nbsp; &nbsp;</i>More Topics</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>more-topics</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Software Engineering</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/software-engineering/object-oriented-programming/"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Object Oriented Programming</a>
+            
+             <a class="level-three-title" href="/category/more-topics/software-engineering/data-structures/"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Data Structures</a>
+            
+             <a class="level-three-title" href="/category/more-topics/software-engineering/algorithms/"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Algorithms</a>
+            
+             <a class="level-three-title" href="/category/more-topics/software-engineering/design-patterns/"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Design Patterns</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Operating Systems</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/operating-systems/ubuntu"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Ubuntu</a>
+            
+             <a class="level-three-title" href="/category/more-topics/operating-systems/windows"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Windows</a>
+            
+             <a class="level-three-title" href="/category/more-topics/operating-systems/kali-linux"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Kali Linux</a>
+            
+             <a class="level-three-title" href="/category/more-topics/operating-systems/arch-linux"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Arch Linux</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Cloud Services</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/cloud-services/heroku"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Heroku</a>
+            
+             <a class="level-three-title" href="/category/more-topics/cloud-services/aws"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>AWS</a>
+            
+             <a class="level-three-title" href="/category/more-topics/cloud-services/microservice-architecture"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Microservice Architecture</a>
+            
+             <a class="level-three-title" href="/category/more-topics/cloud-services/apis"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>APIs</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Machine Learning</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/machine-learning/supervised-learning"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Supervised Learning</a>
+            
+             <a class="level-three-title" href="/category/more-topics/machine-learning/unsupervised-learning"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Unsupervised Learning</a>
+            
+             <a class="level-three-title" href="/category/more-topics/machine-learning/neural-networks"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Neural Networks</a>
+            
+             <a class="level-three-title" href="/category/more-topics/machine-learning/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Networking</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/networking/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/more-topics/networking/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/more-topics/networking/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/more-topics/networking/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>blog</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Technology</h3>
+            
+             <a class="level-three-title" href="/category/blog/technology/ai"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>AI</a>
+            
+             <a class="level-three-title" href="/category/blog/technology/android"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Android</a>
+            
+             <a class="level-three-title" href="/category/blog/technology/internet"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Internet</a>
+            
+             <a class="level-three-title" href="/category/blog/technology/table-of-content"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Table of Content</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+    
+  </div> <!-- end links-->
+</div> <!-- end navbar-->
+
+
+
+	  
+		<!-- Content -->
+        <style>
+
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
+  max-width: 100%;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
+  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
+
+@media(max-width: 81rem) {
+
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
+}
+</style>
+<div class="main-content reduce-size main-content-tweak">
+
+    <div class="tittle-banner">
+      <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
+      <h1 style="padding: -50px; line-height: 1.2em;">Authentication and Authorization in React Apps</h1>             
+    </div>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> June 2024</p>
+    <div>
+                <!-- Page content object inserted below -->
+        <h3 id="introduction">Introduction</h3>
+
+<p>Building secure and reliable web applications is a top priority in today’s 
+digital landscape. Ensuring that only authorized users can access certain parts 
+of your application while protecting user data is essential. In this section, 
+we’ll explore how to handle user authentication and authorization in a React 
+application. We’ll cover secure authentication methods, protecting routes, and 
+managing user sessions.</p>
+
+<p>Authentication is the process of verifying the identity of a user, while 
+authorization is the process of determining what a user is allowed to do within 
+the application. In a React application, it’s crucial to implement robust 
+authentication and authorization mechanisms to ensure that only authenticated 
+users can access certain parts of the application and perform authorized actions.</p>
+
+<p><br /></p>
+<h3 id="user-authentication">User Authentication</h3>
+
+<h4 id="using-jwt-json-web-tokens">Using JWT (JSON Web Tokens)</h4>
+
+<p>JSON Web Tokens (JWT) are a popular method for handling user authentication. A 
+JWT is a compact, URL-safe token that contains claims (user information) and is 
+digitally signed for integrity. Here’s a high-level overview of how JWT 
+authentication works:</p>
+
+<ul>
+  <li>
+    <p>The user logs in with valid credentials.</p>
+  </li>
+  <li>
+    <p>The server generates a JWT containing user claims (e.g., user ID, roles, 
+expiration).</p>
+  </li>
+  <li>
+    <p>The JWT is sent to the client and stored (e.g., in a secure HTTP-only cookie).</p>
+  </li>
+  <li>
+    <p>The client includes the JWT in the header of each authenticated request.</p>
+  </li>
+  <li>
+    <p>The server verifies the JWT’s signature and extracts user information.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+<h4 id="storing-jwts">Storing JWTs</h4>
+
+<p>It’s essential to store JWTs securely to prevent unauthorized access. A common 
+approach is to store JWTs in HTTP-only cookies. This prevents JavaScript code 
+from accessing the token, reducing the risk of cross-site scripting (XSS) 
+attacks.</p>
+
+<h4 id="example-implementing-jwt-authentication">Example: Implementing JWT Authentication</h4>
+
+<p>Let’s create a simple React authentication example using JWT. We’ll use the 
+jsonwebtoken library to generate and verify tokens.</p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx"><span class="c1">// Install the required libraries</span>
+<span class="c1">// npm install jsonwebtoken</span>
+
+<span class="c1">// client/src/components/Login.js</span>
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">jwt</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">jsonwebtoken</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">Login</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">loggedIn</span><span class="p">,</span> <span class="nx">setLoggedIn</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">handleLogin</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Assume successful login</span>
+    <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span> <span class="na">id</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span> <span class="na">username</span><span class="p">:</span> <span class="dl">'</span><span class="s1">exampleUser</span><span class="dl">'</span> <span class="p">};</span>
+    <span class="kd">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">sign</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="dl">'</span><span class="s1">secretKey</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">expiresIn</span><span class="p">:</span> <span class="dl">'</span><span class="s1">1h</span><span class="dl">'</span> <span class="p">});</span>
+    <span class="c1">// Store the token (e.g., in a cookie)</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="s2">`token=</span><span class="p">${</span><span class="nx">token</span><span class="p">}</span><span class="s2">; path=/; HttpOnly; Secure`</span><span class="p">;</span>
+    <span class="nx">setLoggedIn</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="si">{</span><span class="nx">loggedIn</span> <span class="p">?</span> <span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Welcome, you are logged in!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+      <span class="p">)</span> <span class="p">:</span> <span class="p">(</span>
+        <span class="p">&lt;</span><span class="nt">button</span> <span class="na">onClick</span><span class="p">=</span><span class="si">{</span><span class="nx">handleLogin</span><span class="si">}</span><span class="p">&gt;</span>Log In<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="p">)</span><span class="si">}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">Login</span><span class="p">;</span></code></pre></figure>
+
+<p>In this example, we create a simple login component that generates a JWT upon 
+successful login and stores it in an HTTP-only cookie.</p>
+
+<p><br /></p>
+<h3 id="authorization-and-protected-routes">Authorization and Protected Routes</h3>
+
+<h4 id="restricting-access-to-authenticated-users">Restricting Access to Authenticated Users</h4>
+
+<p>Once we have user authentication in place, we can implement authorization by 
+restricting access to certain routes or components based on user roles or 
+permissions.</p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx"><span class="c1">// client/src/components/ProtectedRoute.js</span>
+<span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Route</span><span class="p">,</span> <span class="nx">Redirect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-router-dom</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">ProtectedRoute</span> <span class="o">=</span> <span class="p">({</span> <span class="na">component</span><span class="p">:</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">isAuthenticated</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">(</span>
+  <span class="p">&lt;</span><span class="nc">Route</span>
+    <span class="si">{</span><span class="p">...</span><span class="nx">rest</span><span class="si">}</span>
+    <span class="na">render</span><span class="p">=</span><span class="si">{</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span>
+      <span class="nx">isAuthenticated</span> <span class="p">?</span> <span class="p">&lt;</span><span class="nc">Component</span> <span class="si">{</span><span class="p">...</span><span class="nx">props</span><span class="si">}</span> <span class="p">/&gt;</span> <span class="p">:</span> <span class="p">&lt;</span><span class="nc">Redirect</span> <span class="na">to</span><span class="p">=</span><span class="s">"/login"</span> <span class="p">/&gt;</span>
+    <span class="si">}</span>
+  <span class="p">/&gt;</span>
+<span class="p">);</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">ProtectedRoute</span><span class="p">;</span></code></pre></figure>
+
+<p>In this example, we create a ProtectedRoute component that redirects 
+unauthenticated users to the login page.</p>
+
+<h4 id="example-protecting-routes">Example: Protecting Routes</h4>
+
+<p>Let’s protect a specific route using the ProtectedRoute component.</p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx"><span class="c1">// client/src/App.js</span>
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">BrowserRouter</span> <span class="k">as</span> <span class="nx">Router</span><span class="p">,</span> <span class="nx">Route</span><span class="p">,</span> <span class="nx">Switch</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-router-dom</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ProtectedRoute</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./components/ProtectedRoute</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Login</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./components/Login</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">Dashboard</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./components/Dashboard</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">isAuthenticated</span><span class="p">,</span> <span class="nx">setIsAuthenticated</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nc">Router</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nc">Switch</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nc">Route</span> <span class="na">path</span><span class="p">=</span><span class="s">"/login"</span> <span class="na">component</span><span class="p">=</span><span class="si">{</span><span class="nx">Login</span><span class="si">}</span> <span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nc">ProtectedRoute</span>
+          <span class="na">path</span><span class="p">=</span><span class="s">"/dashboard"</span>
+          <span class="na">component</span><span class="p">=</span><span class="si">{</span><span class="nx">Dashboard</span><span class="si">}</span>
+          <span class="na">isAuthenticated</span><span class="p">=</span><span class="si">{</span><span class="nx">isAuthenticated</span><span class="si">}</span>
+        <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nc">Switch</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nc">Router</span><span class="p">&gt;</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span></code></pre></figure>
+
+<p>In this example, the Dashboard component will only be accessible to 
+authenticated users.</p>
+
+<p><br /></p>
+<h3 id="managing-user-sessions">Managing User Sessions</h3>
+
+<h4 id="implementing-session-management">Implementing Session Management</h4>
+
+<p>Managing user sessions involves handling the duration of user authentication. 
+It’s common to set an expiration time for JWTs. When a token expires, the user 
+needs to reauthenticate.</p>
+
+<p>To handle token expiration, you can implement a token refresh mechanism. This 
+involves issuing a new token (with a longer expiration) when the user’s token is 
+close to expiration.</p>
+
+<h4 id="example-managing-user-sessions">Example: Managing User Sessions</h4>
+
+<p>Let’s implement a basic token refresh mechanism in the ProtectedRoute component.</p>
+
+<figure class="highlight"><pre><code class="language-jsx" data-lang="jsx"><span class="c1">// client/src/components/ProtectedRoute.js</span>
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useEffect</span><span class="p">,</span> <span class="nx">useState</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Route</span><span class="p">,</span> <span class="nx">Redirect</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">react-router-dom</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">jwt</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">jsonwebtoken</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">ProtectedRoute</span> <span class="o">=</span> <span class="p">({</span> <span class="na">component</span><span class="p">:</span> <span class="nx">Component</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">isAuthenticated</span><span class="p">,</span> <span class="nx">setIsAuthenticated</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Check if the token is valid</span>
+    <span class="kd">const</span> <span class="nx">token</span> <span class="o">=</span> <span class="nx">getStoredToken</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">token</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">try</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">decodedToken</span> <span class="o">=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">verify</span><span class="p">(</span><span class="nx">token</span><span class="p">,</span> <span class="dl">'</span><span class="s1">secretKey</span><span class="dl">'</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">decodedToken</span><span class="p">.</span><span class="nx">exp</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">&gt;</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span> <span class="p">{</span>
+          <span class="c1">// Token is valid</span>
+          <span class="nx">setIsAuthenticated</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="c1">// Token expired, handle token refresh here</span>
+          <span class="nx">refreshAccessToken</span><span class="p">();</span>
+        <span class="p">}</span>
+      <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Invalid token, handle accordingly</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Invalid token</span><span class="dl">'</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="p">[]);</span>
+
+  <span class="c1">// Rest of the component implementation...</span>
+
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="p">&lt;</span><span class="nc">Route</span>
+      <span class="si">{</span><span class="p">...</span><span class="nx">rest</span><span class="si">}</span>
+      <span class="na">render</span><span class="p">=</span><span class="si">{</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span>
+        <span class="nx">isAuthenticated</span> <span class="p">?</span> <span class="p">&lt;</span><span class="nc">Component</span> <span class="si">{</span><span class="p">...</span><span class="nx">props</span><span class="si">}</span> <span class="p">/&gt;</span> <span class="p">:</span> <span class="p">&lt;</span><span class="nc">Redirect</span> <span class="na">to</span><span class="p">=</span><span class="s">"/login"</span> <span class="p">/&gt;</span>
+      <span class="si">}</span>
+    <span class="p">/&gt;</span>
+  <span class="p">);</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">ProtectedRoute</span><span class="p">;</span></code></pre></figure>
+
+<p>In this example, we use useEffect to check if the stored token is valid, and if 
+it’s close to expiration, we can implement the refreshAccessToken function to 
+issue a new token.</p>
+
+<p><br /></p>
+<h3 id="conclusion">Conclusion</h3>
+
+<p>In this tutorial, we’ve covered the fundamentals of implementing user 
+authentication and authorization in a React application. While this is a 
+simplified example, it provides a solid foundation for building a more robust 
+and secure authentication system in your projects. As you progress, consider 
+additional security measures, like password hashing and user role management, 
+to enhance your application’s security.</p>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
+
+   </div>
+
+   <div>
+     <style>
+
+.newsletter {
+  text-align: center;
+  margin-top: 30px;
+  padding-bottom: 60px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #efefef;
+}
+
+.newsletter .newsletter-title {
+  font-weight: 400;
+}
+
+.newsletter .form-container {
+  padding: 30px;
+  background-color: #efefef;
+  width: 1080px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.newsletter .form-container p {
+  margin: 0;
+}
+
+.newsletter .screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.newsletter .newsletter-box {
+  position: relative;
+  max-width: 100%;
+  margin: 25px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.newsletter .newsletter-box .email-input {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 40px;
+  padding: 8px 10px;
+  width: 70%;
+  max-width: 100%;
+  color: #3e3e40;
+  border: none;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  font-size: 14px;
+  outline: none;
+}
+
+.newsletter .newsletter-box .subscribe-btn {
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  background-color: #311e3e;
+  vertical-align: baseline;
+  cursor: pointer;
+  border: none;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  outline: none;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.newsletter .newsletter-box .subscribe-btn:hover {
+  background-color: #87314e;
+}
+
+.newsletter .newsletter-box .subscribe-btn {
+    width: 80px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+
+</style>
+
+<div class="newsletter" id="mc_embed_signup">
+  <h2 class="newsletter-title">Newsletter</h2>
+  <div class="form-container">
+    <p>Subscribe here to get our latest tutorials</p>
+    <form action="//github.us8.list-manage.com/subscribe/post?u=59f41437739e3691e8b775c88&amp;id=6ac77103af" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <label class="screen-reader-text" for="mce-EMAIL">Email Address</label>
+      <div class="newsletter-box" id="mc_embed_signup_scroll">
+        <input type="email" name="EMAIL" placeholder="Email address" class="email-input" id="mce-EMAIL" required><br>
+        <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="mc-embedded-subscribe">
+      </div>
+    </form>
+  </div>
+</div> <!-- End Newsletter -->
+
+   </div>
+     
+   <div>
+     <section class="comment-area" style="background: #eaecee; padding: 30px;">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//admin11.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+   </div>
+   
+</div>
+
+<br>
+
+
+                <!-- footer module inserted below -->
+        <div class="footer">
+<div onclick="topFunction()" id="scroll-up" title="Go to top" class="fa fa-angle-up"></div>
+
+  <!-- <svg width: 100%; height:auto viewbox="0 0 2444 132">
+    <path fill="#f1f1f1" fill-rule="evenodd" d="M1222 0h1222c-444.13 88-852.127 132-1223.993 132C849.253 132 442.585 88.263 0 .789V0h1222z"></path>
+  </svg> -->
+  <div class="top-footer-container">
+  
+  <!-- <div class="white-text" style="padding-left: 200px; font-weight: 900; text-decoration: underline 1px #999;"><span>Recent Posts</span> <span style="padding-left: 400px">Contact Info</span></div> -->
+  
+
+  <div class="grid-item">
+   <div><!-- empty column --></div> 
+   <div class="white-text" style="text-align: justify; text-decoration: underline #999"><span>Other Posts</span></a></p></div>
+    
+   
+    <div class="center-icon grid-image"><img src="/assets/img/svg/javascript.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/programming/javascript/concepts/202405/optimizing-javascript-for-seo-techniques-and-best-practices">Optimizing JavaScript for SEO: Techniques and Best Practices</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> May 2024</p>
+    </div>          
+    
+     
+   
+    <div class="center-icon grid-image"><img src="/assets/img/svg/html.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/programming/html/tutorial/202405/responsive-web-design-mastering-html-for-multi-device-compatibility">Responsive Web Design: Mastering HTML for Multi-Device Compatibility</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> May 2024</p>
+    </div>          
+    
+     
+   
+    <div class="center-icon grid-image"><img src="/assets/img/svg/css3.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/programming/css/concepts/202405/unlocking-the-power-of-custom-css-properties-variables-for-dynamic-and-reusable-styles">Unlocking the Power of Custom CSS Properties (Variables) for Dynamic and Reusable Styles</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> May 2024</p>
+    </div>          
+    
+   
+   </div> 
+
+  
+   <div class="grid-item divide-line">
+    
+    <div><!-- empty column --></div> 
+    <div class="white-text" style="text-align: justify; text-decoration: underline #999"><span>Contact Info</span></a></p></div>
+    
+    <div class="white-text fa-icon grid-image"><i class="fa fa-envelope"></i></div>
+    <div class="white-text grid-title">
+     <p class="footer-post-title"><a href="mailto:support@s-entialtechnologies.com">support@s-entialtechnologies.com</a></p>
+    </div> 
+    <div class="white-text fa-icon grid-image"><i class="fa fa-linkedin"></i></div>
+    <div class="white-text grid-title">
+     <p class="footer-post-title"><a href="https://www.linkedin.com/company/s-ential-technologies" target="_blank">@s-ential-technologies</a></p>
+    </div>          
+    <div class="white-text fa-icon grid-image"><i class="fa fa-instagram"></i></div>
+    <div class="white-text grid-title">
+     <p class="footer-post-title"><a href="https://www.instagram.com/s_entialtechnologies/" target="_blank">@s_entialtechnologies</a></p>
+    </div>                       
+   </div>
+   
+
+ </div> 
+  
+  <div class="bottom-footer txt-center">
+    <div><!--
+    <a class="white-text" href="/category/blog">Blog</a> | About
+    --> 
+    </div>
+    <div>
+      <a class="white-text link" href="/privacy_policy">Privacy Statement</a> | <a class="white-text link" href="/disclaimer">Disclaimer Statement</a> 
+    </div>
+    <div>
+        Copyright &copy; 2020 - 2024 <a href="https://www.techietuts.com" style="color: #fff; text-decoration: none;">Techietuts</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("toggle-hide").style.top = "0";
+  } else {
+    document.getElementById("toggle-hide").style.top = "-90px";
+  }
+  prevScrollpos = currentScrollPos;
+  
+  scrollFunction();
+}
+
+
+var scrollUp = document.getElementById("scroll-up");
+
+// When the user scrolls down 20px from the top of the document, show the button
+
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollUp.style.display = "block";
+  } else {
+    scrollUp.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
+
+
+<script>
+function showMobileNav() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+            
+
+
+                <!-- Scripts module inserted below -->
+        <!-- Scripts -->
+  <script src="/assets/js/jekyll-search.js"></script>
+     
+
+  <script src="/assets/js/package.js"></script>
+  <script src="/assets/js/gulpfile.js"></script>      
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/prism.min.js"></script>  
+  <script src="/assets/js/search.js"></script>      
+
+
+  <script>
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('query'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '/search.json',
+      searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>',
+      noResultsText: 'No results found',
+      fuzzy: false,
+      exclude: ['Welcome']
+    });
+  </script>
+
+<!-- End of Scripts -->
+
+            
+      
+  </body>
+</html>
