@@ -2,7 +2,7 @@
 layout: post
 title:  "Real-time Web Applications with Django Channels"
 author: Denis Kobare
-date:   2024-08-04 15:30:00 +0300
+date:   2024-08-01 15:30:00 +0300
 img: /assets/img/svg/django.svg
 categories: frameworks
 sub_category: django

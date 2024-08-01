@@ -2,7 +2,7 @@
 layout: post
 title:  "Mastering React Project Structure and Best Practices"
 author: Denis Kobare
-date:   2024-08-04 15:30:00 +0300
+date:   2024-08-01 15:30:00 +0300
 img: /assets/img/svg/react.svg
 categories: frameworks
 sub_category: react

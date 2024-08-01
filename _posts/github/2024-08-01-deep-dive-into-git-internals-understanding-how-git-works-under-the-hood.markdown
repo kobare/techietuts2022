@@ -2,7 +2,7 @@
 layout: post
 title:  "Deep Dive into Git Internals: Understanding How Git Works Under the Hood"
 author: Denis Kobare
-date:   2024-08-04 16:30:00 +0300
+date:   2024-08-01 16:30:00 +0300
 img: /assets/img/svg/git.svg
 categories: vcs
 sub_category: github
