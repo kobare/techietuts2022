@@ -2,7 +2,7 @@
 layout: post
 title:  "Mastering GitHub Actions for Continuous Integration and Deployment"
 author: Denis Kobare
-date:   2024-10-04 16:30:00 +0300
+date:   2024-10-03 11:30:00 +0300
 img: /assets/img/svg/git.svg
 categories: vcs
 sub_category: github

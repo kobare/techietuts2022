@@ -2,7 +2,7 @@
 layout: post
 title:  "Linux File System Explained: Choosing the Right File System for Your Needs"
 author: Denis Kobare
-date:   2024-10-04 12:30:00 +0300
+date:   2024-10-03 11:30:00 +0300
 img: /assets/img/svg/linux.svg
 categories: more-topics
 sub_category: operating-systems

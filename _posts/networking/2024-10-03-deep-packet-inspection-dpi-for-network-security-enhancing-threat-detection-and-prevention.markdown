@@ -2,7 +2,7 @@
 layout: post
 title:  "Deep Packet Inspection (DPI) for Network Security: Enhancing Threat Detection and Prevention"
 author: Denis Kobare
-date:   2024-10-04 13:40:00 +0300
+date:   2024-10-03 11:40:00 +0300
 img: /assets/img/svg/networking.svg
 categories: more-topics
 sub_category: networking

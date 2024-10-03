@@ -2,7 +2,7 @@
 layout: post
 title:  "Working with Collections in Jekyll: An Exploration of Powerful Content Organization"
 author: Denis Kobare
-date:   2024-10-04 15:30:00 +0300
+date:   2024-10-03 11:30:00 +0300
 img: /assets/img/svg/jekyll.svg
 categories: frameworks
 sub_category: jekyll
