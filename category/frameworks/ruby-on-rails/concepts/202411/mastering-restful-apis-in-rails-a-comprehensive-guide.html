@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<!-- Techie Tuts website copyright 2020-->
+<html lang="en">
+
+                <!-- Head module inserted below -->
+        <head>
+ <meta charset="utf-8">
+ <title>Mastering RESTful APIs in Rails: A Comprehensive Guide - Techietuts</title>
+ <meta name="description" content="">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+
+<!-- Styles -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Quicksand&display=swap" rel="stylesheet"> 
+
+<!--
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/firacode/5.2.0/fira_code.css">
+<link rel="stylesheet" href="https://unpkg.com/dracula-prism/dist/css/dracula-prism.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js"></script>
+-->
+
+<link rel="stylesheet" href="/assets/css/fira_code.css">
+<link rel="stylesheet" href="/assets/css/dracula_prism.min.css">
+<script src="prism.min.js"></script>
+
+
+<link rel="stylesheet" href="/assets/css/xxxprism.css">
+<script src="/assets/css/xxxprism.js"></script>
+
+ 
+<link rel="stylesheet" href="/assets/css/code_syntax_highlighter.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+<link rel="manifest" href="/assets/img/favicon/site.webmanifest">
+ 
+ <!--  favicon  -->
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon_techietuts.png"> 
+ 
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Mastering RESTful APIs in Rails: A Comprehensive Guide" />
+<meta name="author" content="Denis Kobare" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Introduction" />
+<meta property="og:description" content="Introduction" />
+<link rel="canonical" href="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202411/mastering-restful-apis-in-rails-a-comprehensive-guide" />
+<meta property="og:url" content="http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202411/mastering-restful-apis-in-rails-a-comprehensive-guide" />
+<meta property="og:site_name" content="Techietuts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-11-03T15:30:00+03:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mastering RESTful APIs in Rails: A Comprehensive Guide" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","description":"Introduction","headline":"Mastering RESTful APIs in Rails: A Comprehensive Guide","dateModified":"2024-11-03T15:30:00+03:00","datePublished":"2024-11-03T15:30:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202411/mastering-restful-apis-in-rails-a-comprehensive-guide"},"url":"http://0.0.0.0:4000/category/frameworks/ruby-on-rails/concepts/202411/mastering-restful-apis-in-rails-a-comprehensive-guide","author":{"@type":"Person","name":"Denis Kobare"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<!--   Google AdSense   -->
+<!-- <script data-ad-client="ca-pub-6160810274402662" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6160810274402662" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+.reduce-size{
+  padding: 30px;
+ /* background-color: #efefef; */
+  width: 1080px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+</style>
+    
+
+  <body class="animsition">
+	  
+		<!-- Header module inserted below -->
+        <!-- Mobile Phone Navigation Menu -->
+<div class="mobile-nav">
+ <a href="/" class="top-bar"><img src="/assets/img/logo_02.png" class="logo" style="padding-left: 0;"></a>
+ <div id="myLinks">
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>programming</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>Programming Languages</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Ruby</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/ruby/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/ruby/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/ruby/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/ruby/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>JavaScript</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/javascript/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/javascript/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/javascript/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/javascript/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>HTML</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/html/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/html/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/html/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/html/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>CSS</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/css/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/css/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/css/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/css/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Python</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/programming/python/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/programming/python/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/programming/python/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/programming/python/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>frameworks</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-crop">&nbsp; &nbsp;</i>Frameworks</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Ruby-on-Rails</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/frameworks/ruby-on-rails/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/frameworks/ruby-on-rails/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/frameworks/ruby-on-rails/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/frameworks/ruby-on-rails/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Jekyll</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/frameworks/jekyll/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/frameworks/jekyll/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/frameworks/jekyll/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/frameworks/jekyll/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>React</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/frameworks/react/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/frameworks/react/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/frameworks/react/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/frameworks/react/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Django</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/frameworks/django/installation-&-setup"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Installation-&-Setup</a>
+          
+           <a href="/category/frameworks/django/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/frameworks/django/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/frameworks/django/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>databases</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-database">&nbsp; &nbsp;</i>Databases</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>MySql</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/databases/mysql/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/databases/mysql/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/databases/mysql/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/databases/mysql/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Postgres</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/databases/postgres/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/databases/postgres/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/databases/postgres/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/databases/postgres/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Redis</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/databases/redis/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/databases/redis/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/databases/redis/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/databases/redis/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>vcs</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-github">&nbsp; &nbsp;</i>Vcs</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Github</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/vcs/github/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/vcs/github/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/vcs/github/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/vcs/github/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>more-topics</button> -->
+    
+       <button class="mob-dropbtn"><i class="fa fa-connectdevelop">&nbsp; &nbsp;</i>More-topics</button>
+     
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Software Engineering</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/software-engineering/object-oriented-programming/"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Object Oriented Programming</a>
+          
+           <a href="/category/more-topics/software-engineering/data-structures/"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Data Structures</a>
+          
+           <a href="/category/more-topics/software-engineering/algorithms/"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Algorithms</a>
+          
+           <a href="/category/more-topics/software-engineering/design-patterns/"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Design Patterns</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Operating Systems</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/operating-systems/ubuntu"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Ubuntu</a>
+          
+           <a href="/category/more-topics/operating-systems/windows"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Windows</a>
+          
+           <a href="/category/more-topics/operating-systems/kali-linux"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Kali Linux</a>
+          
+           <a href="/category/more-topics/operating-systems/arch-linux"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Arch Linux</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cloud Services</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/cloud-services/heroku"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Heroku</a>
+          
+           <a href="/category/more-topics/cloud-services/aws"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>AWS</a>
+          
+           <a href="/category/more-topics/cloud-services/microservice-architecture"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Microservice Architecture</a>
+          
+           <a href="/category/more-topics/cloud-services/apis"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>APIs</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Machine Learning</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/machine-learning/supervised-learning"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Supervised Learning</a>
+          
+           <a href="/category/more-topics/machine-learning/unsupervised-learning"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Unsupervised Learning</a>
+          
+           <a href="/category/more-topics/machine-learning/neural-networks"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Neural Networks</a>
+          
+           <a href="/category/more-topics/machine-learning/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Networking</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/more-topics/networking/concepts"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Concepts</a>
+          
+           <a href="/category/more-topics/networking/tutorials"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Tutorials</a>
+          
+           <a href="/category/more-topics/networking/cheat-sheets"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Cheat Sheets</a>
+          
+           <a href="/category/more-topics/networking/projects"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Projects</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+   
+   
+        
+    <div class="mob-dropdown">
+     <!-- <button class="mob-dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>blog</button> -->
+    
+     <div class="mob-dropdown-content">
+      
+             
+        <div class="mob-sub-dropdown">
+         <button class="mob-sub-dropbtn"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Technology</button>
+         <div class="mob-sub-dropdown-content">
+          
+           <a href="/category/blog/technology/ai"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>AI</a>
+          
+           <a href="/category/blog/technology/android"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Android</a>
+          
+           <a href="/category/blog/technology/internet"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Internet</a>
+          
+           <a href="/category/blog/technology/table-of-content"><i class="fa fa-ellipsis-v">&nbsp; &nbsp;</i>Table of Content</a>
+          
+         </div>
+        </div>
+       
+      
+     </div>
+    </div>
+   
+  
+ </div>
+ <a href="javascript:void(0);" class="icon" onclick="showMobileNav()"><i class="fa fa-bars"></i></a>
+</div>
+
+
+<!-- Desktop Navigation Menu -->
+<div id="toggle-hide" class="navbar">
+  <div class="logo-section">
+    <a href="/"><img src="/assets/img/logo_02.png" class="logo"></img></a>
+  </div>
+  <div class="links">
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-search">&nbsp; &nbsp;</i>
+        <input type="text" name="query" id="query" placeholder="Search content">
+      </button>
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>Search Results:</h2>
+        </div>   
+        <div class="row search-row">
+        <ul  class="search" id="results-container"><!-- inserts li from search results --></ul>
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-code">&nbsp; &nbsp;</i>Programming Languages</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>programming</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Ruby</h3>
+            
+             <a class="level-three-title" href="/category/programming/ruby/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/ruby/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/ruby/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/ruby/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>JavaScript</h3>
+            
+             <a class="level-three-title" href="/category/programming/javascript/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/javascript/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/javascript/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/javascript/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>HTML</h3>
+            
+             <a class="level-three-title" href="/category/programming/html/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/html/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/html/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/html/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>CSS</h3>
+            
+             <a class="level-three-title" href="/category/programming/css/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/css/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/css/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/css/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Python</h3>
+            
+             <a class="level-three-title" href="/category/programming/python/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/programming/python/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/programming/python/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/programming/python/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-crop">&nbsp; &nbsp;</i>frameworks</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>frameworks</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Ruby-on-Rails</h3>
+            
+             <a class="level-three-title" href="/category/frameworks/ruby-on-rails/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/frameworks/ruby-on-rails/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/frameworks/ruby-on-rails/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/frameworks/ruby-on-rails/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Jekyll</h3>
+            
+             <a class="level-three-title" href="/category/frameworks/jekyll/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/frameworks/jekyll/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/frameworks/jekyll/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/frameworks/jekyll/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>React</h3>
+            
+             <a class="level-three-title" href="/category/frameworks/react/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/frameworks/react/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/frameworks/react/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/frameworks/react/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Django</h3>
+            
+             <a class="level-three-title" href="/category/frameworks/django/installation-&-setup"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Installation-&-Setup</a>
+            
+             <a class="level-three-title" href="/category/frameworks/django/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/frameworks/django/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/frameworks/django/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-database">&nbsp; &nbsp;</i>databases</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>databases</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>MySql</h3>
+            
+             <a class="level-three-title" href="/category/databases/mysql/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/databases/mysql/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/databases/mysql/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/databases/mysql/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Postgres</h3>
+            
+             <a class="level-three-title" href="/category/databases/postgres/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/databases/postgres/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/databases/postgres/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/databases/postgres/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Redis</h3>
+            
+             <a class="level-three-title" href="/category/databases/redis/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/databases/redis/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/databases/redis/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/databases/redis/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-github">&nbsp; &nbsp;</i>Version Control Sytems</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>vcs</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Github</h3>
+            
+             <a class="level-three-title" href="/category/vcs/github/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/vcs/github/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/vcs/github/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/vcs/github/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+        <button class="dropbtn"><i class="fa fa-connectdevelop">&nbsp; &nbsp;</i>More Topics</button>
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>more-topics</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Software Engineering</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/software-engineering/object-oriented-programming/"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Object Oriented Programming</a>
+            
+             <a class="level-three-title" href="/category/more-topics/software-engineering/data-structures/"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Data Structures</a>
+            
+             <a class="level-three-title" href="/category/more-topics/software-engineering/algorithms/"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Algorithms</a>
+            
+             <a class="level-three-title" href="/category/more-topics/software-engineering/design-patterns/"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Design Patterns</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Operating Systems</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/operating-systems/ubuntu"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Ubuntu</a>
+            
+             <a class="level-three-title" href="/category/more-topics/operating-systems/windows"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Windows</a>
+            
+             <a class="level-three-title" href="/category/more-topics/operating-systems/kali-linux"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Kali Linux</a>
+            
+             <a class="level-three-title" href="/category/more-topics/operating-systems/arch-linux"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Arch Linux</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Cloud Services</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/cloud-services/heroku"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Heroku</a>
+            
+             <a class="level-three-title" href="/category/more-topics/cloud-services/aws"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>AWS</a>
+            
+             <a class="level-three-title" href="/category/more-topics/cloud-services/microservice-architecture"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Microservice Architecture</a>
+            
+             <a class="level-three-title" href="/category/more-topics/cloud-services/apis"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>APIs</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Machine Learning</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/machine-learning/supervised-learning"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Supervised Learning</a>
+            
+             <a class="level-three-title" href="/category/more-topics/machine-learning/unsupervised-learning"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Unsupervised Learning</a>
+            
+             <a class="level-three-title" href="/category/more-topics/machine-learning/neural-networks"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Neural Networks</a>
+            
+             <a class="level-three-title" href="/category/more-topics/machine-learning/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Networking</h3>
+            
+             <a class="level-three-title" href="/category/more-topics/networking/concepts"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Concepts</a>
+            
+             <a class="level-three-title" href="/category/more-topics/networking/tutorials"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Tutorials</a>
+            
+             <a class="level-three-title" href="/category/more-topics/networking/cheat-sheets"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Cheat Sheets</a>
+            
+             <a class="level-three-title" href="/category/more-topics/networking/projects"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Projects</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+     
+    <div class="dropdown">
+     
+     
+      
+      
+     
+      <div class="dropdown-content">
+        <div class="header">
+          <h2>blog</h2>
+        </div>   
+        <div class="row">
+        
+         
+          <div class="column" style="border-left: 1px solid #fff; height: auto;">           
+            <h3><i class="fa fa-angle-double-right">&nbsp; &nbsp;</i>Technology</h3>
+            
+             <a class="level-three-title" href="/category/blog/technology/ai"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>AI</a>
+            
+             <a class="level-three-title" href="/category/blog/technology/android"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Android</a>
+            
+             <a class="level-three-title" href="/category/blog/technology/internet"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Internet</a>
+            
+             <a class="level-three-title" href="/category/blog/technology/table-of-content"><i class="fa fa-angle-right">&nbsp; &nbsp;</i>Table of Content</a>
+            
+            <br>
+          </div>
+         
+        
+        </div>
+      </div>
+    </div> 
+    
+  </div> <!-- end links-->
+</div> <!-- end navbar-->
+
+
+
+	  
+		<!-- Content -->
+        <style>
+
+.reduce-size {
+  padding: 55px;
+  background-color: #fff; 
+  width: 850px;
+  max-width: 100%;
+  margin-top:  100px;
+  box-shadow: 0 1px 4px rgba(39,44,49,.15);
+  
+  color: #414d5a;
+  font-family: CamphorPro-Regular, HelveticaNeue,sans-serif;
+  font-size: clamp(1em, 0.6em + 2vw, 1.1em);
+  line-height: 1.8em;
+}
+
+@media(max-width: 81rem) {
+
+ .main-content-tweak {
+  margin: 0;
+  padding: 30px;
+  background-color: #fff; 
+  box-shadow: none;
+  font-size: clamp(0.7em, 0.6em + 2vw, 1.4em);
+ }
+ 
+}
+</style>
+<div class="main-content reduce-size main-content-tweak">
+
+    <div class="tittle-banner">
+      <!-- <h1 style="padding: -50px">This example demonstrates how to hide a navbar when the user starts to scroll the page</h1> -->
+      <h1 style="padding: -50px; line-height: 1.2em;">Mastering RESTful APIs in Rails: A Comprehensive Guide</h1>             
+    </div>
+    <p style="font-size: 12px; font-weight: 600; color:  #202658; text-align: right; padding-right: 25px;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> November 2024</p>
+    <div>
+                <!-- Page content object inserted below -->
+        <h3 id="introduction">Introduction</h3>
+
+<p>In the modern web development landscape, building robust and scalable RESTful 
+APIs is a crucial skill for developers. These APIs serve as the backbone for 
+communication between various components of a web application, enabling seamless 
+integration with external services and providing data to different client 
+applications. Ruby on Rails, a popular and powerful web framework, offers a 
+comprehensive set of tools and conventions for creating RESTful APIs. In this 
+section, we’ll delve into the key aspects of building RESTful APIs with Rails, 
+including versioning, authentication, pagination, rate limiting, and API 
+documentation.</p>
+
+<p><br /></p>
+<h3 id="prerequisites">Prerequisites</h3>
+
+<p>Before we dive into the details, make sure you have Ruby and Rails installed on 
+your system. You can check their versions by running the following commands:</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="go">ruby -v
+rails -v</span></code></pre></figure>
+
+<p>If you need to install Ruby or Rails, you can refer to the official installation 
+guides for your specific operating system.</p>
+
+<p><br /></p>
+<h3 id="getting-started">Getting Started</h3>
+
+<p>Let’s start by creating a new Rails application and setting up a basic RESTful 
+API. We’ll build an API for managing a collection of articles, which will have 
+attributes like title, content, and author. We’ll use the Rails generators to 
+create the necessary components:</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">#</span><span class="w"> </span>Create a new Rails application
+<span class="go">rails new ArticleAPI
+
+</span><span class="gp">#</span><span class="w"> </span>Navigate to the application directory
+<span class="go">cd ArticleAPI
+
+</span><span class="gp">#</span><span class="w"> </span>Generate the Article model
+<span class="go">rails generate model Article title:string content:text author:string
+
+</span><span class="gp">#</span><span class="w"> </span>Run the database migration
+<span class="go">rails db:migrate
+
+</span><span class="gp">#</span><span class="w"> </span>Generate the Articles controller
+<span class="go">rails generate controller Articles</span></code></pre></figure>
+
+<p>Now that we have the basic setup ready, let’s move on to the core concepts of 
+building RESTful APIs.</p>
+
+<p><br /></p>
+<h4 id="1-versioning">1. Versioning</h4>
+
+<p>Versioning is essential to ensure backward compatibility and smooth transitions 
+when you make changes to your API. Rails provides an elegant way to handle API 
+versioning using namespaces. We’ll create a v1 namespace for our API:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In routes.rb</span>
+<span class="n">namespace</span> <span class="ss">:api</span> <span class="k">do</span>
+  <span class="n">namespace</span> <span class="ss">:v1</span> <span class="k">do</span>
+    <span class="n">resources</span> <span class="ss">:articles</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>Now, the ArticlesController will be placed in the Api::V1 module. This structure 
+allows us to add version-specific logic while keeping the older versions intact.</p>
+
+<p><br /></p>
+<h4 id="2-authentication">2. Authentication</h4>
+
+<p>Securing your API is crucial to protect sensitive data and control access. Let’s 
+implement token-based authentication using JSON Web Tokens (JWT). We’ll use the 
+jwt gem for this purpose:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In Gemfile</span>
+<span class="n">gem</span> <span class="s1">'jwt'</span></code></pre></figure>
+
+<p>Run bundle install to install the gem.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In ApplicationController</span>
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">protect_from_forgery</span> <span class="ss">with: :null_session</span>
+  <span class="n">before_action</span> <span class="ss">:authenticate_request</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">authenticate_request</span>
+    <span class="vi">@current_user</span> <span class="o">=</span> <span class="no">Author</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">id: </span><span class="n">decoded_token</span><span class="p">[</span><span class="s1">'author_id'</span><span class="p">])</span> <span class="k">if</span> <span class="n">decoded_token</span>
+    <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">error: </span><span class="s1">'Unauthorized'</span> <span class="p">},</span> <span class="ss">status: </span><span class="mi">401</span> <span class="k">unless</span> <span class="vi">@current_user</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">decoded_token</span>
+    <span class="vi">@decoded_token</span> <span class="o">||=</span> <span class="no">JWT</span><span class="p">.</span><span class="nf">decode</span><span class="p">(</span><span class="n">auth_token</span><span class="p">,</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">secrets</span><span class="p">.</span><span class="nf">secret_key_base</span><span class="p">,</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">algorithm: </span><span class="s1">'HS256'</span><span class="p">)</span>
+  <span class="k">rescue</span> <span class="no">JWT</span><span class="o">::</span><span class="no">DecodeError</span>
+    <span class="kp">nil</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">auth_token</span>
+    <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">].</span><span class="nf">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">).</span><span class="nf">last</span> <span class="k">if</span> <span class="n">request</span><span class="p">.</span><span class="nf">headers</span><span class="p">[</span><span class="s1">'Authorization'</span><span class="p">].</span><span class="nf">present?</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>This code sets up a simple JWT-based authentication mechanism. We assume that 
+each article has an associated author (author_id). The authenticate_request 
+method checks the token provided in the Authorization header and sets the 
+@current_user variable accordingly.</p>
+
+<p><br /></p>
+<h4 id="3-pagination">3. Pagination</h4>
+
+<p>When dealing with a large number of records, paginating the results is essential 
+to improve performance and user experience. We’ll use the kaminari gem for 
+pagination:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In Gemfile</span>
+<span class="n">gem</span> <span class="s1">'kaminari'</span></code></pre></figure>
+
+<p>Run bundle install to install the gem.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In ArticlesController</span>
+<span class="k">class</span> <span class="nc">Api::V1::ArticlesController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="vi">@articles</span> <span class="o">=</span> <span class="no">Article</span><span class="p">.</span><span class="nf">page</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:page</span><span class="p">]).</span><span class="nf">per</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:per_page</span><span class="p">])</span>
+    <span class="n">render</span> <span class="ss">json: </span><span class="vi">@articles</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>In the code above, we use the page and per methods provided by Kaminari to 
+paginate the articles.</p>
+
+<p><br /></p>
+<h4 id="4-rate-limiting">4. Rate Limiting</h4>
+
+<p>To prevent abuse and ensure fair usage of your API, implementing rate limiting 
+is a good practice. We’ll use the rack-attack gem for this purpose:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In Gemfile</span>
+<span class="n">gem</span> <span class="s1">'rack-attack'</span></code></pre></figure>
+
+<p>Run bundle install to install the gem.</p>
+
+<p><br /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In config/application.rb</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">middleware</span><span class="p">.</span><span class="nf">use</span> <span class="no">Rack</span><span class="o">::</span><span class="no">Attack</span>
+
+<span class="c1"># In config/initializers/rack_attack.rb</span>
+<span class="k">class</span> <span class="nc">Rack::Attack</span>
+  <span class="n">throttle</span><span class="p">(</span><span class="s1">'req/ip'</span><span class="p">,</span> <span class="ss">limit: </span><span class="mi">5</span><span class="p">,</span> <span class="ss">period: </span><span class="mi">1</span><span class="p">.</span><span class="nf">minute</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">req</span><span class="o">|</span>
+    <span class="n">req</span><span class="p">.</span><span class="nf">ip</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<p>This configuration limits the number of requests from a single IP address to 5 
+requests per minute. You can adjust the limits as needed for your use case.</p>
+<ol>
+  <li>API Documentation</li>
+</ol>
+
+<p>Documenting your API is essential for developers who will consume it. We’ll use 
+the swagger-rails gem to generate interactive API documentation:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># In Gemfile</span>
+<span class="n">gem</span> <span class="s1">'swagger-rails'</span></code></pre></figure>
+
+<p>Run bundle install to install the gem.</p>
+
+<figure class="highlight"><pre><code class="language-terminal" data-lang="terminal"><span class="gp">#</span><span class="w"> </span>Generate the Swagger configuration
+<span class="go">rails generate swagger:install</span></code></pre></figure>
+
+<p>You can now use Swagger annotations in your controllers to document the API 
+endpoints and responses.</p>
+
+<p><br /></p>
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Building robust and scalable RESTful APIs in Rails is a powerful skill that 
+opens up numerous possibilities for integrating your application with external 
+services. In this tutorial, we covered key concepts, including versioning, 
+authentication, pagination, rate limiting, and API documentation. By mastering 
+these techniques, you’ll be well-equipped to create APIs that are secure, 
+efficient, and well-documented, providing a solid foundation for your web 
+applications.</p>
+
+<p><br />
+<em>Thanks for reading, see you in the next one!</em></p>
+
+   </div>
+
+   <div>
+     <style>
+
+.newsletter {
+  text-align: center;
+  margin-top: 30px;
+  padding-bottom: 60px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #efefef;
+}
+
+.newsletter .newsletter-title {
+  font-weight: 400;
+}
+
+.newsletter .form-container {
+  padding: 30px;
+  background-color: #efefef;
+  width: 1080px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.newsletter .form-container p {
+  margin: 0;
+}
+
+.newsletter .screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.newsletter .newsletter-box {
+  position: relative;
+  max-width: 100%;
+  margin: 25px 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.newsletter .newsletter-box .email-input {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  height: 40px;
+  padding: 8px 10px;
+  width: 70%;
+  max-width: 100%;
+  color: #3e3e40;
+  border: none;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  font-size: 14px;
+  outline: none;
+}
+
+.newsletter .newsletter-box .subscribe-btn {
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  background-color: #311e3e;
+  vertical-align: baseline;
+  cursor: pointer;
+  border: none;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
+  outline: none;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.newsletter .newsletter-box .subscribe-btn:hover {
+  background-color: #87314e;
+}
+
+.newsletter .newsletter-box .subscribe-btn {
+    width: 80px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+
+</style>
+
+<div class="newsletter" id="mc_embed_signup">
+  <h2 class="newsletter-title">Newsletter</h2>
+  <div class="form-container">
+    <p>Subscribe here to get our latest tutorials</p>
+    <form action="//github.us8.list-manage.com/subscribe/post?u=59f41437739e3691e8b775c88&amp;id=6ac77103af" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <label class="screen-reader-text" for="mce-EMAIL">Email Address</label>
+      <div class="newsletter-box" id="mc_embed_signup_scroll">
+        <input type="email" name="EMAIL" placeholder="Email address" class="email-input" id="mce-EMAIL" required><br>
+        <input type="submit" value="Subscribe" name="subscribe" class="subscribe-btn" id="mc-embedded-subscribe">
+      </div>
+    </form>
+  </div>
+</div> <!-- End Newsletter -->
+
+   </div>
+     
+   <div>
+     <section class="comment-area" style="background: #eaecee; padding: 30px;">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//admin11.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+   </div>
+   
+</div>
+
+<br>
+
+
+                <!-- footer module inserted below -->
+        <div class="footer">
+<div onclick="topFunction()" id="scroll-up" title="Go to top" class="fa fa-angle-up"></div>
+
+  <!-- <svg width: 100%; height:auto viewbox="0 0 2444 132">
+    <path fill="#f1f1f1" fill-rule="evenodd" d="M1222 0h1222c-444.13 88-852.127 132-1223.993 132C849.253 132 442.585 88.263 0 .789V0h1222z"></path>
+  </svg> -->
+  <div class="top-footer-container">
+  
+  <!-- <div class="white-text" style="padding-left: 200px; font-weight: 900; text-decoration: underline 1px #999;"><span>Recent Posts</span> <span style="padding-left: 400px">Contact Info</span></div> -->
+  
+
+  <div class="grid-item">
+   <div><!-- empty column --></div> 
+   <div class="white-text" style="text-align: justify; text-decoration: underline #999"><span>Other Posts</span></a></p></div>
+    
+   
+    <div class="center-icon grid-image"><img src="/assets/img/svg/linux.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/more-topics/operating-systems/linux/202410/linux-file-system-explained-choosing-the-right-file-system-for-your-needs">Linux File System Explained: Choosing the Right File System for Your Needs</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> October 2024</p>
+    </div>          
+    
+     
+   
+    <div class="center-icon grid-image"><img src="/assets/img/svg/jekyll.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/frameworks/jekyll/concepts/202410/working-with-collections-in-jekyll-an-exploration-of-powerful-content-organization">Working with Collections in Jekyll: An Exploration of Powerful Content Organization</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> October 2024</p>
+    </div>          
+    
+     
+   
+    <div class="center-icon grid-image"><img src="/assets/img/svg/git.svg"></div>
+    <div class="white-text grid-title" style="text-align: left;">
+     <p class="footer-post-title"><a href="/category/vcs/github/concepts/202410/mastering-github-actions-for-continuous-integration-and-deployment">Mastering GitHub Actions for Continuous Integration and Deployment</a></p>
+     <p style="font-size: 12px; font-weight: 600;"><i class="fa fa-user"></i>  Techie  &nbsp; &nbsp;<i class="fa fa-calendar"></i> October 2024</p>
+    </div>          
+    
+   
+   </div> 
+
+  
+   <div class="grid-item divide-line">
+    
+    <div><!-- empty column --></div> 
+    <div class="white-text" style="text-align: justify; text-decoration: underline #999"><span>Contact Info</span></a></p></div>
+    
+    <div class="white-text fa-icon grid-image"><i class="fa fa-envelope"></i></div>
+    <div class="white-text grid-title">
+     <p class="footer-post-title"><a href="mailto:support@s-entialtechnologies.com">support@s-entialtechnologies.com</a></p>
+    </div> 
+    <div class="white-text fa-icon grid-image"><i class="fa fa-linkedin"></i></div>
+    <div class="white-text grid-title">
+     <p class="footer-post-title"><a href="https://www.linkedin.com/company/s-ential-technologies" target="_blank">@s-ential-technologies</a></p>
+    </div>          
+    <div class="white-text fa-icon grid-image"><i class="fa fa-instagram"></i></div>
+    <div class="white-text grid-title">
+     <p class="footer-post-title"><a href="https://www.instagram.com/s_entialtechnologies/" target="_blank">@s_entialtechnologies</a></p>
+    </div>                       
+   </div>
+   
+
+ </div> 
+  
+  <div class="bottom-footer txt-center">
+    <div><!--
+    <a class="white-text" href="/category/blog">Blog</a> | About
+    --> 
+    </div>
+    <div>
+      <a class="white-text link" href="/privacy_policy">Privacy Statement</a> | <a class="white-text link" href="/disclaimer">Disclaimer Statement</a> 
+    </div>
+    <div>
+        Copyright &copy; 2020 - 2024 <a href="https://www.techietuts.com" style="color: #fff; text-decoration: none;">Techietuts</a>
+    </div>
+  </div>
+</div>
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("toggle-hide").style.top = "0";
+  } else {
+    document.getElementById("toggle-hide").style.top = "-90px";
+  }
+  prevScrollpos = currentScrollPos;
+  
+  scrollFunction();
+}
+
+
+var scrollUp = document.getElementById("scroll-up");
+
+// When the user scrolls down 20px from the top of the document, show the button
+
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrollUp.style.display = "block";
+  } else {
+    scrollUp.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
+
+
+<script>
+function showMobileNav() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
+
+            
+
+
+                <!-- Scripts module inserted below -->
+        <!-- Scripts -->
+  <script src="/assets/js/jekyll-search.js"></script>
+     
+
+  <script src="/assets/js/package.js"></script>
+  <script src="/assets/js/gulpfile.js"></script>      
+  <script src="/assets/js/prism.js"></script>
+  <script src="/assets/js/prism.min.js"></script>  
+  <script src="/assets/js/search.js"></script>      
+
+
+  <script>
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('query'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '/search.json',
+      searchResultTemplate: '<li><a href="{url}" title="{title}">{title}</a></li>',
+      noResultsText: 'No results found',
+      fuzzy: false,
+      exclude: ['Welcome']
+    });
+  </script>
+
+<!-- End of Scripts -->
+
+            
+      
+  </body>
+</html>
