@@ -49,6 +49,10 @@ $ set global validate_password.number_count = 0;
 
 $ alter user 'root'@'localhost' identified with mysql_native_password by 'yourpassword';
 
+# Or use caching_sha2_password instead (recommended)
+$ ALTER USER 'root'@'localhost' IDENTIFIED WITH caching_sha2_password BY 'yourpassword';
+
+
 $ flush privileges;
 
 {% endhighlight %}
